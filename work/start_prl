@@ -20,6 +20,6 @@
 
 #!/bin/bash
 
-/etc/init.d/parallels-server start
-/etc/init.d/parallels-c2v-agent start
+sudo /etc/init.d/parallels-server start
+sudo /etc/init.d/parallels-c2v-agent start
 

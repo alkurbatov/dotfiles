@@ -20,6 +20,6 @@
 
 #!/bin/bash
 
-/etc/init.d/parallels-server stop
-/etc/init.d/parallels-c2v-agent stop
+sudo /etc/init.d/parallels-server stop
+sudo /etc/init.d/parallels-c2v-agent stop
 
