@@ -21,22 +21,20 @@
 #!/bin/bash
 
 #Work directories.
-ProcessName=[p]rl_disp_service
-ProjectPath=/root/update1/Sources
+PROCESS=[p]rl_disp_service
+WORKDIR=/root/update1/Sources
 
 
 
 echo "Searching for prl_disp_service..."
-for value in `ps afx | grep $ProcessName`
-do
-  PID=`echo "  $value"` 
-  break
-done
-if  [ $PID ];
+PID=`ps afx | grep ${PROCESS} | awk '{print $1}'`
+
+if [ -z ${PID} ];
 then
-  cd $ProjectPath
-  gdb -silent -p $PID
-else
-  echo "Failed to found prl_disp_service!"
+    echo "Failed to found ${PROCESS}!"
+    exit 1
 fi
+
+cd ${WORKPATH}
+gdb -silent -p ${PID}
 
