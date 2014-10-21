@@ -25,7 +25,7 @@ autoload -U colors && colors
 if [ -n "$SSH_CLIENT" ]; then text="ssh-session"
 fi
 
-PROMPT="%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[cyan]%}%1~ %{$reset_color%}$text %#"
+PROMPT="[%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[cyan]%}%1~ %{$reset_color%}$text] %#"
 
 # Allow to enter inside directory just using its name.
 setopt autocd
