@@ -98,11 +98,11 @@ path+=(/opt/ccollab-cmdline)
 path+=(/opt/skype-4.2.0.11)
 
 # Terminal keys setup.
-bindkey "^[[A" up-line-or-search     # 'Up Arrow'
-bindkey "^[[B" down-line-or-search   # 'Down' Arrow
-bindkey "^[OH" beginning-of-line     # 'Home'
-bindkey "^[OF" end-of-line           # 'End'
-bindkey "^[[3~" backward-delete-char # 'Delete'
+bindkey "^[[A"  up-line-or-search    # 'Up Arrow'
+bindkey "^[[B"  down-line-or-search  # 'Down' Arrow
+bindkey "^[OH"  beginning-of-line    # 'Home'
+bindkey "^[OF"  end-of-line          # 'End'
+bindkey "^[[3~" delete-char          # 'Delete'
 
 # Have fun :)
 fortune
