@@ -34,7 +34,7 @@ alias cls='clear'
 alias ipconfig='ifconfig'
 
 # Aliases for work.
-alias svn-log="svn log | more"
+alias svn-log="svn log | less"
 
 # Check active ssh session
 if [ -n "$SSH_CLIENT" ]; then text="ssh-session"

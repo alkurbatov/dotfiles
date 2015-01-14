@@ -70,7 +70,7 @@ alias du='du -h'
 
 # Aliases for work.
 alias sign="/usr/sbin/vzlicsign ../z-Build/Debug64/prl_disp_service"
-alias svn-log="svn log | more"
+alias svn-log="svn log | less"
 
 # Do win-like behaviour.
 alias ipconfig='ifconfig'
