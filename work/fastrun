@@ -21,13 +21,13 @@
 #!/bin/bash
 
 #Work directories.
-PROCESS=[p]rl_disp_service
-WORKDIR=/root/update1/Sources
+PROCESS="[p]rl_disp_service"
+WORKDIR="/home/builder/projects/pcs/1070504-update9/Sources"
 
 
 
 echo "Searching for ${PROCESS}..."
-PID=`ps afx | grep ${PROCESS} | awk '{print $1}'`
+PID=`ps afx | grep "${PROCESS}" | awk '{print $1}'`
 
 if [ -z ${PID} ];
 then
