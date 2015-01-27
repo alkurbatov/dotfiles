@@ -67,6 +67,7 @@ alias lh='ls -lhS --color=auto'
 alias grep="grep --color=always"
 alias df='df -h'
 alias du='du -h'
+alias kver='uname -r'
 
 # Aliases for work.
 alias sign="/usr/sbin/vzlicsign ../z-Build/Debug64/prl_disp_service"
