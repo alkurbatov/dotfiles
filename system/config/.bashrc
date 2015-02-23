@@ -56,7 +56,7 @@ export EDITOR=vim
 export SVN_EDITOR=vim
 
 # Expand PATH.
-PATH+=~/bin
+PATH+=:~/bin
 
 # Colors for man pages.
 man() {
