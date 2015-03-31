@@ -1,0 +1,73 @@
+# This file is a part of Scripts project
+#
+# Copyright (C) 2015, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
+#
+# Scripts is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Scripts is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+# Purprose:
+# urxvt configuration.
+
+! Background Color
+URxvt.background: Black
+! Text color
+URxvt.foreground: #C0C0C0
+
+! Font
+URxvt.font:      xft:inconsolata:size=14
+URxvt.boldFont:  xft:inconsolata:bold:size=14
+
+! Extensions
+URxvt.perl-ext-common:   default,tabbedex,matcher,fullscreen,clipboard
+
+! Tabs color
+URxvt.tabbed.new-button: no
+URxvt.tabbed.tabbar-fg:  3
+URxvt.tabbed.tabbar-bg:  8
+URxvt.tabbed.tab-fg:     3
+URxvt.tabbed.tab-bg:     4
+
+! Man color
+URxvt.colorMode:      on
+URxvt.boldColors:     on
+URxvt.dynamicColors:  on
+URxvt.colorULColors:  on
+URxvt.underLine:      off
+URxvt.colorDBMode:    on
+URxvt.colorBD:        cyan
+
+! Taskbar icons
+URxvt.iconFile: ~/.urxvt/terminal.png
+
+! Disable scrollbar
+URxvt.scrollBar: false
+
+! Buffer size
+URxvt.saveLines:  1000
+
+! Open URLs using LMB
+URxvt.matcher.button:  1
+! Underline URLs
+URxvt.underlineURLs:   true
+! Use browser
+URxvt.urlLauncher:     firefox
+
+! Shortcuts
+URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.keysym.Control-T: perl:tabbedex:new_tab
+URxvt.keysym.Control-C: perl:clipboard:copy
+URxvt.keysym.Control-V: perl:clipboard:paste
+
+! Cursor blink
+URxvt.cursorBlink:  true
+
