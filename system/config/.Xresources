@@ -16,7 +16,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 # Purprose:
-# urxvt configuration.
+# mostly URxvt configuration.
 
 ! Background Color
 URxvt.background: Black
@@ -57,16 +57,24 @@ URxvt.saveLines:  1000
 
 ! Open URLs using LMB
 URxvt.matcher.button:  1
+
 ! Underline URLs
 URxvt.underlineURLs:   true
+
 ! Use browser
 URxvt.urlLauncher:     firefox
 
+! Disable builtin copypaste functionality
+URxvt.iso14755: False
+
 ! Shortcuts
-URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.keysym.F11:       perl:fullscreen:switch
 URxvt.keysym.Control-T: perl:tabbedex:new_tab
 URxvt.keysym.Control-C: perl:clipboard:copy
 URxvt.keysym.Control-V: perl:clipboard:paste
+
+! Remap middle mouse button in order to avoid text paste
+URxvt.keysym.Pointer_Button2: \033<M-Button1>
 
 ! Cursor blink
 URxvt.cursorBlink:  true
