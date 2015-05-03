@@ -26,8 +26,12 @@ alias ls='ls --color=auto'
 alias grep="grep --color=always"
 alias netcfg='sudo /usr/bin/netcfg'
 alias shutdown='sudo /sbin/shutdown'
-alias mc='. /usr/lib/mc/mc-wrapper.sh'
 alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
+
+# For Fedora
+alias mc='. /usr/libexec/mc/mc-wrapper.sh'
+# Others
+alias mc='. /usr/lib/mc/mc-wrapper.sh'
 
 # Do win-like behaviour.
 alias cls='clear'
