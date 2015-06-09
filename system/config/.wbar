@@ -1,0 +1,40 @@
+# This file is a part of Scripts project
+#
+# Copyright (C) 2015, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
+#
+# Scripts is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Scripts is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+# Purprose:
+# Basic config for wbar panel
+
+i: /usr/share/pixmaps/wbar/osxbarback.png
+c: wbar --bpress --above-desk --vbar --pos left --offset 0 --isize 52 --idist 5 --nanim 4 --jumpf 0.100000 --falfa 100
+t: /10
+
+i: /usr/share/pixmaps/wbar/terminal.png
+c: urxvt
+t: Terminal
+
+i: /usr/share/pixmaps/wbar/gimp.png
+c: gimp
+t: Gimp
+
+i: /usr/share/pixmaps/wbar/ooffice.png
+c: ooffice
+t: OOffice
+
+i: /usr/share/pixmaps/wbar/wbar.png
+c: wbar-config
+t: Config
+
