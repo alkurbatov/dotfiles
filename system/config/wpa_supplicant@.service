@@ -1,13 +1,14 @@
 [Unit]
 Description=WPA Supplicant daemon
+Wants=network.target
 Before=network.target
-Requires=sys-subsystem-net-devices-%I.device
-After=syslog.target
-After=sys-subsystem-net-devices-%I.device
+BindsTo=sys-subsystem-net-devices-%i.device
+After=sys-subsystem-net-devices-%i.device
 
 [Service]
-Type=simple
-ExecStart=/usr/sbin/wpa_supplicant -u -f /var/log/wpa_supplicant-wlp1s0.log -c /etc/wpa_supplicant/wpa_supplicant-%I.conf -i%I
+Type=oneshot
+ExecStart=/usr/bin/wpa_supplicant -B -c/etc/wpa_supplicant/wpa_supplicant-%I.conf -i%I -f/var/log/wpa_supplicant-%I.log
+ExecStart=/usr/bin/dhcpcd %i --ipv4only
 
 [Install]
 WantedBy=multi-user.target
