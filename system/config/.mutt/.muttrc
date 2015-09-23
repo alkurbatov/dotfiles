@@ -1,0 +1,150 @@
+# This file is a part of Scripts project
+#
+# Copyright (C) 2015, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
+#
+# Scripts is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Scripts is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+# Purprose:
+# mutt config file
+
+## IMAP box
+set folder = imaps://far.away.com
+mailboxes =INBOX
+
+# Mask unneeded folders
+set mask = "!(Calendar|Contacts|Drafts|Deleted Items|Journal|Notes|Outbox|Sent Items|Tasks|Нежелательная почта)"
+
+# Automatically log here at startup
+set spoolfile = =INBOX
+
+set imap_user = username
+set imap_pass = password
+
+# Allow Mutt to open new imap connection automatically.
+unset imap_passive
+
+# Keep IMAP connection alive by polling intermittently (time in seconds).
+set imap_keepalive = 300
+
+# Use remote server for mail sending routine.
+set smtp_url=smtp://username:password@far.away.com:587
+
+# Enable STARTLS.
+set ssl_starttls = yes
+
+# Force STARTLS even if it is not supported.
+set ssl_force_tls = yes
+
+# Set 'From' field.
+set from="Alexandr Kurbatov <sir.alkurbatov@yandex.ru>"
+
+# Load signature.
+set signature="~/.signature"
+
+## Key bindings
+# Unbind to free the 'G' key
+bind index noop fetch-mail
+
+bind index "G" imap-fetch-mail
+
+# I don't print messages usually
+bind index noop print-message
+bind pager noop print-message
+
+# No need to ask confirmation
+set confirmappend = no
+
+# Work with threads
+macro index \R '<read-thread><collapse-thread><next-unread>' 'Mark the current thread as read'
+macro index '{' ':set my_oldcollapse_unread=$collapse_unread<enter>:set collapse_unread=yes<enter><collapse-thread>:set collapse_unread=$my_oldcollapse_unread<enter>' 'Collapse thread.'
+macro index '}' '{' '(Un)collapse thread.'
+
+# Follow links with urlview
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview' 
+
+# Move deleted mail to Trash can
+macro index d "s=Trash\n" "move message to trash"
+macro pager d "s=Trash\n" "move message to trash"
+
+# Save message/attachment to default directory
+macro attach s <save-entry><kill-line>/home/builder/downloads/<enter> 'save message/attachment to default directory'
+
+## Mail
+# Store message headers locally to speed things up.
+set header_cache = /home/builder/.mutt/cache
+
+# Store messages locally to speed things up, like searching message bodies.
+set message_cachedir = /home/builder/.mutt/cache
+
+set mbox = /home/builder/.mutt/mbox
+
+# How often to poll for new mail (time in seconds)
+set mail_check = 30
+set timeout = 60
+
+# Sanely handle multi-part messages (prefer text part, but yield to
+# mailcap-configured rendering for html-only)
+alternative_order text/plain text/enriched text/html
+
+# Use external tool for HTML letters automatically
+auto_view text/html
+
+# Always include attachments to forwarded messages
+set mime_forward = yes
+
+## Composing
+# Go to the editor right away when composing
+set autoedit
+
+# Let me edit the message header when composing
+set edit_headers
+
+# Editor to use when composing messages
+set editor = vim
+
+# Always include messages when replying
+set include
+
+#Threading
+# Primary sorting method
+set sort = threads
+
+# Don't thread by subject
+set strict_threads = yes
+
+# Never collapse unread messages
+unset collapse_unread
+
+# Jumps to first unread msg of thread on uncollapse
+set uncollapse_jump
+
+folder-hook . 'push "<collapse-all>"'
+folder-hook . 'push ":set collapse\_unread=no<enter>"'
+
+## Style
+# Show part of index on pager view
+set pager_index_lines=10
+
+# Show the help lines
+set help
+
+# Date/time format
+set date_format = "%d/%m/%y %I:%M"
+
+# Custom set of columns for index
+set index_format = "%4C %Z %-100.100s %-30.30L %D"
+
+# Load colors
+source /home/builder/.mutt/style/colors.zenburn
+
