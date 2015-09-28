@@ -23,7 +23,7 @@ set folder = imaps://far.away.com
 mailboxes =INBOX
 
 # Mask unneeded folders
-set mask = "!(Calendar|Contacts|Drafts|Deleted Items|Journal|Notes|Outbox|Sent Items|Tasks|Нежелательная почта)"
+set mask = "!(Calendar|Contacts|Drafts|Deleted Items|Journal|Notes|Outbox|Tasks|Нежелательная почта)"
 
 # Automatically log here at startup
 set spoolfile = =INBOX
@@ -115,6 +115,9 @@ set editor = vim
 
 # Always include messages when replying
 set include
+
+# Store sent messages on IMAP server
+set record="=Sent Items"
 
 #Threading
 # Primary sorting method
