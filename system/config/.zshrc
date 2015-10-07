@@ -25,7 +25,7 @@ autoload -U colors && colors
 if [ -n "$SSH_CLIENT" ]; then text="ssh-session"
 fi
 
-PROMPT="[%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[cyan]%}%1~ %{$reset_color%}$text] %#"
+PROMPT="[%{$fg[green]%}%n%{$reset_color%}@%{$fg[yellow]%}%m %{$fg[green]%}%1~ %{$reset_color%}$text] %#"
 
 # Allow to enter inside directory just using its name.
 setopt autocd
@@ -33,6 +33,7 @@ setopt autocd
 # Well-known directories.
 cdpath=(~/projects)
 cdpath+=(~/projects/vz)
+cdpath+=(~/sandbox)
 
 # Completition by Tab.
 autoload -Uz compinit
@@ -68,10 +69,12 @@ alias grep="grep --color=always"
 alias df='df -h'
 alias du='du -h'
 alias kver='uname -r'
+alias urxvt-reload='xrdb -load ~/.Xresources'
 
 # Aliases for work.
 alias sign="/usr/sbin/vzlicsign ../z-Build/Debug64/prl_disp_service"
 alias svn-log="svn log | less"
+alias mutt="HOME=/home/builder/.mutt mutt"
 
 # Do win-like behaviour.
 alias ipconfig='ifconfig'
@@ -99,11 +102,39 @@ path+=(/opt/ccollab-cmdline)
 path+=(/opt/skype-4.2.0.11)
 
 # Terminal keys setup.
-bindkey "^[[A"  up-line-or-search    # 'Up Arrow'
-bindkey "^[[B"  down-line-or-search  # 'Down' Arrow
-bindkey "^[OH"  beginning-of-line    # 'Home'
-bindkey "^[OF"  end-of-line          # 'End'
-bindkey "^[[3~" delete-char          # 'Delete'
+autoload zkbd
+function zkbd_file() {
+	[[ -f ~/.zkbd/${TERM}-${VENDOR}-${OSTYPE} ]] && printf '%s' ~/".zkbd/${TERM}-${VENDOR}-${OSTYPE}" && return 0
+	[[ -f ~/.zkbd/${TERM}-${DISPLAY}          ]] && printf '%s' ~/".zkbd/${TERM}-${DISPLAY}"          && return 0
+	return 1
+}
+
+[[ ! -d ~/.zkbd ]] && mkdir ~/.zkbd
+keyfile=$(zkbd_file)
+ret=$?
+
+if [[ ${ret} -ne 0 ]]; then
+	zkbd
+	keyfile=$(zkbd_file)
+	ret=$?
+fi
+
+if [[ ${ret} -eq 0 ]] ; then
+	source "${keyfile}"
+else
+	printf 'Failed to setup keys using zkbd.\n'
+fi
+unfunction zkbd_file; unset keyfile ret
+
+# setup key accordingly
+[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
+[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
+[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
+[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
+[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      up-line-or-history
+[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    down-line-or-history
+[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
+[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
 
 # Have fun :)
 fortune
