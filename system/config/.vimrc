@@ -11,6 +11,8 @@ set tabstop=4
 set hidden
 
 syntax on
+colorscheme evening
+
 set shiftwidth=4
 set formatoptions=tcro
 set smartindent
