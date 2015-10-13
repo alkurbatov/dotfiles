@@ -20,7 +20,7 @@
 
 ## IMAP box
 set folder = imaps://far.away.com
-mailboxes =INBOX =Trash
+mailboxes =INBOX =Drafts =Trash
 
 # Mask unneeded folders
 set mask = "!(Calendar|Contacts|Drafts|Deleted Items|Journal|Notes|Outbox|Tasks|Нежелательная почта)"
