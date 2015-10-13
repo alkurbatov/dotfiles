@@ -20,7 +20,7 @@
 
 ## IMAP box
 set folder = imaps://far.away.com
-mailboxes =INBOX
+mailboxes =INBOX =Trash
 
 # Mask unneeded folders
 set mask = "!(Calendar|Contacts|Drafts|Deleted Items|Journal|Notes|Outbox|Tasks|Нежелательная почта)"
@@ -47,10 +47,26 @@ set ssl_starttls = yes
 set ssl_force_tls = yes
 
 # Set 'From' field.
-set from="Alexandr Kurbatov <sir.alkurbatov@yandex.ru>"
+set from="Alexander Kurbatov <sir.alkurbatov@yandex.ru>"
 
 # Load signature.
 set signature="~/.signature"
+
+# No need to ask confirmation
+set confirmappend = no
+
+## Sidebar
+# Change width accordingly
+set sidebar_width = 26
+
+# Show sidebar at startup
+set sidebar_visible = yes
+
+# Delimeter symbol between sidebar and index/pager
+set sidebar_delim = '|'
+
+# Fix truncation of names of mailboxes
+set sidebar_shortpath = yes
 
 ## Key bindings
 # Unbind to free the 'G' key
@@ -62,8 +78,9 @@ bind index "G" imap-fetch-mail
 bind index noop print-message
 bind pager noop print-message
 
-# No need to ask confirmation
-set confirmappend = no
+# Show/hide sidebar
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
 
 # Work with threads
 macro index \R '<read-thread><collapse-thread><next-unread>' 'Mark the current thread as read'
@@ -78,7 +95,7 @@ macro index d "s=Trash\n" "move message to trash"
 macro pager d "s=Trash\n" "move message to trash"
 
 # Save message/attachment to default directory
-macro attach s <save-entry><kill-line>/home/builder/downloads/<enter> 'save message/attachment to default directory'
+macro attach s <save-entry><kill-line>/home/builder/downloads/ 'save message/attachment to default directory'
 
 ## Mail
 # Store message headers locally to speed things up.
@@ -111,15 +128,22 @@ set autoedit
 set edit_headers
 
 # Editor to use when composing messages
-set editor = vim
+set editor = 'vim + -c "set textwidth=72" -c "set wrap" -c "set spell spelllang=en"'
 
 # Always include messages when replying
 set include
 
+## Sending
+# Force UTF-8 encoding in letters
+set send_charset="utf-8"
+
 # Store sent messages on IMAP server
 set record="=Sent Items"
 
-#Threading
+# Store postponed messages on IMAP server
+set postponed = "=Drafts"
+
+## Threading
 # Primary sorting method
 set sort = threads
 
@@ -137,10 +161,13 @@ folder-hook . 'push ":set collapse\_unread=no<enter>"'
 
 ## Style
 # Show part of index on pager view
-set pager_index_lines=10
+set pager_index_lines = 10
 
 # Show the help lines
 set help
+
+# Wrap long lines at a word boundary
+set smart_wrap = yes
 
 # Date/time format
 set date_format = "%d/%m/%y %I:%M"
@@ -148,6 +175,59 @@ set date_format = "%d/%m/%y %I:%M"
 # Custom set of columns for index
 set index_format = "%4C %Z %-100.100s %-30.30L %D"
 
-# Load colors
-source /home/builder/.mutt/style/colors.zenburn
+# Custom set of fields in status bar
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# Hide some mail headers
+ignore X-Label X-Mailer User-Agent
+
+## Load colors
+color indicator black cyan
+
+color index brightcyan black ~N
+color index brightred black ~O
+color index brightyellow black ~F
+color index black green ~T
+color index brightred black ~D
+
+## Highlights inside the body of a message
+
+## URLs
+color body brightgreen black "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+color body brightgreen black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+
+## Email addresses.
+color body brightgreen black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+
+
+# Header
+color header green black "^from:"
+color header green black "^to:"
+color header green black "^cc:"
+color header green black "^date:"
+color header yellow black "^newsgroups:"
+color header yellow black "^reply-to:"
+color header brightcyan black "^subject:"
+color header red black "^x-spam-rule:"
+color header green black "^x-mailer:"
+color header yellow black "^message-id:"
+color header yellow black "^Organization:"
+color header yellow black "^Organisation:"
+color header yellow black "^User-Agent:"
+color header yellow black "^message-id: .*pine"
+color header yellow black "^X-Fnord:"
+color header yellow black "^X-WebTV-Stationery:"
+
+## Coloring quoted text - coloring the first 7 levels
+color quoted cyan black
+color quoted1 yellow black
+color quoted2 red black
+color quoted3 green black
+color quoted4 cyan black
+color quoted5 yellow black
+color quoted6 red black
+color quoted7 green black
+
+## Sidebar
+color sidebar_new green default
 
