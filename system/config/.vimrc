@@ -1,29 +1,30 @@
-set number
+set number " Show line numbers
+syntax on  " Enable syntax highlighting
 
-set showmatch
-set hlsearch
-set ignorecase
-set smartcase
+colorscheme evening " Nice colorscheme for dark background
 
-set expandtab
+set showcmd      " Show (partial) command in status line.
+set showmatch    " Show matching brackets.
+set ignorecase   " Do case insensitive matching
+set smartcase    " Do smart case matching
+set hlsearch     " Highlight everything that matches
+set incsearch    " Incremental search
+set autowrite    " Automatically save before commands like :next and :make
+set hidden       " Hide buffers when they are abandoned
+set mouse=a      " Enable mouse usage (all modes)
+
 set tabstop=4
-
-set hidden
-
-syntax on
-colorscheme evening
-
+set softtabstop=4
 set shiftwidth=4
+
+"set et  " For Python files mostly
+
 set formatoptions=tcro
-set smartindent
-set list
-set et
 set wrap
 set linebreak
+set list                " Show line endings
 
 set guifont=inconsolata\ 12
-
-set showcmd
 
 abbreviate #i #include
 abbreviate #d #define
@@ -33,5 +34,8 @@ abbreviate #e #endif
 iab paralells parallels
 iab lcocal local
 iab heigth height
+iab udpate update
 
+" Plugin specific
 let g:LargeFile=5
+
