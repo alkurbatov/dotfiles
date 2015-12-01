@@ -18,6 +18,9 @@
 # Purprose:
 # mutt config file
 
+# Load encrypted IMAP/SMTP passwords
+source "gpg --homedir /home/builder/.gnupg -d ~/passwords.gpg |"
+
 ## IMAP box
 set folder = imaps://far.away.com
 mailboxes =INBOX =Drafts =Trash
@@ -29,7 +32,6 @@ set mask = "!(Calendar|Contacts|Drafts|Deleted Items|Journal|Notes|Outbox|Tasks|
 set spoolfile = =INBOX
 
 set imap_user = username
-set imap_pass = password
 
 # Allow Mutt to open new imap connection automatically.
 unset imap_passive
@@ -38,7 +40,7 @@ unset imap_passive
 set imap_keepalive = 300
 
 # Use remote server for mail sending routine.
-set smtp_url=smtp://username:password@far.away.com:587
+set smtp_url=smtp://username:$smtp_pass@far.away.com:587
 
 # Enable STARTLS.
 set ssl_starttls = yes
