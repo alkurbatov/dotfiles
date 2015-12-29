@@ -23,5 +23,7 @@
 git config --global user.name "Alexander Kurbatov"
 git config --global user.email sir.alkurbatov@yandex.ru
 
+git config --global core.editor vim
+
 git config --global apply.whitespace nowarn
 
