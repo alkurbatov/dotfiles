@@ -20,8 +20,8 @@
 
 #!/bin/bash
 
-git config --global user.name “Alexander Kurbatov”
-git config --global user.email “sir.alkurbatov@yandex.ru”
+git config --global user.name "Alexander Kurbatov"
+git config --global user.email sir.alkurbatov@yandex.ru
 
 git config --global apply.whitespace nowarn
 
