@@ -59,6 +59,14 @@ fi
 export EDITOR=vim
 export SVN_EDITOR=vim
 
+# Eternal history
+export HISTFILESIZE=5000000
+export HISTSIZE=10000
+export HISTCONTROL=ignoreboth
+
+# Append to history file
+shopt -s histappend
+
 # Expand PATH.
 PATH+=:~/bin
 
