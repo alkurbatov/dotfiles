@@ -18,17 +18,20 @@
 # Purprose:
 # Just initial gdb configuration.
 
-set environment LD_LIBRARY_PATH=.
-
 handle SIG35 nostop
 
+# Pretty printers
+# For qt4 module please check
+# https://quickgit.kde.org/?p=kdevelop.git&a=tree&hb=eecf0acbb152ce659412cc5d1a99e652b0159bfb&h=01d12d7d85f93e3149cb210c59c64c4922d951c0&f=debuggers%2Fgdb%2Fprinters
 python
-import sys
 
-sys.path.insert(0, '~/bin/debugging')
+import sys
+sys.path.insert(0, '/home/alkurbatov/bin/debug')
+
 from qt4 import register_qt4_printers
 register_qt4_printers (None)
 
 end
-set print pretty 1 
+
+set print pretty 1
 
