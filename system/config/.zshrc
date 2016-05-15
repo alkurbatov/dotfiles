@@ -70,6 +70,9 @@ alias df='df -h'
 alias du='du -h'
 alias kver='uname -r'
 alias urxvt-reload='xrdb -load ~/.Xresources'
+alias yum='sudo yum'
+alias dnf='sudo dnf'
+alias mount='sudo mount'
 
 # Aliases for work.
 alias sign="/usr/sbin/vzlicsign ../z-Build/Debug64/prl_disp_service"

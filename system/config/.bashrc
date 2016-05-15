@@ -27,6 +27,9 @@ alias grep="grep --color=always"
 alias netcfg='sudo /usr/bin/netcfg'
 alias shutdown='sudo /sbin/shutdown'
 alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
+alias dnf='sudo dnf'
+alias yum='sudo yum'
+alias mount='sudo mount'
 
 # For Fedora
 alias mc='. /usr/libexec/mc/mc-wrapper.sh'
