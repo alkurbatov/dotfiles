@@ -103,7 +103,6 @@ path+=(/sbin)
 path+=(~/bin)
 
 path+=(/opt/ccollab-cmdline)
-path+=(/opt/skype-4.2.0.11)
 
 # Terminal keys setup.
 autoload zkbd
