@@ -73,6 +73,7 @@ alias urxvt-reload='xrdb -load ~/.Xresources'
 alias yum='sudo yum'
 alias dnf='sudo dnf'
 alias mount='sudo mount'
+alias umount='sudo umount'
 
 # Aliases for work.
 alias sign="/usr/sbin/vzlicsign ../z-Build/Debug64/prl_disp_service"

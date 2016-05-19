@@ -30,6 +30,7 @@ alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
 alias dnf='sudo dnf'
 alias yum='sudo yum'
 alias mount='sudo mount'
+alias umount='sudo umount'
 
 # For Fedora
 alias mc='. /usr/libexec/mc/mc-wrapper.sh'
