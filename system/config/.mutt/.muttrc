@@ -19,6 +19,8 @@
 # mutt config file
 
 # Load encrypted IMAP/SMTP passwords
+# The following link describes passwords encription in mutt:
+# http://xmodulo.com/mutt-email-client-encrypted-passwords.html
 source "gpg --homedir /home/builder/.gnupg -d ~/passwords.gpg |"
 
 ## IMAP box
