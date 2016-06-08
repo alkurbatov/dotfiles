@@ -19,7 +19,7 @@
 # Configure mailcap for mutt
 
 text/html;       /usr/bin/firefox %s >/dev/null 2>&1; needsterminal;
-text/html;       /usr/bin/lynx assume_charset=%{charset} -dump %s; copiousoutput; description = HTML Text; nametemplate=%s.html
+text/html;       /usr/bin/lynx -assume_charset=%{charset} -dump %s; copiousoutput; description = HTML Text; nametemplate=%s.html
 
 application/pdf; /usr/bin/evince %s >/dev/null 2>&1; needsterminal;
 
