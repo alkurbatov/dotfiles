@@ -141,6 +141,15 @@ fi
 [[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
 [[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
 
+# GPG configuration
+ENVFILE="${HOME}/.gnupg/gpg-agent.env"
+if [[ -e "${ENVFILE}" ]] && kill -0 $(grep GPG_AGENT_INFO "${ENVFILE}" | cut -d: -f 2) 2>/dev/null; then
+    eval "$(cat "${ENVFILE}")"
+else
+    eval "$(gpg-agent --daemon --allow-preset-passphrase --write-env-file "${ENVFILE}")"
+fi
+export GPG_AGENT_INFO
+
 # Have fun :)
 fortune
 
