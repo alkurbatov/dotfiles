@@ -87,12 +87,9 @@ alias cls='clear'
 # Set up environment.
 export EDITOR=vim
 export SVN_EDITOR=vim
-export QTDIR=/usr/local/lib/qt-shared-4.8.0-amd64
 
 # Expand PATH.
 typeset -U path
-
-path=(${QTDIR}/bin)
 
 path+=(/usr/local/bin)
 path+=(/usr/local/sbin)
@@ -101,8 +98,6 @@ path+=(/usr/sbin)
 path+=(/bin)
 path+=(/sbin)
 path+=(~/bin)
-
-path+=(/opt/ccollab-cmdline)
 
 # Terminal keys setup.
 if [ -z "$SSH_CLIENT" ]; then
