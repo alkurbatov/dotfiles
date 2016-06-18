@@ -18,34 +18,57 @@
 # Purprose:
 # mutt config file
 
+# Warning!
+# By ~ we mean $HOME/.mutt, not just $HOME
+
 # Load encrypted IMAP/SMTP passwords
 # The following link describes passwords encription in mutt:
 # http://xmodulo.com/mutt-email-client-encrypted-passwords.html
-source "gpg --homedir /home/builder/.gnupg -d ~/passwords.gpg |"
+source "gpg --homedir /home/alkurbatov/.gnupg -d ~/password.gpg |"
+
+## Home directory structure
+set mbox = ~/mbox
+
+set tmpdir = ~/tmp
+
+# Store message headers locally to speed things up.
+set header_cache = ~/cache
+
+# Store messages locally to speed things up, like searching message bodies.
+set message_cachedir = ~/cache
 
 ## IMAP box
-set folder = imaps://far.away.com
-mailboxes =INBOX =Drafts =Trash
+set folder = imaps://far.away.com:993
+mailboxes "=INBOX"
+mailboxes "=bld"
+mailboxes "=license"
+mailboxes "=review"
+
+# Speed up folders switch
+set sleep_time = 0
 
 # Mask unneeded folders
-set mask = "!(Calendar|Contacts|Drafts|Deleted Items|Journal|Notes|Outbox|Tasks|Нежелательная почта)"
+set mask = "!(Календарь|Контакты|Deleted Items|Журнал|Заметки|Outbox|Задачи|Нежелательная почта)"
 
 # Automatically log here at startup
 set spoolfile = =INBOX
 
 set imap_user = username
 
-# Allow Mutt to open new imap connection automatically.
+# Allow Mutt to open new imap connection automatically
 unset imap_passive
 
-# Keep IMAP connection alive by polling intermittently (time in seconds).
-set imap_keepalive = 300
+# Keep IMAP connection alive by polling intermittently (time in seconds)
+set imap_keepalive = 180
 
 # Use remote server for mail sending routine.
 set smtp_url=smtp://username:$smtp_pass@far.away.com:587
 
 # Enable STARTLS.
 set ssl_starttls = yes
+
+# Enable SSLv3
+set ssl_use_sslv3 = yes
 
 # Force STARTLS even if it is not supported.
 set ssl_force_tls = yes
@@ -58,6 +81,9 @@ set signature="~/.signature"
 
 # No need to ask confirmation
 set confirmappend = no
+
+# Stop at the end instead of displaying next mail
+set pager_stop = yes
 
 ## Sidebar
 # Change width accordingly
@@ -99,20 +125,13 @@ macro index d "s=Trash\n" "move message to trash"
 macro pager d "s=Trash\n" "move message to trash"
 
 # Save message/attachment to default directory
-macro attach s <save-entry><kill-line>/home/builder/downloads/ 'save message/attachment to default directory'
+macro attach s <save-entry><kill-line>/home/alkurbatov/downloads/ 'save message/attachment to default directory'
+
 
 ## Mail
-# Store message headers locally to speed things up.
-set header_cache = /home/builder/.mutt/cache
-
-# Store messages locally to speed things up, like searching message bodies.
-set message_cachedir = /home/builder/.mutt/cache
-
-set mbox = /home/builder/.mutt/mbox
-
 # How often to poll for new mail (time in seconds)
-set mail_check = 30
-set timeout = 60
+set mail_check = 90
+set timeout = 15
 
 # Sanely handle multi-part messages (prefer text part, but yield to
 # mailcap-configured rendering for html-only)
@@ -132,20 +151,35 @@ set autoedit
 set edit_headers
 
 # Editor to use when composing messages
-set editor = 'vim + -c "set textwidth=72" -c "set wrap" -c "set spell spelllang=en"'
+set editor = 'vim + -c "set textwidth=80" -c "set wrap" -c "set spell spelllang=en"'
 
 # Always include messages when replying
 set include
+
+## Address book
+set alias_file=~/aliases
+
+# Sort aliases by 'alias' field
+set sort_alias = alias
+
+# Sort in reverse order
+set reverse_alias = yes
+
+# Load aliases
+source $alias_file
 
 ## Sending
 # Force UTF-8 encoding in letters
 set send_charset="utf-8"
 
 # Store sent messages on IMAP server
-set record="=Sent Items"
+set record="=Отправленные"
 
 # Store postponed messages on IMAP server
-set postponed = "=Drafts"
+set postponed = "=Черновики"
+
+# Do not send copy of the message to yourself
+alternates sir.alkurbatov@yandex.ru
 
 ## Threading
 # Primary sorting method
@@ -186,25 +220,33 @@ set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)
 # Hide some mail headers
 ignore X-Label X-Mailer User-Agent
 
-## Load colors
-color indicator black cyan
+# Don't put '+' at the beginning of wrapped lines
+set markers = no
 
+## Highlights inside the body of a message
+## URLs
+color   body        brightgreen black "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+color   body        brightgreen black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+mono    body        bold "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+mono    body        bold "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+
+## Email addresses.
+color body brightgreen black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# Colours for items in the index
 color index brightcyan black ~N
 color index brightred black ~O
 color index brightyellow black ~F
 color index black green ~T
 color index brightred black ~D
+mono index bold ~N
+mono index bold ~F
+mono index bold ~T
+mono index bold ~D
 
-## Highlights inside the body of a message
+## Highlights inside the body of a message.
 
-## URLs
-color body brightgreen black "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
-color body brightgreen black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
-
-## Email addresses.
-color body brightgreen black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+
-
-# Header
+## Header
 color header green black "^from:"
 color header green black "^to:"
 color header green black "^cc:"
@@ -222,7 +264,21 @@ color header yellow black "^message-id: .*pine"
 color header yellow black "^X-Fnord:"
 color header yellow black "^X-WebTV-Stationery:"
 
-## Coloring quoted text - coloring the first 7 levels
+color header red black "^x-spam-rule:"
+color header green black "^x-mailer:"
+color header yellow black "^message-id:"
+color header yellow black "^Organization:"
+color header yellow black "^Organisation:"
+color header yellow black "^User-Agent:"
+color header yellow black "^message-id: .*pine"
+color header yellow black "^X-Fnord:"
+color header yellow black "^X-WebTV-Stationery:"
+color header yellow black "^X-Message-Flag:"
+color header yellow black "^X-Spam-Status:"
+color header yellow black "^X-SpamProbe:"
+color header red black "^X-SpamProbe: SPAM"
+
+## Coloring quoted text - coloring the first 7 levels:
 color quoted cyan black
 color quoted1 yellow black
 color quoted2 red black
@@ -231,6 +287,27 @@ color quoted4 cyan black
 color quoted5 yellow black
 color quoted6 red black
 color quoted7 green black
+
+## Default color definitions
+#color hdrdefault white green
+color signature brightmagenta black
+color indicator black cyan
+color attachment green black
+color error red black
+color message white black
+color search brightwhite magenta
+color status brightyellow blue
+color tree brightblue black
+color normal white black
+color tilde green black
+color bold brightyellow black
+#color underline magenta black
+color markers brightcyan black
+
+## Colour definitions when on a mono screen
+mono bold bold
+mono underline underline
+mono indicator reverse
 
 ## Sidebar
 color sidebar_new green default
