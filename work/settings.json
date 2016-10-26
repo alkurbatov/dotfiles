@@ -31,6 +31,8 @@
 
 	//-------- Files configuration --------
 
+	"files.trimTrailingWhitespace": true,
+
 	// Configure glob patterns for excluding files and folders.
 	"files.exclude": {
 		"**/.git": true,
