@@ -27,7 +27,12 @@
 
 	"editor.insertSpaces": true,
 
-	"editor.renderWhitespace": true,
+	"editor.renderWhitespace": "all",
+
+	"gitProjectManager.baseProjectsFolders": [
+		"/Users/alkurbatov/Projects/va/dev/portal",
+		"/Users/alkurbatov/Projects/va/dev/agent"
+	]
 
 	//-------- Files configuration --------
 
