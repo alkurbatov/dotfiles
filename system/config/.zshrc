@@ -18,48 +18,47 @@
 # Purprose:
 # zsh configuration.
 
-# Enable colors support.
+# Enable colors support
 autoload -U colors && colors
 
-# Set up command prompt for basic user.
+# Set up command prompt for basic user
 if [ -n "$SSH_CLIENT" ]; then text="ssh-session"
 fi
 
 PROMPT="[%{$fg[green]%}%n%{$reset_color%}@%{$fg[yellow]%}%m %{$fg[green]%}%1~ %{$reset_color%}$text] %#"
 
-# Allow to enter inside directory just using its name.
+# Allow to enter inside directory just using its name
 setopt autocd
 
-# Well-known directories.
+# Well-known directories
 cdpath=(~/projects)
-cdpath+=(~/projects/vz)
 cdpath+=(~/sandbox)
 
-# Completition by Tab.
+# Completition by Tab
 autoload -Uz compinit
 compinit
 
-# History parameters.
+# History parameters
 HISTSIZE=2000
 SAVEHIST=10000
 HISTFILE=~/.zhistory
 
-# Each line is added to the history as it is executed.
+# Each line is added to the history as it is executed
 setopt INC_APPEND_HISTORY
 
-# Share history among other shells.
+# Share history among other shells
 setopt SHARE_HISTORY
 
-# Removes copies of lines still in the history list.
+# Removes copies of lines still in the history list
 setopt HIST_IGNORE_ALL_DUPS
 
-# Drop empty strings from history.
+# Drop empty strings from history
 setopt HIST_REDUCE_BLANKS
 
-# Remove no needed spaces (like trailing).
+# Remove no needed spaces (like trailing)
 setopt HIST_IGNORE_SPACE
 
-# Basic OS aliases.
+# Common Linux aliases
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -70,25 +69,34 @@ alias df='df -h'
 alias du='du -h'
 alias kver='uname -r'
 alias urxvt-reload='xrdb -load ~/.Xresources'
-alias yum='sudo yum'
-alias dnf='sudo dnf'
 alias mount='sudo mount'
 alias umount='sudo umount'
+alias mc='. /usr/lib/mc/mc-wrapper.sh'
 
-# Aliases for work.
-alias sign="/usr/sbin/vzlicsign ../z-Build/Debug64/prl_disp_service"
+# Fedora specific
+alias mc='. /usr/libexec/mc/mc-wrapper.sh'
+alias yum='sudo yum'
+alias dnf='sudo dnf'
+
+# Mac specific
+alias ls='ls -G'
+alias grep="grep -G"
+alias port='sudo port'
+alias mc='. /opt/local/libexec/mc/mc-wrapper.sh'
+
+# Aliases for work
 alias svn-log="svn log | less"
 alias mutt="HOME=/home/builder/.mutt mutt"
 
-# Do win-like behaviour.
+# Do win-like behaviour
 alias ipconfig='ifconfig'
 alias cls='clear'
 
-# Set up environment.
+# Set up environment
 export EDITOR=vim
 export SVN_EDITOR=vim
 
-# Expand PATH.
+# Expand PATH
 typeset -U path
 
 path+=(/usr/local/bin)
@@ -99,7 +107,11 @@ path+=(/bin)
 path+=(/sbin)
 path+=(~/bin)
 
-# Terminal keys setup.
+# MacPort's executables
+path+=(/opt/local/bin)
+path+=(/opt/local/sbin)
+
+# Terminal keys setup
 if [ -z "$SSH_CLIENT" ]; then
 	autoload zkbd
 	function zkbd_file() {
