@@ -74,9 +74,9 @@ setopt HIST_IGNORE_SPACE
 
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
+export SVN_EDITOR='vim'
 
 # Well-known directories.
-# FIXME: broken :(
 cdpath=(~/Projects)
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -85,16 +85,27 @@ cdpath=(~/Projects)
 # For a full list of active aliases, run `alias`.
 
 # Basic OS aliases.
-alias rm='rm -i'
 alias cp='cp -i'
-alias mv='mv -i'
-alias ls='ls -G'
+alias df='df -h'
+alias du='du -h'
 alias grep="grep -G"
-alias port='sudo port'
+alias ls='ls -G'
 alias mc='. /opt/local/libexec/mc/mc-wrapper.sh'
+alias mv='mv -i'
+alias rm='rm -i'
+alias port='sudo port'
 
 # Do win-like behaviour.
 alias cls='clear'
+
+# Global aliases
+alias -g G='|grep'
+alias -g M='|more'
+alias -g N='2>/dev/null'
+
+# Aliases for work.
+alias svn-log="svn log | less"
+alias sshx='ssh -X -C -c blowfish'
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
