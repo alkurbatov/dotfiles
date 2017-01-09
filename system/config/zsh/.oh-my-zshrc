@@ -18,14 +18,17 @@
 # Purprose:
 # oh-my-zsh configuration.
 
-export PATH="/opt/local/bin:/opt/local/sbin:$HOME/Bin:$PATH"
+# go stuff
+export GOPATH=$HOME/work
+
+export PATH="/opt/local/bin:/opt/local/sbin:$HOME/Bin:$GOPATH/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/alkurbatov/.oh-my-zsh
 
 # Set name of the theme to load.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gentoo"
+ZSH_THEME="risto"
 
 # Use case-sensitive completion.
 CASE_SENSITIVE="true"
