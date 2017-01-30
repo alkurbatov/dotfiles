@@ -88,8 +88,9 @@ cdpath=(~/Projects)
 alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
-alias grep="grep -G"
-alias ls='ls -G'
+alias grep='grep -n --color=always'
+alias ls='ls -G -F'
+alias ll='ls -GlaFh'
 alias mc='. /opt/local/libexec/mc/mc-wrapper.sh'
 alias mv='mv -i'
 alias rm='rm -i'
@@ -106,6 +107,7 @@ alias -g N='2>/dev/null'
 # Aliases for work.
 alias svn-log="svn log | less"
 alias sshx='ssh -X -C -c blowfish'
+alias bd=". bd -si"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
