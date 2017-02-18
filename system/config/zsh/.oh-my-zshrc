@@ -95,6 +95,7 @@ alias mc='. /opt/local/libexec/mc/mc-wrapper.sh'
 alias mv='mv -i'
 alias rm='rm -i'
 alias port='sudo port'
+alias port-update='port selfupdate; port upgrade outdated'
 
 # Do win-like behaviour.
 alias cls='clear'
