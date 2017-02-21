@@ -21,7 +21,7 @@
 # go stuff
 export GOPATH=$HOME/work
 
-export PATH="/opt/local/bin:/opt/local/sbin:$HOME/Bin:$GOPATH/bin:$PATH"
+export PATH="/opt/local/bin:/opt/local/sbin:$GOPATH/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/alkurbatov/.oh-my-zsh
