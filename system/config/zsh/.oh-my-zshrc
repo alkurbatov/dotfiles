@@ -36,6 +36,10 @@ CASE_SENSITIVE="true"
 # Enable command auto-correction.
 ENABLE_CORRECTION="true"
 
+# Benefit from auto updates of oh-my-zsh
+# One can force updates using 'upgrade_oh_my_zsh' command.
+DISABLE_AUTO_UPDATE="false"
+
 # Disable marking untracked files under VCS as dirty. This makes repository
 # status check for large repositories much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
