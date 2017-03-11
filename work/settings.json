@@ -29,9 +29,12 @@
 
 	"editor.renderWhitespace": "all",
 
+	"editor.renderWhitespace": "all",
+
+	"editor.wordWrap": "on",
+
 	"gitProjectManager.baseProjectsFolders": [
-		"/Users/alkurbatov/Projects/va/dev/portal",
-		"/Users/alkurbatov/Projects/va/dev/agent"
+		"~/work/src/github.com/alkurbatov"
 	],
 
 	//-------- Files configuration --------
