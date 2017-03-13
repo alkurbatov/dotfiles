@@ -29,9 +29,11 @@
 
 	"editor.renderWhitespace": "all",
 
-	"editor.renderWhitespace": "all",
-
 	"editor.wordWrap": "on",
+
+	"editor.cursorStyle": "block",
+
+	"editor.minimap.enabled": true,
 
 	"gitProjectManager.baseProjectsFolders": [
 		"~/work/src/github.com/alkurbatov"
