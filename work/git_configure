@@ -27,3 +27,5 @@ git config --global core.editor vim
 
 git config --global apply.whitespace nowarn
 
+git config --global pull.rebase true
+
