@@ -1,0 +1,3 @@
+Solarised colorscheme:
+https://github.com/altercation/vim-colors-solarized.git
+

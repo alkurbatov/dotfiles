@@ -1,7 +1,9 @@
+syntax enable
+set background=light
+colorscheme solarized
+
 set number " Show line numbers
 syntax on  " Enable syntax highlighting
-
-colorscheme evening " Nice colorscheme for dark background
 
 set showcmd      " Show (partial) command in status line.
 set showmatch    " Show matching brackets.
