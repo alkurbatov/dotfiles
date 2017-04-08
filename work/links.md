@@ -2,3 +2,4 @@
 
 [Solarised color scheme for mc](https://github.com/peel/mc.git)
 
+[Markdown guide](https://guides.github.com/features/mastering-markdown/)
