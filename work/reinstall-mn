@@ -33,7 +33,7 @@ yum clean all
 yum groupinstall -y 'VA Management Node' 'VA Control Center'
 yum install -y va-cc-storage va-cc-i18n-ru va-docs va-*-debuginfo
 
-for i in va-mn va-cc; do
+for i in vzlicmon va-mn va-cc; do
     systemctl start ${i}
 
     if [ ${PIPESTATUS[0]} != 0 ]; then
