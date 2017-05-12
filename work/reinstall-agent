@@ -22,6 +22,7 @@
 # and clean up all required folders.
 
 yum groupremove -y 'VA Agent'
+yum remove va-*-debuginfo
 
 rm -rf /var/opt/pva
 rm -rf /var/log/pva
@@ -29,7 +30,7 @@ rm -rf /opt/pva
 
 yum clean all
 yum groupinstall -y 'VA Agent'
-yum install -y va-agent-storage va-pp-httpd
+yum install -y va-agent-storage va-pp-httpd va-*-debuginfo
 
 for i in va-agent httpd; do
     systemctl start ${i}
