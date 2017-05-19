@@ -5,7 +5,9 @@ Wants=systemd-modules-load.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/rethinkdb serve --bind all --directory /root/tmp/rethinkdb_data
+User=rethinkdb
+Group=rethinkdb
+ExecStart=/usr/bin/rethinkdb serve --config-file /etc/rethinkdb/ap-ui.conf
 KillMode=process
 PrivateTmp=true
 
