@@ -1,0 +1,13 @@
+[Unit]
+Description=RethinkDB service
+After=syslog.target network.target systemd-modules-load.service
+Wants=systemd-modules-load.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rethinkdb serve --bind all --directory /root/tmp/rethinkdb_data
+KillMode=process
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
