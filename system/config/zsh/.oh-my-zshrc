@@ -108,6 +108,7 @@ alias cls='clear'
 alias -g G='|grep'
 alias -g M='|more'
 alias -g N='2>/dev/null'
+alias -g J='-H "Content-Type: application/json"'
 
 # Aliases for work.
 alias svn-log="svn log | less"
