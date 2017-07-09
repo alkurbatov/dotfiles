@@ -81,7 +81,9 @@ export EDITOR='vim'
 export SVN_EDITOR='vim'
 
 # Well-known directories.
-cdpath=(~/Projects)
+cdpath=(~/work)
+cdpath+=(~/work/src/git.sw.ru/alkurbatov)
+cdpath+=(~/work/src/github.com/alkurbatov)
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -111,10 +113,8 @@ alias -g N='2>/dev/null'
 alias -g J='-H "Content-Type: application/json"'
 
 # Aliases for work.
+alias bd=". bd -si"
+alias npm-update="sudo npm update -g npm"
 alias svn-log="svn log | less"
 alias sshx='ssh -X -C -c blowfish'
-alias bd=". bd -si"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
