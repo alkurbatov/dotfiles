@@ -21,38 +21,43 @@
 // Put this file to ~/.config/Code/User/ folder in order to apply tweaks.
 
 {
-	"editor.fontFamily": "Inconsolata",
+	"editor.autoIndent": true,
+
+	"editor.cursorStyle": "block",
+
+	"editor.detectIndentation": true,
+
+	"editor.fontFamily": "DejaVu Sans Mono",
 
 	"editor.fontSize": 14,
 
-	"editor.insertSpaces": true,
+	"editor.formatOnPaste": true,
+
+	"editor.lineNumbers": "on",
+
+	"editor.minimap.enabled": true,
 
 	"editor.renderWhitespace": "all",
 
 	"editor.wordWrap": "on",
 
-	"editor.cursorStyle": "block",
-
-	"editor.minimap.enabled": true,
-
-	"gitProjectManager.baseProjectsFolders": [
-		"~/work/src/github.com/alkurbatov"
-	],
-
 	//-------- Files configuration --------
-
-	"files.trimTrailingWhitespace": true,
 
 	// Configure glob patterns for excluding files and folders.
 	"files.exclude": {
 		"**/.git": true,
 		"**/.DS_Store": true,
-		"**/z-Build": true,
 		"**/*.swp": true,
-		"**/.vscode": true,
 		"**/*.pyc": true,
 		"**/*.pyo": true,
 		"**/*.so": true
-	}
+	},
 
+	"workbench.colorTheme": "Solarized Light",
+
+	"workbench.iconTheme": "simple-icons",
+
+	"vim.disableAnnoyingNeovimMessage": true,
+
+	"window.zoomLevel": 0
 }
