@@ -114,7 +114,7 @@ alias -g J='-H "Content-Type: application/json"'
 
 # Aliases for work.
 alias bd=". bd -si"
-alias npm-update="sudo npm update -g npm"
+alias npm-update="sudo npm install -g npm"
 alias svn-log="svn log | less"
 alias sshx='ssh -X -C -c blowfish'
 
