@@ -102,11 +102,12 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias port='sudo port'
 alias port-update='port selfupdate; port upgrade outdated'
+alias npm-update="sudo npm install -g npm"
 
 # Do win-like behaviour.
 alias cls='clear'
 
-# Global aliases
+# Basic aliases
 alias -g G='|grep'
 alias -g M='|more'
 alias -g N='2>/dev/null'
@@ -114,7 +115,9 @@ alias -g J='-H "Content-Type: application/json"'
 
 # Aliases for work.
 alias bd=". bd -si"
-alias npm-update="sudo npm install -g npm"
 alias svn-log="svn log | less"
 alias sshx='ssh -X -C -c blowfish'
 
+# K8s aliases
+alias -g NV='--namespace virtuozzo'
+alias -g NKS='--namespace kube-system'
