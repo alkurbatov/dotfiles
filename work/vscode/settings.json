@@ -50,7 +50,8 @@
 		"**/*.swp": true,
 		"**/*.pyc": true,
 		"**/*.pyo": true,
-		"**/*.so": true
+		"**/*.so": true,
+		"**/coverage": true
 	},
 
 	"workbench.colorTheme": "Solarized Light",
@@ -59,5 +60,8 @@
 
 	"vim.disableAnnoyingNeovimMessage": true,
 
-	"window.zoomLevel": 0
+	"window.zoomLevel": 0,
+
+	"gitlens.blame.line.enabled": false,
+	"gitlens.statusBar.enabled": false
 }
