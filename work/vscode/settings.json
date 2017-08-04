@@ -63,5 +63,8 @@
 	"window.zoomLevel": 0,
 
 	"gitlens.blame.line.enabled": false,
-	"gitlens.statusBar.enabled": false
+	"gitlens.statusBar.enabled": false,
+
+	// Enable C++ linter.
+	"C_Cpp.intelliSenseEngine": "Default"
 }
