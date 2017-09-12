@@ -25,4 +25,7 @@ fi
 
 export OS_IDENTITY_API_VERSION="3"
 export OS_AUTH_URL="https://<Keystone IP address>/identity"
+export OS_PROJECT_NAME="admin"
+export OS_USERNAME="admin"
+export OS_PASSWORD="<Keystone admin password>"
 
