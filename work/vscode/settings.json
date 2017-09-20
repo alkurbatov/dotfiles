@@ -41,6 +41,12 @@
 
 	"editor.wordWrap": "on",
 
+	// Disable statistcs reporting.
+	"telemetry.enableTelemetry": false,
+
+	// Disable crash reports.
+	"telemetry.enableCrashReporter": false,
+
 	//-------- Files configuration --------
 
 	// Configure glob patterns for excluding files and folders.
@@ -51,7 +57,8 @@
 		"**/*.pyc": true,
 		"**/*.pyo": true,
 		"**/*.so": true,
-		"**/coverage": true
+		"**/coverage": true,
+		"**/logs": true
 	},
 
 	"workbench.colorTheme": "Solarized Light",
