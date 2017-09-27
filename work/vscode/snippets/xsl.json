@@ -29,6 +29,14 @@
 		],
 		"description": "Print a XML model to cpcon.log"
 	},
+	"func:function": {
+		"prefix": "func:function",
+		"body": [
+			"<func:function name=\"$1\">",
+			"\t<func:result select=\"$2\"/>",
+			"</func:function>"
+		]
+	},
 	"sw:base64-decode": {
 		"prefix": "sw:base64-decode",
 		"body": [
