@@ -20,16 +20,7 @@
 # Purprose:
 # Update all git submodules in the current repo
 
-for i in `cat .gitmodules | awk '/path/ {print $3}'`; do
-    echo "Updating ${i}..."
-
-    cd ${i}
-
-    git checkout master
-    git pull
-
-    cd -
-done
+git submodule foreach git pull origin master
 
 git add portal agent
 git commit -m "Update submodules"
