@@ -66,6 +66,8 @@
 
 	"workbench.iconTheme": "simple-icons",
 
+	"workbench.fontAliasing": "antialiased",
+
 	"vim.disableAnnoyingNeovimMessage": true,
 
 	"window.zoomLevel": 0,
