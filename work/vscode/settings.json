@@ -41,6 +41,8 @@
 
 	"editor.wordWrap": "on",
 
+	"explorer.sortOrder": "type",
+
 	// Disable statistcs reporting.
 	"telemetry.enableTelemetry": false,
 
