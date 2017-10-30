@@ -23,7 +23,7 @@ FROM ubuntu:latest
 WORKDIR /root/work
 
 RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get -y install ack-grep autoconf automake cmake curl g++ gcc git libtool mc pkg-config vim wget
+RUN apt-get -y install ack-grep autoconf automake cmake curl g++ gcc git libboost-dev libboost-log-dev libboost-system-dev libboost-thread-dev libtool mc pkg-config vim wget
 RUN apt-get -y autoremove
 
 # Create LSB standard directories to install newly built libraries.
