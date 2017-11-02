@@ -67,3 +67,15 @@ alias npm-update="sudo npm install -g npm"
 alias sshx='ssh -X -C -c blowfish'
 alias svn-log="svn log | less"
 
+# Git aliases
+alias gc='git commit -v'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gl='git pull'
+alias glg='git log --stat'
+alias gp='git push'
+alias gr='git rebase -i'
+alias gra='git rebase --abort'
+alias grc='git rebase --continue'
+alias gs='git status -sb'
+
