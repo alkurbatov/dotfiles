@@ -18,36 +18,27 @@
 # Purprose:
 # zsh configuration.
 
-# Enable colors support
+# Collect terminal colors to use later (e.g. in PROMPT)
 autoload -U colors && colors
-
-# Set up command prompt for basic user
-if [ -n "$SSH_CLIENT" ]; then text="ssh-session"
-fi
-
-PROMPT="[%{$fg[green]%}%n%{$reset_color%}@%{$fg[yellow]%}%m %{$fg[green]%}%1~ %{$reset_color%}$text] %#"
 
 # Allow to enter inside directory just using its name
 setopt autocd
-
-# Well-known directories
-cdpath=(~/projects)
-cdpath+=(~/sandbox)
 
 # Completition by Tab
 autoload -Uz compinit
 compinit
 
+# Don't beep on errors
+setopt No_Beep
+
 # History parameters
-HISTSIZE=2000
+# It is recommended to keep SAVEHIST == HISTSIZE
+HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zhistory
 
 # Each line is added to the history as it is executed
 setopt INC_APPEND_HISTORY
-
-# Share history among other shells
-setopt SHARE_HISTORY
 
 # Removes copies of lines still in the history list
 setopt HIST_IGNORE_ALL_DUPS
@@ -55,108 +46,38 @@ setopt HIST_IGNORE_ALL_DUPS
 # Drop empty strings from history
 setopt HIST_REDUCE_BLANKS
 
-# Remove no needed spaces (like trailing)
+# Remove no needed spaces (e.g. trailing)
 setopt HIST_IGNORE_SPACE
 
-# Common Linux aliases
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias ls='ls --color=auto'
-alias lh='ls -lhS --color=auto'
-alias grep="grep --color=always"
-alias df='df -h'
-alias du='du -h'
-alias kver='uname -r'
-alias urxvt-reload='xrdb -load ~/.Xresources'
-alias mount='sudo mount'
-alias umount='sudo umount'
-alias mc='. /usr/lib/mc/mc-wrapper.sh'
+# Mark ssh connection in cmdline prompt
+if [ -n "$SSH_CLIENT" ]; then
+    text="ssh"
+fi
 
-# Fedora specific
-alias mc='. /usr/libexec/mc/mc-wrapper.sh'
-alias yum='sudo yum'
-alias dnf='sudo dnf'
-
-# Mac specific
-alias ls='ls -G'
-alias grep="grep -G"
-alias port='sudo port'
-alias mc='. /opt/local/libexec/mc/mc-wrapper.sh'
-
-# Aliases for work
-alias svn-log="svn log | less"
-alias mutt="HOME=/home/builder/.mutt mutt"
-
-# Do win-like behaviour
-alias ipconfig='ifconfig'
-alias cls='clear'
-
-# Set up environment
-export EDITOR=vim
-export SVN_EDITOR=vim
+# Format prompt
+PROMPT="%{$fg[blue]%}[%{$fg[green]%}%n%{$fg[blue]%}@%{$fg[green]%}%m%{$fg[blue]%}] %2d%{$reset_color%} $text> "
 
 # Expand PATH
 typeset -U path
 
-path+=(/usr/local/bin)
-path+=(/usr/local/sbin)
-path+=(/usr/bin)
-path+=(/usr/sbin)
-path+=(/bin)
-path+=(/sbin)
-path+=(~/bin)
-
-# MacPort's executables
 path+=(/opt/local/bin)
+path+=(/usr/local/bin)
+path+=(/usr/bin)
+path+=(/bin)
 path+=(/opt/local/sbin)
+path+=(/usr/local/sbin)
+path+=(/usr/sbin)
+path+=(/sbin)
+path+=($GOPATH/bin)
 
-# Terminal keys setup
-if [ -z "$SSH_CLIENT" ]; then
-	autoload zkbd
-	function zkbd_file() {
-		[[ -f ~/.zkbd/${TERM}-${VENDOR}-${OSTYPE} ]] && printf '%s' ~/".zkbd/${TERM}-${VENDOR}-${OSTYPE}" && return 0
-		[[ -f ~/.zkbd/${TERM}-${DISPLAY}          ]] && printf '%s' ~/".zkbd/${TERM}-${DISPLAY}"          && return 0
-		return 1
-	}
+# Well-known directories
+cdpath=(~/work)
+cdpath+=(~/work/src/git.sw.ru/alkurbatov)
+cdpath+=(~/work/src/github.com/alkurbatov)
 
-	[[ ! -d ~/.zkbd ]] && mkdir ~/.zkbd
-	keyfile=$(zkbd_file)
-	ret=$?
+# Load aliases
+. ~/.zsh_aliases
 
-	if [[ ${ret} -ne 0 ]]; then
-		zkbd
-		keyfile=$(zkbd_file)
-		ret=$?
-	fi
-
-	if [[ ${ret} -eq 0 ]] ; then
-		source "${keyfile}"
-	else
-		printf 'Failed to setup keys using zkbd.\n'
-	fi
-	unfunction zkbd_file; unset keyfile ret
-fi
-
-# setup key accordingly
-[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
-[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
-[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
-[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
-[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      up-line-or-search
-[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    down-line-or-search
-[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
-[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
-
-# GPG configuration
-ENVFILE="${HOME}/.gnupg/gpg-agent.env"
-if [[ -e "${ENVFILE}" ]] && kill -0 $(grep GPG_AGENT_INFO "${ENVFILE}" | cut -d: -f 2) 2>/dev/null; then
-    eval "$(cat "${ENVFILE}")"
-else
-    eval "$(gpg-agent --daemon --allow-preset-passphrase --write-env-file "${ENVFILE}")"
-fi
-export GPG_AGENT_INFO
-
-# Have fun :)
+# Have fun
 fortune
 

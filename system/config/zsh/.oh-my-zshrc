@@ -18,14 +18,6 @@
 # Purprose:
 # oh-my-zsh configuration.
 
-# go stuff
-export GOPATH=$HOME/work
-
-export PATH="/opt/local/bin:/opt/local/sbin:$GOPATH/bin:$PATH"
-
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/alkurbatov/.oh-my-zsh
-
 # Set name of the theme to load.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="risto"
@@ -56,68 +48,42 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # History parameters.
-HISTSIZE=2000
+HISTSIZE=10000
 SAVEHIST=10000
 
-# User configuration
-
-# Each line is added to the history as it is executed.
+# Each line is added to the history as it is executed
 setopt INC_APPEND_HISTORY
 
-# Share history among other shells.
+# Share history among other shells
 setopt SHARE_HISTORY
 
-# Removes copies of lines still in the history list.
+# Removes copies of lines still in the history list
 setopt HIST_IGNORE_ALL_DUPS
 
-# Drop empty strings from history.
+# Drop empty strings from history
 setopt HIST_REDUCE_BLANKS
 
-# Remove no needed spaces (like trailing).
+# Remove no needed spaces (like trailing)
 setopt HIST_IGNORE_SPACE
 
-# Preferred editor for local and remote sessions
-export EDITOR='vim'
-export SVN_EDITOR='vim'
+# Expand PATH
+typeset -U path
 
-# Well-known directories.
+path+=(/opt/local/bin)
+path+=(/usr/local/bin)
+path+=(/usr/bin)
+path+=(/bin)
+path+=(/opt/local/sbin)
+path+=(/usr/local/sbin)
+path+=(/usr/sbin)
+path+=(/sbin)
+path+=($GOPATH/bin)
+
+# Well-known directories
 cdpath=(~/work)
 cdpath+=(~/work/src/git.sw.ru/alkurbatov)
 cdpath+=(~/work/src/github.com/alkurbatov)
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+# Load aliases
+. ~/.zsh_aliases
 
-# Basic OS aliases.
-alias cp='cp -i'
-alias df='df -h'
-alias du='du -h'
-alias grep='grep -n --color=always'
-alias ls='ls -G -F'
-alias ll='ls -GlaFh'
-alias mc='. /opt/local/libexec/mc/mc-wrapper.sh'
-alias mv='mv -i'
-alias rm='rm -i'
-alias port='sudo port'
-alias port-update='port selfupdate; port upgrade outdated'
-alias npm-update="sudo npm install -g npm"
-
-# Do win-like behaviour.
-alias cls='clear'
-
-# Basic aliases
-alias -g G='|grep'
-alias -g M='|more'
-alias -g N='2>/dev/null'
-alias -g J='-H "Content-Type: application/json"'
-
-# Aliases for work.
-alias bd=". bd -si"
-alias svn-log="svn log | less"
-alias sshx='ssh -X -C -c blowfish'
-
-# K8s aliases
-alias -g NV='--namespace virtuozzo'
-alias -g NKS='--namespace kube-system'
