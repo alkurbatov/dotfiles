@@ -27,11 +27,13 @@
 
 	"editor.detectIndentation": true,
 
-	"editor.fontFamily": "DejaVu Sans Mono",
+	"editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
 
 	"editor.fontSize": 14,
 
-	"editor.formatOnPaste": true,
+	"editor.formatOnPaste": false,
+
+	"editor.formatOnSave": false,
 
 	"editor.lineNumbers": "on",
 
@@ -43,16 +45,26 @@
 
 	"explorer.sortOrder": "type",
 
-	// Disable statistcs reporting.
+	"files.autoSave": "afterDelay",
+
+	// Disable statistics reporting.
 	"telemetry.enableTelemetry": false,
 
-	// Disable crash reports.
 	"telemetry.enableCrashReporter": false,
+
+	"workbench.fontAliasing": "antialiased",
+
+	"workbench.iconTheme": "vscode-great-icons",
+
+	"window.zoomLevel": 0,
 
 	//-------- Files configuration --------
 
 	// Configure glob patterns for excluding files and folders.
 	"files.exclude": {
+		"**/CMakeFiles": true,
+		"**/CMakeCache.txt": true,
+		"**/cmake_install.cmake": true,
 		"**/.git": true,
 		"**/.DS_Store": true,
 		"**/*.svn": true,
@@ -60,23 +72,18 @@
 		"**/*.pyc": true,
 		"**/*.pyo": true,
 		"**/*.so": true,
-		"**/coverage": true,
-		"**/logs": true
+		"**/coverage": true
 	},
 
-	"workbench.colorTheme": "Solarized Light",
-
-	"workbench.iconTheme": "simple-icons",
-
-	"workbench.fontAliasing": "antialiased",
+	//-------- Plugins configuration --------
 
 	"vim.disableAnnoyingNeovimMessage": true,
 
-	"window.zoomLevel": 0,
+	// Enable C++ linter
+	"C_Cpp.intelliSenseEngine": "Default",
 
-	"gitlens.blame.line.enabled": false,
-	"gitlens.statusBar.enabled": false,
+	// Hide Project Manager from the left panel
+	"projectManager.treeview.visible": false,
 
-	// Enable C++ linter.
-	"C_Cpp.intelliSenseEngine": "Default"
+	"projectManager.showProjectNameInStatusBar": false
 }
