@@ -47,6 +47,8 @@
 
 	"files.autoSave": "afterDelay",
 
+	"terminal.integrated.shell.osx": "/bin/zsh",
+
 	// Disable statistics reporting.
 	"telemetry.enableTelemetry": false,
 
