@@ -49,6 +49,40 @@ setopt HIST_REDUCE_BLANKS
 # Remove no needed spaces (e.g. trailing)
 setopt HIST_IGNORE_SPACE
 
+# Make sure that the terminal is in application mode when zle is active, since
+# only then values from $terminfo are valid
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+  function zle-line-init() {
+    echoti smkx
+  }
+
+  function zle-line-finish() {
+    echoti rmkx
+  }
+
+  zle -N zle-line-init
+  zle -N zle-line-finish
+fi
+
+# Search in the commands history using arrow keys
+if [[ "${terminfo[kcuu1]}" != "" ]]; then
+    autoload -U up-line-or-beginning-search
+    zle -N up-line-or-beginning-search
+    bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+fi
+
+if [[ "${terminfo[kcud1]}" != "" ]]; then
+    autoload -U down-line-or-beginning-search
+    zle -N down-line-or-beginning-search
+    bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+fi
+
+# allow ctrl-a to move to the beginning of a line
+bindkey '^a' beginning-of-line
+
+# allow ctrl-e to move to the end of a line
+bindkey '^e' end-of-line
+
 # Mark ssh connection in cmdline prompt
 if [ -n "$SSH_CLIENT" ]; then
     text="ssh"
