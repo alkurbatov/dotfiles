@@ -52,16 +52,18 @@ setopt HIST_IGNORE_SPACE
 # Make sure that the terminal is in application mode when zle is active, since
 # only then values from $terminfo are valid
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-  function zle-line-init() {
-    echoti smkx
-  }
+    function zle-line-init()
+    {
+        echoti smkx
+    }
 
-  function zle-line-finish() {
-    echoti rmkx
-  }
+    function zle-line-finish()
+    {
+        echoti rmkx
+    }
 
-  zle -N zle-line-init
-  zle -N zle-line-finish
+    zle -N zle-line-init
+    zle -N zle-line-finish
 fi
 
 # Search in the commands history using arrow keys
@@ -84,12 +86,24 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
 # Mark ssh connection in cmdline prompt
-if [ -n "$SSH_CLIENT" ]; then
+if [ -n "${SSH_CLIENT}" ]; then
     text="ssh"
 fi
 
+# Enable prompt update on directory change
+setopt prompt_subst
+
+# Print current git branch
+git-prompt()
+{
+    branch=`git rev-parse --abbrev-ref HEAD 2>/dev/null`
+    if [ -n "${branch}" ]; then
+        echo "(${branch})"
+    fi
+}
+
 # Format prompt
-PROMPT="%{$fg[blue]%}[%{$fg[green]%}%n%{$fg[blue]%}@%{$fg[green]%}%m%{$fg[blue]%}] %2d%{$reset_color%} $text> "
+PROMPT='%{$fg[blue]%}[%{$fg[green]%}%n%{$fg[blue]%}@%{$fg[green]%}%m%{$fg[blue]%}] %2d%{$reset_color%} %{$fg[red]%}$(git-prompt)%{$reset_color%} $text> '
 
 # Expand PATH
 typeset -U path
@@ -110,16 +124,17 @@ cdpath+=(~/work/src/git.sw.ru/alkurbatov)
 cdpath+=(~/work/src/github.com/alkurbatov)
 
 # Colored man pages
-man() {
- env \
-  LESS_TERMCAP_mb=$(printf "\e[1;36m") \
-  LESS_TERMCAP_md=$(printf "\e[1;36m") \
-  LESS_TERMCAP_me=$(printf "\e[0m") \
-  LESS_TERMCAP_se=$(printf "\e[0m") \
-  LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-  LESS_TERMCAP_ue=$(printf "\e[0m") \
-  LESS_TERMCAP_us=$(printf "\e[1;32m") \
-  man "$@"
+man()
+{
+    env \
+    LESS_TERMCAP_mb=$(printf "\e[1;36m") \
+    LESS_TERMCAP_md=$(printf "\e[1;36m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
 }
 
 # Load aliases
