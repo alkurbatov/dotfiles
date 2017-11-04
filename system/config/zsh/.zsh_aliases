@@ -53,6 +53,8 @@ else
     alias ls='ls --color=auto'
     alias mc='. /usr/lib/mc/mc-wrapper.sh'
     # alias mc='. /usr/libexec/mc/mc-wrapper.sh' # for Fedora
+    alias shutdown='sudo /sbin/shutdown'
+    alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
     alias urxvt-reload='xrdb -load ~/.Xresources'
     alias yum='sudo yum'
 fi
