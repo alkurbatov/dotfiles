@@ -28,3 +28,6 @@ export GOPATH=$HOME/work
 export EDITOR=vim
 export SVN_EDITOR=vim
 
+# K8s access
+export KUBECONFIG=~/k8s.conf
+
