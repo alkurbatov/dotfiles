@@ -34,8 +34,6 @@ alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
 alias kver='uname -r'
-alias mount='sudo mount'
-alias umount='sudo umount'
 
 if [[ "$OSTYPE" = darwin* ]]; then
     alias grep='grep -n --color=always'
@@ -53,6 +51,8 @@ else
     alias ls='ls --color=auto'
     alias mc='. /usr/lib/mc/mc-wrapper.sh'
     # alias mc='. /usr/libexec/mc/mc-wrapper.sh' # for Fedora
+    alias mount='sudo mount'
+    alias umount='sudo umount'
     alias shutdown='sudo /sbin/shutdown'
     alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
     alias urxvt-reload='xrdb -load ~/.Xresources'
