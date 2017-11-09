@@ -63,11 +63,14 @@ fi
 alias cls='clear'
 alias ipconfig='ifconfig'
 
-# Aliases for work.
+# Aliases for work
 alias bd=". bd -si"
-alias npm-update="sudo npm install -g npm"
 alias sshx='ssh -Y -C'
 alias svn-log="svn log | less"
+
+# NPM aliases
+alias npm-reinstall='rm -rvf package-lock.json node_modules && npm install'
+alias npm-update='sudo npm install -g npm'
 
 # Git aliases
 alias gc='git commit -v'
