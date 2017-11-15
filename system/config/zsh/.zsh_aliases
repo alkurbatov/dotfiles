@@ -49,8 +49,8 @@ else
     alias grep="grep --color=always"
     alias lh='ls -lhS --color=auto'
     alias ls='ls --color=auto'
-    alias mc='. /usr/lib/mc/mc-wrapper.sh'
-    # alias mc='. /usr/libexec/mc/mc-wrapper.sh' # for Fedora
+    alias mc='. /usr/libexec/mc/mc-wrapper.sh' # Fedora & CentOs
+    # alias mc='. /usr/lib/mc/mc-wrapper.sh' # Other Linux
     alias mount='sudo mount'
     alias umount='sudo umount'
     alias shutdown='sudo /sbin/shutdown'
