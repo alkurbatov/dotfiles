@@ -79,13 +79,13 @@
 
 	//-------- Plugins configuration --------
 
-	"vim.disableAnnoyingNeovimMessage": true,
-
 	// Enable C++ linter
 	"C_Cpp.intelliSenseEngine": "Default",
 
 	// Hide Project Manager from the left panel
 	"projectManager.treeview.visible": false,
 
-	"projectManager.showProjectNameInStatusBar": false
+	"projectManager.showProjectNameInStatusBar": false,
+
+	"python.pythonPath": "/opt/local/bin/python2.7"
 }
