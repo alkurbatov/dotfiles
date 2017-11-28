@@ -43,8 +43,6 @@
 
 	"editor.wordWrap": "on",
 
-	"explorer.sortOrder": "type",
-
 	"files.autoSave": "afterDelay",
 
 	"terminal.integrated.shell.osx": "/bin/zsh",
