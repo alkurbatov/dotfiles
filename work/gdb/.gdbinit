@@ -19,6 +19,7 @@
 # Just initial gdb configuration.
 
 handle SIG35 nostop
+handle SIG41 nostop
 handle SIGPIPE nostop
 
 # Pretty printers
