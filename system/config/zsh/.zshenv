@@ -21,6 +21,9 @@
 # Path to your oh-my-zsh installation
 # export ZSH=/Users/alkurbatov/.oh-my-zsh
 
+# Github parameters
+export GITHUB_USER=alkurbatov
+
 # Go stuff
 export GOPATH=$HOME/work
 
