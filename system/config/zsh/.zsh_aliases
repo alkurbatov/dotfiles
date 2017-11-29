@@ -34,6 +34,8 @@ alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
 alias kver='uname -r'
+alias reload-zsh='source ~/.zshrc'
+alias vi='vim'
 
 if [[ "$OSTYPE" = darwin* ]]; then
     alias grep='grep -n --color=always'
