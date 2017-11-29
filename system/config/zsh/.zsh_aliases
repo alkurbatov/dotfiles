@@ -48,7 +48,8 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias rm='rm -i'
 else
     alias dnf='sudo dnf'
-    alias grep="grep --color=always"
+    alias gdb='gdb --silent'
+    alias grep='grep --color=always'
     alias lh='ls -lhS --color=auto'
     alias ls='ls --color=auto'
     alias mc='. /usr/libexec/mc/mc-wrapper.sh' # Fedora & CentOs
