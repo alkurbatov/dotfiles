@@ -28,6 +28,16 @@ setopt autocd
 autoload -Uz compinit
 compinit
 
+# When completing from the middle of the word,
+# move the cursor to the end of the word
+setopt always_to_end
+
+# Spelling correction for commands
+setopt correct
+
+# Spelling correction for arguments
+setopt correctall
+
 # Don't beep on errors
 setopt No_Beep
 
