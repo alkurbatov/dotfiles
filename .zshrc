@@ -106,15 +106,14 @@ setopt prompt_subst
 # Print current git branch
 git-prompt()
 {
-    branch=`git rev-parse --abbrev-ref HEAD 2>/dev/null`
-    if [ -n "${branch}" ]; then
-        echo -n "(${branch})"
+    git rev-parse --git-dir > /dev/null 2>&1
+    if (( $? )) then
+        return
     fi
 
-    if ! git diff-index --quiet HEAD -- 2>/dev/null
-    then
-        echo -n "*"
-    fi
+    echo -n "(`git rev-parse --abbrev-ref HEAD 2>/dev/null`)"
+
+    [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo -n "*"
 }
 
 # Format prompt
