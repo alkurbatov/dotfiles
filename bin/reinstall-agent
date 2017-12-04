@@ -22,7 +22,7 @@
 # and clean up all required folders.
 
 yum groupremove -y 'VA Agent'
-yum remove va-*-debuginfo rdbmspp-debuginfo sqlite3odbc-debuginfo va-agent-swamon
+yum remove -y va-*-debuginfo rdbmspp-debuginfo sqlite3odbc-debuginfo va-agent-swamon
 
 rm -rf /var/opt/pva
 rm -rf /var/log/pva
