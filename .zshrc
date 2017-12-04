@@ -108,7 +108,12 @@ git-prompt()
 {
     branch=`git rev-parse --abbrev-ref HEAD 2>/dev/null`
     if [ -n "${branch}" ]; then
-        echo "(${branch})"
+        echo -n "(${branch})"
+    fi
+
+    if ! git diff-index --quiet HEAD -- 2>/dev/null
+    then
+        echo -n "*"
     fi
 }
 
