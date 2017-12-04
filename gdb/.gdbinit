@@ -37,3 +37,9 @@ end
 
 set print pretty 1
 
+# Specify type of arguments for which the backtrace command
+# will display values.
+# Set 'all' to print everything (e.g. structures and std::vectors).
+# Set 'scalar' to print scalar values (including pointers and C strings).
+set print frame-arguments scalar
+
