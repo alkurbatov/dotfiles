@@ -1,43 +1,62 @@
-syntax enable
-set background=light
-colorscheme solarized
+" Enable syntax highlight
+syntax on
 
-set number " Show line numbers
-syntax on  " Enable syntax highlighting
+" Disable vi compatibility mode
+set nocompatible
 
-set showcmd      " Show (partial) command in status line.
-set showmatch    " Show matching brackets.
-set ignorecase   " Do case insensitive matching
-set smartcase    " Do smart case matching
-set hlsearch     " Highlight everything that matches
-set incsearch    " Incremental search
-set autowrite    " Automatically save before commands like :next and :make
-set hidden       " Hide buffers when they are abandoned
-set mouse=a      " Enable mouse usage (all modes)
+" Show linenumbers
+set number
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+" Disable beep on errors
+set noerrorbells
+set novisualbell
 
-"set et  " For Python files mostly
+" Show line and column numbers in the prompt
+set ruler
 
-set formatoptions=tcro
-set wrap
-set linebreak
-set list                " Show line endings
+" Always show status bar
+set laststatus=2
 
-set guifont=inconsolata\ 12
+" Show lineendings, tabs and trailing spaces
+" FIXME: find better tab sym.
+" set list listchars=tab:\ \ ,trail:.
+set list listchars=tab:<-,trail:·
 
-abbreviate #i #include
-abbreviate #d #define
-abbreviate #f #ifdef
-abbreviate #e #endif
+" Enable case insensitive search
+set ignorecase
 
+" Make the search case sensitive if a pattern contains an uppercase letter
+set smartcase
+
+" Highlight found symbols/words
+set hlsearch
+
+" Disable the into message
+set shortmess+=I
+
+" Disable arrow keys and mouse, we love pain
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
+set mouse=
+
+" Don't beep
+set visualbell
+
+" Enable filetype plugin to use specific file type settings
+filetype plugin on
+
+" Load templates for new files
+autocmd BufNewFile node.js 0r ~/.vim/skel/node.js
+
+" Automatically correct wrong input
 iab paralells parallels
 iab lcocal local
 iab heigth height
 iab udpate update
-
-" Plugin specific
-let g:LargeFile=5
 
