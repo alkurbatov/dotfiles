@@ -22,7 +22,7 @@
 # and clean up all required folders.
 
 yum groupremove -y 'VA Management Node' 'VA Control Center'
-yum remove -y va-cc-storage va-cc-i18n-ru va-docs vzlicutils va-*-debuginfo rdbmspp-debuginfo sqlite3odbc-debuginfo va-mn-swamon
+yum remove -y va-cc-storage va-cc-i18n-ru va-docs vzlicutils va-mn-*-debuginfo rdbmspp-debuginfo sqlite3odbc-debuginfo va-mn-swamon
 
 rm -rf /etc/opt/pva/cc
 rm -rf /var/opt/pva
