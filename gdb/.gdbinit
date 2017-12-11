@@ -37,6 +37,9 @@ end
 
 set print pretty 1
 
+# Always print whole strings
+set print elements 0
+
 # Specify type of arguments for which the backtrace command
 # will display values.
 # Set 'all' to print everything (e.g. structures and std::vectors).
