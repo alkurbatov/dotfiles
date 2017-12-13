@@ -34,6 +34,9 @@ set hlsearch
 " Disable the into message
 set shortmess+=I
 
+" Enable text folding
+set foldmethod=syntax
+
 " Disable arrow keys and mouse, we love pain
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
