@@ -21,8 +21,7 @@
 # Completely reinstall Virtuozzo Automator Management Node
 # and clean up all required folders.
 
-yum groupremove -y 'VA Management Node' 'VA Control Center'
-yum remove -y va-cc-storage va-cc-i18n-ru va-docs vzlicutils va-mn-*-debuginfo rdbmspp-debuginfo sqlite3odbc-debuginfo va-mn-swamon
+yum remove -y va-mn-* va-cc-* vaconfig vzlicutils rdbmspp-debuginfo sqlite3odbc-debuginfo
 
 rm -rf /etc/opt/pva/cc
 rm -rf /var/opt/pva
@@ -30,8 +29,11 @@ rm -rf /var/log/pva
 rm -rf /opt/pva
 
 yum clean all
-yum groupinstall -y 'VA Management Node' 'VA Control Center'
-yum install -y va-cc-storage va-cc-i18n-ru va-docs va-*-debuginfo rdbmspp-debuginfo sqlite3odbc-debuginfo va-mn-swamon
+yum install -y va-mn-* va-cc-* vaconfig vzlicutils rdbmspp-debuginfo sqlite3odbc-debuginfo
+
+# Disable the release repos in order to avoid conflicts with the factory.
+# The following commands require yum-utils package.
+yum-config-manager --disable va-mn va-mn-updates
 
 for i in vzlicmon va-mn va-cc; do
     systemctl start ${i}
