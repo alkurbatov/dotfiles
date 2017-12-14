@@ -35,6 +35,11 @@ yum install -y va-mn-* va-cc-* vaconfig vzlicutils rdbmspp-debuginfo sqlite3odbc
 # The following commands require yum-utils package.
 yum-config-manager --disable va-mn va-mn-updates
 
+# Increase verbosity
+/opt/pva/mn/bin/vzlxmlman -s 6 -i data/system/configuration/log_level /var/opt/pva/mn/etc/vzagent.conf
+sed -i 's:<level>1</level>:<level>6</level>:' /etc/opt/pva/cc/pvacc.conf
+sed -i 's:<agent_level>3</agent_level>:<agent_level>6</agent_level>:' /etc/opt/pva/cc/pvacc.conf
+
 for i in vzlicmon va-mn va-cc; do
     systemctl start ${i}
 
