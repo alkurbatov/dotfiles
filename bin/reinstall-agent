@@ -32,6 +32,9 @@ yum clean all
 yum groupinstall -y 'VA Agent'
 yum install -y va-agent-storage va-pp-httpd va-agent-*-debuginfo rdbmspp-debuginfo sqlite3odbc-debuginfo va-agent-swamon
 
+# Increase verbosity
+/opt/pva/agent/bin/vzlxmlman -s 6 -i data/system/configuration/log_level /var/opt/pva/agent/etc/vzagent.conf
+
 for i in va-agent httpd; do
     systemctl start ${i}
 
