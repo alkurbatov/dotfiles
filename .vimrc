@@ -37,6 +37,9 @@ set shortmess+=I
 " Enable text folding
 set foldmethod=syntax
 
+" Unfold the code by default
+set foldlevel=99
+
 " Disable arrow keys and mouse, we love pain
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
