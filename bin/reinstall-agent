@@ -21,16 +21,14 @@
 # Completely reinstall Virtuozzo Automator Agent
 # and clean up all required folders.
 
-yum groupremove -y 'VA Agent'
-yum remove -y va-*-debuginfo rdbmspp-debuginfo sqlite3odbc-debuginfo va-agent-swamon
+yum -y remove va-agent-* va-pp-* rdbmspp-debuginfo sqlite3odbc-debuginfo
 
 rm -rf /var/opt/pva
 rm -rf /var/log/pva
 rm -rf /opt/pva
 
 yum clean all
-yum groupinstall -y 'VA Agent'
-yum install -y va-agent-storage va-pp-httpd va-agent-*-debuginfo rdbmspp-debuginfo sqlite3odbc-debuginfo va-agent-swamon
+yum install -y va-agent-* va-pp-* rdbmspp-debuginfo sqlite3odbc-debuginfo
 
 # Increase verbosity
 /opt/pva/agent/bin/vzlxmlman -s 6 -i data/system/configuration/log_level /var/opt/pva/agent/etc/vzagent.conf
