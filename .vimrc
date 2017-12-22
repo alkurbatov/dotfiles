@@ -54,6 +54,9 @@ set mouse=
 " Don't beep
 set visualbell
 
+" Change bultin grep tool
+set grepprg=ack
+
 " Enable filetype plugin to use specific file type settings
 filetype plugin on
 
