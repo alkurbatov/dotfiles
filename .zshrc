@@ -117,7 +117,8 @@ git-prompt()
 }
 
 # Format prompt
-PROMPT='%{$fg[blue]%}[%{$fg[green]%}%n%{$fg[blue]%}@%{$fg[green]%}%m%{$fg[blue]%}] %2d%{$reset_color%} %{$fg[red]%}$(git-prompt)%{$reset_color%} $text> '
+PROMPT='%{$fg[blue]%}%2d%{$reset_color%} %{$fg[red]%}$(git-prompt)%{$reset_color%} $text> '
+RPROMPT='%{$fg[blue]%}[%{$fg[green]%}%n%{$fg[blue]%}@%{$fg[green]%}%m%{$fg[blue]%}]'
 
 # Expand PATH
 typeset -U path
