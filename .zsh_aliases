@@ -56,6 +56,7 @@ else
     alias mc='. /usr/libexec/mc/mc-wrapper.sh' # Fedora & CentOs
     # alias mc='. /usr/lib/mc/mc-wrapper.sh' # Other Linux
     alias mount='sudo mount'
+    alias mutt="HOME=~/.mutt mutt"
     alias umount='sudo umount'
     alias shutdown='sudo /sbin/shutdown'
     alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
