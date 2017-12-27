@@ -123,12 +123,12 @@ RPROMPT='%{$fg[blue]%}[%{$fg[green]%}%n%{$fg[blue]%}@%{$fg[green]%}%m%{$fg[blue]
 # Expand PATH
 typeset -U path
 
-path+=(/opt/local/bin)
+path=(/opt/local/bin)
+path+=(/opt/local/sbin)
 path+=(/usr/local/bin)
+path+=(/usr/local/sbin)
 path+=(/usr/bin)
 path+=(/bin)
-path+=(/opt/local/sbin)
-path+=(/usr/local/sbin)
 path+=(/usr/sbin)
 path+=(/sbin)
 path+=($GOPATH/bin)
