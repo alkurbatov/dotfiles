@@ -1,0 +1,10 @@
+  tasks:
+    - name: Add virtual IP
+      command: "{{ item }} chdir=/etc/sysconfig/network-scripts/"
+      with_items:
+      - /usr/bin/cp ifcfg-eth0 ifcfg-eth0:1
+      - /usr/bin/sed -i "s/eth0/eth0:1/" ifcfg-eth0:1
+      - /usr/bin/sed -i "s/BOOTPROTO=dhcp/IPADDR=192.168.56.103/" ifcfg-eth0:1
+      - /usr/bin/sed -i "s/IPV6INIT=yes/IPV6INIT=no/" ifcfg-eth0:1
+      - /usr/sbin/ifup eth0:1
+
