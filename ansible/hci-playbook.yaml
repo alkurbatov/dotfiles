@@ -1,0 +1,60 @@
+---
+- hosts: master
+
+  tasks:
+    - name: Add VZLinux Base reporitory
+      yum_repository:
+        file: vzlinux
+        name: virtuozzolinux-base
+        description: Virtuozzo Linux base repository
+        mirrorlist: http://repo.virtuozzo.com/vzlinux/mirrorlist/mirrors-7-os
+        gpgcheck: no
+
+    - name: Add VZLinux Updates reporitory
+      yum_repository:
+        file: vzlinux
+        name: virtuozzolinux-updates
+        description: Virtuozzo Linux updates repository
+        mirrorlist: http://repo.virtuozzo.com/vzlinux/mirrorlist/mirrors-7-updates
+        gpgcheck: no
+
+    - name: Install software
+      yum: state=present name={{ item }}
+      with_items:
+      - crudini
+      - curl
+      - git
+      - htop
+      - iproute
+      - mc
+      - mlocate
+      - vim
+      - wget
+      - zsh
+
+    - name: Make ZSH default shell
+      command: chsh -s /usr/bin/zsh
+
+    - name: Copy configuration
+      copy:
+        src: "{{ item }}"
+        dest: /root
+        owner: root
+        mode: 644
+      with_fileglob:
+      - ~/work/src/github.com/alkurbatov/stash/.inputrc
+      - ~/work/src/github.com/alkurbatov/stash/.vimrc
+      - ~/work/src/github.com/alkurbatov/stash/.zsh*
+
+    - name: Install autosuggestion plugin
+      command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+    - name: Extend token lifetime
+      command: "{{ item }}"
+      with_items:
+      - /usr/bin/crudini --set ~vstoradmin/etc/keystone/keystone.conf token expiration 3600
+      - systemctl restart vstorage-ui-keystone-admin vstorage-ui-keystone-public
+
+    - name: Update locate DB
+      command: /usr/bin/updatedb
+
