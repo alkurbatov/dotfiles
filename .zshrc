@@ -160,5 +160,5 @@ man()
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Have fun
-fortune
+#fortune
 
