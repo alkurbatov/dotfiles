@@ -36,6 +36,7 @@ alias du='du -h'
 alias kver='uname -r'
 alias reload-zsh='source ~/.zshrc'
 alias rmr='rm -rf'
+alias show-path='echo $PATH | tr -s ":" "\n"'
 alias vi='vim'
 
 if [[ "$OSTYPE" = darwin* ]]; then
