@@ -32,6 +32,12 @@
       - wget
       - zsh
 
+    - name: Install the ack utility
+      get_url:
+        url: https://beyondgrep.com/ack-2.22-single-file
+        dest: /usr/bin/ack
+        mode: 0755
+
     - name: Make ZSH default shell
       command: chsh -s /usr/bin/zsh
 
