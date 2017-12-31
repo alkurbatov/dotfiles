@@ -55,12 +55,14 @@ else
     alias ifs="ip link | awk 'NR%2==1' | awk '{print $2,$8,$9}' | tr -d ':'"
     alias lh='ls -lhS --color=auto'
     alias ls='ls --color=auto'
+    alias lscpu='lscpu -e'
     alias mc='. /usr/libexec/mc/mc-wrapper.sh' # Fedora & CentOs
     # alias mc='. /usr/lib/mc/mc-wrapper.sh' # Other Linux
     alias mount='sudo mount'
     alias mutt="HOME=~/.mutt mutt"
     alias umount='sudo umount'
     alias shutdown='sudo /sbin/shutdown'
+    alias tree='tree -h'
     alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
     alias urxvt-reload='xrdb -load ~/.Xresources'
     alias yum='sudo yum'
