@@ -103,17 +103,30 @@ fi
 # Enable prompt update on directory change
 setopt prompt_subst
 
-# Print current git branch
+# Returns "*" if the current git branch is dirty.
+function parse_git_dirty {
+  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "*"
+}
+
+# Returns "|shashed:N" where N is the number of stashed states (if any)
+function parse_git_stash {
+  local stash=`expr $(git stash list 2>/dev/null| wc -l)`
+
+  if [ "$stash" != "0" ]; then
+    echo "|stashed:$stash"
+  fi
+}
+
+# Print git info
+# Taken from:
+# http://0xfe.blogspot.ru/2010/04/adding-git-status-information-to-your.html
 git-prompt()
 {
-    git rev-parse --git-dir > /dev/null 2>&1
-    if (( $? )) then
-        return
+    local ref=$(git symbolic-ref HEAD 2>/dev/null | cut -d'/' -f3)
+
+    if [ "$ref" != "" ]; then
+        echo "($ref$(parse_git_dirty)$(parse_git_stash)) "
     fi
-
-    echo -n "(`git rev-parse --abbrev-ref HEAD 2>/dev/null`)"
-
-    [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo -n "*"
 }
 
 # Format prompt
