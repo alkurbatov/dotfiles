@@ -64,3 +64,9 @@
     - name: Update locate DB
       command: /usr/bin/updatedb
 
+    - name: Disable iptables
+      command: "{{ item }}"
+      with_items:
+      - systemctl stop iptables
+      - systemctl disable iptables
+
