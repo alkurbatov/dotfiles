@@ -34,6 +34,9 @@ alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
 alias kver='uname -r'
+alias mkdir='mkdir -pv'
+alias poweroff='sudo poweroff'
+alias reboot='sudo reboot'
 alias reload-zsh='source ~/.zshrc'
 alias rmr='rm -rf'
 alias show-path='echo $PATH | tr -s ":" "\n"'
@@ -49,6 +52,9 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias port-update='port selfupdate; port upgrade outdated'
     alias rm='rm -i'
 else
+    alias apt-cache='sudo apt-cache'
+    alias apt-get='sudo apt-get'
+    alias apt-update='sudo apt-get update && sudo apt-get upgrade'
     alias dnf='sudo dnf'
     alias gdb='gdb --silent'
     alias grep='grep --color=always'
@@ -58,14 +64,17 @@ else
     alias lscpu='lscpu -e'
     alias mc='. /usr/libexec/mc/mc-wrapper.sh' # Fedora & CentOs
     # alias mc='. /usr/lib/mc/mc-wrapper.sh' # Other Linux
+    alias meminfo='free -h -l'
     alias mount='sudo mount'
-    alias mutt="HOME=~/.mutt mutt"
+    alias mutt='HOME=~/.mutt mutt'
+    alias ports='netstat -tulanp'
     alias umount='sudo umount'
     alias shutdown='sudo /sbin/shutdown'
     alias tree='tree -h'
     alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
     alias urxvt-reload='xrdb -load ~/.Xresources'
     alias yum='sudo yum'
+    alias yum-update='sudo yum clean all && sudo yum update'
 fi
 
 # Win-like behaviour
