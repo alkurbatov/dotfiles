@@ -48,9 +48,9 @@
         owner: root
         mode: 644
       with_fileglob:
-      - ~/work/src/github.com/alkurbatov/stash/.inputrc
-      - ~/work/src/github.com/alkurbatov/stash/.vimrc
-      - ~/work/src/github.com/alkurbatov/stash/.zsh*
+      - ~/work/src/github.com/alkurbatov/dotfiles/.inputrc
+      - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
+      - ~/work/src/github.com/alkurbatov/dotfiles/.zsh*
 
     - name: Install autosuggestion plugin
       command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
