@@ -1,0 +1,39 @@
+---
+- hosts: workhorses,pva
+
+  tasks:
+    - name: Search for work user
+      command: grep alkurbatov -q /etc/passwd
+      register: alkurbatov_found
+      ignore_errors: true
+
+    - name: Update all packages
+      yum: name=* state=latest
+
+    - name: Update configuration for root
+      copy:
+        src: "{{ item }}"
+        dest: /root
+        owner: root
+        mode: 644
+      with_fileglob:
+      - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
+      - ~/work/src/github.com/alkurbatov/dotfiles/.zsh*
+
+    - name: Update configuration for alkurbatov
+      when: alkurbatov_found|success
+      copy:
+        src: "{{ item }}"
+        dest: /home/alkurbatov
+        owner: alkurbatov
+        mode: 644
+      with_fileglob:
+      - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
+      - ~/work/src/github.com/alkurbatov/dotfiles/.zsh*
+
+    - name: Reboot server
+      command: /sbin/reboot
+      async: 0
+      poll: 0
+      ignore_errors: true
+

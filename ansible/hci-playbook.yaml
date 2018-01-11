@@ -58,7 +58,7 @@
     - name: Extend token lifetime
       command: "{{ item }}"
       with_items:
-      - /usr/bin/crudini --set ~vstoradmin/etc/keystone/keystone.conf token expiration 3600
+      - /usr/bin/crudini --set ~vstoradmin/etc/keystone/keystone.conf token expiration 360000
       - systemctl restart vstorage-ui-keystone-admin vstorage-ui-keystone-public
 
     - name: Update locate DB
