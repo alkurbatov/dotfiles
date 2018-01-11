@@ -70,3 +70,13 @@
       - systemctl stop iptables
       - systemctl disable iptables
 
+    - name: Configure OpenStack environment
+      shell: "{{ item }}"
+      with_items:
+      - echo "export OS_AUTH_URL=https://127.0.0.1:5000/v3" >> /root/.zshenv
+      - echo "export OS_DOMAIN_ID=default" >> /root/.zshenv
+      - echo "export OS_IDENTITY_API_VERSION=3" >> /root/.zshenv
+      - echo "export OS_PROJECT_NAME=admin" >> /root/.zshenv
+      - echo "export OS_USERNAME=admin" >> /root/.zshenv
+      - echo "export OS_PASSWORD=1q2w3e" >> /root/.zshenv
+
