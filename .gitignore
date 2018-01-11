@@ -33,3 +33,5 @@ node_modules
 # Python files
 *.py[cod]
 
+# Ansible routine
+*.retry
