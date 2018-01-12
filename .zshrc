@@ -151,6 +151,7 @@ cdpath=(~/work)
 cdpath+=(~/work/src/git.acronis.com/alkurbatov)
 cdpath+=(~/work/src/git.sw.ru/alkurbatov)
 cdpath+=(~/work/src/github.com/alkurbatov)
+cdpath+=(~/work/src/github.com/openstack)
 
 # Colored man pages
 man()
