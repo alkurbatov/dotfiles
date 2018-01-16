@@ -35,3 +35,7 @@ node_modules
 
 # Ansible routine
 *.retry
+
+# Vim swap files
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
