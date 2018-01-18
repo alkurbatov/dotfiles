@@ -105,3 +105,6 @@ alias gra='git rebase --abort'
 alias grc='git rebase --continue'
 alias gs='git status -sb'
 
+# Testing tools
+alias testr-init='rm -rf .testrepository && testr init'
+
