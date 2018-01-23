@@ -68,4 +68,6 @@ iab paralells parallels
 iab lcocal local
 iab heigth height
 iab udpate update
+iab multy multi
+iab multypart multipart
 
