@@ -86,6 +86,9 @@ alias bd=". bd -si"
 alias sshx='ssh -Y -C'
 alias svn-log="svn log | less"
 
+# OpenStack aliases
+alias openstack="openstack --insecure"
+
 # NPM aliases
 alias npm-reinstall='rm -rvf package-lock.json node_modules && npm install'
 alias npm-update='sudo npm install -g npm'
@@ -107,4 +110,6 @@ alias gs='git status -sb'
 
 # Testing tools
 alias testr-init='rm -rf .testrepository && testr init'
+alias pyunit='python -m unittest -v'
+alias pyunittools='python -m testtools.run'
 
