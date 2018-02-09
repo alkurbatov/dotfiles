@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# This file is a part of Dotfiles project
+#
+# Copyright (C) 2018, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
+#
+# Dotfiles is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Dotfiles is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+# Purprose:
+# Try to clean up all that mess created by devstack.
+
+
+/opt/stack/devstack/unstack.sh
+/opt/stack/devstack/clean.sh
+
+for i in 02-proxy-uwsgi.conf 10-wsgi.conf; do
+    rm -f /etc/httpd/conf.modules.d/${i}
+done
+
+for i in connection-tuning.conf glance-registry-tls-proxy.conf \
+         glance-wsgi-api.conf http-services-tls-proxy.conf \
+         keystone-auth-tls-proxy.conf keystone-service-tls-proxy.conf \
+         nova-api-wsgi.conf.disabled \
+         neutron-tls-proxy.conf; do
+    rm -fv /etc/httpd/conf.d/${i}
+done
+
