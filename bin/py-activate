@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# This file is a part of Dotfiles project
+#
+# Copyright (C) 2018, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
+#
+# Dotfiles is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Dotfiles is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+# Purprose:
+# Change default active version of Python.
+
+
+for i in python pip virtualenv tox pylint; do
+    sudo port select --set ${i} ${i}${1}
+done
+
+
+sudo port select --set pep8 pep8-${1}
+sudo port select --set autopep8 autopep8-${1}
+
