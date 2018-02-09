@@ -18,7 +18,9 @@
 // Purprose:
 // Tweak vscode
 
-// Put this file to ~/.config/Code/User/ folder in order to apply tweaks.
+// Put this file to
+// "~/Library/Application Support/Code/User/settings.json"
+// folder in order to apply tweaks.
 
 {
 	"editor.autoIndent": true,
@@ -27,9 +29,12 @@
 
 	"editor.detectIndentation": true,
 
-	"editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+	// https://github.com/tonsky/FiraCode
+	"editor.fontFamily": "Fira Code",
 
-	"editor.fontSize": 14,
+	"editor.fontLigatures": true,
+
+	"editor.fontSize": 15,
 
 	"editor.formatOnPaste": false,
 
@@ -37,13 +42,15 @@
 
 	"editor.lineNumbers": "on",
 
-	"editor.minimap.enabled": true,
+	"editor.minimap.enabled": false,
 
 	"editor.renderWhitespace": "all",
 
 	"editor.wordWrap": "on",
 
 	"files.autoSave": "afterDelay",
+
+	"problems.decorations.enabled": false,
 
 	"terminal.integrated.shell.osx": "/bin/zsh",
 
@@ -52,9 +59,13 @@
 
 	"telemetry.enableCrashReporter": false,
 
-	"workbench.fontAliasing": "antialiased",
+	"workbench.colorTheme": "Solarized Light",
 
-	"workbench.iconTheme": "vscode-great-icons",
+	"workbench.fontAliasing": "auto",
+
+	"workbench.iconTheme": "vscode-icons",
+
+	"workbench.statusBar.feedback.visible": false,
 
 	"window.zoomLevel": 0,
 
@@ -72,6 +83,7 @@
 		"**/*.pyc": true,
 		"**/*.pyo": true,
 		"**/*.so": true,
+		"**/__pycache__": true,
 		"**/coverage": true
 	},
 
@@ -85,5 +97,27 @@
 
 	"projectManager.showProjectNameInStatusBar": false,
 
-	"python.pythonPath": "/opt/local/bin/python2.7"
+	// Python specific
+	"python.pythonPath": "/opt/local/bin/python2.7",
+
+	"python.disablePromptForFeatures": [
+		"pylint"
+	],
+
+	"python.linting.pylintUseMinimalCheckers": false,
+
+	"gitlens.advanced.messages": {
+		"suppressCommitHasNoPreviousCommitWarning": false,
+		"suppressCommitNotFoundWarning": false,
+		"suppressFileNotUnderSourceControlWarning": false,
+		"suppressGitVersionWarning": false,
+		"suppressLineUncommittedWarning": false,
+		"suppressNoRepositoryWarning": false,
+		"suppressResultsExplorerNotice": false,
+		"suppressUpdateNotice": true,
+		"suppressWelcomeNotice": true
+	},
+
+	// Can be toggled on by SHift+Alt+B
+	"gitlens.codeLens.enabled": false,
 }
