@@ -59,6 +59,8 @@ else
     alias gdb='gdb --silent'
     alias grep='grep --color=always'
     alias ifs="ip link | awk 'NR%2==1' | awk '{print $2,$8,$9}' | tr -d ':'"
+    alias ipt-list='iptables -vL --line-numbers'
+    alias ipt-watch='watch -n 2 -d iptables -nvL'
     alias lh='ls -lhS --color=auto'
     alias ls='ls --color=auto'
     alias lscpu='lscpu -e'
