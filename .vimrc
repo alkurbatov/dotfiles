@@ -4,18 +4,41 @@ syntax on
 " Disable vi compatibility mode
 set nocompatible
 
+" Harden the security
+set secure
+
+" Preferred colors
+colorscheme peachpuff
+
+" Request support of 256 colors terminal
+set t_Co=256
+
 " Show linenumbers
 set number
 
-" Disable beep on errors
+" Don't beep on errors
 set noerrorbells
+
+" And don't flash too
 set novisualbell
 
 " Show line and column numbers in the prompt
 set ruler
 
+" Show vim command you currently entering
+set showcmd
+
 " Always show status bar
 set laststatus=2
+
+" Set visual border for max line length
+set colorcolumn=80
+
+" Make the line length border less annoying
+highlight ColorColumn ctermbg=darkgray
+
+" Keep 50 lines of command line history (default is 20)
+set history=50
 
 " Show lineendings, tabs and trailing spaces
 " FIXME: find better tab sym.
@@ -50,9 +73,6 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 set mouse=
-
-" Don't beep
-set visualbell
 
 " Change bultin grep tool
 set grepprg=ack
