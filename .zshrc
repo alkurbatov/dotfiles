@@ -122,7 +122,7 @@ function parse_git_stash {
 # http://0xfe.blogspot.ru/2010/04/adding-git-status-information-to-your.html
 git-prompt()
 {
-    local ref=$(git symbolic-ref HEAD 2>/dev/null | cut -d'/' -f3)
+    local ref=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
     if [ "$ref" != "" ]; then
         echo "($ref$(parse_git_dirty)$(parse_git_stash)) "
@@ -150,6 +150,8 @@ path+=($GOPATH/bin)
 cdpath=(~/work)
 cdpath+=(~/work/src/git.acronis.com/alkurbatov)
 cdpath+=(~/work/src/git.sw.ru/alkurbatov)
+cdpath+=(~/work/src/git.sw.ru/alkurbatov/pva/frontend)
+cdpath+=(~/work/src/git.sw.ru/alkurbatov/vip)
 cdpath+=(~/work/src/github.com/alkurbatov)
 cdpath+=(~/work/src/github.com/openstack)
 
