@@ -84,10 +84,11 @@ filetype plugin on
 autocmd BufNewFile node.js 0r ~/.vim/skel/node.js
 
 " Automatically correct wrong input
-iab paralells parallels
-iab lcocal local
 iab heigth height
-iab udpate update
+iab lcocal local
 iab multy multi
 iab multypart multipart
+iab paralells parallels
+iab reecive receive
+iab udpate update
 
