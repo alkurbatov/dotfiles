@@ -1,3 +1,6 @@
+# The playbook contains the recipes which are not used in the other playbooks
+# but could be usable from time to time.
+
   tasks:
     - name: Add virtual IP
       command: "{{ item }} chdir=/etc/sysconfig/network-scripts/"
@@ -7,4 +10,10 @@
       - /usr/bin/sed -i "s/BOOTPROTO=dhcp/IPADDR=192.168.56.103/" ifcfg-eth0:1
       - /usr/bin/sed -i "s/IPV6INIT=yes/IPV6INIT=no/" ifcfg-eth0:1
       - /usr/sbin/ifup eth0:1
+
+    - name: Disable iptables
+      command: "{{ item }}"
+      with_items:
+      - systemctl stop iptables
+      - systemctl disable iptables
 

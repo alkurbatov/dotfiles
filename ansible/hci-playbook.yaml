@@ -64,12 +64,6 @@
     - name: Update locate DB
       command: /usr/bin/updatedb
 
-    - name: Disable iptables
-      command: "{{ item }}"
-      with_items:
-      - systemctl stop iptables
-      - systemctl disable iptables
-
     - name: Configure OpenStack environment
       shell: "{{ item }}"
       with_items:
@@ -79,5 +73,5 @@
       - echo "export OS_IDENTITY_API_VERSION=3" >> /root/.zshenv
       - echo "export OS_PROJECT_NAME=admin" >> /root/.zshenv
       - echo "export OS_USERNAME=admin" >> /root/.zshenv
-      - echo "export OS_PASSWORD=1q2w3e" >> /root/.zshenv
+      - echo "export OS_PASSWORD=1q2w3eQAZ" >> /root/.zshenv
 
