@@ -25,7 +25,7 @@
 /opt/stack/devstack/clean.sh
 
 for i in 02-proxy-uwsgi.conf 10-wsgi.conf; do
-    rm -f /etc/httpd/conf.modules.d/${i}
+    rm -fv /etc/httpd/conf.modules.d/${i}
 done
 
 for i in connection-tuning.conf glance-registry-tls-proxy.conf \
