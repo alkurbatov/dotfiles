@@ -18,6 +18,22 @@
         mirrorlist: http://repo.virtuozzo.com/vzlinux/mirrorlist/mirrors-7-updates
         gpgcheck: no
 
+    - name: Add VZLinux Base debuginfo repository
+      yum_repository:
+        file: vzlinux
+        name: virtuozzolinux-base-debuginfo
+        description: Virtuozzo Linux base debuginfo repository
+        mirrorlist: http://repo.virtuozzo.com/vzlinux/mirrorlist/mirrors-7-os-debug
+        gpgcheck: no
+
+    - name: Add VZLinux Updates debuginfo repository
+      yum_repository:
+        file: vzlinux
+        name: virtuozzolinux-updates-debuginfo
+        description: Virtuozzo Linux updates debuginfo repository
+        mirrorlist: http://repo.virtuozzo.com/vzlinux/mirrorlist/mirrors-7-updates-debug
+        gpgcheck: no
+
     - name: Install software
       yum: state=present name={{ item }}
       with_items:
@@ -28,6 +44,7 @@
       - iproute
       - mc
       - mlocate
+      - rh-python34-python-debuginfo
       - vim
       - wget
       - zsh
