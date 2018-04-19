@@ -111,6 +111,9 @@ alias gr='git rebase -i'
 alias gra='git rebase --abort'
 alias grc='git rebase --continue'
 alias gs='git status -sb'
+alias gst='git stash'
+alias gstp='git stash pop'
+alias gsts='git stash show -p'
 
 # Testing tools
 alias testr-init='rm -rf .testrepository && testr init'
