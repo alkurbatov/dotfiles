@@ -1,6 +1,10 @@
 # The following lines is mostly a collection
 # of ignore rules for my projects.
 
+# NodeJS product configs
+config/*
+!config/default.js
+
 # Coverage directory used by tools like istanbul
 coverage
 
