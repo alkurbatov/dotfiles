@@ -41,6 +41,7 @@
       - curl
       - git
       - htop
+      - iotop
       - iproute
       - mc
       - mlocate
@@ -68,6 +69,16 @@
       - ~/work/src/github.com/alkurbatov/dotfiles/.inputrc
       - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
       - ~/work/src/github.com/alkurbatov/dotfiles/.zsh*
+
+    - name: Create the .ssh directory
+      file: path=/root/.ssh state=directory
+
+    - name: Copy SSH keys
+      copy:
+        src: ~/.ssh/hci_rsa.pub
+        dest: /root/.ssh/authorized_keys
+        owner: root
+        mode: 644
 
     - name: Install autosuggestion plugin
       command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
