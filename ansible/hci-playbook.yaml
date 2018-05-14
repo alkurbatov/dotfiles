@@ -103,3 +103,12 @@
       - echo "export OS_USERNAME=admin" >> /root/.zshenv
       - echo "export OS_PASSWORD=1q2w3eQAZ" >> /root/.zshenv
 
+    - name: Configure Vstoradmin environment
+      shell: "{{ item }}"
+      become: yes
+      become_user: vstoradmin
+      with_items:
+      - echo ". /opt/rh/rh-python34/enable" >> /usr/libexec/vstorage-ui-backend/.bashrc
+      - echo ". ~/venv/bin/activate" >> /usr/libexec/vstorage-ui-backend/.bashrc
+      - echo "export UI_BACKEND_CONFIG=~/etc/backend.cfg" >> /usr/libexec/vstorage-ui-backend/.bashrc
+
