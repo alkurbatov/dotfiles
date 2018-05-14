@@ -20,12 +20,11 @@
 # Purprose:
 # Change default active version of Python.
 
-
 for i in python pip virtualenv tox pylint; do
     sudo port select --set ${i} ${i}${1}
 done
 
-
-sudo port select --set pep8 pep8-${1}
-sudo port select --set autopep8 autopep8-${1}
+for i in pep8 autopep8 flake8 pycodestyle pyflakes; do
+    sudo port select --set ${i} ${i}-${1}
+done
 
