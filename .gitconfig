@@ -16,16 +16,15 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 # Purprose:
-# Just configure git for me.
+# git configuration.
 
-#!/bin/bash
-
-git config --global user.name "Alexander Kurbatov"
-git config --global user.email alkurbatov@virtuozzo.com
-
-git config --global core.editor vim
-
-git config --global apply.whitespace nowarn
-
-git config --global pull.rebase true
-
+# If not running interactively, don't do anything
+[user]
+	name = Alexander Kurbatov
+	email = alkurbatov@virtuozzo.com
+[core]
+	editor = vim
+[pull]
+	rebase = true
+[alias]
+	gpr = !sh -c \"git fetch upstream pull-requests/${1}/from:pr/${1} && git checkout pr/${1}\" -
