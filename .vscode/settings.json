@@ -59,13 +59,15 @@
 
 	"telemetry.enableCrashReporter": false,
 
-	"workbench.colorTheme": "Solarized Light",
+	"workbench.colorTheme": "Night Owl",
 
 	"workbench.fontAliasing": "auto",
 
 	"workbench.iconTheme": "vscode-icons",
 
 	"workbench.statusBar.feedback.visible": false,
+
+	"window.title": "${activeEditorMedium}",
 
 	"window.zoomLevel": 0,
 
@@ -106,6 +108,10 @@
 
 	"python.linting.pylintUseMinimalCheckers": false,
 
+	"vsicons.dontShowNewVersionMessage": true,
+
+	"gitlens.keymap": "chorded",
+
 	"gitlens.advanced.messages": {
 		"suppressCommitHasNoPreviousCommitWarning": false,
 		"suppressCommitNotFoundWarning": false,
@@ -114,10 +120,8 @@
 		"suppressLineUncommittedWarning": false,
 		"suppressNoRepositoryWarning": false,
 		"suppressResultsExplorerNotice": false,
-		"suppressUpdateNotice": true,
-		"suppressWelcomeNotice": true
+		"suppressShowKeyBindingsNotice": true
 	},
 
-	// Can be toggled on by SHift+Alt+B
-	"gitlens.codeLens.enabled": false,
+	"gitlens.historyExplorer.enabled": true
 }
