@@ -112,3 +112,14 @@
       - echo ". ~/venv/bin/activate" >> /usr/libexec/vstorage-ui-backend/.bashrc
       - echo "export UI_BACKEND_CONFIG=~/etc/backend.cfg" >> /usr/libexec/vstorage-ui-backend/.bashrc
 
+    - name: Allow anonymous access to Agent
+      replace:
+        path: /etc/nginx/conf.d/vstorage-ui-agent.conf
+        regexp: 'ssl_verify_client on'
+        replace: 'ssl_verify_client off'
+        backup: no
+
+    - name: Restart Nginx to apply the latest changes
+      systemd:
+        name: nginx
+        state: restarted
