@@ -1,5 +1,5 @@
 ---
-- hosts: master
+- hosts: master,hci-2
 
   tasks:
     - name: Add VZLinux Base reporitory
@@ -89,6 +89,7 @@
       with_items:
       - /usr/bin/crudini --set ~vstoradmin/etc/keystone/keystone.conf token expiration 360000
       - systemctl restart vstorage-ui-keystone-admin vstorage-ui-keystone-public
+      when: ansible_hostname == "master"
 
     - name: Update locate DB
       command: /usr/bin/updatedb
@@ -103,6 +104,7 @@
       - echo "export OS_PROJECT_NAME=admin" >> /root/.zshenv
       - echo "export OS_USERNAME=admin" >> /root/.zshenv
       - echo "export OS_PASSWORD=1q2w3eQAZ" >> /root/.zshenv
+      when: ansible_hostname == "master"
 
     - name: Configure Vstoradmin environment
       shell: "{{ item }}"
