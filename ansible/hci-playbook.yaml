@@ -47,6 +47,7 @@
       - mlocate
       - rh-python34-python-debuginfo
       - vim
+      - yum-utils
       - wget
       - zsh
 
