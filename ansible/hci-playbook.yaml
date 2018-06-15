@@ -1,5 +1,5 @@
 ---
-- hosts: master,hci-2
+- hosts: master,hci-2,hci-3
 
   tasks:
     - name: Add VZLinux Base reporitory
