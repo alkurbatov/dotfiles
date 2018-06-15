@@ -58,7 +58,7 @@
         mode: 0755
 
     - name: Make ZSH default shell
-      command: chsh -s /usr/bin/zsh
+      command: chsh -s /bin/zsh
 
     - name: Copy configuration
       copy:
