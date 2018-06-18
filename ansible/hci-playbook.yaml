@@ -126,3 +126,7 @@
       systemd:
         name: nginx
         state: restarted
+
+    - name: Set cluster's replicas to 3
+      command: "vstorage -c Waterdeep set-attr -R -p / replicas=3"
+      when: ansible_hostname == "master"
