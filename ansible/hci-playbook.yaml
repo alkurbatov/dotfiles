@@ -89,7 +89,7 @@
       with_items:
       - /usr/bin/crudini --set ~vstoradmin/etc/keystone/keystone.conf token expiration 360000
       - systemctl restart vstorage-ui-keystone-admin vstorage-ui-keystone-public
-      when: ansible_hostname == "master"
+      when: inventory_hostname == "master"
 
     - name: Update locate DB
       command: /usr/bin/updatedb
@@ -104,7 +104,7 @@
       - echo "export OS_PROJECT_NAME=admin" >> /root/.zshenv
       - echo "export OS_USERNAME=admin" >> /root/.zshenv
       - echo "export OS_PASSWORD=1q2w3eQAZ" >> /root/.zshenv
-      when: ansible_hostname == "master"
+      when: inventory_hostname == "master"
 
     - name: Configure Vstoradmin environment
       shell: "{{ item }}"
@@ -129,4 +129,4 @@
 
     - name: Set cluster's replicas to 3
       command: "vstorage -c Waterdeep set-attr -R -p / replicas=3"
-      when: ansible_hostname == "master"
+      when: inventory_hostname == "master"
