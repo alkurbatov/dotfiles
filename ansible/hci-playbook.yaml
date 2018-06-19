@@ -39,6 +39,7 @@
       with_items:
       - crudini
       - curl
+      - gcc-c++
       - git
       - htop
       - iotop
