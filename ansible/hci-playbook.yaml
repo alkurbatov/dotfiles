@@ -10,7 +10,7 @@
         mirrorlist: http://repo.virtuozzo.com/vzlinux/mirrorlist/mirrors-7-os
         gpgcheck: no
 
-    - name: Add VZLinux Updates reporitory
+    - name: Add VZLinux Updates repository
       yum_repository:
         file: vzlinux
         name: virtuozzolinux-updates
@@ -33,6 +33,16 @@
         description: Virtuozzo Linux updates debuginfo repository
         mirrorlist: http://repo.virtuozzo.com/vzlinux/mirrorlist/mirrors-7-updates-debug
         gpgcheck: no
+
+    - name: Add UI testing reporsitory
+      yum_repository:
+        file: hci-ui
+        name: hci-ui
+        description: UI testing reporsitory
+        baseurl: http://kojistorage.eng.sw.ru/mash/hci-3.0-ui/latest/x86_64/os/
+        priority: 51
+        gpgcheck: no
+      when: inventory_hostname == "master"
 
     - name: Install software
       yum: state=present name={{ item }}
