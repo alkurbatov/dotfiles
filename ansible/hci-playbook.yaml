@@ -56,6 +56,7 @@
       - iproute
       - mc
       - mlocate
+      - psacct
       - rh-python34-python-debuginfo
       - vim
       - yum-utils
@@ -145,3 +146,9 @@
     - name: Stop unneeded docker containers
       command: "docker stop horizon"
       when: inventory_hostname == "master"
+
+    - name: Start the psacct service
+      systemd:
+        name: psacct
+        enabled: True
+        state: started
