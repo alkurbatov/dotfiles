@@ -58,6 +58,7 @@
       - mlocate
       - psacct
       - rh-python34-python-debuginfo
+      - screen
       - vim
       - yum-utils
       - wget
