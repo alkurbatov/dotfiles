@@ -153,3 +153,10 @@
         name: psacct
         enabled: True
         state: started
+
+    - name: Allow external login to Postgress
+      command: "psql -d vstoradmin -c \"ALTER USER vstoradmin WITH PASSWORD '1q2w3eQAZ'\""
+      become: yes
+      become_user: postgres
+      when: inventory_hostname == "master"
+
