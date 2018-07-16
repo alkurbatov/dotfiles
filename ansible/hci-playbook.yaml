@@ -7,7 +7,7 @@
         file: vzlinux
         name: virtuozzolinux-base
         description: Virtuozzo Linux base repository
-        mirrorlist: http://repo.virtuozzo.com/vzlinux/mirrorlist/mirrors-7-os
+        mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-os
         gpgcheck: no
 
     - name: Add VZLinux Updates repository
@@ -15,7 +15,7 @@
         file: vzlinux
         name: virtuozzolinux-updates
         description: Virtuozzo Linux updates repository
-        mirrorlist: http://repo.virtuozzo.com/vzlinux/mirrorlist/mirrors-7-updates
+        mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-updates
         gpgcheck: no
 
     - name: Add VZLinux Base debuginfo repository
@@ -23,7 +23,7 @@
         file: vzlinux
         name: virtuozzolinux-base-debuginfo
         description: Virtuozzo Linux base debuginfo repository
-        mirrorlist: http://repo.virtuozzo.com/vzlinux/mirrorlist/mirrors-7-os-debug
+        mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-os-debug
         gpgcheck: no
 
     - name: Add VZLinux Updates debuginfo repository
@@ -31,7 +31,7 @@
         file: vzlinux
         name: virtuozzolinux-updates-debuginfo
         description: Virtuozzo Linux updates debuginfo repository
-        mirrorlist: http://repo.virtuozzo.com/vzlinux/mirrorlist/mirrors-7-updates-debug
+        mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-updates-debug
         gpgcheck: no
 
     - name: Add UI testing reporsitory
