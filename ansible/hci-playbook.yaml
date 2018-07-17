@@ -154,6 +154,11 @@
         enabled: True
         state: started
 
+    - name: Disable ntpdate, KVM will sync the clock
+      systemd:
+        name: ntpdate
+        enabled: False
+
     - name: Allow external login to Postgress
       command: "psql -d vstoradmin -c \"ALTER USER vstoradmin WITH PASSWORD '1q2w3eQAZ'\""
       become: yes
