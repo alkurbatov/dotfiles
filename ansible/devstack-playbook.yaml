@@ -1,0 +1,95 @@
+---
+- hosts: devstack
+
+  tasks:
+    - name: Purge redundant software
+      dnf: state=absent name="{{item}}" autoremove=yes
+      with_items:
+        - abrt
+        - bluez
+        - iwl5000-firmware
+        - iwl2030-firmware
+        - iwl6000g2a-firmware
+        - iwl4965-firmware
+        - iwl3945-firmware
+        - iwl100-firmware
+        - iwl6000g2b-firmware
+        - iwl135-firmware
+        - iwl1000-firmware
+        - iwl6000-firmware
+        - iwl7260-firmware
+        - iwl3160-firmware
+        - iwl2000-firmware
+        - iwl105-firmware
+        - iwl6050-firmware
+        - iwl5150-firmware
+        - nano
+        - wireless-tools
+        - wpa_supplicant
+
+    - name: Upgrade all packages
+      dnf:
+        name: "*"
+        state: latest
+
+    - name: Install software for work
+      dnf: state=present name="{{item}}"
+      with_items:
+        - ack
+        - git
+        - fortune-mod
+        - htop
+        - iotop
+        - iproute
+        - mc
+        - mlocate
+        - libselinux-python
+        - screen
+        - vim
+        - zsh
+
+    - name: Copy configuration
+      copy:
+        src: "{{item}}"
+        dest: /root
+        owner: root
+        mode: 644
+      with_fileglob:
+        - ~/work/src/github.com/alkurbatov/dotfiles/.inputrc
+        - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
+        - ~/work/src/github.com/alkurbatov/dotfiles/.zsh*
+
+    - name: Copy vim-specific configuration
+      copy:
+        src: ~/work/src/github.com/alkurbatov/dotfiles/.vim
+        dest: /root
+        owner: root
+        mode: 644
+
+    - name: Make ZSH default shell
+      command: chsh -s /bin/zsh
+
+    - name: Install autosuggestion plugin
+      command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+    - name: Create the stack user
+      user:
+        name: stack
+        shell: /bin/bash
+        home: /opt/stack
+        create_home: yes
+
+    - name: Add the stack users to sudoers
+      command: "echo 'stack ALL=(ALL) NOPASSWD: ALL' | tee /etc/sudoers.d/stack"
+
+    - name: Install devstack
+      command: "git clone https://git.openstack.org/openstack-dev/devstack"
+      become: yes
+      become_user: stack
+
+    - name: Restart the server to apply the changes
+      command: /sbin/shutdown -r +1
+      async: 0
+      poll: 0
+      ignore_errors: true
+
