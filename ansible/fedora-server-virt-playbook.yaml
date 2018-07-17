@@ -1,0 +1,111 @@
+---
+- hosts: arya,anton
+
+  tasks:
+    - name: Purge redundant software
+      dnf: state=absent name="{{item}}" autoremove=yes
+      with_items:
+        - abrt
+        - bluez
+        - iwl5000-firmware
+        - iwl2030-firmware
+        - iwl6000g2a-firmware
+        - iwl4965-firmware
+        - iwl3945-firmware
+        - iwl100-firmware
+        - iwl6000g2b-firmware
+        - iwl135-firmware
+        - iwl1000-firmware
+        - iwl6000-firmware
+        - iwl7260-firmware
+        - iwl3160-firmware
+        - iwl2000-firmware
+        - iwl105-firmware
+        - iwl6050-firmware
+        - iwl5150-firmware
+        - nano
+        - wireless-tools
+        - wpa_supplicant
+
+    - name: Upgrade all packages
+      dnf:
+        name: "*"
+        state: latest
+
+    - name: Install software for work
+      dnf: state=present name="{{item}}"
+      with_items:
+        - ack
+        - git
+        - firewall-config
+        - fortune-mod
+        - htop
+        - iotop
+        - iproute
+        - mc
+        - mlocate
+        - libselinux-python
+        - screen
+        - vim
+        - zsh
+
+    - name: Install virtualization support
+      dnf: state=present name="{{item}}"
+      with_items:
+        - cockpit-machines
+        - libvirt
+        - libvirt-client
+        - libvirt-python
+        - qemu-img
+        - qemu-kvm
+        - virt-install
+        - virt-manager
+
+    - name: Install Xserver for X11 forwarding
+      dnf: state=present name="{{item}}"
+      with_items:
+        - mesa-dri-drivers
+        - xorg-x11-drv-evdev
+        - xorg-x11-drv-fbdev
+        - xorg-x11-drv-intel
+        - xorg-x11-drv-libinput
+        - xorg-x11-drv-vesa
+        - xorg-x11-font-utils
+        - xorg-x11-server-Xorg
+        - xorg-x11-server-common
+        - xorg-x11-server-utils
+        - xorg-x11-utils
+        - xorg-x11-xauth
+        - xorg-x11-xinit
+        - xorg-x11-xkb-extras
+
+    - name: Copy configuration
+      copy:
+        src: "{{item}}"
+        dest: /root
+        owner: root
+        mode: 644
+      with_fileglob:
+        - ~/work/src/github.com/alkurbatov/dotfiles/.inputrc
+        - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
+        - ~/work/src/github.com/alkurbatov/dotfiles/.zsh*
+
+    - name: Make ZSH default shell
+      command: chsh -s /bin/zsh
+
+    - name: Install autosuggestion plugin
+      command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+    - name: Enable nested virtualization
+      replace:
+        path: /etc/modprobe.d/kvm.conf
+        regexp: '#options kvm_intel nested=1'
+        replace: 'options kvm_intel nested=1'
+        backup: no
+
+    - name: Restart the server to apply the changes
+      command: /sbin/shutdown -r +1
+      async: 0
+      poll: 0
+      ignore_errors: true
+
