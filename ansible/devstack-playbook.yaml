@@ -7,6 +7,7 @@
       with_items:
         - abrt
         - bluez
+        - firewalld
         - iwl5000-firmware
         - iwl2030-firmware
         - iwl6000g2a-firmware
@@ -36,6 +37,7 @@
       dnf: state=present name="{{item}}"
       with_items:
         - ack
+        - gdb
         - git
         - fortune-mod
         - htop
@@ -53,7 +55,7 @@
         src: "{{item}}"
         dest: /root
         owner: root
-        mode: 644
+        mode: 0644
       with_fileglob:
         - ~/work/src/github.com/alkurbatov/dotfiles/.inputrc
         - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
@@ -64,13 +66,19 @@
         src: ~/work/src/github.com/alkurbatov/dotfiles/.vim
         dest: /root
         owner: root
-        mode: 644
+        mode: 0644
 
     - name: Make ZSH default shell
       command: chsh -s /bin/zsh
 
     - name: Install autosuggestion plugin
       command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+    - name: Stop and disable firewalld
+      systemd:
+        name: firewalld
+        state: stopped
+        enabled: False
 
     - name: Create the stack user
       user:
@@ -80,10 +88,24 @@
         create_home: yes
 
     - name: Add the stack users to sudoers
-      command: "echo 'stack ALL=(ALL) NOPASSWD: ALL' | tee /etc/sudoers.d/stack"
+      command: "echo \"stack ALL=(ALL) NOPASSWD: ALL\" | tee /etc/sudoers.d/stack"
 
     - name: Install devstack
       command: "git clone https://git.openstack.org/openstack-dev/devstack"
+      become: yes
+      become_user: stack
+
+    - name: Create the .ssh directory
+      file: path=/opt/stack/.ssh state=directory
+      become: yes
+      become_user: stack
+
+    - name: Copy SSH keys for external source repos
+      copy:
+        src: ~/.ssh/stash_rsa
+        dest: /opt/stack/.ssh/
+        owner: stack
+        mode: 0600
       become: yes
       become_user: stack
 
