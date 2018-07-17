@@ -78,7 +78,7 @@
         src: "{{item}}"
         dest: /root
         owner: root
-        mode: 644
+        mode: 0644
       with_fileglob:
       - ~/work/src/github.com/alkurbatov/dotfiles/.inputrc
       - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
@@ -89,7 +89,7 @@
         src: ~/work/src/github.com/alkurbatov/dotfiles/.vim
         dest: /root
         owner: root
-        mode: 644
+        mode: 0644
 
     - name: Create the .ssh directory
       file: path=/root/.ssh state=directory
@@ -99,7 +99,7 @@
         src: ~/.ssh/hci_rsa.pub
         dest: /root/.ssh/authorized_keys
         owner: root
-        mode: 644
+        mode: 0644
 
     - name: Install autosuggestion plugin
       command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions

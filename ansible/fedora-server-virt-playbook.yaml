@@ -84,7 +84,7 @@
         src: "{{item}}"
         dest: /root
         owner: root
-        mode: 644
+        mode: 0644
       with_fileglob:
         - ~/work/src/github.com/alkurbatov/dotfiles/.inputrc
         - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
@@ -95,7 +95,7 @@
         src: ~/work/src/github.com/alkurbatov/dotfiles/.vim
         dest: /root
         owner: root
-        mode: 644
+        mode: 0644
 
     - name: Make ZSH default shell
       command: chsh -s /bin/zsh
