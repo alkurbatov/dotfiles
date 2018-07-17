@@ -45,7 +45,7 @@
       when: inventory_hostname == "master"
 
     - name: Install software
-      yum: state=present name={{ item }}
+      yum: state=present name="{{item}}"
       with_items:
       - crudini
       - curl
@@ -75,7 +75,7 @@
 
     - name: Copy configuration
       copy:
-        src: "{{ item }}"
+        src: "{{item}}"
         dest: /root
         owner: root
         mode: 644
@@ -98,7 +98,7 @@
       command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
     - name: Extend token lifetime
-      command: "{{ item }}"
+      command: "{{item}}"
       with_items:
       - /usr/bin/crudini --set ~vstoradmin/etc/keystone/keystone.conf token expiration 360000
       - systemctl restart vstorage-ui-keystone-admin vstorage-ui-keystone-public
@@ -108,7 +108,7 @@
       command: /usr/bin/updatedb
 
     - name: Configure OpenStack environment
-      shell: "{{ item }}"
+      shell: "{{item}}"
       with_items:
       - echo "# export OS_AUTH_URL=https://127.0.0.1/identity/" >> /root/.zshenv
       - echo "export OS_AUTH_URL=https://127.0.0.1:5000/v3" >> /root/.zshenv
@@ -120,7 +120,7 @@
       when: inventory_hostname == "master"
 
     - name: Configure Vstoradmin environment
-      shell: "{{ item }}"
+      shell: "{{item}}"
       become: yes
       become_user: vstoradmin
       with_items:
