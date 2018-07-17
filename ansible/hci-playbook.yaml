@@ -84,6 +84,13 @@
       - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
       - ~/work/src/github.com/alkurbatov/dotfiles/.zsh*
 
+    - name: Copy vim-specific configuration
+      copy:
+        src: ~/work/src/github.com/alkurbatov/dotfiles/.vim
+        dest: /root
+        owner: root
+        mode: 644
+
     - name: Create the .ssh directory
       file: path=/root/.ssh state=directory
 
