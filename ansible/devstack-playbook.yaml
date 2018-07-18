@@ -47,6 +47,7 @@
         - mlocate
         - libselinux-python
         - screen
+        - strace
         - vim
         - zsh
 

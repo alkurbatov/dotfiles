@@ -59,6 +59,7 @@
       - psacct
       - rh-python34-python-debuginfo
       - screen
+      - strace
       - vim
       - yum-utils
       - wget
