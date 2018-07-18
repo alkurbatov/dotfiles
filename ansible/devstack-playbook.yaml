@@ -88,6 +88,13 @@
         home: /opt/stack
         create_home: yes
 
+    - name: Copy shell config for the stack user
+      copy:
+        src: ~/work/src/github.com/alkurbatov/dotfiles/openstack/devstack/.bashrc
+        dest: /opt/stack
+        owner: stack
+        mode: 0644
+
     - name: Add the stack users to sudoers
       command: "echo \"stack ALL=(ALL) NOPASSWD: ALL\" | tee /etc/sudoers.d/stack"
 
