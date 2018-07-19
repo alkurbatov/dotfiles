@@ -23,7 +23,7 @@
 
 for i in n-api n-api-meta n-cpu n-cond-cell1 n-super-cond; do
     echo "Restarting devstack@${i}..."
-    systemctl restart "devstack@${i}"
+    sudo systemctl restart "devstack@${i}"
 
     if [ ${PIPESTATUS[0]} != 0 ]; then
         echo "Failed to restart ${i} service"
