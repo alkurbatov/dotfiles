@@ -23,6 +23,8 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+export EDITOR=vim
+
 export OS_IDENTITY_API_VERSION="3"
 export OS_AUTH_URL="https://<Keystone IP address>/identity"
 export OS_PROJECT_NAME="admin"
