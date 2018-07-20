@@ -117,6 +117,13 @@
       become: yes
       become_user: stack
 
+    - name: Copy useful scripts
+      copy:
+        src: ~/work/src/github.com/alkurbatov/dotfiles/openstack/devstack/bin
+        dest: /opt/stack/
+        owner: stack
+        mode: 0644
+
     - name: Restart the server to apply the changes
       command: /sbin/shutdown -r +1
       async: 0
