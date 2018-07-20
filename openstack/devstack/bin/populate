@@ -1,0 +1,31 @@
+# This file is a part of Dotfiles project
+#
+# Copyright (C) 2018, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
+#
+# Dotfiles is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Dotfiles is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+# Purprose:
+# Populate the devstack installation with resources.
+
+#!/bin/bash
+
+COUNT=20
+
+openstack quota set --volumes 30 --instances 30 admin
+
+for i in $(seq $COUNT); do
+  openstack volume create --size 1 vol-XXX${i}
+  openstack server create --image cirros-0.3.5-x86_64-disk --flavor cirros256 XXX${i}
+done
+
