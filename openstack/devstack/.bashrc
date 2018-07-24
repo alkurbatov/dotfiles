@@ -31,3 +31,23 @@ export OS_PROJECT_NAME="admin"
 export OS_USERNAME="admin"
 export OS_PASSWORD="<Keystone admin password>"
 
+# Git aliases
+alias gc='git commit -v'
+alias gca='git commit -v --amend'
+alias gcan='git commit --amend --no-edit'
+alias gcad='git commit --amend --date="$(date -R)" --no-edit'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gl='git pull'
+alias glg='git log --stat'
+alias gp='git push'
+alias gpf='git push --force'
+alias gr='git rebase -i'
+alias gra='git rebase --abort'
+alias grc='git rebase --continue'
+alias gs='git status -sb'
+alias gst='git stash'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gsts='git stash show -p'
+
