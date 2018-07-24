@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # This file is a part of Dotfiles project
 #
 # Copyright (C) 2018, Alexandr Kurbatov <sir.alkurbatov@yandex.ru>
@@ -17,8 +19,6 @@
 
 # Purprose:
 # Completely disable adrt-related staff.
-
-#!/bin/bash
 
 systemctl disable abrt-ccpp.service abrtd.service abrt-oops.service abrt-vmcore.service
 systemctl stop abrt-ccpp.service abrtd.service abrt-oops.service abrt-vmcore.service

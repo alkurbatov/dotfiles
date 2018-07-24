@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # This file is a part of Dotfiles project
 #
 # Copyright (C) 2018, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
@@ -17,8 +19,6 @@
 
 # Purprose:
 # Print expected and real values of battery capacity. Could be useful for notebooks.
-
-#!/bin/bash
 
 echo "Battery capacity info:"
 cat /sys/class/power_supply/BAT0/uevent | grep POWER_SUPPLY_ENERGY_FULL

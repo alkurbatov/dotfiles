@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # This file is a part of Dotfiles project
 #
 # Copyright (C) 2018, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
@@ -17,8 +19,6 @@
 
 # Purprose:
 # Assign lables to the very specific buttons (used on my VAIO).
-
-#!/usr/bin/env bash
 
 xmodmap -e "keycode 133 = F13"   #кнопка Windows.
 xmodmap -e "keycode 180 = F14"   #кнопка Web.

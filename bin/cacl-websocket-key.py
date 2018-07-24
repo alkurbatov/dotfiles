@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#
+
 # This file is a part of Dotfiles project
 #
 # Copyright (C) 2018, Alexander Kurbatov <sir.alkurbatov@yandex.ru>

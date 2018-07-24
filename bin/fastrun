@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # This file is a part of Dotfiles project
 #
 # Copyright (C) 2018, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
@@ -17,8 +19,6 @@
 
 # Purprose:
 # Attach gdb to target process.
-
-#!/bin/bash
 
 #Work directories.
 PROCESS="[p]rl_disp_service"
