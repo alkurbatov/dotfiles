@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 # This file is a part of Dotfiles project
 #
 # Copyright (C) 2018, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
@@ -18,11 +20,9 @@
 # Purprose:
 # Populate the devstack installation with resources.
 
-#!/bin/bash
-
 COUNT=20
 
-openstack quota set --volumes 30 --instances 30 admin
+openstack quota set --volumes 30 --instances 30 ${OS_PROJECT_NAME}
 
 for i in $(seq $COUNT); do
   openstack volume create --size 1 vol-XXX${i}
