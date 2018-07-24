@@ -45,6 +45,7 @@
         - iproute
         - mc
         - mlocate
+        - python2-tox
         - libselinux-python
         - screen
         - strace
@@ -88,12 +89,17 @@
         home: /opt/stack
         create_home: yes
 
-    - name: Copy shell config for the stack user
+    - name: Copy configuration files
       copy:
-        src: ~/work/src/github.com/alkurbatov/dotfiles/openstack/devstack/.bashrc
+        src: "{{item}}"
         dest: /opt/stack
         owner: stack
         mode: 0644
+      with_fileglob:
+        - ~/work/src/github.com/alkurbatov/dotfiles/.gitconfig
+        - ~/work/src/github.com/alkurbatov/dotfiles/.inputrc
+        - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
+        - ~/work/src/github.com/alkurbatov/dotfiles/openstack/devstack/.bashrc
 
     - name: Add the stack users to sudoers
       command: "echo \"stack ALL=(ALL) NOPASSWD: ALL\" | tee /etc/sudoers.d/stack"
