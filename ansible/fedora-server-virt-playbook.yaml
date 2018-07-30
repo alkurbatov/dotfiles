@@ -104,21 +104,28 @@
     - name: Install autosuggestion plugin
       command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
-    - name: Enable nested virtualization
+    - name: Enable the nested virtualization
       replace:
         path: /etc/modprobe.d/kvm.conf
         regexp: '#options kvm_intel nested=1'
         replace: 'options kvm_intel nested=1'
         backup: no
 
-    - name: Disable reverse path filtering (default) for nested virtualization
+    - name: Enable additional features for the nested virtualization
+      shell: "{{item}}"
+      with_items:
+        - echo "options kvm-intel enable_shadow_vmcs=1" >> /etc/modprobe.d/kvm.conf
+        - echo "options kvm-intel enable_apicv=1" >> /etc/modprobe.d/kvm.conf
+        - echo "options kvm-intel ept=1" >> /etc/modprobe.d/kvm.conf
+
+    - name: Disable reverse path filtering (default) for the nested virtualization
       sysctl:
         name: net.ipv4.conf.default.rp_filter
         value: 0
         state: present
         reload: yes
 
-    - name: Disable reverse path filtering (all) for nested virtualization
+    - name: Disable reverse path filtering (all) for the nested virtualization
       sysctl:
         name: net.ipv4.conf.all.rp_filter
         value: 0
