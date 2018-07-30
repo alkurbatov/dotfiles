@@ -111,6 +111,20 @@
         replace: 'options kvm_intel nested=1'
         backup: no
 
+    - name: Disable reverse path filtering (default) for nested virtualization
+      sysctl:
+        name: net.ipv4.conf.default.rp_filter
+        value: 0
+        state: present
+        reload: yes
+
+    - name: Disable reverse path filtering (all) for nested virtualization
+      sysctl:
+        name: net.ipv4.conf.all.rp_filter
+        value: 0
+        state: present
+        reload: yes
+
     - name: Restart the server to apply the changes
       command: /sbin/shutdown -r +1
       async: 0
