@@ -44,6 +44,8 @@
 
 	"editor.minimap.enabled": false,
 
+	"explorer.openEditors.visible": 0,
+
 	"editor.renderWhitespace": "all",
 
 	"editor.wordWrap": "on",
