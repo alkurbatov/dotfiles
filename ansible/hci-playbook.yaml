@@ -102,6 +102,11 @@
         owner: root
         mode: 0644
 
+    - name: Remove previous installation of the autosuggestion plugin
+      file:
+        path: ~/.zsh/zsh-autosuggestions
+        state: absent
+
     - name: Install autosuggestion plugin
       command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 

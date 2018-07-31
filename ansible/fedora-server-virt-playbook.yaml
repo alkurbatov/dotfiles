@@ -101,6 +101,11 @@
     - name: Make ZSH default shell
       command: chsh -s /bin/zsh
 
+    - name: Remove previous installation of the autosuggestion plugin
+      file:
+        path: ~/.zsh/zsh-autosuggestions
+        state: absent
+
     - name: Install autosuggestion plugin
       command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
