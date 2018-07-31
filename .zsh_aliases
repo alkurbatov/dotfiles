@@ -56,6 +56,7 @@ else
     alias apt-get='sudo apt-get'
     alias apt-update='sudo apt-get update && sudo apt-get upgrade'
     alias dnf='sudo dnf'
+    alias dnf-update='sudo dnf clean all && sudo dnf update'
     alias gdb='gdb --silent'
     alias grep='grep --color=always'
     alias ifs="ip link | awk 'NR%2==1' | awk '{print $2,$8,$9}' | tr -d ':'"
