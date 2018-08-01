@@ -47,6 +47,7 @@
         - mlocate
         - netstat
         - python2-tox
+        - python3-tox
         - libselinux-python
         - lsof
         - screen
