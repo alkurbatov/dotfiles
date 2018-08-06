@@ -80,6 +80,7 @@
 		"**/CMakeFiles": true,
 		"**/CMakeCache.txt": true,
 		"**/cmake_install.cmake": true,
+		"**/.idea": true,
 		"**/.git": true,
 		"**/.DS_Store": true,
 		"**/*.svn": true,
