@@ -23,18 +23,21 @@
 // folder in order to apply tweaks.
 
 {
+	"breadcrumbs.enabled": true,
+
 	"editor.autoIndent": true,
 
 	"editor.cursorStyle": "block",
 
 	"editor.detectIndentation": true,
 
+	//"editor.fontFamily": "Fira Code",
 	// https://github.com/tonsky/FiraCode
-	"editor.fontFamily": "Fira Code",
+	"editor.fontFamily": "Monaco",
 
 	"editor.fontLigatures": true,
 
-	"editor.fontSize": 15,
+	"editor.fontSize": 14,
 
 	"editor.formatOnPaste": false,
 
@@ -61,11 +64,9 @@
 
 	"telemetry.enableCrashReporter": false,
 
-	"workbench.colorTheme": "Night Owl",
+	"workbench.colorTheme": "Solarized Light",
 
 	"workbench.fontAliasing": "auto",
-
-	"workbench.iconTheme": "vscode-icons",
 
 	"workbench.statusBar.feedback.visible": false,
 
@@ -105,26 +106,6 @@
 	// Python specific
 	"python.pythonPath": "/opt/local/bin/python2.7",
 
-	"python.disablePromptForFeatures": [
-		"pylint"
-	],
-
 	"python.linting.pylintUseMinimalCheckers": false,
-
-	"vsicons.dontShowNewVersionMessage": true,
-
-	"gitlens.keymap": "chorded",
-
-	"gitlens.advanced.messages": {
-		"suppressCommitHasNoPreviousCommitWarning": false,
-		"suppressCommitNotFoundWarning": false,
-		"suppressFileNotUnderSourceControlWarning": false,
-		"suppressGitVersionWarning": false,
-		"suppressLineUncommittedWarning": false,
-		"suppressNoRepositoryWarning": false,
-		"suppressResultsExplorerNotice": false,
-		"suppressShowKeyBindingsNotice": true
-	},
-
-	"gitlens.historyExplorer.enabled": true
+	"explorer.confirmDelete": false,
 }
