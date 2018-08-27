@@ -1,5 +1,10 @@
 ---
 - hosts: master,hci-2,hci-3
+# Tags:
+# partial - a marked action can be executed on a partial installation, e.g.
+#           without a cluster or a compute service.
+# cluster - a marked action requires a deployed cluster.
+# compute - a marked action requires a deployed compute service.
 
   tasks:
     - name: Add VZLinux Base reporitory
@@ -9,6 +14,8 @@
         description: Virtuozzo Linux base repository
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-os
         gpgcheck: no
+      tags:
+        - partial
 
     - name: Add VZLinux Updates repository
       yum_repository:
@@ -17,6 +24,8 @@
         description: Virtuozzo Linux updates repository
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-updates
         gpgcheck: no
+      tags:
+        - partial
 
     - name: Add VZLinux Base debuginfo repository
       yum_repository:
@@ -25,6 +34,8 @@
         description: Virtuozzo Linux base debuginfo repository
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-os-debug
         gpgcheck: no
+      tags:
+        - partial
 
     - name: Add VZLinux Updates debuginfo repository
       yum_repository:
@@ -33,6 +44,8 @@
         description: Virtuozzo Linux updates debuginfo repository
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-updates-debug
         gpgcheck: no
+      tags:
+        - partial
 
     - name: Add UI testing reporsitory
       yum_repository:
@@ -43,36 +56,44 @@
         priority: 51
         gpgcheck: no
       when: inventory_hostname == "master"
+      tags:
+        - partial
 
     - name: Install software
       yum: state=present name="{{item}}"
       with_items:
-      - crudini
-      - curl
-      - gcc-c++
-      - git
-      - htop
-      - iotop
-      - iproute
-      - mc
-      - mlocate
-      - psacct
-      - rh-python34-python-debuginfo
-      - screen
-      - strace
-      - vim
-      - yum-utils
-      - wget
-      - zsh
+        - crudini
+        - curl
+        - gcc-c++
+        - git
+        - htop
+        - iotop
+        - iproute
+        - mc
+        - mlocate
+        - psacct
+        - rh-python34-python-debuginfo
+        - screen
+        - strace
+        - vim
+        - yum-utils
+        - wget
+        - zsh
+      tags:
+        - partial
 
     - name: Install the ack utility
       get_url:
         url: https://beyondgrep.com/ack-2.22-single-file
         dest: /usr/bin/ack
         mode: 0755
+      tags:
+        - partial
 
     - name: Make ZSH default shell
       command: chsh -s /bin/zsh
+      tags:
+        - partial
 
     - name: Copy configuration
       copy:
@@ -81,9 +102,11 @@
         owner: root
         mode: 0644
       with_fileglob:
-      - ~/work/src/github.com/alkurbatov/dotfiles/.inputrc
-      - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
-      - ~/work/src/github.com/alkurbatov/dotfiles/.zsh*
+        - ~/work/src/github.com/alkurbatov/dotfiles/.inputrc
+        - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
+        - ~/work/src/github.com/alkurbatov/dotfiles/.zsh*
+      tags:
+        - partial
 
     - name: Copy vim-specific configuration
       copy:
@@ -91,9 +114,13 @@
         dest: /root
         owner: root
         mode: 0644
+      tags:
+        - partial
 
     - name: Create the .ssh directory
       file: path=/root/.ssh state=directory
+      tags:
+        - partial
 
     - name: Copy SSH keys
       copy:
@@ -101,14 +128,20 @@
         dest: /root/.ssh/authorized_keys
         owner: root
         mode: 0644
+      tags:
+        - partial
 
     - name: Remove previous installation of the autosuggestion plugin
       file:
         path: ~/.zsh/zsh-autosuggestions
         state: absent
+      tags:
+        - partial
 
     - name: Install autosuggestion plugin
       command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+      tags:
+        - partial
 
     - name: Extend token lifetime
       command: "{{item}}"
@@ -116,9 +149,13 @@
       - /usr/bin/crudini --set ~vstoradmin/etc/keystone/keystone.conf token expiration 360000
       - systemctl restart vstorage-ui-keystone-admin vstorage-ui-keystone-public
       when: inventory_hostname == "master"
+      tags:
+        - compute
 
     - name: Update locate DB
       command: /usr/bin/updatedb
+      tags:
+        - partial
 
     - name: Configure OpenStack environment
       shell: "{{item}}"
@@ -133,6 +170,8 @@
       - echo "export OS_USERNAME=admin" >> /root/.zshenv
       - echo "export OS_PASSWORD=1q2w3eQAZ" >> /root/.zshenv
       when: inventory_hostname == "master"
+      tags:
+        - partial
 
     - name: Configure Vstoradmin environment
       shell: "{{item}}"
@@ -142,6 +181,8 @@
       - echo ". /opt/rh/rh-python34/enable" >> /usr/libexec/vstorage-ui-backend/.bashrc
       - echo ". ~/venv/bin/activate" >> /usr/libexec/vstorage-ui-backend/.bashrc
       - echo "export UI_BACKEND_CONFIG=~/etc/backend.cfg" >> /usr/libexec/vstorage-ui-backend/.bashrc
+      tags:
+        - partial
 
     - name: Allow anonymous access to Agent
       replace:
@@ -149,34 +190,48 @@
         regexp: 'ssl_verify_client on'
         replace: 'ssl_verify_client off'
         backup: no
+      tags:
+        - partial
 
     - name: Restart Nginx to apply the latest changes
       systemd:
         name: nginx
         state: restarted
+      tags:
+        - partial
 
     - name: Set cluster's replicas to 3
       command: "vstorage -c Waterdeep set-attr -R -p / replicas=3"
       when: inventory_hostname == "master"
+      tags:
+        - cluster
 
     - name: Stop unneeded docker containers
       command: "docker stop horizon"
       when: inventory_hostname == "master"
+      tags:
+        - compute
 
     - name: Start the psacct service
       systemd:
         name: psacct
         enabled: True
         state: started
+      tags:
+        - partial
 
     - name: Disable ntpdate, KVM will sync the clock
       systemd:
         name: ntpdate
         enabled: False
+      tags:
+        - partial
 
     - name: Allow external login to Postgress
       command: "psql -d vstoradmin -c \"ALTER USER vstoradmin WITH PASSWORD '1q2w3eQAZ'\""
       become: yes
       become_user: postgres
       when: inventory_hostname == "master"
+      tags:
+        - partial
 
