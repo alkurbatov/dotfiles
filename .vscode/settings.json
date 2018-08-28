@@ -31,13 +31,13 @@
 
 	"editor.detectIndentation": true,
 
-	//"editor.fontFamily": "Fira Code",
 	// https://github.com/tonsky/FiraCode
-	"editor.fontFamily": "Monaco",
+	"editor.fontFamily": "Fira Code",
+	//"editor.fontFamily": "Monaco",
 
 	"editor.fontLigatures": true,
 
-	"editor.fontSize": 14,
+	"editor.fontSize": 15,
 
 	"editor.formatOnPaste": false,
 
@@ -83,6 +83,7 @@
 		"**/cmake_install.cmake": true,
 		"**/.idea": true,
 		"**/.git": true,
+		"**/.mypy_cache": true,
 		"**/.DS_Store": true,
 		"**/*.svn": true,
 		"**/*.swp": true,
