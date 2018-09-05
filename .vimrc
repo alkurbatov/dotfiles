@@ -83,6 +83,9 @@ filetype plugin on
 " Load templates for new files
 autocmd BufNewFile node.js 0r ~/.vim/skel/node.js
 
+" Allow saving of files as sudo when I forgot to start vim using sudo
+cmap w!! w !sudo tee > /dev/null %
+
 " Automatically correct wrong input
 iab heigth height
 iab lcocal local
