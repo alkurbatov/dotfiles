@@ -47,7 +47,11 @@
 
 	"editor.minimap.enabled": false,
 
+	"explorer.confirmDelete": false,
+
 	"explorer.openEditors.visible": 0,
+
+	"explorer.confirmDragAndDrop": false,
 
 	"editor.renderWhitespace": "all",
 
@@ -67,6 +71,10 @@
 	"workbench.colorTheme": "Solarized Light",
 
 	"workbench.fontAliasing": "auto",
+
+	"workbench.iconTheme": "vscode-icons",
+
+	"workbench.settings.editor": "json",
 
 	"workbench.statusBar.feedback.visible": false,
 
@@ -108,5 +116,4 @@
 	"python.pythonPath": "/opt/local/bin/python2.7",
 
 	"python.linting.pylintUseMinimalCheckers": false,
-	"explorer.confirmDelete": false,
 }
