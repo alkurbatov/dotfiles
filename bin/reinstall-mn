@@ -29,7 +29,7 @@ rm -rf /var/log/pva
 rm -rf /opt/pva
 
 yum clean all
-yum install -y va-mn-* va-cc-* vaconfig vzlicutils rdbmspp-debuginfo sqlite3odbc-debuginfo
+yum install -y va-mn-* va-cc-* vaconfig rdbmspp-debuginfo sqlite3odbc-debuginfo
 
 # Disable the release repos in order to avoid conflicts with the factory.
 # The following commands require yum-utils package.
