@@ -40,7 +40,7 @@ yum-config-manager --disable va-mn va-mn-updates
 sed -i 's:<level>1</level>:<level>6</level>:' /etc/opt/pva/cc/pvacc.conf
 sed -i 's:<agent_level>3</agent_level>:<agent_level>6</agent_level>:' /etc/opt/pva/cc/pvacc.conf
 
-for i in vzlicmon va-mn va-cc; do
+for i in va-mn va-cc; do
     systemctl start ${i}
 
     if [ ${PIPESTATUS[0]} != 0 ]; then
