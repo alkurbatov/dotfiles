@@ -1,6 +1,8 @@
 ---
 - hosts: master,hci-2,hci-3
 # Tags:
+# initial - a marked action can be executed almost under any conditions and
+#           does some initial tweaking.
 # partial - a marked action can be executed on a partial installation, e.g.
 #           without a cluster or a compute service.
 # cluster - a marked action requires a deployed cluster.
@@ -15,6 +17,7 @@
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-os
         gpgcheck: no
       tags:
+        - initial
         - partial
 
     - name: Add VZLinux Updates repository
@@ -25,6 +28,7 @@
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-updates
         gpgcheck: no
       tags:
+        - initial
         - partial
 
     - name: Add VZLinux Base debuginfo repository
@@ -35,6 +39,7 @@
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-os-debug
         gpgcheck: no
       tags:
+        - initial
         - partial
 
     - name: Add VZLinux Updates debuginfo repository
@@ -45,6 +50,7 @@
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-updates-debug
         gpgcheck: no
       tags:
+        - initial
         - partial
 
     - name: Add UI testing reporsitory
@@ -57,6 +63,7 @@
         gpgcheck: no
       when: inventory_hostname == "master"
       tags:
+        - initial
         - partial
 
     - name: Install software
@@ -91,6 +98,7 @@
         dest: /usr/bin/ack
         mode: 0755
       tags:
+        - initial
         - partial
 
     - name: Make ZSH default shell
@@ -123,6 +131,7 @@
     - name: Create the .ssh directory
       file: path=/root/.ssh state=directory
       tags:
+        - initial
         - partial
 
     - name: Copy SSH keys
@@ -132,6 +141,7 @@
         owner: root
         mode: 0644
       tags:
+        - initial
         - partial
 
     - name: Remove previous installation of the autosuggestion plugin
