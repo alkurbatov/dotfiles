@@ -25,6 +25,8 @@
 {
 	"breadcrumbs.enabled": true,
 
+	"diffEditor.ignoreTrimWhitespace": false,
+
 	"editor.autoIndent": true,
 
 	"editor.cursorStyle": "block",
@@ -47,17 +49,27 @@
 
 	"editor.minimap.enabled": false,
 
+	"editor.renderWhitespace": "all",
+
+	"editor.suggest.localityBonus": true,
+
+	"editor.tabCompletion": "on",
+
+	"editor.wordWrap": "on",
+
 	"explorer.confirmDelete": false,
 
 	"explorer.openEditors.visible": 0,
 
 	"explorer.confirmDragAndDrop": false,
 
-	"editor.renderWhitespace": "all",
-
-	"editor.wordWrap": "on",
-
 	"files.autoSave": "afterDelay",
+
+	"git.allowForcePush": true,
+
+	"git.inputValidationLength": 50,
+
+	"git.rebaseWhenSync": true,
 
 	"problems.decorations.enabled": false,
 
@@ -92,8 +104,8 @@
 		"**/.idea": true,
 		"**/.git": true,
 		"**/.mypy_cache": true,
+		"**/.svn": true,
 		"**/.DS_Store": true,
-		"**/*.svn": true,
 		"**/*.swp": true,
 		"**/*.pyc": true,
 		"**/*.pyo": true,
@@ -101,6 +113,8 @@
 		"**/__pycache__": true,
 		"**/coverage": true
 	},
+
+	"files.enableTrash": false,
 
 	//-------- Plugins configuration --------
 
@@ -113,7 +127,9 @@
 	"projectManager.showProjectNameInStatusBar": false,
 
 	// Python specific
-	"python.pythonPath": "/opt/local/bin/python2.7",
+	"python.pythonPath": "/opt/local/bin/python3.4",
 
 	"python.linting.pylintUseMinimalCheckers": false,
+
+	"vim.disableExtension": false,
 }
