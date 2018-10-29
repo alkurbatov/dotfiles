@@ -140,6 +140,7 @@
         dest: /root/.ssh/authorized_keys
         owner: root
         mode: 0644
+      ignore_errors: yes
       tags:
         - initial
         - partial
