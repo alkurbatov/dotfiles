@@ -81,6 +81,7 @@
         - libxslt-devel
         - mc
         - mlocate
+        - patch
         - psacct
         - rh-python34-python-debuginfo
         - screen
