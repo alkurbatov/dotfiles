@@ -129,6 +129,23 @@
       tags:
         - partial
 
+    - name: Create the work folder
+      file: path=/root/work/bin state=directory
+      tags:
+        - partial
+
+    - name: Copy handy scripts
+      copy:
+        src: "{{item}}"
+        dest: /root/work/bin
+        owner: root
+        mode: 0644
+      with_fileglob:
+        - ~/work/src/github.com/alkurbatov/dotfiles/bin/reset-hci-logs
+        - ~/work/src/github.com/alkurbatov/dotfiles/bin/update-docker
+      tags:
+        - partial
+
     - name: Create the .ssh directory
       file: path=/root/.ssh state=directory
       tags:
