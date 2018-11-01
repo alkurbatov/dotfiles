@@ -92,6 +92,10 @@ alias sshx='ssh -Y -C'
 alias svn-log="svn log | less"
 
 # OpenStack aliases
+alias cinder-ps="docker ps --filter name=cinder"
+alias glance-ps="docker ps --filter name=glance"
+alias nova-ps="docker ps --filter name=nova"
+alias neutron-ps="docker ps --filter name=neutron"
 alias openstack="openstack --insecure"
 
 # NPM aliases
