@@ -21,6 +21,10 @@
 # Path to your oh-my-zsh installation
 # export ZSH=/Users/alkurbatov/.oh-my-zsh
 
+# Set up locale (requred by some tools)
+export LANG=ru_RU.UTF-8
+export LC_CTYPE=ru_RU.UTF-8
+
 # Github parameters
 export GITHUB_USER=alkurbatov
 
