@@ -267,3 +267,11 @@
       tags:
         - partial
 
+    - name: Disable the Shaman daemon
+      systemd:
+        name: shaman@Waterdeep
+        state: stopped
+        masked: yes
+      tags:
+        - cluster
+
