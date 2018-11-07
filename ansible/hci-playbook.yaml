@@ -9,6 +9,14 @@
 # compute - a marked action requires a deployed compute service.
 
   tasks:
+    - name: Disable the Shaman daemon
+      systemd:
+        name: shaman@Waterdeep
+        state: stopped
+        masked: yes
+      tags:
+        - initial
+
     - name: Add VZLinux Base reporitory
       yum_repository:
         file: vzlinux
@@ -158,7 +166,6 @@
         dest: /root/.ssh/authorized_keys
         owner: root
         mode: 0644
-      ignore_errors: yes
       tags:
         - initial
         - partial
@@ -241,6 +248,7 @@
     - name: Stop unneeded docker containers
       command: "docker stop horizon"
       when: inventory_hostname == "master"
+      ignore_errors: yes
       tags:
         - compute
 
@@ -266,12 +274,4 @@
       when: inventory_hostname == "master"
       tags:
         - partial
-
-    - name: Disable the Shaman daemon
-      systemd:
-        name: shaman@Waterdeep
-        state: stopped
-        masked: yes
-      tags:
-        - cluster
 
