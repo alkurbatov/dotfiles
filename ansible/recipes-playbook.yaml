@@ -17,3 +17,11 @@
       - systemctl stop iptables
       - systemctl disable iptables
 
+    - name: Allow external login to Postgress
+      command: "psql -d vstoradmin -c \"ALTER USER vstoradmin WITH PASSWORD '1q2w3eQAZ'\""
+      become: yes
+      become_user: postgres
+      when: inventory_hostname == "master"
+      tags:
+        - partial
+
