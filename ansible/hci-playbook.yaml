@@ -245,13 +245,6 @@
       tags:
         - cluster
 
-    - name: Stop unneeded docker containers
-      command: "docker stop horizon"
-      when: inventory_hostname == "master"
-      ignore_errors: yes
-      tags:
-        - compute
-
     - name: Start the psacct service
       systemd:
         name: psacct
