@@ -13,8 +13,8 @@ colorscheme peachpuff
 " Request support of 256 colors terminal
 set t_Co=256
 
-" Show linenumbers
-set number
+" Show relative linenumbers
+set relativenumber
 
 " Don't beep on errors
 set noerrorbells
