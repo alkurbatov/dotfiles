@@ -250,6 +250,12 @@
       tags:
         - partial
 
+    - name: Create very small OpenStack flavor
+      command: "openstack --insecure flavor create --ram 32 --disk 1 super-tini"
+      when: inventory_hostname == "master"
+      tags:
+        - compute
+
     - name: Set cluster's replicas to 3
       command: "vstorage -c Waterdeep set-attr -R -p / replicas=3"
       when: inventory_hostname == "master"
