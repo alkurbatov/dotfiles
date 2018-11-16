@@ -18,7 +18,6 @@
 # Purprose:
 # git configuration.
 
-# If not running interactively, don't do anything
 [user]
 	name = Alexander Kurbatov
 	email = alkurbatov@virtuozzo.com
@@ -27,4 +26,5 @@
 [pull]
 	rebase = true
 [alias]
+	db = !sh -c \"git branch -d ${1} && git push origin :${1}\" -
 	gpr = !sh -c \"git fetch upstream pull-requests/${1}/from:pr/${1} && git checkout pr/${1}\" -
