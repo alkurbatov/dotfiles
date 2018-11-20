@@ -19,7 +19,7 @@
 // Tweak vscode
 
 // Put this file to
-// "~/Library/Application Support/Code/User/settings.json"
+// ~/Library/Application\ Support/Code/User/settings.json
 // folder in order to apply tweaks.
 
 {
@@ -72,6 +72,8 @@
 	"git.rebaseWhenSync": true,
 
 	"problems.decorations.enabled": false,
+
+	"search.showLineNumbers": true,
 
 	"terminal.integrated.shell.osx": "/bin/zsh",
 
