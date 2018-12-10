@@ -27,4 +27,6 @@
 	rebase = true
 [alias]
 	db = !sh -c \"git branch -d ${1} && git push origin :${1}\" -
+        # NOTE (alkurbatov) Declined pull requests couldn't be fetched
+        # from Bitbucket.
 	gpr = !sh -c \"git fetch upstream pull-requests/${1}/from:pr/${1} && git checkout pr/${1}\" -
