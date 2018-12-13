@@ -29,6 +29,8 @@
 
 	"editor.autoIndent": true,
 
+	"editor.cursorSmoothCaretAnimation": true,
+
 	"editor.cursorStyle": "block",
 
 	"editor.detectIndentation": true,
@@ -82,7 +84,7 @@
 
 	"telemetry.enableCrashReporter": false,
 
-	"workbench.colorTheme": "Solarized Light",
+	"workbench.colorTheme": "Darcula",
 
 	"workbench.fontAliasing": "auto",
 
@@ -130,6 +132,8 @@
 
 	// Python specific
 	"python.pythonPath": "/opt/local/bin/python3.4",
+
+	"python.linting.mypyEnabled": false,
 
 	"python.linting.pylintUseMinimalCheckers": false,
 
