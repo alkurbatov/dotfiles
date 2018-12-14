@@ -25,6 +25,8 @@
 	editor = vim
 [pull]
 	rebase = true
+[push]
+	default = simple
 [alias]
 	db = !sh -c \"git branch -d ${1} && git push origin :${1}\" -
         # NOTE (alkurbatov) Declined pull requests couldn't be fetched
