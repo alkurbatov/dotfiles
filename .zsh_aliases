@@ -42,6 +42,10 @@ alias rmr='rm -rf'
 alias show-path='echo $PATH | tr -s ":" "\n"'
 alias vi='vim'
 
+mkcd() {
+    mkdir -pv "$1" && cd "$1"
+}
+
 if [[ "$OSTYPE" = darwin* ]]; then
     alias grep='grep -n --color=always'
     alias ll='ls -GlaFh'
