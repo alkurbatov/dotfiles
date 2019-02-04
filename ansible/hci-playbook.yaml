@@ -102,6 +102,7 @@
         - mlocate
         - patch
         - psacct
+        - python-virtualenv
         - rh-python34-python-debuginfo
         - screen
         - strace
