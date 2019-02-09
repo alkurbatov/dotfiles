@@ -7,6 +7,9 @@ set nocompatible
 " Harden the security
 set secure
 
+" Optimize terminal connection for better scrolling
+set ttyfast
+
 " Preferred colors
 colorscheme peachpuff
 
