@@ -33,6 +33,7 @@ export GOPATH=$HOME/work
 
 # Preferred editor for local and remote sessions
 export EDITOR=vim
+export VISUAL=vim
 export SVN_EDITOR=vim
 
 # K8s access

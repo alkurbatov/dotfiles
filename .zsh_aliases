@@ -42,10 +42,6 @@ alias rmr='rm -rf'
 alias show-path='echo $PATH | tr -s ":" "\n"'
 alias vi='vim'
 
-mkcd() {
-    mkdir -pv "$1" && cd "$1"
-}
-
 if [[ "$OSTYPE" = darwin* ]]; then
     alias grep='grep -n --color=always'
     alias ll='ls -GlaFh'
@@ -118,7 +114,7 @@ alias gcpx='git cherry-pick -x'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gl='git pull'
-alias glg='git log --stat'
+alias glg='git log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias gp='git push'
 alias gpf='git push --force'
 alias gpo='git push -u origin'

@@ -145,6 +145,7 @@ path+=(/bin)
 path+=(/usr/sbin)
 path+=(/sbin)
 path+=($GOPATH/bin)
+path+=(~/.gem/ruby/2.3.0/bin)
 
 # Well-known directories
 cdpath=(~/work)
@@ -155,22 +156,11 @@ cdpath+=(~/work/src/git.sw.ru/alkurbatov/vip)
 cdpath+=(~/work/src/github.com/alkurbatov)
 cdpath+=(~/work/src/github.com/openstack)
 
-# Colored man pages
-man()
-{
-    env \
-    LESS_TERMCAP_mb=$(printf "\e[1;36m") \
-    LESS_TERMCAP_md=$(printf "\e[1;36m") \
-    LESS_TERMCAP_me=$(printf "\e[0m") \
-    LESS_TERMCAP_se=$(printf "\e[0m") \
-    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-    LESS_TERMCAP_ue=$(printf "\e[0m") \
-    LESS_TERMCAP_us=$(printf "\e[1;32m") \
-    man "$@"
-}
-
 # Load aliases
 . ~/.zsh_aliases
+
+# Load tools
+. ~/.zsh_tools
 
 # Enable autosuggestions
 # git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
