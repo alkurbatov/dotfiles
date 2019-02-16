@@ -33,3 +33,9 @@
 	# from Bitbucket.
 	gpr = !sh -c \"git fetch upstream pull-requests/${1}/from:pr/${1} && git checkout pr/${1}\" -
 	sync = !sh -c \"git fetch upstream && git checkout master && git merge upstream/master\" -
+[commit]
+	# NOTE (alkurbatov): To generate a key do:
+	# $ gpg --list-keys
+	# $ gpg --gen-key
+	# $ git config --global user.signingkey <the generated key>
+	gpgsign = true

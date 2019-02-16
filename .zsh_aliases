@@ -105,7 +105,7 @@ alias npm-update='sudo npm install -g npm'
 
 # Git aliases
 alias gbd='git branch -D'
-alias gc='git commit -v'
+alias gc='git commit -v --signoff'
 alias gca='git commit -v --amend'
 alias gcan='git commit --amend --no-edit'
 alias gcad='git commit --amend --date="$(date -R)" --no-edit'
