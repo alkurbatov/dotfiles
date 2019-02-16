@@ -25,6 +25,9 @@ set noerrorbells
 " And don't flash too
 set novisualbell
 
+" Let vim set the window's title 
+set title
+
 " Show line and column numbers in the prompt
 set ruler
 
@@ -46,7 +49,7 @@ set history=50
 " Show lineendings, tabs and trailing spaces
 " FIXME: find better tab sym.
 " set list listchars=tab:\ \ ,trail:.
-set list listchars=tab:<-,trail:·
+"set list listchars=tab:<-,trail:·
 
 " Enable case insensitive search
 set ignorecase
@@ -75,6 +78,7 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
 set mouse=
 
 " Change bultin grep tool
@@ -88,6 +92,15 @@ autocmd BufNewFile node.js 0r ~/.vim/skel/node.js
 
 " Allow saving of files as sudo when I forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
+
+" Enable undo files
+set undofile
+set undolevels=1000
+set undodir=~/.vim/undos/
+if !isdirectory(&undodir)
+  echom "Creating undo directory"
+  call system('mkdir ' . &undodir)
+endif
 
 " Automatically correct wrong input
 iab heigth height
