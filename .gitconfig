@@ -22,6 +22,7 @@
 	name = Alexander Kurbatov
 	email = alkurbatov@virtuozzo.com
 [core]
+	autocrlf = input
 	editor = vim
 [pull]
 	rebase = true
