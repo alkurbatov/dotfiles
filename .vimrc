@@ -13,6 +13,10 @@ set ttyfast
 " Preferred colors
 colorscheme peachpuff
 
+" Underline spelling errors
+hi clear SpellBad
+hi SpellBad cterm=underline
+
 " Request support of 256 colors terminal
 set t_Co=256
 
