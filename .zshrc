@@ -151,6 +151,7 @@ path+=(~/.gem/ruby/2.3.0/bin)
 cdpath=(~/work)
 cdpath+=(~/work/src/git.acronis.com/alkurbatov)
 cdpath+=(~/work/src/git.sw.ru/alkurbatov)
+cdpath+=(~/work/src/git.sw.ru/alkurbatov/pva/backend)
 cdpath+=(~/work/src/git.sw.ru/alkurbatov/pva/frontend)
 cdpath+=(~/work/src/git.sw.ru/alkurbatov/vip)
 cdpath+=(~/work/src/github.com/alkurbatov)
@@ -162,8 +163,10 @@ cdpath+=(~/work/src/github.com/openstack)
 # Load tools
 . ~/.zsh_tools
 
-# Enable autosuggestions
-# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+# Enable zsh syntax highlighting
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+# sudo make install
+# ! This plugin must be loaded the last.
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Have fun
