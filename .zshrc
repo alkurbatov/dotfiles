@@ -89,6 +89,9 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
     bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
+# Enable bash-like incremental search
+bindkey '^R' history-incremental-search-backward
+
 # allow ctrl-a to move to the beginning of a line
 bindkey '^a' beginning-of-line
 
@@ -108,7 +111,7 @@ function parse_git_dirty {
   [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "*"
 }
 
-# Returns "|shashed:N" where N is the number of stashed states (if any)
+# Returns "|stashed:N" where N is the number of stashed states (if any)
 function parse_git_stash {
   local stash=`expr $(git stash list 2>/dev/null| wc -l)`
 
