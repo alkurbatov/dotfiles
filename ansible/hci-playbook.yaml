@@ -17,7 +17,7 @@
       tags:
         - initial
 
-    - name: Add VZLinux Base reporitory
+    - name: Add VZLinux Base repository
       yum_repository:
         file: vzlinux
         name: virtuozzolinux-base
@@ -61,11 +61,11 @@
         - initial
         - partial
 
-    - name: Add UI testing reporsitory
+    - name: Add UI testing repository
       yum_repository:
         file: hci-ui
         name: hci-ui
-        description: UI testing reporsitory
+        description: UI testing repository
         baseurl: http://kojistorage.eng.sw.ru/mash/hci-3.0-ui/latest/x86_64/os/
         priority: 51
         gpgcheck: no
