@@ -25,3 +25,10 @@
       tags:
         - partial
 
+    - name: Disable ntpdate, KVM will sync the clock
+      systemd:
+        name: ntpdate
+        enabled: False
+      tags:
+        - partial
+
