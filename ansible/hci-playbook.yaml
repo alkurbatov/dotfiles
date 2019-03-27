@@ -103,7 +103,7 @@
         - patch
         - psacct
         - python-virtualenv
-        - rh-python34-python-debuginfo
+        - rh-python36-python-debuginfo
         - screen
         - strace
         - vim
@@ -229,7 +229,7 @@
       become: yes
       become_user: vstoradmin
       with_items:
-      - echo ". /opt/rh/rh-python34/enable" >> /usr/libexec/vstorage-ui-backend/.bashrc
+      - echo ". /opt/rh/rh-python36/enable" >> /usr/libexec/vstorage-ui-backend/.bashrc
       - echo ". ~/venv/bin/activate" >> /usr/libexec/vstorage-ui-backend/.bashrc
       - echo "export UI_BACKEND_CONFIG=~/etc/backend.cfg" >> /usr/libexec/vstorage-ui-backend/.bashrc
       tags:
