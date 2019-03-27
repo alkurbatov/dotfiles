@@ -156,7 +156,7 @@ cdpath+=(~/work/src/git.acronis.com/alkurbatov)
 cdpath+=(~/work/src/git.sw.ru/alkurbatov)
 cdpath+=(~/work/src/git.sw.ru/alkurbatov/pva/backend)
 cdpath+=(~/work/src/git.sw.ru/alkurbatov/pva/frontend)
-cdpath+=(~/work/src/git.sw.ru/alkurbatov/vip)
+cdpath+=(~/work/src/src.openvz.org/alkurbatov/vip)
 cdpath+=(~/work/src/github.com/alkurbatov)
 cdpath+=(~/work/src/github.com/openstack)
 
