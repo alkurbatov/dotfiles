@@ -24,6 +24,9 @@ alias -g G='|grep'
 alias -g M='|more'
 alias -g N='2>/dev/null'
 alias -g J='-H "Content-Type: application/json"'
+if [[ "$OSTYPE" = darwin* ]]; then
+    alias -g CB='| pbcopy'
+fi
 
 # K8s aliases
 alias -g NV='--namespace virtuozzo'
@@ -52,6 +55,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias port-update='port selfupdate; port upgrade outdated'
     alias rm='rm -i'
     alias ssh-kitty='/Applications/kitty.app/Contents/MacOS/kitty +kitten ssh'
+    alias github='open https://github.com/alkurbatov'
 else
     alias apt-cache='sudo apt-cache'
     alias apt-get='sudo apt-get'
@@ -85,21 +89,22 @@ alias cls='clear'
 alias ipconfig='ifconfig'
 
 # Aliases for work
-alias bd=". bd -si"
-alias py27-activate="~/work/bin/py-activate 27"
-alias py34-activate="~/work/bin/py-activate 34"
+alias bd='. bd -si'
+alias py27-activate='~/work/bin/py-activate 27'
+alias py34-activate='~/work/bin/py-activate 34'
 alias sshx='ssh -Y -C'
-alias svn-log="svn log | less"
+alias svn-log='svn log | less'
 
 # OpenStack aliases
-alias cinder-ps="docker ps --filter name=cinder"
-alias glance-ps="docker ps --filter name=glance"
-alias nova="nova --insecure"
-alias nova-ps="docker ps --filter name=nova"
-alias neutron-ps="docker ps --filter name=neutron"
-alias openstack="openstack --insecure"
+alias cinder-ps='docker ps --filter name=cinder'
+alias glance-ps='docker ps --filter name=glance'
+alias nova='nova --insecure'
+alias nova-ps='docker ps --filter name=nova'
+alias neutron-ps='docker ps --filter name=neutron'
+alias openstack='openstack --insecure'
 
 # NPM aliases
+alias ni='npm install --save'
 alias npm-reinstall='rm -rvf package-lock.json node_modules && npm install'
 alias npm-update='sudo npm install -g npm'
 
@@ -114,6 +119,7 @@ alias gcp='git cherry-pick'
 alias gcpx='git cherry-pick -x'
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gi='git init && git add . && git commit -m "Initial commit"'
 alias gl='git pull'
 alias glg='git log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias gp='git push'
@@ -127,6 +133,12 @@ alias gst='git stash'
 alias gstl='git stash list'
 alias gstp='git stash pop'
 alias gsts='git stash show -p'
+
+# Docker
+alias di='docker images'
+alias dps='docker ps'
+alias dri='docker rmi'
+alias drc='docker container rm'
 
 # Testing tools
 alias testr-init='rm -rf .testrepository && testr init'
