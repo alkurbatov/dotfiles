@@ -32,3 +32,10 @@
       tags:
         - partial
 
+    - name: Start the psacct service
+      systemd:
+        name: psacct
+        enabled: True
+        state: started
+      tags:
+        - partial

@@ -101,7 +101,6 @@
         - mc
         - mlocate
         - patch
-        - psacct
         - python-virtualenv
         - rh-python36-python-debuginfo
         - screen
@@ -262,12 +261,4 @@
       when: inventory_hostname == "master"
       tags:
         - cluster
-
-    - name: Start the psacct service
-      systemd:
-        name: psacct
-        enabled: True
-        state: started
-      tags:
-        - partial
 
