@@ -90,8 +90,9 @@
         - partial
 
     - name: Install software
-      yum: state=present name="{{item}}"
-      with_items:
+      yum:
+        state: present
+        name:
         - crudini
         - curl
         - gcc-c++
