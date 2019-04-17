@@ -248,6 +248,15 @@
       tags:
         - partial
 
+    - name: Increase Nginx logs verbosity
+      replace:
+        path: /etc/nginx/nginx.conf
+        regexp: 'error_log /var/log/nginx/error.log;'
+        replace: 'error_log /var/log/nginx/error.log warn;'
+        backup: no
+      tags:
+        - partial
+
     - name: Restart Nginx to apply the latest changes
       systemd:
         name: nginx
