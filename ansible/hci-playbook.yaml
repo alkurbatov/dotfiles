@@ -17,45 +17,49 @@
       tags:
         - initial
 
-    - name: Add VZLinux Base repository
+    - name: Add local VZLinux Base repository
       yum_repository:
         file: vzlinux
-        name: virtuozzolinux-base
+        name: virtuozzolinux-local-base
         description: Virtuozzo Linux base repository
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-os
+        priority: 100
         gpgcheck: no
       tags:
         - initial
         - partial
 
-    - name: Add VZLinux Updates repository
+    - name: Add local VZLinux Updates repository
       yum_repository:
         file: vzlinux
-        name: virtuozzolinux-updates
+        name: virtuozzolinux-local-updates
         description: Virtuozzo Linux updates repository
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-updates
+        priority: 100
         gpgcheck: no
       tags:
         - initial
         - partial
 
-    - name: Add VZLinux Base debuginfo repository
+    - name: Add local VZLinux Base debuginfo repository
       yum_repository:
         file: vzlinux
-        name: virtuozzolinux-base-debuginfo
+        name: virtuozzolinux-base-local-debuginfo
         description: Virtuozzo Linux base debuginfo repository
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-os-debug
+        priority: 100
         gpgcheck: no
       tags:
         - initial
         - partial
 
-    - name: Add VZLinux Updates debuginfo repository
+    - name: Add local VZLinux Updates debuginfo repository
       yum_repository:
         file: vzlinux
-        name: virtuozzolinux-updates-debuginfo
+        name: virtuozzolinux-updates-local-debuginfo
         description: Virtuozzo Linux updates debuginfo repository
         mirrorlist: http://kojistorage.eng.sw.ru/vzlinux/mirrorlist/mirrors-7-updates-debug
+        priority: 100
         gpgcheck: no
       tags:
         - initial
@@ -67,7 +71,7 @@
         name: hci-ui
         description: UI testing repository
         baseurl: http://kojistorage.eng.sw.ru/mash/hci-3.0-ui/latest/x86_64/os/
-        priority: 51
+        priority: 100
         gpgcheck: no
       when: inventory_hostname == "master"
       tags:
