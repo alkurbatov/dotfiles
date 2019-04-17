@@ -81,6 +81,7 @@ else
     alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
     alias urxvt-reload='xrdb -load ~/.Xresources'
     alias yum='sudo yum'
+    alias yum-check='sudo yum clean all && sudo yum check-update'
     alias yum-update='sudo yum clean all && sudo yum update'
 fi
 
