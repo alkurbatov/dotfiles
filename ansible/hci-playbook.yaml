@@ -102,7 +102,7 @@
         - mlocate
         - patch
         - python-virtualenv
-        - rh-python36-python-debuginfo
+        - rh-python36-python-debug
         - screen
         - strace
         - vim
