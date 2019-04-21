@@ -166,9 +166,12 @@ cdpath+=(~/work/src/github.com/openstack)
 # Load tools
 . ~/.zsh_tools
 
-# Enable zsh syntax highlighting
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-# sudo make install
+# Install zsh syntax highlighting
+#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Install zsh autosuggestions plugin
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 # ! This plugin must be loaded the last.
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
