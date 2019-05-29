@@ -212,21 +212,19 @@
       tags:
         - partial
 
-    - name: Configure OpenStack environment
-      shell: "{{item}}"
-      with_items:
-      - echo "# export OS_AUTH_URL=https://127.0.0.1/identity/" >> /root/.zshenv
-      - echo "export OS_AUTH_URL=https://127.0.0.1:5000/v3" >> /root/.zshenv
-      - echo "# export OS_DOMAIN_ID=default" >> /root/.zshenv
-      - echo "export OS_PROJECT_DOMAIN_NAME=Default" >> /root/.zshenv
-      - echo "export OS_IDENTITY_API_VERSION=3" >> /root/.zshenv
-      - echo "export OS_PROJECT_NAME=admin" >> /root/.zshenv
-      - echo "export OS_USER_DOMAIN_NAME=Default" >> /root/.zshenv
-      - echo "export OS_USERNAME=admin" >> /root/.zshenv
-      - echo "export OS_PASSWORD=1q2w3eQAZ" >> /root/.zshenv
+    - name: Generate OpenStack credentials
+      shell: kolla-ansible post-deploy
+      become: yes
+      become_user: vstoradmin
       when: inventory_hostname == "master"
       tags:
-        - partial
+        - compute
+
+    - name: Inject OpenStack credentials
+      shell: echo ". /etc/kolla/admin-openrc.sh" >> /root/.zshenv
+      when: inventory_hostname == "master"
+      tags:
+        - compute
 
     - name: Configure Vstoradmin environment
       shell: "{{item}}"
