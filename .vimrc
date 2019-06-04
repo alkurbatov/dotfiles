@@ -167,7 +167,7 @@ set undodir=~/.vim/undos/
 " Create undodir if it doesn't exist
 if !isdirectory(&undodir)
   echom "Creating undo directory"
-  call system('mkdir ' . &undodir)
+  call system('mkdir -p ' . &undodir)
 endif
 
 
