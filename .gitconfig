@@ -38,5 +38,6 @@
 	# NOTE (alkurbatov): To generate a key do:
 	# $ gpg --list-keys
 	# $ gpg --gen-key
-	# $ git config --global user.signingkey <the generated key>
+	# $ gpg --list-secret-keys --keyid-format LONG
+	# $ git config --global user.signingkey <the generated key mentioned in sec>
 	gpgsign = true
