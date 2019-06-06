@@ -34,10 +34,15 @@
 	# from Bitbucket.
 	gpr = !sh -c \"git fetch upstream pull-requests/${1}/from:pr/${1} && git checkout pr/${1}\" -
 	sync = !sh -c \"git fetch upstream && git checkout master && git merge upstream/master\" -
+	dt = difftool
+[diff]
+	tool = vimdiff
 [commit]
 	# NOTE (alkurbatov): To generate a key do:
 	# $ gpg --list-keys
 	# $ gpg --gen-key
 	# $ gpg --list-secret-keys --keyid-format LONG
-	# $ git config --global user.signingkey <the generated key mentioned in sec>
+	# $ git config --global user.signingkey <the generated key>
 	gpgsign = true
+[difftool]
+	prompt = false
