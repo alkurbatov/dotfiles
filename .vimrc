@@ -171,12 +171,16 @@ if !isdirectory(&undodir)
 endif
 
 
-
 " SNIPPETS:
 
 nnoremap ,maincpp :-1read $HOME/.vim/skel/main.cpp<CR>6ja
 nnoremap ,nodejs :-1read $HOME/.vim/skel/node.js<CR>6ja
 
+
+" PLUGINS
+
+" Vue syntax highlighting
+" git clone https://github.com/posva/vim-vue.git ~/.vim/pack/plugins/start/vim-vue
 
 
 " AUTOCORRECTION:
