@@ -178,9 +178,20 @@ nnoremap ,nodejs :-1read $HOME/.vim/skel/node.js<CR>6ja
 
 
 " PLUGINS
+" Bundles should be put into:
+" ~/.vim/pack/bundle/start
+"
+" Vimball plugins installed by opening a plugin file in vim and typing:
+" :so %
 
-" Vue syntax highlighting
-" git clone https://github.com/posva/vim-vue.git ~/.vim/pack/plugins/start/vim-vue
+" [bundle] Vue syntax highlighting
+" $ git clone https://github.com/posva/vim-vue.git ~/.vim/pack/bundle/start/vim-vue
+
+" [vimball] LargeFile plugin
+" https://www.vim.org/scripts/script.php?script_id=1506
+"
+" Minimal filesize in Mb to launch the large file plugin
+" let g:LargeFile=5
 
 
 " AUTOCORRECTION:
