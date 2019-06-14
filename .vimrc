@@ -34,11 +34,12 @@ set shortmess+=I
 " Enable syntax highlight
 syntax on
 
-" Preferred colors
-colorscheme peachpuff
-
 " Request support of 256 colors terminal
-set t_Co=256
+" Uncomment this if vim doesn't recognise 256 colormode of a terminal 
+"set t_Co=16
+
+" Preferred colors
+colorscheme solarized
 
 " Let vim set the window's title 
 set title
@@ -59,7 +60,7 @@ set relativenumber
 set colorcolumn=80
 
 " Make the line length border less annoying
-highlight ColorColumn ctermbg=darkgray
+highlight ColorColumn ctermbg=gray
 
 " Show lineendings, tabs and trailing spaces
 " FIXME: find better tab sym.
@@ -79,6 +80,9 @@ set foldlevel=99
 
 
 " SPELL CHEKING:
+
+" Enable spellchecking
+set spell spelllang=ru_yo,en_us
 
 " Underline spelling errors
 hi clear SpellBad
@@ -177,12 +181,21 @@ nnoremap ,maincpp :-1read $HOME/.vim/skel/main.cpp<CR>6ja
 nnoremap ,nodejs :-1read $HOME/.vim/skel/node.js<CR>6ja
 
 
-" PLUGINS
+" PLUGINS:
+
 " Bundles should be put into:
 " ~/.vim/pack/bundle/start
 "
 " Vimball plugins installed by opening a plugin file in vim and typing:
 " :so %
+
+" [vimfile] Solorized colorscheme
+" $ git clone https://github.com/altercation/vim-colors-solarized.git
+" $ mv vim-colors-solarized/colors ~/.vim
+" $ rm -rf vim-colors-solarized
+"
+" To fix OS X terminal colorscheme import these settings
+" https://github.com/tomislav/osx-terminal.app-colors-solarized
 
 " [bundle] Vue syntax highlighting
 " $ git clone https://github.com/posva/vim-vue.git ~/.vim/pack/bundle/start/vim-vue
