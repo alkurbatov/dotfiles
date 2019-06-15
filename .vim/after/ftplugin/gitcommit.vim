@@ -3,5 +3,5 @@ setlocal formatoptions+=t
 setlocal textwidth=72
 
 " Enable spell checking
-setlocal spell
+setlocal spell spelllang=en_us
 

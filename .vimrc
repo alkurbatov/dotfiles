@@ -81,9 +81,6 @@ set foldlevel=99
 
 " SPELL CHEKING:
 
-" Enable spellchecking
-set spell spelllang=ru_yo,en_us
-
 " Underline spelling errors
 hi clear SpellBad
 hi SpellBad cterm=underline
@@ -179,6 +176,7 @@ endif
 
 nnoremap ,maincpp :-1read $HOME/.vim/skel/main.cpp<CR>6ja
 nnoremap ,nodejs :-1read $HOME/.vim/skel/node.js<CR>6ja
+
 
 
 " PLUGINS:

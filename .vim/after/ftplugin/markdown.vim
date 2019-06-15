@@ -1,7 +1,7 @@
-" Autmatically wrap long lines
+" Automatically wrap long lines
 setlocal formatoptions+=t
-setlocal textwidth=72
+setlocal textwidth=120
 
 " Enable spell checking
-setlocal spell
+setlocal spell spelllang=ru_yo,en_us
 
