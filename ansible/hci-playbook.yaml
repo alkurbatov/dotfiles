@@ -263,7 +263,7 @@
         - partial
 
     - name: Create very small OpenStack flavor
-      command: "openstack --insecure flavor create --ram 32 --disk 1 super-tini"
+      command: "openstack --insecure flavor create --ram 64 --disk 1 super-tini"
       when: inventory_hostname == "master"
       tags:
         - compute
