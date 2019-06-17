@@ -12,8 +12,9 @@ set ttyfast
 " Don't beep on errors
 set noerrorbells
 
-" And don't flash too
-set novisualbell
+" And don't flash, too
+set visualbell
+set vb t_vb=
 
 " Enable filetype plugin to use specific file type settings
 filetype plugin on
