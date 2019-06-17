@@ -1,5 +1,5 @@
 ---
-- hosts: master,hci-22,hci-23
+- hosts: master,hci-12,hci-13
 # Tags:
 # initial - a marked action can be executed almost under any conditions and
 #           does some initial tweaking.
