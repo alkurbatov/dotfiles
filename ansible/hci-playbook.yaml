@@ -186,15 +186,27 @@
         - initial
         - partial
 
-    - name: Remove previous installation of the autosuggestion plugin
+    - name: Remove previous installation of the ZSH autosuggestion plugin
       file:
         path: ~/.zsh/zsh-autosuggestions
         state: absent
       tags:
         - partial
 
-    - name: Install autosuggestion plugin
+    - name: Install ZSH autosuggestion plugin
       command: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+      tags:
+        - partial
+
+    - name: Remove previous installation of the ZSH syntax highlighting plugin
+      file:
+        path: ~/.zsh/zsh-syntax-highlighting
+        state: absent
+      tags:
+        - partial
+
+    - name: Install ZSH syntax highlighting plugin
+      command: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
       tags:
         - partial
 
