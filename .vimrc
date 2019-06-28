@@ -54,6 +54,24 @@ set showcmd
 " Always show status bar
 set laststatus=2
 
+" Customise status bar
+" Many thanks to
+" https://shapeshed.com/vim-statuslines/
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%#CursorColumn#
+set statusline+=\ %l:%c
+set statusline+=\ (%p%%)
+set statusline+=%=
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ 
+
 " Show relative linenumbers
 set relativenumber
 
@@ -173,6 +191,7 @@ if !isdirectory(&undodir)
 endif
 
 
+
 " SNIPPETS:
 
 nnoremap ,maincpp :-1read $HOME/.vim/skel/main.cpp<CR>6ja
@@ -197,13 +216,31 @@ nnoremap ,nodejs :-1read $HOME/.vim/skel/node.js<CR>6ja
 " https://github.com/tomislav/osx-terminal.app-colors-solarized
 
 " [bundle] Vue syntax highlighting
-" $ git clone https://github.com/posva/vim-vue.git ~/.vim/pack/bundle/start/vim-vue
+" $ git clone https://github.com/posva/vim-vue.git ~/.vim/pack/plugins/start/vim-vue
+
+" [bundle] A tree explorer plugin for vim
+" $ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/plugins/start/nerdtree
+
+" [bundle] A Git wrapper
+" $ git clone https://github.com/tpope/vim-fugitive.git ~/.vim/pack/plugins/start/vim-fugitive
+
+" [bundle] Syntax checking hacks for vim
+" $ git clone --depth=1 https://github.com/vim-syntastic/syntastic.git ~/.vim/pack/plugins/start/syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " [vimball] LargeFile plugin
 " https://www.vim.org/scripts/script.php?script_id=1506
 "
 " Minimal filesize in Mb to launch the large file plugin
 " let g:LargeFile=5
+
 
 
 " AUTOCORRECTION:
@@ -216,3 +253,15 @@ iab paralells parallels
 iab reecive receive
 iab udpate update
 
+
+
+" HELPERS:
+
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
