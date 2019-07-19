@@ -235,6 +235,12 @@ nnoremap ,nodejs :-1read $HOME/.vim/skel/node.js<CR>6ja
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 
+" [bundle] Show a diff using Vim its sign column
+" $ git clone https://github.com/mhinz/vim-signify.git ~/.vim/pack/plugins/start/vim-signify
+"
+" List of allowed VCS
+" let g:signify_vcs_list = ['git']
+
 " [vimball] LargeFile plugin
 " https://www.vim.org/scripts/script.php?script_id=1506
 "
