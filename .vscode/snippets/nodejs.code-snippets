@@ -1,0 +1,11 @@
+{
+	"Print object": {
+		"scope": "javascript",
+		"prefix": "nlog",
+		"description": "Print whole complex nodejs object to console",
+		"body": [
+			"const util = require('util');",
+			"console.log(util.inspect('$1', {showHidden: false, depth: null}));"
+		]
+	}
+}
