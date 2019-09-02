@@ -199,6 +199,13 @@ nnoremap ,nodejs :-1read $HOME/.vim/skel/node.js<CR>6ja
 
 
 
+" EDITING:
+
+" F5: Remove trailing whitespaces
+:nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
+
+
 " PLUGINS:
 
 " Bundles should be put into:
