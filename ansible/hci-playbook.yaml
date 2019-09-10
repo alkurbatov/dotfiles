@@ -70,7 +70,7 @@
         file: hci-ui
         name: hci-ui
         description: UI testing repository
-        baseurl: http://kojistorage.eng.sw.ru/mash/hci-3.0-ui/latest/x86_64/os/
+        baseurl: http://kojistorage.eng.sw.ru/mash/hci-3.5.0-vz/latest/x86_64/os/
         priority: 100
         gpgcheck: no
       when: inventory_hostname == "master"
