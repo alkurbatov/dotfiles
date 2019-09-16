@@ -65,3 +65,13 @@ extract () {
     fi
 }
 
+# Generate new SSH key
+# Usage: sshcreate <key_name>
+sshcreate() {
+    if [ ! -z "$1" ];
+    then
+        ssh-keygen -f $HOME/.ssh/$1 -t rsa -N '' -C "$1"
+        chmod 600 $HOME/.ssh/$1
+        chmod 600 $HOME/.ssh/$1.pub
+    fi
+}
