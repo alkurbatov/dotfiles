@@ -110,7 +110,7 @@ alias openstack='openstack --insecure'
 
 # NPM aliases
 alias ni='npm install --save'
-alias npm-reinstall='rm -rvf package-lock.json node_modules && npm install'
+alias npm-reinstall='rm -rf package-lock.json node_modules && npm install'
 alias npm-update='sudo npm install -g npm'
 
 # Git aliases
