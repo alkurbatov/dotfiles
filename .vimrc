@@ -40,7 +40,8 @@ syntax on
 "set t_Co=16
 
 " Preferred colors
-colorscheme solarized
+" Uncomment this when proper colorscheme is installed
+"colorscheme solarized
 
 " Let vim set the window's title 
 set title
@@ -138,12 +139,6 @@ let g:netrw_browse_split=4
 
 " Open splits to the right
 let g:netrw_altv=1
-
-" Tree view
-let g:netrw_liststyle=3
-
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 
 
