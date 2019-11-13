@@ -74,6 +74,17 @@
       - ~/work/src/github.com/alkurbatov/dotfiles/bin/reset-hci-logs
       - ~/work/src/github.com/alkurbatov/dotfiles/bin/openstack/update-docker
 
+  - name: Copy developers ssh keys
+    copy:
+      src: "{{item}}"
+      dest: /root/.ssh
+      owner: root
+      mode: 0600
+    with_fileglob:
+      - ~/.ssh/acronis_rsa
+      - ~/.ssh/stash_rsa
+    when: role_in_cluster == "controller"
+
   - name: Increase nginx logs verbosity
     replace:
       path: /etc/nginx/nginx.conf
