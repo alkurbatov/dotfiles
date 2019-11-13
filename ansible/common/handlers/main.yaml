@@ -1,0 +1,22 @@
+---
+
+- name: Reboot node
+  reboot:
+
+- name: Update locate DB
+  command: /usr/bin/updatedb
+
+- name: Restart nginx
+  systemd:
+    name: nginx
+    state: restarted
+
+- name: Restart keystone-admin
+  systemd:
+    name: vstorage-ui-keystone-admin
+    state: restarted
+
+- name: Restart vstorage-ui-keystone-public
+  systemd:
+    name: vstorage-ui-keystone-public
+    state: restarted

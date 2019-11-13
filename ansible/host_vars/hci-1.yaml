@@ -1,0 +1,3 @@
+---
+  role_in_cluster: controller
+  agent_access: local

@@ -1,0 +1,12 @@
+---
+
+  - include: common/tasks/sync_my_configs.yaml
+
+  - name: Update all packages
+    yum:
+      name: "*"
+      state: latest
+      update_cache: yes
+    notify:
+      - Update locate DB
+      - Reboot node

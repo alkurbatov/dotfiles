@@ -1,0 +1,3 @@
+---
+  role_in_cluster: worker
+  agent_access: local
