@@ -125,11 +125,6 @@
     notify:
       - Inject OpenStack credentials
 
-  - name: Inject OpenStack credentials
-    lineinfile:
-      path: /root/.bashrc
-      line: ". /etc/kolla/admin-openrc.sh"
-
   - name: Disable the Shaman daemon
     systemd:
       name: shaman@{{ cluster_name }}

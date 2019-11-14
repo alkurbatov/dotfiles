@@ -72,7 +72,7 @@ export HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # Expand PATH.
-PATH+=:~/bin
+PATH+=:~/work/bin
 
 # Colors for man pages.
 man() {
@@ -87,6 +87,6 @@ man() {
   man "$@"
 }
 
-# Have fun :)
-fortune
-
+if [ -f /etc/kolla/admin-openrc.sh ]; then
+  . /etc/kolla/admin-openrc.sh
+fi

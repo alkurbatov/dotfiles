@@ -14,6 +14,7 @@
       owner: root
       mode: 0644
     with_fileglob:
+      - ~/work/src/github.com/alkurbatov/dotfiles/.bashrc
       - ~/work/src/github.com/alkurbatov/dotfiles/.gitconfig
       - ~/work/src/github.com/alkurbatov/dotfiles/.inputrc
       - ~/work/src/github.com/alkurbatov/dotfiles/.vimrc
