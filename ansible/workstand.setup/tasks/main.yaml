@@ -25,11 +25,6 @@
       priority: "100"
       gpgcheck: no
 
-  - name: Add the epel repository
-    yum:
-      state: present
-      name: epel-release
-
   - name: Install additional software for work
     yum:
       state: present
@@ -52,7 +47,8 @@
         - rh-python36-python-debug
         - screen
         - strace
-        - the_silver_searcher
+# FIXME (alkurbatov): Find a way to install server_searcher without epel.
+#        - the_silver_searcher
         - vim
         - yum-utils
         - wget

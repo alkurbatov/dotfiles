@@ -137,3 +137,8 @@
       value: 0
       state: present
       reload: yes
+
+  - name: Add the epel repository
+    yum:
+      state: present
+      name: epel-release
