@@ -70,7 +70,7 @@
       - ~/work/src/github.com/alkurbatov/dotfiles/bin/reset-hci-logs
       - ~/work/src/github.com/alkurbatov/dotfiles/bin/openstack/update-docker
 
-  - name: Copy developers ssh keys
+  - name: Copy developer keys and ssh config
     copy:
       src: "{{item}}"
       dest: /root/.ssh
@@ -79,6 +79,7 @@
     with_fileglob:
       - ~/.ssh/acronis_rsa
       - ~/.ssh/stash_rsa
+      - workstand.setup/files/config
     when: role_in_cluster == "controller"
 
   - name: Increase nginx logs verbosity
