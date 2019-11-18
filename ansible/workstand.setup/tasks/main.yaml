@@ -68,7 +68,6 @@
       mode: 0644
     with_fileglob:
       - ~/work/src/github.com/alkurbatov/dotfiles/bin/reset-hci-logs
-      - ~/work/src/github.com/alkurbatov/dotfiles/bin/openstack/update-docker
 
   - name: Copy developer keys and ssh config
     copy:
