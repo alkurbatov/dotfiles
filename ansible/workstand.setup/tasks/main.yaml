@@ -113,7 +113,7 @@
       -  Restart nginx
 
   - name: Generate OpenStack credentials
-    shell: kolla-ansible post-deploy
+    command: kolla-ansible post-deploy
     become: yes
     become_user: vstoradmin
     register: cred_gen_result
