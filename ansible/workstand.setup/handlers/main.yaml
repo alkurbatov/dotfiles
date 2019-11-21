@@ -9,3 +9,8 @@
   systemd:
     name: vstorage-ui-keystone-public
     state: restarted
+
+- name:  Restart vstorage-ui-backend
+  systemd:
+    name: vstorage-ui-backend
+    state: restarted

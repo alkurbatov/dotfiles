@@ -146,3 +146,13 @@
     notify:
       - Restart keystone-admin
       - Restart vstorage-ui-keystone-public
+
+  - name: Enable tracebacks in Backend responces
+    replace:
+      path: /usr/libexec/vstorage-ui-backend/etc/backend.cfg
+      regexp: '(TRACE_MESSAGES =) False'
+      replace: '\1 True'
+      backup: no
+    when: role_in_cluster == "controller"
+    notify:
+      -  Restart vstorage-ui-backend
