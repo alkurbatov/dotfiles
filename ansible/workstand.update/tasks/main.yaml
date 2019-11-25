@@ -11,12 +11,8 @@
       - Update locate DB
       - Reboot node
 
-  - name: Update docker registry
-    command: kolla-ansible deploy-registry
+  - name: Update docker containers
+    command: kolla-ansible upgrade
     become: yes
     become_user: vstoradmin
-    register: registry_update_result
-    changed_when: not(registry_update_result.stdout is search('changed=0'))
     when: role_in_cluster == "controller"
-    notify:
-      - Update docker containers
