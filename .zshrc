@@ -149,15 +149,12 @@ path+=(/usr/sbin)
 path+=(/sbin)
 path+=($GOPATH/bin)
 path+=(~/.gem/ruby/2.3.0/bin)
+path+=(/opt/local/libexec/qt5/bin)
 
 # Well-known directories
-cdpath=(~/work)
 cdpath+=(~/work/src/git.acronis.com/alkurbatov)
-cdpath+=(~/work/src/git.sw.ru/alkurbatov)
-cdpath+=(~/work/src/git.sw.ru/alkurbatov/pva/backend)
-cdpath+=(~/work/src/git.sw.ru/alkurbatov/pva/frontend)
-cdpath+=(~/work/src/src.openvz.org/alkurbatov/vip)
-cdpath+=(~/work/src/github.com/alkurbatov)
+cdpath+=(~/work/src/src.openvz.org/alkurbatov)
+cdpath+=(~/work/src/github.com)
 cdpath+=(~/work/src/github.com/openstack)
 
 # Load aliases
@@ -166,15 +163,8 @@ cdpath+=(~/work/src/github.com/openstack)
 # Load tools
 . ~/.zsh_tools
 
-# Install zsh syntax highlighting
-#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Install zsh autosuggestions plugin
 # git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 # ! This plugin must be loaded the last.
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Have fun
-#fortune
 
