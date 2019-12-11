@@ -3,6 +3,12 @@
 " Show linenumbers.
 set number
 
+" Allow to load local (per project) config files.
+set exrc
+
+" Disallows the use of :autocmd, shell and write commands in local config files.
+set secure
+
 
 
 " STYLE:
