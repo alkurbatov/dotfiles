@@ -31,8 +31,7 @@
 [alias]
 	db = !sh -c \"git branch -d ${1} && git push origin :${1}\" -
 	dt = !sh -c \"git tag -d ${1} && git push origin :${1}\" -
-	# NOTE (alkurbatov): Declined pull requests couldn't be fetched
-	# from Bitbucket.
+	# NOTE (alkurbatov): Declined pull requests couldn't be fetched from Bitbucket.
 	gpr = !sh -c \"git fetch upstream pull-requests/${1}/from:pr/${1} && git checkout pr/${1}\" -
 	sync = !sh -c \"git fetch upstream && git checkout master && git merge upstream/master\" -
 	dt = difftool
@@ -43,7 +42,13 @@
 	# $ gpg --list-keys
 	# $ gpg --gen-key
 	# $ gpg --list-secret-keys --keyid-format LONG
-	# $ git config --global user.signingkey <the generated key>
+	# The ID could be found in the very first string:
+	# sec rsa2048/<keyID> 2019-12-26
+	#
+	# $ git config --global user.signingkey <keyID>
+	#
+	# To export a key in ASCII format e.g. for Github do:
+	# $ gpg --armor --export <keyID>
 	gpgsign = true
 [difftool]
 	prompt = false
