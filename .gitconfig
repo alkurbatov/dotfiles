@@ -23,7 +23,7 @@
 	email = alkurbatov@virtuozzo.com
 [core]
 	autocrlf = input
-	editor = vim
+	editor = nvim
 [pull]
 	rebase = true
 [push]
