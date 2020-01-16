@@ -152,3 +152,5 @@ alias testr-init='rm -rf .testrepository && testr init'
 alias pyunit='python -m unittest -v'
 alias pyunittools='python -m testtools.run'
 
+# Python aliases
+alias activate='. ./venv/bin/activate'
