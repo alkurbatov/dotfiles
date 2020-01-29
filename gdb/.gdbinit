@@ -18,6 +18,10 @@
 # Purprose:
 # Just initial gdb configuration.
 
+# Remember history over restarts
+set history save
+set history filename ~/.gdb_history
+
 handle SIG35 nostop
 handle SIG41 nostop
 handle SIGPIPE nostop
