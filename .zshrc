@@ -152,6 +152,7 @@ path+=(~/.gem/ruby/2.3.0/bin)
 path+=(/opt/local/libexec/qt5/bin)
 
 # Well-known directories
+cdpath+=(~/work/src/git.acronis.com)
 cdpath+=(~/work/src/git.acronis.com/alkurbatov)
 cdpath+=(~/work/src/src.openvz.org/alkurbatov)
 cdpath+=(~/work/src/github.com)
