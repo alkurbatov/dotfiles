@@ -20,7 +20,7 @@
 
 [user]
 	name = Alexander Kurbatov
-	email = alkurbatov@virtuozzo.com
+	email = Alexander.Kurbatov@acronis.com
 [core]
 	autocrlf = input
 	editor = nvim
