@@ -53,6 +53,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias mv='mv -i'
     alias port='sudo port'
     alias port-update='port selfupdate; port upgrade outdated'
+    alias port-clean='port uninstall inactive'
     alias rm='rm -i'
     alias ssh-kitty='/Applications/kitty.app/Contents/MacOS/kitty +kitten ssh'
     alias github='open https://github.com/alkurbatov'
