@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Input args
+VERSION=${1}
+if [ -z "${VERSION}" ]; then
+    echo "Release number is required!"
+    exit 1
+fi
+
+BRANCH=${2}
+if [ -z "${BRANCH}" ]; then
+    echo "Release branch name is required!"
+    exit 1
+fi
+
+# 1. Create new release branch (the current active branch will be used as source).
+git checkout -b "${BRANCH}" || { echo "Failed to create new branch!"; exit 2; }
+
+# 2. Adjust the build branches.
+TARGETS=targets.list
+if [[ -f "${TARGETS}" ]]; then
+    /usr/bin/sed -E -i "" "s/(^[a-z -]+-)([0-9.]+)(-[a-z]+)/\1${VERSION}\3/g" ${TARGETS}
+    git add "${TARGETS}" || { echo "Failed to add changes from ${TARGETS}!"; exit 2; }
+fi
+
+# 3. Increment npm minor version.
+PACKAGEJSON=package.json
+if [[ -f "${PACKAGEJSON}" ]]; then
+    /opt/local/bin/perl -i -pe 's/(\"version\": \")(\d+).(\d+).(\d+)(\",)/$1.$2.".".($3+1).".0".$5/e' ${PACKAGEJSON}
+    git add "${PACKAGEJSON}" || { echo "Failed to add changes from ${PACKAGEJSON}!"; exit 2; }
+fi
+
+# 4. Increment makefile version.
+MAKEFILEVERSION=Makefile.version
+if [[ -f "${MAKEFILEVERSION}" ]]; then
+    /opt/local/bin/perl -i -pe 's/(\d+).(\d+).(\d+)/$1.".".($2+1).".0"/e' ${MAKEFILEVERSION}
+    git add "${MAKEFILEVERSION}" || { echo "Failed to add changes from ${MAKEFILEVERSION}!"; exit 2; }
+fi
+
+# 5. Commit the changes.
+git commit -m "chore: Switch to ${BRANCH}" || { echo "Failed to commit the changes!"; exit 2; }
+
