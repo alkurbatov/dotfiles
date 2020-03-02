@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# This file is a part of Dotfiles project
+#
+# Copyright (C) 2020, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
+#
+# Dotfiles is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Dotfiles is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+# Purprose:
+# Collect all the sensitive data in order to transfer it to new machine later.
+
+DST=evacuation-$(date +"%d.%m.%y-%H:%M:%S")
+HOME_BACKUP="${DST}"/alkurbatov
+FOLDERS=(
+    "${DST}"
+    "${DST}"/etc
+    "${HOME_BACKUP}"/gpg
+    "${HOME_BACKUP}"/work
+    "${HOME_BACKUP}"/work/src/github.com/alkurbatov/observatory/config
+)
+
+for i in "${FOLDERS[@]}"; do
+    mkdir -p "${i}" || { echo "Failed to create ${i} folder!"; exit 1; }
+done
+
+cp /etc/hosts "${DST}"/etc/
+
+pushd "${HOME_BACKUP}" > /dev/null || { echo "Failed to switch folder to ${HOME_BACKUP}!"; exit 2; }
+
+cp -R /Users/alkurbatov/.ssh .
+cp -R /Users/alkurbatov/work/etc work/
+cp /Users/alkurbatov/work/src/github.com/alkurbatov/observatory/config/development.js work/src/github.com/alkurbatov/observatory/config/
+
+SIGNKEY=$(git config --global --get user.signingkey)
+[ -z "${SIGNKEY}" ] && echo "Failed to extract gpg sign key!" && exit 1
+
+gpg --export-secret-key "${SIGNKEY}" > gpg/private.key
+gpg --export "${SIGNKEY}" > gpg/public.key
+
+popd > /dev/null || { echo "Failed to pop from ${HOME_BACKUP}!"; exit 2; }
+
+zip -r "${DST}".zip "${DST}" || { echo "Failed to pack the extracted data!"; exit 3; }
+
