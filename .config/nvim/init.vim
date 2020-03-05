@@ -18,6 +18,16 @@ set termguicolors
 
 
 
+" SEARCH:
+
+" Enable case insensitive search
+set ignorecase
+
+" Make the search case sensitive if a pattern contains an uppercase letter
+set smartcase
+
+
+
 " SWAP FILES:
 
 " Protect changes between writes.
