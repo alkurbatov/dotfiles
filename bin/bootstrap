@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# This file is a part of Dotfiles project
+#
+# Copyright (C) 2020, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
+#
+# Dotfiles is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Dotfiles is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+# Purprose:
+# Prepare fresh system for work.
+
+DEFAULT_PYTHON_VERSION=36
+
+MACPORTS_PACKAGES=(
+    FreeRDP
+    R
+    py"${DEFAULT_PYTHON_VERSION}"-ansible
+    ansible-lint
+    cmake
+    gh
+    gpgme
+    jq
+    mc
+    neovim
+    nodejs13
+    npm6
+    py"${DEFAULT_PYTHON_VERSION}"-pylint
+    py"${DEFAULT_PYTHON_VERSION}"-virtualenv
+    python27
+    python"${DEFAULT_PYTHON_VERSION}"
+    shellcheck
+    wget
+    xauth
+    xorg-server
+    yarn
+)
+
+for i in "${MACPORTS_PACKAGES[@]}"; do
+    sudo port -N install "${i}"
+done
+
+# Select default Python version and related software.
+for i in python pip virtualenv tox pylint; do
+    sudo port select --set ${i} ${i}${DEFAULT_PYTHON_VERSION}
+done
+
+for i in ansible; do
+    sudo port select --set ${i} py${DEFAULT_PYTHON_VERSION}-${i}
+done
+
+# Set the default NPM registry.
+npm set registry http://npm.eng.sw.ru/
+
+# Setup the default layout.
+mkdir -p ~/work/{bin,doc,etc,pkg,src,tmp}
+mkdir -p ~/work/src/{git.acronis.com,github.com,src.openvz.org}
+mkdir -p ~/work/src/github.com/alkurbatov
+mkdir -p ~/work/src/git.acronis.com/{alkurbatov,origin}
+mkdir -p ~/work/src/src.openvz.org/{alkurbatov,origin}
+
