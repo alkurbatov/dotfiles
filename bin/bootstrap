@@ -40,6 +40,7 @@ MACPORTS_PACKAGES=(
     python27
     python"${DEFAULT_PYTHON_VERSION}"
     shellcheck
+    the_silver_searcher
     wget
     xauth
     xorg-server
