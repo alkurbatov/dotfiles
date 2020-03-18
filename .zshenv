@@ -42,3 +42,6 @@ export KUBECONFIG=~/k8s.conf
 # X11 display for forwarding
 export DISPLAY=:0
 
+# Emulator
+export APP_PROXY=127.0.0.1:4000
+
