@@ -1,8 +1,0 @@
-Host src.openvz.org
-    HostName src.openvz.org
-    IdentityFile ~/.ssh/stash_rsa
-
-Host git.acronis.com
-    HostName git.acronis.com
-    IdentityFile ~/.ssh/acronis_rsa
-

@@ -1,8 +1,0 @@
----
-
-- name: Update of the workstand playbook
-  hosts: workstand
-  gather_facts: no
-  roles:
-    - common
-    - workstand.update
