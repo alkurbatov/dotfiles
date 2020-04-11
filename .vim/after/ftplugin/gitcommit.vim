@@ -1,3 +1,6 @@
+" Don't show linenumbers, it makes harder copy-pasting.
+setlocal nonumber
+
 " Autmatically wrap long lines
 setlocal formatoptions+=t
 setlocal textwidth=72
