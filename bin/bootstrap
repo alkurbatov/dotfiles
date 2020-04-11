@@ -44,7 +44,7 @@ MACPORTS_PACKAGES=(
     wget
     xauth
     xorg-server
-    yarn
+    xprop
 )
 
 for i in "${MACPORTS_PACKAGES[@]}"; do
@@ -69,4 +69,7 @@ mkdir -p ~/work/src/{git.acronis.com,github.com,src.openvz.org}
 mkdir -p ~/work/src/github.com/alkurbatov
 mkdir -p ~/work/src/git.acronis.com/{alkurbatov,origin}
 mkdir -p ~/work/src/src.openvz.org/{alkurbatov,origin}
+
+# Precreate SSH folders.
+mkdir -p  ~/.ssh/controlmasters
 
