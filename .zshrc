@@ -151,6 +151,10 @@ path+=($GOPATH/bin)
 path+=(~/.gem/ruby/2.3.0/bin)
 path+=(/opt/local/libexec/qt5/bin)
 
+if [[ "$OSTYPE" = linux* ]]; then
+    path+=(~/bin/Sencha/Cmd)
+fi
+
 # Well-known directories
 cdpath+=(~/work/src/git.acronis.com)
 cdpath+=(~/work/src/git.acronis.com/alkurbatov)
