@@ -21,6 +21,7 @@
 [user]
 	name = Alexander Kurbatov
 	email = Alexander.Kurbatov@acronis.com
+	signingkey = AD8ECD887952C5E4
 [core]
 	autocrlf = input
 	editor = nvim
