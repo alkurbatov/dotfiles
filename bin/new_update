@@ -57,6 +57,13 @@ if [[ -f "${MAKEFILEVERSION}" ]]; then
     git add "${MAKEFILEVERSION}" || { echo "Failed to add changes from ${MAKEFILEVERSION}!"; exit 2; }
 fi
 
-# 5. Commit the changes.
+# 5. Increase version in client/version.js.
+CLIENTVERSION=client/version.js
+if [[ -f "${CLIENTVERSION}" ]]; then
+    /opt/local/bin/perl -i -pe 's/(version=\")(\d+).(\d+).(\d+)\"/$1.$2.".".($3+1).".0\""/e' ${CLIENTVERSION}
+    git add "${CLIENTVERSION}" || { echo "Failed to add changes from ${CLIENTVERSION}!"; exit 2; }
+fi
+
+# 6. Commit the changes.
 git commit -m "chore: Switch to ${BRANCH}" || { echo "Failed to commit the changes!"; exit 2; }
 
