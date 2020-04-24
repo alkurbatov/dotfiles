@@ -75,6 +75,20 @@ tnoremap <Esc> <C-\><C-n>
 
 
 
+" AUTOCORRECTION:
+
+iab Implemnet Implement
+iab heigth height
+iab implemnet implement
+iab lcocal local
+iab multy multi
+iab multypart multipart
+iab paralells parallels
+iab reecive receive
+iab udpate update
+
+
+
 " PLUGINS:
 
 " Solorized colorscheme:
