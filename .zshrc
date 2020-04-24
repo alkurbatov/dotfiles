@@ -156,6 +156,7 @@ if [[ "$OSTYPE" = linux* ]]; then
 fi
 
 # Well-known directories
+cdpath+=(~/work/src)
 cdpath+=(~/work/src/git.acronis.com)
 cdpath+=(~/work/src/git.acronis.com/alkurbatov)
 cdpath+=(~/work/src/src.openvz.org/alkurbatov)
@@ -168,8 +169,12 @@ cdpath+=(~/work/src/github.com/openstack)
 # Load tools
 . ~/.zsh_tools
 
+# Install zsh you-should-use plugin.
+# $ git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.zsh/zsh-you-should-use
+source ~/.zsh/zsh-you-should-use/you-should-use.plugin.zsh
+
 # Install zsh autosuggestions plugin
-# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+# $ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 # ! This plugin must be loaded the last.
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
