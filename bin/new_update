@@ -46,8 +46,14 @@ fi
 # 3. Increment npm minor version.
 PACKAGEJSON=package.json
 if [[ -f "${PACKAGEJSON}" ]]; then
-    /opt/local/bin/perl -i -pe 's/(\"version\": \")(\d+).(\d+).(\d+)(\",)/$1.$2.".".($3+1).".0".$5/e' ${PACKAGEJSON}
+    /opt/local/bin/perl -i -pe 's/(^  \"version\": \")(\d+).(\d+).(\d+)(\",)/$1.$2.".".($3+1).".0".$5/e' ${PACKAGEJSON}
     git add "${PACKAGEJSON}" || { echo "Failed to add changes from ${PACKAGEJSON}!"; exit 2; }
+fi
+
+PACKAGELOCKJSON=package-lock.json
+if [[ -f "${PACKAGELOCKJSON}" ]]; then
+    /opt/local/bin/perl -i -pe 's/(^  \"version\": \")(\d+).(\d+).(\d+)(\",)/$1.$2.".".($3+1).".0".$5/e' ${PACKAGELOCKJSON}
+    git add "${PACKAGELOCKJSON}" || { echo "Failed to add changes from ${PACKAGELOCKJSON}!"; exit 2; }
 fi
 
 # 4. Increment makefile version.
