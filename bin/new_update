@@ -39,7 +39,7 @@ git checkout -b "${BRANCH}" || { echo "Failed to create new branch!"; exit 2; }
 # 2. Adjust the build branches.
 TARGETS=targets.list
 if [[ -f "${TARGETS}" ]]; then
-    /usr/bin/sed -E -i "" "s/(^[a-z -]+-)([0-9.]+)(-[a-z]+)/\1${VERSION}\3/g" ${TARGETS}
+    /usr/bin/sed -E -i "" "s/(^[a-z -\d]+-)([0-9.]+)(-[a-z]+)/\1${VERSION}\3/g" ${TARGETS}
     git add "${TARGETS}" || { echo "Failed to add changes from ${TARGETS}!"; exit 2; }
 fi
 
