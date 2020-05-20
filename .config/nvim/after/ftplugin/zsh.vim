@@ -1,1 +1,1 @@
-python.vim
+sh.vim

@@ -8,3 +8,9 @@ setlocal expandtab
 setlocal tabstop=2
 setlocal shiftwidth=2
 
+" Load linter plugin
+packadd ale
+
+" Enable linter
+let b:ale_linters = ['eslint']
+

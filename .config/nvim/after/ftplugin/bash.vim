@@ -1,1 +1,1 @@
-zsh.vim
+sh.vim
