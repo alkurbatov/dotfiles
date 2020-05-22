@@ -175,6 +175,13 @@ nnoremap い i
 
 
 
+" FILETYPES
+
+" Identify nginx configs.
+au BufRead,BufNewFile /etc/nginx/*,*/nginx/conf.d/*,/usr/local/nginx/conf/*,*/conf/nginx.conf if &ft == '' | setfiletype nginx | endif
+
+
+
 " AUTOCORRECTION:
 
 iab Implemnet Implement
@@ -197,7 +204,9 @@ iab udpate update
 " $ git clone https://github.com/icymind/NeoSolarized.git ~/.config/nvim/src/NeoSolarized
 " $ mv ~/.config/nvim/src/NeoSolarized/colors ~/.config/nvim/
 colorscheme NeoSolarized
+
 " Use 'set background=light' to switch to the Solorized Light theme.
+set background=dark
 
 " ALE syntax checker:
 " $ git clone --depth 1 https://github.com/dense-analysis/ale.git .local/share/nvim/site/pack/linting/opt/ale
@@ -212,18 +221,20 @@ let g:ale_sign_column_always = 1
 " Only run linters named in ale_linters settings.
 let g:ale_linters_explicit = 1
 
-" Syntax highlight for Vue.js
+" Syntax highlight for Vue.js.
 " $ git clone https://github.com/leafOfTree/vim-vue-plugin.git ~/.local/share/nvim/site/pack/js/opt/vim-vue-plugin
 
-" Syntax highlight for Ansible
+" Syntax highlight for Ansible.
 " $ git clone https://github.com/pearofducks/ansible-vim.git ~/.local/share/nvim/site/pack/ansible/opt/ansible-vim
 
-" Git messenger:
+" Git messenger.
 " $ git clone https://github.com/rhysd/git-messenger.vim.git ~/.local/share/nvim/site/pack/git/start/git-messenger
 
-" Almost Python IDE :)
-" $ git clone https://github.com/python-mode/python-mode.git ~/.local/share/nvim/site/pack/python/opt/python-mode
+" Python syntax highlight.
+" $ git clone https://github.com/vim-python/python-syntax.git ~/.local/share/nvim/site/pack/python/opt/python-syntax
 
+" Nginx plugin
+" $ git clone https://github.com/chr4/nginx.vim.git ~/.local/share/nvim/site/pack/web/opt/nginx.vim
 
 
 " HELPERS:
