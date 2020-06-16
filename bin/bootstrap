@@ -23,7 +23,6 @@
 DEFAULT_PYTHON_VERSION=36
 
 MACPORTS_PACKAGES=(
-    FreeRDP
     R
     ansible-lint
     cmake
@@ -54,7 +53,7 @@ for i in "${MACPORTS_PACKAGES[@]}"; do
 done
 
 # Select default Python version and related software.
-for i in python pip virtualenv tox pylint; do
+for i in python virtualenv; do
     sudo port select --set ${i} ${i}${DEFAULT_PYTHON_VERSION}
 done
 
@@ -62,16 +61,24 @@ for i in ansible; do
     sudo port select --set ${i} py${DEFAULT_PYTHON_VERSION}-${i}
 done
 
-# Set the default NPM registry.
-npm set registry http://npm.eng.sw.ru/
-
 # Setup the default layout.
 mkdir -p ~/work/{bin,doc,etc,pkg,src,tmp}
-mkdir -p ~/work/src/{git.acronis.com,github.com,src.openvz.org}
+mkdir -p ~/work/src/{git.acronis.com,github.com}
 mkdir -p ~/work/src/github.com/alkurbatov
 mkdir -p ~/work/src/git.acronis.com/{alkurbatov,origin}
-mkdir -p ~/work/src/src.openvz.org/{alkurbatov,origin}
 
 # Precreate SSH folders.
 mkdir -p  ~/.ssh/controlmasters
 
+# Copy settings from my dotfiles.
+cp ~/work/src/github.com/alkurbatov/dotfiles/.gitconfig ~/
+cp ~/work/src/github.com/alkurbatov/dotfiles/.zsh* ~/
+cp -r ~/work/src/github.com/alkurbatov/dotfiles/.config ~/
+
+# Install ZSH plugins.
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.zsh/zsh-you-should-use
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+# Install NeoVim color theme.
+git clone https://github.com/icymind/NeoSolarized.git ~/.config/nvim/src/NeoSolarized
+mv ~/.config/nvim/src/NeoSolarized/colors ~/.config/nvim/
