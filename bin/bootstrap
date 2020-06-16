@@ -25,22 +25,24 @@ DEFAULT_PYTHON_VERSION=36
 MACPORTS_PACKAGES=(
     FreeRDP
     R
-    py"${DEFAULT_PYTHON_VERSION}"-ansible
     ansible-lint
     cmake
     gh
     gpgme
+    inetutils
     jq
     mc
     neovim
     nodejs13
     npm6
+    py"${DEFAULT_PYTHON_VERSION}"-ansible
     py"${DEFAULT_PYTHON_VERSION}"-pylint
     py"${DEFAULT_PYTHON_VERSION}"-virtualenv
-    python27
     python"${DEFAULT_PYTHON_VERSION}"
+    python27
     shellcheck
     the_silver_searcher
+    tmux
     wget
     xauth
     xorg-server
