@@ -46,7 +46,7 @@ alias show-path='echo $PATH | tr -s ":" "\n"'
 alias vi='vim'
 
 if [[ "$OSTYPE" = darwin* ]]; then
-    alias grep='grep -n --color=always'
+    alias grep='grep --color=always'
     alias ll='ls -GlaFh'
     alias ls='ls -G -F'
     alias mc='. /opt/local/libexec/mc/mc-wrapper.sh'
@@ -110,9 +110,16 @@ alias neutron-ps='docker ps --filter name=neutron'
 alias openstack='openstack --insecure'
 
 # NPM aliases
+alias na='npm audit'
 alias ni='npm install --save'
-alias npm-reinstall='rm -rf package-lock.json node_modules && npm install'
+alias nid='npm install --save-dev'
+alias npm-reinstall='rm -rf node_modules && npm install'
 alias npm-update='sudo npm install -g npm'
+
+# Jest aliases
+alias ji='node_modules/.bin/jest -i'
+alias jt='node_modules/.bin/jest -t'
+alias jdb='node --inspect-brk node_modules/.bin/jest --runInBand'
 
 # Git aliases
 alias gb='git branch'
