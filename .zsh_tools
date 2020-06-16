@@ -75,3 +75,13 @@ sshcreate() {
         chmod 600 $HOME/.ssh/$1.pub
     fi
 }
+
+# Stop rtorrent process
+rtstop() {
+    PID=$(ps -A | grep '[r]torrent' | awk '{print $1}')
+    if [ -z ${PID} ]; then
+        echo "rtorrent is not running"
+        exit 1
+    fi
+    kill -15 ${PID}
+}
