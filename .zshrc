@@ -174,7 +174,7 @@ cdpath+=(~/work/src/github.com/openstack)
 source ~/.zsh/zsh-you-should-use/you-should-use.plugin.zsh
 
 # Install zsh autosuggestions plugin
-# $ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+# $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 # ! This plugin must be loaded the last.
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
