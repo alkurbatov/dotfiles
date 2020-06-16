@@ -159,7 +159,6 @@ fi
 cdpath+=(~/work/src)
 cdpath+=(~/work/src/git.acronis.com)
 cdpath+=(~/work/src/git.acronis.com/alkurbatov)
-cdpath+=(~/work/src/src.openvz.org/alkurbatov)
 cdpath+=(~/work/src/github.com)
 cdpath+=(~/work/src/github.com/openstack)
 
