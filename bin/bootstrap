@@ -34,6 +34,7 @@ MACPORTS_PACKAGES=(
     neovim
     nodejs13
     npm6
+    openconnect
     py"${DEFAULT_PYTHON_VERSION}"-ansible
     py"${DEFAULT_PYTHON_VERSION}"-pylint
     py"${DEFAULT_PYTHON_VERSION}"-virtualenv
@@ -74,6 +75,7 @@ mkdir -p  ~/.ssh/controlmasters
 cp ~/work/src/github.com/alkurbatov/dotfiles/.gitconfig ~/
 cp ~/work/src/github.com/alkurbatov/dotfiles/.zsh* ~/
 cp -r ~/work/src/github.com/alkurbatov/dotfiles/.config ~/
+cp ~/work/src/github.com/alkurbatov/dotfiles/.tmux.conf ~/
 
 # Install ZSH plugins.
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.zsh/zsh-you-should-use
