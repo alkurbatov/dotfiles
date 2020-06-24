@@ -84,3 +84,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 # Install NeoVim color theme.
 git clone https://github.com/icymind/NeoSolarized.git ~/.config/nvim/src/NeoSolarized
 mv ~/.config/nvim/src/NeoSolarized/colors ~/.config/nvim/
+
+# Tweak Finder
+defaults write com.apple.Finder AppleShowAllFiles -bool true
+defaults write com.apple.Finder _FXShowPosixPathInTitle -bool true
+defaults write com.apple.Finder ShowStatusBar -bool true
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+defaults write com.apple.Finder NewWindowTargetPath -string "file:///Users/alkurbatov/"
+killall Finder
