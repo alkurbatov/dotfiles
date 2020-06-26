@@ -85,3 +85,19 @@ rtstop() {
     fi
     kill -15 ${PID}
 }
+
+# Connect to Acronis vpn
+acrovpn() {
+    security find-generic-password -a Alexander.Kurbatov -s sslvpn.acronis.ru -w | sudo openconnect -u Alexander.Kurbatov --passwd-on-stdin sslvpn.acronis.ru &
+}
+
+# Stop vpn
+stopvpn() {
+    PID=$(ps -A | grep '[s]udo openconnect' | awk '{print $1}')
+    if [ -z ${PID} ]; then
+        echo "openconnect is not running"
+        exit 1
+    fi
+    sudo kill -15 ${PID}
+    networksetup -setdnsservers Wi-Fi Empty
+}
