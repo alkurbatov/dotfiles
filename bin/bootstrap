@@ -92,3 +92,6 @@ defaults write com.apple.Finder ShowStatusBar -bool true
 defaults write com.apple.finder NewWindowTarget -string "PfHm"
 defaults write com.apple.Finder NewWindowTargetPath -string "file:///Users/alkurbatov/"
 killall Finder
+
+# Make it possible to repeat the same keypress many times by holding it down.
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
