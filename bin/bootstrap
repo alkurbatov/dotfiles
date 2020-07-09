@@ -26,6 +26,7 @@ MACPORTS_PACKAGES=(
     R
     ansible-lint
     cmake
+    fzf
     gh
     gpgme
     inetutils
