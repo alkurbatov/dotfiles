@@ -157,6 +157,21 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 " F5: Remove trailing whitespaces.
 :nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
+" Toggle the paste mode to make it possible to paste text from other application without changing it.
+nnoremap \o :set paste!<CR>
+
+" Togle display of linenumbers.
+nnoremap \l :setlocal number!<CR>
+
+" Clear highlighting of search results.
+nnoremap \q :nohlsearch<CR>
+
+" Go to another file by searching it via fzf.
+nnoremap <C-P> :Files! .<CR>
+
+" Open NERD tree.
+nnoremap \e :NERDTreeToggle<CR>
+
 
 
 " RU LANGUAGE SUPPORT:
@@ -200,16 +215,12 @@ iab udpate update
 
 " PLUGINS:
 
-" Solorized colorscheme:
-" $ git clone https://github.com/icymind/NeoSolarized.git ~/.config/nvim/src/NeoSolarized
-" $ mv ~/.config/nvim/src/NeoSolarized/colors ~/.config/nvim/
-colorscheme NeoSolarized
-
-" Use 'set background=light' to switch to the Solorized Light theme.
-set background=dark
+" Extra colorschemes.
+" $ git clone https://github.com/flazz/vim-colorschemes.git ~/.local/share/nvim/site/pack/core/start/vim-colorschemes
+colorscheme solarized8_dark_flat
 
 " ALE syntax checker:
-" $ git clone --depth 1 https://github.com/dense-analysis/ale.git .local/share/nvim/site/pack/linting/opt/ale
+" $ git clone --depth 1 https://github.com/dense-analysis/ale.git ~/.local/share/nvim/site/pack/linting/opt/ale
 
 " Set up custom error and warning signs.
 let g:ale_sign_error = 'X'
@@ -233,8 +244,16 @@ let g:ale_linters_explicit = 1
 " Python syntax highlight.
 " $ git clone https://github.com/vim-python/python-syntax.git ~/.local/share/nvim/site/pack/python/opt/python-syntax
 
-" Nginx plugin
+" Nginx plugin.
 " $ git clone https://github.com/chr4/nginx.vim.git ~/.local/share/nvim/site/pack/web/opt/nginx.vim
+
+" Fuzzy finder.
+" $ git clone https://github.com/junegunn/fzf.git ~/.local/share/nvim/site/pack/core/start/fzf
+" $ git clone https://github.com/junegunn/fzf.vim.git ~/.local/share/nvim/site/pack/core/start/fzf.vim
+
+" File manager.
+" $ git clone https://github.com/preservim/nerdtree.git ~/.local/share/nvim/site/pack/core/start/nerdtree
+
 
 
 " HELPERS:
