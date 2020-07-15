@@ -69,6 +69,10 @@ if !isdirectory(&directory)
   call system('mkdir -p ' . &directory)
 endif
 
+" How often update swap file (ms).
+" Also, used by vim-fugitive as update interval.
+set updatetime=100
+
 
 
 " BACKUPS:
@@ -166,8 +170,11 @@ nnoremap \l :setlocal number!<CR>
 " Clear highlighting of search results.
 nnoremap \q :nohlsearch<CR>
 
-" Go to another file by searching it via fzf.
+" Go to another file by searching it via fzf (in the current project).
 nnoremap <C-P> :Files! .<CR>
+
+" Go to another file by searching it via fzf (in the home folder).
+nnoremap <C-M-P> :Files! ~/work<CR>
 
 " Open NERD tree.
 nnoremap \e :NERDTreeToggle<CR>
@@ -238,6 +245,17 @@ let g:ale_linters_explicit = 1
 " Syntax highlight for Ansible.
 " $ git clone https://github.com/pearofducks/ansible-vim.git ~/.local/share/nvim/site/pack/ansible/opt/ansible-vim
 
+" Git gutter.
+" $ git clone https://github.com/airblade/vim-gitgutter.git ~/.local/share/nvim/site/pack/git/start/vim-gitgutter
+
+" Set better marks
+let g:gitgutter_sign_added = '•'
+let g:gitgutter_sign_modified = '•'
+let g:gitgutter_sign_removed = '•'
+
+" Extended git integration.
+" $ git clone https://github.com/tpope/vim-fugitive.git ~/.local/share/nvim/site/pack/git/start/vim-fugitive
+
 " Git messenger.
 " $ git clone https://github.com/rhysd/git-messenger.vim.git ~/.local/share/nvim/site/pack/git/start/git-messenger
 
@@ -254,6 +272,8 @@ let g:ale_linters_explicit = 1
 " File manager.
 " $ git clone https://github.com/preservim/nerdtree.git ~/.local/share/nvim/site/pack/core/start/nerdtree
 
+" Simplify comment out code.
+" $ git clone https://tpope.io/vim/commentary.git ~/.local/share/nvim/site/pack/core/start/commentary
 
 
 " HELPERS:
