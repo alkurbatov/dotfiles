@@ -275,6 +275,10 @@ let g:gitgutter_sign_removed = '•'
 " Simplify comment out code.
 " $ git clone https://tpope.io/vim/commentary.git ~/.local/share/nvim/site/pack/core/start/commentary
 
+" Better Javascript suppport.
+" $ git clone https://github.com/pangloss/vim-javascript.git ~/.local/share/nvim/site/pack/js/opt/vim-javascript
+
+
 
 " HELPERS:
 

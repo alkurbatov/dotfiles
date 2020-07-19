@@ -8,6 +8,9 @@ setlocal expandtab
 setlocal tabstop=2
 setlocal shiftwidth=2
 
+" Load Javascript plugin
+packadd vim-javascript
+
 " Load linter plugin
 packadd ale
 
