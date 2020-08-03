@@ -99,7 +99,7 @@ alias sshx='ssh -Y -C'
 alias svn-log='svn log | less'
 
 # ExtJS aliases
-alias sencha-bld='sencha app refresh && sencha app build'
+alias sencha-bld='sencha app refresh && sencha --strict app build'
 
 # OpenStack aliases
 alias cinder-ps='docker ps --filter name=cinder'
