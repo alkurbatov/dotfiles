@@ -152,7 +152,7 @@ path+=(~/.gem/ruby/2.3.0/bin)
 path+=(/opt/local/libexec/qt5/bin)
 
 if [[ "$OSTYPE" = linux* ]]; then
-    path+=(~/bin/Sencha/Cmd)
+    path+=(/opt/Sencha/Cmd)
 fi
 
 # Well-known directories
