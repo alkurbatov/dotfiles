@@ -27,14 +27,13 @@ if [ -z "${VERSION}" ]; then
     exit 1
 fi
 
+# 1. Create new release branch (the current active branch will be used as source) if needed.
 BRANCH=${2}
 if [ -z "${BRANCH}" ]; then
-    echo "Release branch name is required!"
-    exit 1
+    echo "Name for release branch is not specified, skipping new branch creation!"
+else
+    git checkout -b "${BRANCH}" || { echo "Failed to create new branch!"; exit 2; }
 fi
-
-# 1. Create new release branch (the current active branch will be used as source).
-git checkout -b "${BRANCH}" || { echo "Failed to create new branch!"; exit 2; }
 
 # 2. Adjust the build branches.
 TARGETS=targets.list
@@ -71,5 +70,5 @@ if [[ -f "${CLIENTVERSION}" ]]; then
 fi
 
 # 6. Commit the changes.
-git commit -m "chore: Switch to ${BRANCH}" || { echo "Failed to commit the changes!"; exit 2; }
+git commit -m "chore: Switch to ${VERSION}" || { echo "Failed to commit the changes!"; exit 2; }
 
