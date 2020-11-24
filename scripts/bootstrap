@@ -27,15 +27,13 @@ MACPORTS_PACKAGES=(
     ansible-lint
     cmake
     fzf
-    gh
     gpgme
     inetutils
     jq
     mc
     neovim
-    nodejs13
+    nodejs14
     npm6
-    openconnect
     py"${DEFAULT_PYTHON_VERSION}"-ansible
     py"${DEFAULT_PYTHON_VERSION}"-pylint
     py"${DEFAULT_PYTHON_VERSION}"-virtualenv
