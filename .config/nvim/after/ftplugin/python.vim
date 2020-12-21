@@ -12,7 +12,7 @@ setlocal shiftwidth=4
 packadd ale
 
 " Enable linter.
-let b:ale_linters=['pylint']
+let b:ale_linters=['flake8']
 
 " Enable python syntax highlight.
 packadd python-syntax
