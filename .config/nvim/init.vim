@@ -9,6 +9,15 @@ set exrc
 " Disallows the use of :autocmd, shell and write commands in local config files.
 set secure
 
+" Show several lines after the last one.
+set scrolloff=1
+
+" Scroll horizontaly on long lines.
+set sidescrolloff=5
+
+" Delete comment character when joining commented lines
+set formatoptions+=j
+
 
 
 " STYLE:
@@ -16,8 +25,8 @@ set secure
 " Enable nice colors in terminal.
 set termguicolors
 
-" Show tabs and spaces when 'set list' is on.
-set listchars=tab:>-,trail:.,space:.
+" Special markup for tabs, spaces and other chars when 'set list' is on.
+set listchars=tab:>\ ,trail:.,extends:>,precedes:<,nbsp:+
 
 " Make the line length border less annoying.
 highlight ColorColumn ctermbg=gray
@@ -39,6 +48,9 @@ set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
 set statusline+=\ 
+
+" Always show statusline.
+set laststatus=2
 
 
 
@@ -102,7 +114,10 @@ endif
 
 
 
-" UNDO FILES:
+" UNDO AND HISTORY:
+
+" Increase cmdline history size.
+set history=1000
 
 " Keep track of undo commands using dedicated files.
 set undofile
