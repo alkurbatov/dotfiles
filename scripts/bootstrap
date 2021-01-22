@@ -26,11 +26,14 @@ MACPORTS_PACKAGES=(
     R
     ansible-lint
     cmake
+    emacs
     fzf
     gpgme
     inetutils
+    ispell
     jq
     mc
+    multimarkdown
     neovim
     nodejs14
     npm6
