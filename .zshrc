@@ -127,6 +127,10 @@ git-prompt()
 {
     local ref=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
+    if [ "$ref" = "HEAD" ]; then
+        ref="detached"
+    fi
+
     if [ "$ref" != "" ]; then
         echo "($ref$(parse_git_dirty)$(parse_git_stash)) "
     fi
