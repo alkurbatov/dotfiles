@@ -77,15 +77,12 @@ mkdir -p  ~/.ssh/controlmasters
 cp ~/work/src/github.com/alkurbatov/dotfiles/.gitconfig ~/
 cp ~/work/src/github.com/alkurbatov/dotfiles/.zsh* ~/
 cp -r ~/work/src/github.com/alkurbatov/dotfiles/.config ~/
+cp -r ~/work/src/github.com/alkurbatov/dotfiles/.emacs* ~/
 cp ~/work/src/github.com/alkurbatov/dotfiles/.tmux.conf ~/
 
 # Install ZSH plugins.
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.zsh/zsh-you-should-use
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-
-# Install NeoVim color theme.
-git clone https://github.com/icymind/NeoSolarized.git ~/.config/nvim/src/NeoSolarized
-mv ~/.config/nvim/src/NeoSolarized/colors ~/.config/nvim/
 
 # Tweak Finder
 defaults write com.apple.Finder AppleShowAllFiles -bool true

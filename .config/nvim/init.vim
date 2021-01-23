@@ -20,6 +20,22 @@ set formatoptions+=j
 
 
 
+" NAVIGATION:
+
+" Disable arrow keys and mouse, we love pain
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
+
+set mouse=
+
+
+
 " STYLE:
 
 " Enable nice colors in terminal.
@@ -27,6 +43,9 @@ set termguicolors
 
 " Special markup for tabs, spaces and other chars when 'set list' is on.
 set listchars=tab:>\ ,trail:.,extends:>,precedes:<,nbsp:+
+
+" Let vim set the window's title 
+set title
 
 " Make the line length border less annoying.
 highlight ColorColumn ctermbg=gray
@@ -161,7 +180,7 @@ tnoremap <Esc> <C-\><C-n>
 
 
 
-" SHORTCUTS:
+" KEYBOARD SHORTCUTS:
 
 " Mac: Alt+j: Move current line down.
 nnoremap ∆ :m .+1<CR>==
@@ -196,8 +215,17 @@ nnoremap \e :NERDTreeToggle<CR>
 
 
 
-" RU LANGUAGE SUPPORT:
+" HANDY COMMANDS
 
+" Save file as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+" Create C/C++ tags file.
+command! MakeTags !ctags -R .
+
+
+
+" RU LANGUAGE SUPPORT:
 nnoremap о j
 nnoremap л k
 nnoremap р h
@@ -232,6 +260,13 @@ iab paralells parallels
 iab reecive receive
 iab towh town
 iab udpate update
+
+
+
+" SNIPPETS:
+
+nnoremap ,maincpp :-1read $HOME/.config/nvim/skel/main.cpp<CR>6ja
+nnoremap ,nodejs :-1read $HOME/.config/nvim/skel/node.js<CR>6ja
 
 
 
