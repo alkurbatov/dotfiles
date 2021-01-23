@@ -32,12 +32,9 @@ export GITHUB_USER=alkurbatov
 export GOPATH=$HOME/work
 
 # Preferred editor for local and remote sessions
-export EDITOR=nvim
-export VISUAL=nvim
-export SVN_EDITOR=nvim
-
-# K8s access
-export KUBECONFIG=~/k8s.conf
+export EDITOR=emacs
+export VISUAL=emacs
+export SVN_EDITOR=emacs
 
 # X11 display for forwarding
 export DISPLAY=:0
