@@ -1,0 +1,9 @@
+;;-*-coding: utf-8;-*-
+(define-abbrev-table 'global-abbrev-table
+  '(
+    ("heigth" "height" nil :count 1)
+    ("implemnet" "implement" nil :count 2)
+    ("lcocal" "local" nil :count 1)
+    ("multy" "multi" nil :count 1)
+   ))
+
