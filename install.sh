@@ -34,7 +34,7 @@ CONFIGS=(
 
 if [ $# -eq 0 ]; then
     for i in "${CONFIGS[@]}"; do
-	cp -rvf "${i}" ~/
+        cp -rvf "${i}" ~/
     done
 
     exit 0
