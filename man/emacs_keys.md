@@ -17,7 +17,7 @@ C-x C-c - exit emacs (C should be pressed down).
 C-g - interrupt currently running command, reset currently entered command, etc.
 C-x z - repeat the last command.
 C-x Esc Esc - put the last command into the minibuffer.
-<after put the last command> M-p - put older command.
+(after put the last command) M-p - put older command.
 M-x man - read manpages.
 M-x calendar - start the embedded calendar.
 (while in the calendar) M-x holidays - show list of holidays.
@@ -65,11 +65,13 @@ M-S-> - move to the end of the file.
 M-g M-g X - move cursor to line number X.
 
 C-s - start incremental search in the area after the cursor.
+C-s C-s - repeat last forward incremental search.
 M-s w - start incermental search by exact word.
 C-s C-w - start incremental search by part of the text from the cursor's position to the end of the word.
 C-s C-y - start incremental search by part of the text from the cursor's position to the end of the line.
 C-s M-y - search by the cut text (use M-p and M-n to cycle through criteria).
 C-r - start incremental search in the area before the cursor.
+C-r C-r - repeat last bacward incremental search.
 (during search) C-s - next match.
 (during search) DEL - previous match.
 
@@ -93,28 +95,30 @@ C-y M-y - cycle forward through the buffers on each M-y keypress and paste buffe
 
 C-\ - undo changes.
 C-- - undo changes.
-<move after undo> - undo the last undo command.
+(move after doing undo) - undo the last undo command.
 
 C-t - swap two letters (transpos).
 M-t - swap two words (transpose).
 C-x C-t - swap two lines (transpose).
 
+C-q Tab - insert a tab.
+
 M-x replace-string A B - replace all strings containing A with B.
 
 M-% - interactive replace.
-<while in replace> y - replace the current instance.
-<while in replace> SPACE - replace the current instance.
-<while in replace> n - skip replace of the current instance.
-<while in replace> DEL - skip replace of the current instance.
-<while in replace> . - replace the current instance and quite.
-<while in replace> , - replace the current instance and see the result.
-<while in replace> ! - replace the rest and don't ask.
-<while in replace> ^ - go back to previous instance.
-<while in replace> E - modify the replacement string.
-<while in replace> C-r - enter the recursive edit mode.
-<while in replace> C-w - delete this instance and enter the recursive edit mode.
-<while in replace> C-M-c - exit the recursive edit mode.
-<while in replace> C-] - exit the recursive edit and interactive replace
+(while in replace) y - replace the current instance.
+(while in replace) SPACE - replace the current instance.
+(while in replace) n - skip replace of the current instance.
+(while in replace) DEL - skip replace of the current instance.
+(while in replace) . - replace the current instance and quite.
+(while in replace) , - replace the current instance and see the result.
+(while in replace) ! - replace the rest and don't ask.
+(while in replace) ^ - go back to previous instance.
+(while in replace) E - modify the replacement string.
+(while in replace) C-r - enter the recursive edit mode.
+(while in replace) C-w - delete this instance and enter the recursive edit mode.
+(while in replace) C-M-c - exit the recursive edit mode.
+(while in replace) C-] - exit the recursive edit and interactive replace
 
 M-c - capitalize letter of the word after the cursor.
 M-u - capitalize the word after the cursor.
@@ -133,6 +137,11 @@ C-x h - mark the entire file.
 V C-w - cut the region.
 V M-w - copy the region.
 V C-x C-x - swap mark and cursor.
+C-x r k - delete a rectangle.
+C-x r y - insert a rectangle.
+C-x r o - insert a blank rectangle.
+C-x r c - clear a rectangle.
+C-x r t - replace a rectangle.
 
 
 ## Window management
@@ -199,6 +208,7 @@ M-x flyspell-prog-mode - check spelling only in comments.
 M-x fundamental-mode - switch to the fundamental mode (default).
 M-x text mode - switch to the text mode to edit basic text.
 M-x ov TAB - switch to the overwrite mode.
+M-x whitespace-mode - show tabs, spaces and lineendings.
 
 
 ## Auto fill mode
@@ -293,7 +303,27 @@ C-x C-j - upen current buffer's folder in Dired.
 (while in directory editor) i - insert subdirectory into the current buffer.
 
 
-## Work with Git
+## Git
 C-x v g - git blame.
 (while in blame mode) = - open diff of particular commit.
 (while in blame mode) q - close the opened diff.
+
+
+## Macros
+C-x ( - start recording.
+C-g - stop recording.
+C-x ) - stop recording.
+C-x e - execute the last keyboard macro.
+C-x C-k e - edit a macro.
+(while editing a macro) C-c C-c - stop macro editing.
+C-x C-k C-d - delete a macro from the macro ring.
+C-x C-k C-t - swap positions of two macros.
+C-c C-k C-p - cycle to previous macro in the ring.
+C-c C-k C-n - cycle to next macro in the ring.
+C-x C-k b - bind a key (sequence) to a macro.
+C-x C-k n - name the last macro.
+M-x insert-kbd-macro - put a macro to a buffer.
+(while recording macro) C-u C-x q - start recursive edit. 
+(while recording macro) C-M-c - stop recursive edit.
+(while recording macro) C-x q - place a query to a user.
+C-x C-k r - apply a macro to a region.
