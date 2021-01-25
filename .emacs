@@ -17,6 +17,7 @@
   "Load a file in current user's configuration directory"
   (load (expand-file-name file "~/.emacs.d/config/") nil t))
 
+(load-user-file "bash.el")
 (load-user-file "core.el")
 (load-user-file "cpp.el")
 (load-user-file "dired.el")
