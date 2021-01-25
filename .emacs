@@ -22,6 +22,7 @@
 (load-user-file "dired.el")
 (load-user-file "docker.el")
 (load-user-file "git.el")
+(load-user-file "jinja2.el")
 (load-user-file "js.el")
 (load-user-file "markdown.el")
 (load-user-file "vue.el")
