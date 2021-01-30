@@ -33,6 +33,8 @@ CONFIGS=(
 )
 
 if [ $# -eq 0 ]; then
+    rm -rf ~/.emacs.d/config
+
     for i in "${CONFIGS[@]}"; do
         cp -rvf "${i}" ~/
     done
