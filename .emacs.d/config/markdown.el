@@ -6,4 +6,7 @@
            ("\\.markdown\\'" . markdown-mode))
     :init (setq markdown-command "multimarkdown")
   )
+
+  (add-hook 'gfm-mode-hook 'flyspell-mode)
+  (add-hook 'markdown-mode-hook 'flyspell-mode)
 )

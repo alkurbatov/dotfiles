@@ -12,3 +12,4 @@
             ;; (dired-omit-mode 1)
             ))
 
+(auto-compression-mode 1) ;; automatically decompress/compress files opened in Dired

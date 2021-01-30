@@ -30,7 +30,9 @@ MACPORTS_PACKAGES=(
     fzf
     gpgme
     inetutils
-    ispell
+    aspell
+    aspell-dict-ru
+    aspell-dict-en
     jq
     mc
     multimarkdown
