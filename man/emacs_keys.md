@@ -128,6 +128,10 @@ M-- M-l - put the word before the cursor in lowercase.
 
 M-/ - auto complete the entered word (repeat to cycle through suggestions).
 
+M-; - insert commentary at the end of current string.
+M-j - continue commentary on the next string.
+M-x kill-comment - removes a commentary line.
+
 
 ## Visual block
 C-SPC - start visual block selection.
@@ -327,3 +331,40 @@ M-x insert-kbd-macro - put a macro to a buffer.
 (while recording macro) C-M-c - stop recursive edit.
 (while recording macro) C-x q - place a query to a user.
 C-x C-k r - apply a macro to a region.
+
+
+## Compilation
+M-x compile - compile a program.
+(while in the compilation buffer) C-x ` - go to next compilation error and open corresponding error source.
+(while in the compilation buffer) M-n - move to next compilation error.
+(while in the compilation buffer) M-p - move to previous compilation error.
+(while in the compilation buffer) C-c C-c - open source code related to current error message.
+(while in the compilation buffer) Space - scroll down one screen.
+(while in the compilation buffer) Del - scroll up one screen.
+
+
+## Indentation
+C-M-\ - indent each line between the cursor and mark.
+M-m - move to the first nonblank character of a line.
+M-^ - join this line with the previous one.
+
+
+## Tags
+M-x visit-tags-table - load content of the TAGS file into emacs.
+M-. - find tag (can pick the word under the cursor).
+M-x tags-search - search among tags by regular expression.
+M-x list-tags - list all tags in the table.
+
+
+## C++ mode
+M-e - move to the end of the current statement.
+M-a - move to the beginning of the current statement.
+M-q - reformat the commentary block.
+C-M-a - move to the beginning of the functions body.
+C-M-e - move to the end of the functions body.
+C-M-h - mark the functions body as a region.
+C-c C-q - indent the functions body.
+C-j } - indent the code block with the opening {.
+M-x set-style - choose indentation coding style. 
+C-c C-e - expand the macro under the cursor.
+C-c : - insert ::.
