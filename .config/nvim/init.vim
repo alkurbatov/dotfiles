@@ -198,8 +198,11 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 " Toggle the paste mode to make it possible to paste text from other application without changing it.
 nnoremap \o :set paste!<CR>
 
-" Togle display of linenumbers.
-nnoremap \l :setlocal number!<CR>
+" Toggle display of linenumbers.
+nnoremap \n :setlocal number!<CR>
+
+" Toggle display of tabs and spaces.
+nnoremap \l :setlocal list!<CR>
 
 " Clear highlighting of search results.
 nnoremap \q :nohlsearch<CR>
@@ -231,12 +234,6 @@ nnoremap л k
 nnoremap р h
 nnoremap д l
 nnoremap ш i
-
-
-
-" JP LANGUAGE SUPPORT:
-
-nnoremap い i
 
 
 
@@ -272,12 +269,8 @@ nnoremap ,nodejs :-1read $HOME/.config/nvim/skel/node.js<CR>6ja
 
 " PLUGINS:
 
-" Extra colorschemes.
-" $ git clone https://github.com/flazz/vim-colorschemes.git ~/.local/share/nvim/site/pack/core/start/vim-colorschemes
-colorscheme solarized8_dark_flat
-
 " ALE syntax checker:
-" $ git clone --depth 1 https://github.com/dense-analysis/ale.git ~/.local/share/nvim/site/pack/linting/opt/ale
+" $ git clone --depth 1 git@github.com:dense-analysis/ale.git ~/.local/share/nvim/site/pack/linting/opt/ale
 
 " Set up custom error and warning signs.
 let g:ale_sign_error = 'X'
@@ -289,14 +282,8 @@ let g:ale_sign_column_always = 1
 " Only run linters named in ale_linters settings.
 let g:ale_linters_explicit = 1
 
-" Syntax highlight for Vue.js.
-" $ git clone https://github.com/leafOfTree/vim-vue-plugin.git ~/.local/share/nvim/site/pack/js/opt/vim-vue-plugin
-
-" Syntax highlight for Ansible.
-" $ git clone https://github.com/pearofducks/ansible-vim.git ~/.local/share/nvim/site/pack/ansible/opt/ansible-vim
-
 " Git gutter.
-" $ git clone https://github.com/airblade/vim-gitgutter.git ~/.local/share/nvim/site/pack/git/start/vim-gitgutter
+" $ git clone git@github.com:airblade/vim-gitgutter.git ~/.local/share/nvim/site/pack/git/start/vim-gitgutter
 
 " Set better marks
 let g:gitgutter_sign_added = '•'
@@ -304,29 +291,23 @@ let g:gitgutter_sign_modified = '•'
 let g:gitgutter_sign_removed = '•'
 
 " Extended git integration.
-" $ git clone https://github.com/tpope/vim-fugitive.git ~/.local/share/nvim/site/pack/git/start/vim-fugitive
-
-" Git messenger.
-" $ git clone https://github.com/rhysd/git-messenger.vim.git ~/.local/share/nvim/site/pack/git/start/git-messenger
+" $ git clone git@github.com:tpope/vim-fugitive.git ~/.local/share/nvim/site/pack/git/start/vim-fugitive
 
 " Python syntax highlight.
-" $ git clone https://github.com/vim-python/python-syntax.git ~/.local/share/nvim/site/pack/python/opt/python-syntax
+" $ git clone git@github.com:vim-python/python-syntax.git ~/.local/share/nvim/site/pack/python/opt/python-syntax
 
 " Nginx plugin.
-" $ git clone https://github.com/chr4/nginx.vim.git ~/.local/share/nvim/site/pack/web/opt/nginx.vim
+" $ git clone git@github.com:chr4/nginx.vim.git ~/.local/share/nvim/site/pack/web/opt/nginx.vim
 
 " Fuzzy finder.
-" $ git clone https://github.com/junegunn/fzf.git ~/.local/share/nvim/site/pack/core/start/fzf
-" $ git clone https://github.com/junegunn/fzf.vim.git ~/.local/share/nvim/site/pack/core/start/fzf.vim
+" $ git clone git@github.com:junegunn/fzf.git ~/.local/share/nvim/site/pack/core/start/fzf
+" $ git clone git@github.com:junegunn/fzf.vim.git ~/.local/share/nvim/site/pack/core/start/fzf.vim
 
 " File manager.
-" $ git clone https://github.com/preservim/nerdtree.git ~/.local/share/nvim/site/pack/core/start/nerdtree
+" $ git clone git@github.com:preservim/nerdtree.git ~/.local/share/nvim/site/pack/core/start/nerdtree
 
 " Simplify comment out code.
-" $ git clone https://tpope.io/vim/commentary.git ~/.local/share/nvim/site/pack/core/start/commentary
-
-" Better Javascript suppport.
-" $ git clone https://github.com/pangloss/vim-javascript.git ~/.local/share/nvim/site/pack/js/opt/vim-javascript
+" $ git clone git@github.com:tpope/vim-commentary.git ~/.local/share/nvim/site/pack/core/start/commentary
 
 
 
