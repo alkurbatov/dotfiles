@@ -16,9 +16,9 @@ M X command - repeat command X times.
 C-x C-c - exit emacs (C should be pressed down).
 C-g - interrupt currently running command, reset currently entered command, etc.
 C-x z - repeat the last command.
-C-x Esc Esc - put the last command into the minibuffer.
+C-x Esc Esc - put the last command into the mini buffer.
 (after put the last command) M-p - put older command.
-M-x man - read manpages.
+M-x man - read man pages.
 M-x calendar - start the embedded calendar.
 (while in the calendar) M-x holidays - show list of holidays.
 (while in the calendar) x - highlight all holidays in the calendar.
@@ -66,12 +66,12 @@ M-g M-g X - move cursor to line number X.
 
 C-s - start incremental search in the area after the cursor.
 C-s C-s - repeat last forward incremental search.
-M-s w - start incermental search by exact word.
+M-s w - start incremental search by exact word.
 C-s C-w - start incremental search by part of the text from the cursor's position to the end of the word.
 C-s C-y - start incremental search by part of the text from the cursor's position to the end of the line.
 C-s M-y - search by the cut text (use M-p and M-n to cycle through criteria).
 C-r - start incremental search in the area before the cursor.
-C-r C-r - repeat last bacward incremental search.
+C-r C-r - repeat last backward incremental search.
 (during search) C-s - next match.
 (during search) DEL - previous match.
 
@@ -91,13 +91,13 @@ C-k - cut text from cursor to the end of the string.
 M-k - cut text from the cursor to the end of the sentence.
 
 C-y - paste text from the last buffer.
-C-y M-y - cycle forward through the buffers on each M-y keypress and paste buffer's content.
+C-y M-y - cycle forward through the buffers on each M-y key press and paste buffer's content.
 
 C-\ - undo changes.
 C-- - undo changes.
 (move after doing undo) - undo the last undo command.
 
-C-t - swap two letters (transpos).
+C-t - swap two letters (transpose).
 M-t - swap two words (transpose).
 C-x C-t - swap two lines (transpose).
 
@@ -151,7 +151,7 @@ C-x r t - replace a rectangle.
 ## Window management
 C-x 0 - close the current window.
 C-x 1 - close all windows except the current.
-C-x 2 - split the current window horizontaly.
+C-x 2 - split the current window horizontally.
 C-x 3 - split the current window vertically.
 C-M-v - scroll in the neighbor window.
 C-x o - move cursor to the neighbor window.
@@ -183,8 +183,8 @@ C-x C-b - show list of open buffers.
 (while browsing buffers list) % - toggle read-only mode.
 (while browsing buffers list) 1 - open a buffer in the current window.
 (while browsing buffers list) m - mark a buffer to be opened in a window.
-(while browsing buffers list) v - desplay the buffers marked with m in several windows.
-C-x b - create empty buffer (if name is omotted, the last closed buffer is shown).
+(while browsing buffers list) v - display the buffers marked with m in several windows.
+C-x b - create empty buffer (if name is omitted, the last closed buffer is shown).
 C-x b N - open the buffer named N.
 C-x b *Messages* - open the text editor's messages buffer.
 C-x s - save the buffers associated with files.
@@ -203,7 +203,7 @@ M-x ispell-buffer - check whole open buffer with ispell.
 (while in spell correction mode) a - ignore the misspelled word for this buffers.
 
 M-$ - spellcheck the word under the cursor.
-M-Tab - language autocompletion.
+M-Tab - language auto completion.
 M-x flyspell-mode - check spelling on the fly.
 M-x flyspell-prog-mode - check spelling only in comments.
 
@@ -212,13 +212,13 @@ M-x flyspell-prog-mode - check spelling only in comments.
 M-x fundamental-mode - switch to the fundamental mode (default).
 M-x text mode - switch to the text mode to edit basic text.
 M-x ov TAB - switch to the overwrite mode.
-M-x whitespace-mode - show tabs, spaces and lineendings.
+M-x whitespace-mode - show tabs, spaces and line endings.
 
 
 ## Auto fill mode
 M-x auto-fill-mode - enable the auto fill mode (automatically break line if it is too long).
-M-x refill-mode - same as auto fill mode, but reformats paragraphs automatically.
-C-x f - change max line length (70 is deault).
+M-x refill-mode - same as auto fill mode, but reformat paragraphs automatically.
+C-x f - change max line length (70 is default).
 M-q - reformat the paragraph under the cursor.
 
 
@@ -241,7 +241,7 @@ M-x bookmark-rename - rename a bookmark.
 (while in the bookmarks list) j - display the bookmarked file with the cursor set at bookmarks location.
 (while in the bookmarks list) d - mark a bookmark for deletion.
 (while in the bookmarks list) x - delete the marked bookmarks.
-(while in the bookmarks list) Del - demove the deletion mark.
+(while in the bookmarks list) Del - remove the deletion mark.
 (while in the bookmarks list) r - rename a bookmark.
 (while in the bookmarks list) m - mark a bookmark to display associated files later.
 (while in the bookmarks list) v - view the bookmarks marked with m key.
@@ -267,8 +267,8 @@ M-x shell - open shell in Emacs.
 
 ## Dired
 C-x d - start Dired.
-C-x C-j - upen current buffer's folder in Dired.
-(while in directory editor) s - togle sorting (by mtime or name).
+C-x C-j - open current buffer's folder in Dired.
+(while in directory editor) s - toggle sorting (by mtime or name).
 (while in directory editor) n - move to the next line.
 (while in directory editor) p - move to the previous line.
 (while in directory editor) v - open a file under the cursor in the view mode.
@@ -284,7 +284,7 @@ C-x C-j - upen current buffer's folder in Dired.
 (while in directory editor) C - copy a file under the cursor or marked files.
 (while in directory editor) R - rename a file under the cursor or marked files.
 (while in directory editor) m - mark a file under the cursor.
-(while in directory editor) * - mark a file under the cursor. Any further commands will be launched fot the marked file.
+(while in directory editor) * - mark a file under the cursor. Any further commands will be launched for the marked file.
 (while in directory editor) * * - mark executables.
 (while in directory editor) * / - mark folders.
 (while in directory editor) * @ - mark symbolic links.
@@ -345,7 +345,7 @@ M-x compile - compile a program.
 
 ## Indentation
 C-M-\ - indent each line between the cursor and mark.
-M-m - move to the first nonblank character of a line.
+M-m - move to the first non-blank character of a line.
 M-^ - join this line with the previous one.
 
 
