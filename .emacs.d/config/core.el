@@ -35,7 +35,10 @@
 )
 
 ;; Spelling.
-(setq ispell-program-name "aspell")
+(setq
+  ispell-program-name "aspell"
+  ispell-dictionary "american"
+)
 
 ;; Enable mouse support in iTerm2.
 (require 'mouse)
