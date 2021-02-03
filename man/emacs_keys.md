@@ -18,6 +18,7 @@ C-g - interrupt currently running command, reset currently entered command, etc.
 C-x z - repeat the last command.
 C-x Esc Esc - put the last command into the mini buffer.
 (after put the last command) M-p - put older command.
+C-x * c - run a calculator.
 M-x man - read man pages.
 M-x calendar - start the embedded calendar.
 (while in the calendar) M-x holidays - show list of holidays.
@@ -32,6 +33,9 @@ C-h f - describe what the provided command does.
 C-h v - describe the provided variable.
 C-h a - search by part of name among the available commands.
 C-h i - read interactive manuals of the installed packages.
+C-h l - show the last 100 commands.
+С-h m - show documentation of the currently active mode(s).
+C-h b - show all keybindings actual for the current buffer.
 
 
 ## Navigation
@@ -263,6 +267,11 @@ M-x shell - open shell in Emacs.
 (while in shell mode) C-c C-e - move to the end of the last command's output.
 (while in shell mode) M-x rename-uniquely - rename current shell buffer in order to start another one.
 (while in shell mode) M-x send-invisible - send text without echo.
+
+
+## Terminal
+M-x ansi-term - open terminal in Emacs.
+(while in terminal) C-x - to type Emacs commands.
 
 
 ## Dired
