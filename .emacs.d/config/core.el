@@ -25,10 +25,6 @@
   bookmark-save-flag 1  ;; save bookmarks after each entry
 )
 
-;; Tweak embedded shell.
-(setq shell-file-name "/bin/zsh") ;; use zsh shell by default
-(add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt) ;; hide entered passwords
-
 (setq
   calendar-week-start-day 1 ;; start week from Monday in the calendar
   calendar-date-style 'european ;; use the DD/MM/YYYY format for the diary dates
@@ -51,5 +47,5 @@
 (use-package helm)
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
+;; (global-set-key (kbd "C-x C-f") #'helm-find-files)
 (helm-mode 1)

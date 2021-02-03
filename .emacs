@@ -26,6 +26,7 @@
 (load-user-file "jinja2.el")
 (load-user-file "js.el")
 (load-user-file "markdown.el")
+(load-user-file "terminal.el")
 (load-user-file "vue.el")
 (load-user-file "yaml.el")
 
