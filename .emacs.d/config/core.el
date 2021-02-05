@@ -49,3 +49,8 @@
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 ;; (global-set-key (kbd "C-x C-f") #'helm-find-files)
 (helm-mode 1)
+
+;; Search in a line like in Vim.
+(use-package avy)
+(global-set-key (kbd "M-g f") 'avy-goto-char-in-line)
+(global-set-key (kbd "M-g w") 'avy-goto-word-1)
