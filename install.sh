@@ -33,7 +33,7 @@ CONFIGS=(
 )
 
 if [ $# -eq 0 ]; then
-    rm -rf ~/.emacs.d/config
+    rm -rf ~/.emacs.d/config ~/.emacs.d/snippets
 
     for i in "${CONFIGS[@]}"; do
         cp -rvf "${i}" ~/

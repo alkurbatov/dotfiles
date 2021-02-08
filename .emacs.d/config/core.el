@@ -54,3 +54,7 @@
 (use-package avy)
 (global-set-key (kbd "M-g f") 'avy-goto-char-in-line)
 (global-set-key (kbd "M-g w") 'avy-goto-word-1)
+
+;; Enable snippets
+(use-package yasnippet)
+(setq yas-snippet-dirs '("~/emacs.d/snippets"))
