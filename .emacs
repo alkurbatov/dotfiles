@@ -9,6 +9,7 @@
 )
 
 (require 'use-package)
+;; If a package cannot be installed, try 'M-x package-refresh-contents'.
 (setq use-package-always-ensure t) ;; always precheck that package installed
 
 ;; Function for loading config files by name.
