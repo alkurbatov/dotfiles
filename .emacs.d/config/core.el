@@ -58,3 +58,9 @@
 ;; Enable snippets
 (use-package yasnippet)
 (setq yas-snippet-dirs '("~/emacs.d/snippets"))
+
+;; Multiple cursors editing.
+(use-package multiple-cursors)
+(global-set-key (kbd "C-c f") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c b") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-f") 'mc/mark-all-like-this)
