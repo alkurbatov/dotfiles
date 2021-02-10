@@ -93,6 +93,7 @@ M-DEL - cut text from the cursor to the beginning of the word.
 
 C-k - cut text from cursor to the end of the string.
 M-k - cut text from the cursor to the end of the sentence.
+C-m - put empty line above the cursor.
 
 C-y - paste text from the last buffer.
 C-y M-y - cycle forward through the buffers on each M-y key press and paste buffer's content.
@@ -171,6 +172,7 @@ C-x { - decrease width of the current window.
 ## Files
 C-x C-f - open file.
 C-x C-v - open another file instead of the currently opened.
+M-x revert-buffer - reload file from disk.
 
 C-x C-s - save changes to the file.
 C-x C-w - save the file under new name.
@@ -272,6 +274,8 @@ M-x shell - open shell in Emacs.
 ## Terminal
 M-x ansi-term - open terminal in Emacs.
 (while in terminal) C-x - to type Emacs commands.
+(while in terminal) C-c C-j - enable the line mode (allows to scroll through the output).
+(while in terminal) C-c C-k - disable the line mode.
 
 
 ## Dired
