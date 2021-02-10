@@ -55,7 +55,7 @@
 (global-set-key (kbd "M-g f") 'avy-goto-char-in-line)
 (global-set-key (kbd "M-g w") 'avy-goto-word-1)
 
-;; Enable snippets
+;; Enable snippets.
 (use-package yasnippet)
 (setq yas-snippet-dirs '("~/emacs.d/snippets"))
 
@@ -64,3 +64,8 @@
 (global-set-key (kbd "C-c f") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c b") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-f") 'mc/mark-all-like-this)
+
+;; Expand region.
+(use-package expand-region)
+(global-set-key (kbd "C-x r e") 'er/expand-region)
+(global-set-key (kbd "C-x r c") 'er/contract-region)
