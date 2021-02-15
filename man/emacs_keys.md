@@ -318,6 +318,7 @@ C-x C-j - open current buffer's folder in Dired.
 (while in directory editor) > - move cursor to the next folder.
 (while in directory editor) < - move cursor to the previous folder.
 (while in directory editor) i - insert subdirectory into the current buffer.
+(while in directory editor) ( - show/hide details.
 
 
 ## Git
