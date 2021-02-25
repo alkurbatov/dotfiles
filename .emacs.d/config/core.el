@@ -69,3 +69,13 @@
 (use-package expand-region)
 (global-set-key (kbd "C-x r e") 'er/expand-region)
 (global-set-key (kbd "C-x r c") 'er/contract-region)
+
+;; Enable intellisence.
+(use-package flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; Better project management.
+(use-package projectile)
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
