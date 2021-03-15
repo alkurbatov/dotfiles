@@ -1,6 +1,5 @@
 (use-package add-node-modules-path)
 (use-package js2-mode)
-(use-package json-mode)
 
 ;; Replace builtin JavaScript mode.
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
