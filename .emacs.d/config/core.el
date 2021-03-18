@@ -74,6 +74,12 @@
 (use-package flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+;; Tweak errors and warnings display style.
+(set-face-background 'flycheck-error "#660000")
+(set-face-foreground 'flycheck-error nil)
+(set-face-background 'flycheck-warning "#331800")
+(set-face-foreground 'flycheck-warning nil)
+
 ;; Better project management.
 (use-package projectile)
 (projectile-mode +1)
