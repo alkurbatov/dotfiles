@@ -80,12 +80,6 @@
 (set-face-background 'flycheck-warning "#331800")
 (set-face-foreground 'flycheck-warning nil)
 
-;; Better project management.
-(use-package projectile)
-(projectile-mode +1)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
 ;; Trim trailing whitespaces on changed lines
 (use-package ws-butler)
 (add-hook 'prog-mode-hook #'ws-butler-mode)

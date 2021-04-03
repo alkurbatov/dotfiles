@@ -20,23 +20,21 @@
 # Purprose:
 # Prepare fresh system for work.
 
-DEFAULT_PYTHON_VERSION=36
+DEFAULT_PYTHON_VERSION=38
 
 MACPORTS_PACKAGES=(
     R
     ansible-lint
     cmake
     emacs
-    fzf
+    fd
     gpgme
     inetutils
     aspell
     aspell-dict-ru
     aspell-dict-en
     jq
-    mc
     multimarkdown
-    neovim
     nodejs14
     npm6
     py"${DEFAULT_PYTHON_VERSION}"-ansible

@@ -28,6 +28,7 @@
 (load-user-file "js.el")
 (load-user-file "json.el")
 (load-user-file "markdown.el")
+(load-user-file "projectile.el")
 (load-user-file "restclient.el")
 (load-user-file "terminal.el")
 (load-user-file "vue.el")
