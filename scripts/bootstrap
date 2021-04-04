@@ -36,7 +36,7 @@ MACPORTS_PACKAGES=(
     jq
     multimarkdown
     nodejs14
-    npm6
+    npm7
     py"${DEFAULT_PYTHON_VERSION}"-ansible
     py"${DEFAULT_PYTHON_VERSION}"-pylint
     py"${DEFAULT_PYTHON_VERSION}"-virtualenv
