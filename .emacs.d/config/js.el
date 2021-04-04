@@ -1,5 +1,6 @@
 (use-package add-node-modules-path)
 (use-package js2-mode)
+(use-package prettier)
 
 ;; Replace builtin JavaScript mode.
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
