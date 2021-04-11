@@ -5,6 +5,10 @@
 (use-package projectile)
 (projectile-mode +1)
 
+(use-package helm-projectile)
+(helm-projectile-on)
+(setq projectile-completion-system 'helm)
+
 (define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
 
 (setq projectile-auto-discover nil)
