@@ -146,11 +146,12 @@ C-x h - mark the entire file.
 V C-w - cut the region.
 V M-w - copy the region.
 V C-x C-x - swap mark and cursor.
-C-x r k - delete a rectangle.
-C-x r y - insert a rectangle.
+C-x r k - delete the region.
+C-x r y - insert the region.
 C-x r o - insert a blank rectangle.
-C-x r c - clear a rectangle.
-C-x r t - replace a rectangle.
+C-x r c - clear the region.
+C-x r t - replace the region.
+M-x sort-lines - sort lines in the region.
 
 
 ## Window management
@@ -255,20 +256,6 @@ M-x bookmark-rename - rename a bookmark.
 (while in the bookmarks list) e - edit an annotation of a bookmark.
 (while in the bookmarks list) a - display an annotation of a bookmark.
 (while in the bookmarks list) A - display all available annotations.
-
-
-## Shell integration
-M-! - execute arbitrary shell command.
-M-| - put the marked region as input to the shell command.
-C-u M-! - paste output of the current shell command into the buffer.
-M-x shell - open shell in Emacs.
-(while in shell mode) M-p - recall last command.
-(while in shell mode) C-c C-c - interrupt currently running shell command.
-(while in shell mode) C-c C-o - wipe output of the last shell command.
-(while in shell mode) C-c C-r - move to beginning of the last command's output.
-(while in shell mode) C-c C-e - move to the end of the last command's output.
-(while in shell mode) M-x rename-uniquely - rename current shell buffer in order to start another one.
-(while in shell mode) M-x send-invisible - send text without echo.
 
 
 ## Terminal
