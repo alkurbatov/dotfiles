@@ -85,8 +85,13 @@
 (use-package ws-butler)
 (add-hook 'prog-mode-hook #'ws-butler-mode)
 
-;; Increment/decrement numbers like in Vim
+;; Increment/decrement numbers like in Vim.
 (use-package evil)
 (use-package evil-numbers)
 (global-set-key (kbd "C-c =") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
+
+;; Enable copying to system clipboard.
+(use-package simpleclip)
+(simpleclip-mode 1)
+(global-set-key (kbd "C-c c") 'simpleclip-copy)
