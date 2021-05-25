@@ -38,7 +38,8 @@ MACPORTS_PACKAGES=(
     nodejs14
     npm7
     py"${DEFAULT_PYTHON_VERSION}"-ansible
-    py"${DEFAULT_PYTHON_VERSION}"-pylint
+    py"${DEFAULT_PYTHON_VERSION}"-autopep8
+    py"${DEFAULT_PYTHON_VERSION}"-flake8
     py"${DEFAULT_PYTHON_VERSION}"-virtualenv
     python"${DEFAULT_PYTHON_VERSION}"
     python27
@@ -56,7 +57,7 @@ for i in "${MACPORTS_PACKAGES[@]}"; do
 done
 
 # Select default Python version and related software.
-for i in python virtualenv; do
+for i in autopep8 flake8 python virtualenv; do
     sudo port select --set ${i} ${i}${DEFAULT_PYTHON_VERSION}
 done
 
