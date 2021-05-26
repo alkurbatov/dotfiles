@@ -6,7 +6,10 @@
   linum-format "%d " ;; add delemeter between line numbers and code
 )
 
-(load-theme 'wombat) ;; change colortheme
+;; Change colortheme.
+(use-package material-theme)
+(load-theme 'material t)
+
 (global-linum-mode 1) ;; always show line numbers
 (menu-bar-mode -1) ;; hide the menu bar
 (tool-bar-mode -1) ;; hide the tool bar
