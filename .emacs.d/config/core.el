@@ -11,6 +11,7 @@
 (load-theme 'material t)
 
 (global-linum-mode 1) ;; always show line numbers
+(column-number-mode 1) ;; always show column
 (menu-bar-mode -1) ;; hide the menu bar
 (tool-bar-mode -1) ;; hide the tool bar
 (global-font-lock-mode t) ;; turn on font-locking globally
