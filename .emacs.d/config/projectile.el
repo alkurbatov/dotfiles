@@ -5,6 +5,8 @@
 (use-package projectile)
 (projectile-mode +1)
 
+(setq projectile-indexing-method 'hybrid)
+
 (use-package helm-projectile)
 (helm-projectile-on)
 (setq projectile-completion-system 'helm)
