@@ -1,0 +1,5 @@
+export default class ${1:Class}${2: extends ${3:Parent}} {
+  constructor(${4:args}) {
+    $5
+  }
+}

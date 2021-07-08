@@ -1,0 +1,1 @@
+import VueSelector from 'testcafe-vue-selectors';
