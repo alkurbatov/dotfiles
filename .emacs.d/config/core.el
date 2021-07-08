@@ -62,7 +62,8 @@
 
 ;; Enable snippets.
 (use-package yasnippet)
-(setq yas-snippet-dirs '("~/emacs.d/snippets"))
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+(yas-global-mode 1)
 
 ;; Multiple cursors editing.
 (use-package multiple-cursors)
