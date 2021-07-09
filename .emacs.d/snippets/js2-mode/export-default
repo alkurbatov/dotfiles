@@ -1,1 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: export-default
+# key: export-default
+# --
 export { default as ${1:Entity} } from './${2:file}';

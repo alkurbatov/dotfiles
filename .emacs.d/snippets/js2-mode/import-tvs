@@ -1,1 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: import-tvs
+# key: import-tvs
+# --
 import VueSelector from 'testcafe-vue-selectors';
