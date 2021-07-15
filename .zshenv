@@ -18,9 +18,6 @@
 # Purprose:
 # Set global environment variables for zsh.
 
-# Path to your oh-my-zsh installation
-# export ZSH=/Users/alkurbatov/.oh-my-zsh
-
 # Set up locale (requred by some tools)
 export LANG=ru_RU.UTF-8
 export LC_CTYPE=ru_RU.UTF-8
@@ -42,3 +39,5 @@ export DISPLAY=:0
 # Emulator
 export APP_PROXY=127.0.0.1:4000
 
+# Default location of .npmrc
+export NPMRC_CONFIG_FILE=/Users/alkurbatov/.npmrc
