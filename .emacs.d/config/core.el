@@ -47,14 +47,6 @@
 (setq mouse-sel-mode t)
 (put 'scroll-left 'disabled nil)
 
-;; Better autocompletion.
-(use-package helm)
-(use-package helm-ag)
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-;; (global-set-key (kbd "C-x C-f") #'helm-find-files)
-(helm-mode 1)
-
 ;; Search in a line like in Vim.
 (use-package avy)
 (global-set-key (kbd "M-g f") 'avy-goto-char-in-line)
