@@ -92,3 +92,7 @@
 (use-package simpleclip)
 (simpleclip-mode 1)
 (global-set-key (kbd "C-c c") 'simpleclip-copy)
+
+;; Make Emacs sound like a typewriter.
+(use-package selectric-mode)
+(selectric-mode 1)
