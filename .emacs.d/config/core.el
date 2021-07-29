@@ -1,4 +1,5 @@
 (setq
+  inhibit-startup-message t ;; hide the startup message
   backup-directory-alist '((".*" . "~/.emacs.d/backups/"))
   auto-save-file-name-transforms '((".*" "~/.emacs.d/backups/" t))
   require-final-newline t ;; always add newline at the end of a file
