@@ -151,25 +151,16 @@ path+=(/usr/bin)
 path+=(/bin)
 path+=(/usr/sbin)
 path+=(/sbin)
-path+=($GOPATH/bin)
 path+=(~/.gem/ruby/2.3.0/bin)
-path+=(/opt/local/libexec/qt5/bin)
-
-if [[ "$OSTYPE" = linux* ]]; then
-    path+=(/opt/Sencha/Cmd)
-fi
+path+=(~/work/bin)
 
 # Well-known directories
 cdpath+=(~/work/src)
 cdpath+=(~/work/src/git.acronis.com)
-cdpath+=(~/work/src/git.acronis.com/alkurbatov)
 cdpath+=(~/work/src/github.com)
-cdpath+=(~/work/src/github.com/openstack)
 
-# Load aliases
+# Load scripts
 . ~/.zsh_aliases
-
-# Load tools
 . ~/.zsh_tools
 
 # Install zsh you-should-use plugin.
@@ -180,4 +171,3 @@ source ~/.zsh/zsh-you-should-use/you-should-use.plugin.zsh
 # $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 # ! This plugin must be loaded the last.
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
