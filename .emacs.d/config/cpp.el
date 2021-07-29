@@ -10,6 +10,7 @@
     ;; Do C-c ! s for manual selection of a checker.
     ;; Do C-c ! v to verify which checkers used and in which order.
     (add-to-list 'flycheck-checkers 'c/c++-clang)
+    (add-to-list 'flycheck-checkers 'c/c++-gcc)
     (add-to-list 'flycheck-checkers 'c/c++-cppcheck)
 
     ;; Default include paths.
