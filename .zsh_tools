@@ -90,3 +90,13 @@ rtstop() {
     fi
     kill -15 ${PID}
 }
+
+# Extract hashes from a CSV file
+hashes() {
+    if [ -z "${1}" ]; then
+        echo "Error: Input file is not provided"
+        return 1
+    fi
+
+    cut -d , -f 1 $1 | tail -n +2 > hashes.txt
+}
