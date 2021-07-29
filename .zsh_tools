@@ -86,7 +86,7 @@ rtstop() {
     PID=$(ps -A | grep '[r]torrent' | awk '{print $1}')
     if [ -z ${PID} ]; then
         echo "rtorrent is not running"
-        exit 1
+        return 1
     fi
     kill -15 ${PID}
 }
