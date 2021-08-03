@@ -40,26 +40,24 @@ alias df='df -h'
 alias du='du -h'
 alias kver='uname -r'
 alias mkdir='mkdir -pv'
-alias poweroff='sudo poweroff'
-alias reboot='sudo reboot'
 alias reload-zsh='source ~/.zshrc'
 alias rmr='rm -rf'
 alias show-path='echo $PATH | tr -s ":" "\n"'
 alias vi='vim'
 
 if [[ "$OSTYPE" = darwin* ]]; then
+    alias github='open https://github.com/alkurbatov'
     alias grep='grep --color=always'
     alias ll='ls -GlaFh'
     alias ls='ls -G -F'
     alias mc='. /opt/local/libexec/mc/mc-wrapper.sh'
     alias mv='mv -i'
-    alias port='sudo port'
-    alias port-update='port selfupdate; port upgrade outdated'
     alias port-clean='port uninstall inactive'
+    alias port-update='port selfupdate; port upgrade outdated'
+    alias port='sudo port'
     alias rm='rm -i'
-    alias ssh-kitty='/Applications/kitty.app/Contents/MacOS/kitty +kitten ssh'
-    alias github='open https://github.com/alkurbatov'
 else
+    # alias mc='. /usr/lib/mc/mc-wrapper.sh' # Other Linux
     alias apt-cache='sudo apt-cache'
     alias apt-get='sudo apt-get'
     alias apt-update='sudo apt-get update && sudo apt-get upgrade'
@@ -73,19 +71,19 @@ else
     alias ls='ls --color=auto'
     alias lscpu='lscpu -e'
     alias mc='. /usr/libexec/mc/mc-wrapper.sh' # Fedora & CentOs
-    # alias mc='. /usr/lib/mc/mc-wrapper.sh' # Other Linux
     alias meminfo='free -h -l'
     alias mount='sudo mount'
     alias mutt='HOME=~/.mutt mutt'
     alias ports='netstat -tulanp'
-    alias umount='sudo umount'
+    alias poweroff='sudo poweroff'
+    alias reboot='sudo reboot'
     alias shutdown='sudo /sbin/shutdown'
     alias tree='tree -h'
+    alias umount='sudo umount'
     alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
-    alias urxvt-reload='xrdb -load ~/.Xresources'
-    alias yum='sudo yum'
     alias yum-check='sudo yum clean all && sudo yum check-update'
     alias yum-update='sudo yum clean all && sudo yum update'
+    alias yum='sudo yum'
 fi
 
 # Win-like behaviour
@@ -99,18 +97,6 @@ alias py27-activate='~/work/bin/py-activate 27'
 alias py34-activate='~/work/bin/py-activate 34'
 alias sshx='ssh -Y -C'
 alias svn-log='svn log | less'
-
-# ExtJS aliases
-alias sencha-bld='sencha app refresh && sencha --strict app build'
-alias sencha-dev-bld='sencha app refresh && sencha --strict app build development'
-
-# OpenStack aliases
-alias cinder-ps='docker ps --filter name=cinder'
-alias glance-ps='docker ps --filter name=glance'
-alias nova='nova --insecure'
-alias nova-ps='docker ps --filter name=nova'
-alias neutron-ps='docker ps --filter name=neutron'
-alias openstack='openstack --insecure'
 
 # NPM aliases
 alias na='npm audit'
