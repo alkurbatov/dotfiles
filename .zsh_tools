@@ -21,7 +21,7 @@
 # Handy zsh commands and functions.
 
 
-# Create a new directory and enter it.
+# Create a new directory and enter it
 mkcd() {
     mkdir -pv "$1" && cd "$1"
 }
@@ -91,6 +91,7 @@ rtstop() {
     kill -15 ${PID}
 }
 
+
 # Extract hashes from a CSV file
 hashes() {
     if [ -z "${1}" ]; then
@@ -99,4 +100,10 @@ hashes() {
     fi
 
     cut -d , -f 1 $1 | tail -n +2 > hashes.txt
+}
+
+
+# Get short info and hints about a command
+wtfis() {
+    curl "https://cheat.sh/$1"
 }
