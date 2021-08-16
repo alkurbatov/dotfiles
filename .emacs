@@ -29,6 +29,7 @@
 (load-user-file "json.el")
 (load-user-file "markdown.el")
 (load-user-file "projectile.el")
+(load-user-file "ps1.el")
 (load-user-file "python.el")
 (load-user-file "r.el")
 (load-user-file "restclient.el")
