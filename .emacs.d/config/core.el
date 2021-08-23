@@ -96,4 +96,4 @@
 
 ;; Make Emacs sound like a typewriter.
 (use-package selectric-mode)
-(selectric-mode 1)
+(selectric-mode 0)
