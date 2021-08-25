@@ -64,7 +64,7 @@ else
     alias dnf='sudo dnf'
     alias gdb='gdb --silent'
     alias grep='grep --color=always'
-    alias ifs="ip link | awk 'NR%2==1' | awk '{print $2,$8,$9}' | tr -d ':'"
+    alias ips='ip -c -br address show'
     alias ipt-list='iptables -vL --line-numbers'
     alias ipt-watch='watch -n 2 -d iptables -nvL'
     alias lh='ls -lhS --color=auto'
@@ -72,10 +72,11 @@ else
     alias lscpu='lscpu -e'
     alias mc='. /usr/libexec/mc/mc-wrapper.sh' # Fedora & CentOs
     alias meminfo='free -h -l'
-    alias mount='sudo mount'
+    alias mount='sudo mount | column -t'
     alias mutt='HOME=~/.mutt mutt'
     alias ports='netstat -tulanp'
     alias poweroff='sudo poweroff'
+    alias routes='ip -c -br route show'
     alias reboot='sudo reboot'
     alias shutdown='sudo /sbin/shutdown'
     alias tree='tree -h'
@@ -97,6 +98,7 @@ alias py27-activate='~/work/bin/py-activate 27'
 alias py34-activate='~/work/bin/py-activate 34'
 alias sshx='ssh -Y -C'
 alias svn-log='svn log | less'
+alias wget='wget -c'
 
 # NPM aliases
 alias na='npm audit'
