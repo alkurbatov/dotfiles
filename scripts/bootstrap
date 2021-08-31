@@ -64,7 +64,7 @@ done
 for i in autopep8 black flake7 python virtualenv; do
     sudo port select --set ${i} ${i}${DEFAULT_PYTHON_VERSION}
 done
-sudo port select --set ${i} py${DEFAULT_PYTHON_VERSION}-ansible
+sudo port select --set ansible py${DEFAULT_PYTHON_VERSION}-ansible
 
 # Setup the default layout.
 mkdir -p ~/work/{bin,doc,etc,pkg,src,tmp}
