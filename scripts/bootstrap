@@ -20,7 +20,9 @@
 # Purprose:
 # Prepare fresh system for work.
 
-DEFAULT_PYTHON_VERSION=38
+set -ev
+
+DEFAULT_PYTHON_VERSION=39
 
 MACPORTS_PACKAGES=(
     R
@@ -34,11 +36,13 @@ MACPORTS_PACKAGES=(
     aspell-dict-ru
     aspell-dict-en
     jq
+    mc
     multimarkdown
     nodejs14
     npm7
     py"${DEFAULT_PYTHON_VERSION}"-ansible
     py"${DEFAULT_PYTHON_VERSION}"-autopep8
+    py"${DEFAULT_PYTHON_VERSION}"-black
     py"${DEFAULT_PYTHON_VERSION}"-flake8
     py"${DEFAULT_PYTHON_VERSION}"-virtualenv
     python"${DEFAULT_PYTHON_VERSION}"
@@ -57,13 +61,10 @@ for i in "${MACPORTS_PACKAGES[@]}"; do
 done
 
 # Select default Python version and related software.
-for i in autopep8 flake8 python virtualenv; do
+for i in autopep8 black flake7 python virtualenv; do
     sudo port select --set ${i} ${i}${DEFAULT_PYTHON_VERSION}
 done
-
-for i in ansible; do
-    sudo port select --set ${i} py${DEFAULT_PYTHON_VERSION}-${i}
-done
+sudo port select --set ${i} py${DEFAULT_PYTHON_VERSION}-ansible
 
 # Setup the default layout.
 mkdir -p ~/work/{bin,doc,etc,pkg,src,tmp}
