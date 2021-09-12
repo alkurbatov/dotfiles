@@ -37,6 +37,7 @@ MACPORTS_PACKAGES=(
     aspell-dict-en
     jq
     mc
+    md5sha1sum
     multimarkdown
     nodejs14
     npm7
@@ -44,6 +45,7 @@ MACPORTS_PACKAGES=(
     py"${DEFAULT_PYTHON_VERSION}"-autopep8
     py"${DEFAULT_PYTHON_VERSION}"-black
     py"${DEFAULT_PYTHON_VERSION}"-flake8
+    py"${DEFAULT_PYTHON_VERSION}"-humanize
     py"${DEFAULT_PYTHON_VERSION}"-virtualenv
     python"${DEFAULT_PYTHON_VERSION}"
     python27
