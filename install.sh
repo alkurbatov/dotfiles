@@ -22,7 +22,6 @@
 # Regarding usage see the README.md.
 
 CONFIGS=(
-    .config
     .emacs
     .emacs.d
     .tmux.conf
