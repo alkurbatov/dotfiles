@@ -27,6 +27,7 @@ DEFAULT_PYTHON_VERSION=39
 MACPORTS_PACKAGES=(
     R
     ansible-lint
+    bd
     cmake
     emacs
     fd
