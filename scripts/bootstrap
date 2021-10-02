@@ -64,10 +64,15 @@ for i in "${MACPORTS_PACKAGES[@]}"; do
 done
 
 # Select default Python version and related software.
-for i in autopep8 black flake7 python virtualenv; do
+sudo port select --set ansible py${DEFAULT_PYTHON_VERSION}-ansible
+
+for i in autopep8 flake8; do
+    sudo port select --set ${i} ${i}-${DEFAULT_PYTHON_VERSION}
+done
+
+for i in black python virtualenv; do
     sudo port select --set ${i} ${i}${DEFAULT_PYTHON_VERSION}
 done
-sudo port select --set ansible py${DEFAULT_PYTHON_VERSION}-ansible
 
 # Setup the default layout.
 mkdir -p ~/work/{bin,doc,etc,pkg,src,tmp}
@@ -79,11 +84,11 @@ mkdir -p ~/work/src/git.acronis.com/{alkurbatov,origin}
 mkdir -p  ~/.ssh/controlmasters
 
 # Copy settings from my dotfiles.
-cp ~/work/src/github.com/alkurbatov/dotfiles/.gitconfig ~/
 cp ~/work/src/github.com/alkurbatov/dotfiles/.zsh* ~/
 cp -r ~/work/src/github.com/alkurbatov/dotfiles/.config ~/
 cp -r ~/work/src/github.com/alkurbatov/dotfiles/.emacs* ~/
 cp ~/work/src/github.com/alkurbatov/dotfiles/.tmux.conf ~/
+cp ~/work/src/github.com/alkurbatov/dotfiles/git/.gitconfig ~/
 
 # Install ZSH plugins.
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.zsh/zsh-you-should-use
