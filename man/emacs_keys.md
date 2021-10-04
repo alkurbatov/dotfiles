@@ -38,6 +38,10 @@ C-h l - show the last 100 commands.
 C-h b - show all keybindings actual for the current buffer.
 
 
+## Debug
+M-x describe-variable - show current value of a variable and short help.
+
+
 ## Navigation
 C-v - move one screen down.
 X C-v - move screen X lines down.
@@ -260,7 +264,7 @@ M-x bookmark-rename - rename a bookmark.
 
 ## Terminal
 M-x ansi-term - open terminal in Emacs.
-(while in terminal) C-x - to type Emacs commands.
+(while in terminal) M-x <emacs command> - execute Emacs command (e.g. switch buffer).
 (while in terminal) C-c C-j - enable the line mode (allows to scroll through the output).
 (while in terminal) C-c C-k - disable the line mode.
 
@@ -308,10 +312,12 @@ C-x C-j - open current buffer's folder in Dired.
 (while in directory editor) ( - show/hide details.
 
 
-## Git
-C-x v g - git blame.
-(while in blame mode) = - open diff of particular commit.
-(while in blame mode) q - close the opened diff.
+## Git (magit)
+C-x g - open status buffer.
+(while in status buffer) s - add changes to commit.
+(while in status buffer) S - add all changes to commit.
+(while in status buffer) c - open commit command settings.
+(while in commit settings) C-x C-s - save current settings as default.
 
 
 ## Macros
