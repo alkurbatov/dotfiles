@@ -29,6 +29,7 @@ MACPORTS_PACKAGES=(
     ansible-lint
     bd
     cmake
+    doxygen
     emacs
     fd
     gpgme
