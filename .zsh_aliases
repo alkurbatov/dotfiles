@@ -93,6 +93,7 @@ alias ipconfig='ifconfig'
 
 # Aliases for work
 alias bd='. bd -si'
+alias emacs='emacs -nw'
 alias hosts='cat /etc/hosts'
 alias py27-activate='~/work/bin/py-activate 27'
 alias py34-activate='~/work/bin/py-activate 34'
