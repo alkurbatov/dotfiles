@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: cerr
+# key: cerr
+# --
+std::cerr << ${1:Output} << std::endl;

@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: iio
+# key: iio
+# --
+#include <iostream>
