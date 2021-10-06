@@ -7,3 +7,7 @@ function Remove-Folder-Recursively {
     Remove-Item -Recurse -Force
 }
 New-Alias rmr Remove-Folder-Recursively
+
+function Edit-Profile {
+    Start-Emacs $PROFILE
+}
