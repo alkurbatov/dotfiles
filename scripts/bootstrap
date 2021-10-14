@@ -76,10 +76,9 @@ for i in black python virtualenv; do
 done
 
 # Setup the default layout.
-mkdir -p ~/work/{bin,doc,etc,pkg,src,tmp}
-mkdir -p ~/work/src/{git.acronis.com,github.com}
+mkdir -p ~/work/{bin,etc,pkg,src,tmp}
 mkdir -p ~/work/src/github.com/alkurbatov
-mkdir -p ~/work/src/git.acronis.com/{alkurbatov,origin}
+mkdir -p ~/work/src/git.acronis.com/alkurbatov
 
 # Precreate SSH folders.
 mkdir -p  ~/.ssh/controlmasters
