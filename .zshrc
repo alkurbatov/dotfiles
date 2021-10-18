@@ -159,6 +159,16 @@ cdpath+=(~/work/src)
 cdpath+=(~/work/src/git.acronis.com)
 cdpath+=(~/work/src/github.com)
 
+# Init workspace for virtualenvwrapper
+if [ ! -d "${WORKON_HOME}" ]; then
+    echo "Initializing ${WORKON_HOME}"
+
+    mkdir -p "${WORKON_HOME}"
+    source /usr/bin/virtualenvwrapper.sh
+
+    echo "Done"
+fi
+
 # Load scripts
 . ~/.zsh_aliases
 . ~/.zsh_tools

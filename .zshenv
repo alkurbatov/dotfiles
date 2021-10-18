@@ -36,8 +36,8 @@ export SVN_EDITOR=emacs
 # X11 display for forwarding
 export DISPLAY=:0
 
-# Emulator
-export APP_PROXY=127.0.0.1:4000
+# export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 
-# Default location of .npmrc
-export NPMRC_CONFIG_FILE=/Users/alkurbatov/.npmrc
+# Workspace for virtualenvwrapper
+# see https://virtualenvwrapper.readthedocs.io/en/latest/index.html
+export WORKON_HOME=~/.virtualenvs
