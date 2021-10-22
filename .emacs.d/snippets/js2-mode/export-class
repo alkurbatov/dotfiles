@@ -1,9 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: export-class
-# key: export-class
-# --
-export default class ${1:Class}${2: extends ${3:Parent}} {
-  constructor(${4:args}) {
-    $5
-  }
-}

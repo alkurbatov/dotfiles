@@ -1,5 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: inc
-# key: inc
-# --
-#include $1

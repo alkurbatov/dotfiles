@@ -22,8 +22,6 @@
 # Regarding usage see the README.md.
 
 CONFIGS=(
-    .emacs
-    .emacs.d
     .tmux.conf
     .zsh_aliases
     .zsh_tools
@@ -32,8 +30,6 @@ CONFIGS=(
 )
 
 if [ $# -eq 0 ]; then
-    rm -rf ~/.emacs.d/config ~/.emacs.d/snippets
-
     for i in "${CONFIGS[@]}"; do
         cp -rvf "${i}" ~/
     done
