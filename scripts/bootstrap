@@ -50,6 +50,7 @@ MACPORTS_PACKAGES=(
     py"${DEFAULT_PYTHON_VERSION}"-flake8
     py"${DEFAULT_PYTHON_VERSION}"-humanize
     py"${DEFAULT_PYTHON_VERSION}"-virtualenv
+    py"${DEFAULT_PYTHON_VERSION}"-virtualenvwrapper
     python"${DEFAULT_PYTHON_VERSION}"
     python27
     shellcheck
