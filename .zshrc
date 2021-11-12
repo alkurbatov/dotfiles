@@ -143,10 +143,10 @@ RPROMPT='%{$fg[blue]%}[%{$fg[green]%}%n%{$fg[blue]%}@%{$fg[green]%}%m%{$fg[blue]
 # Expand PATH
 typeset -U path
 
-path=(/opt/local/bin)
-path+=(/opt/local/sbin)
-path+=(/usr/local/bin)
+path=(/usr/local/bin)
 path+=(/usr/local/sbin)
+path+=(/opt/local/bin)
+path+=(/opt/local/sbin)
 path+=(/usr/bin)
 path+=(/bin)
 path+=(/usr/sbin)
@@ -164,7 +164,7 @@ if [ ! -d "${WORKON_HOME}" ]; then
     echo "Initializing ${WORKON_HOME}"
 
     mkdir -p "${WORKON_HOME}"
-    source /usr/bin/virtualenvwrapper.sh
+    source virtualenvwrapper.sh
 
     echo "Done"
 fi

@@ -50,7 +50,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias grep='grep --color=always'
     alias ll='ls -GlaFh'
     alias ls='ls -G -F'
-    alias mc='. /opt/local/libexec/mc/mc-wrapper.sh'
+    alias mc='. /usr/local/opt/midnight-commander/libexec/mc/mc-wrapper.sh'
     alias mv='mv -i'
     alias port-clean='port uninstall inactive'
     alias port-update='port selfupdate; port upgrade outdated'
