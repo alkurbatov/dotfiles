@@ -56,6 +56,7 @@ brew install mc
 brew install ag
 brew install fd
 brew install gpg
+echo "pinentry-program /usr/local/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 brew install pinentry-mac
 brew install wget
 brew install --cask xquartz
