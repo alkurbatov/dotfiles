@@ -55,7 +55,7 @@ brew install mc
 # Utilities
 brew install ag
 brew install fd
-brew install gpgme
+brew install gpg
 brew install pinentry-mac
 brew install wget
 brew install --cask xquartz
