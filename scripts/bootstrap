@@ -22,6 +22,10 @@
 
 set -ev
 
+# Install Homebrew, see
+# https://docs.brew.sh/Installation
+eval curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+
 # Emacs
 brew install emacs
 brew install aspell
