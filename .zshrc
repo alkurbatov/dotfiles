@@ -162,12 +162,11 @@ cdpath+=(~/work/src/github.com)
 # Init workspace for virtualenvwrapper
 if [ ! -d "${WORKON_HOME}" ]; then
     echo "Initializing ${WORKON_HOME}"
-
     mkdir -p "${WORKON_HOME}"
-    source virtualenvwrapper.sh
-
-    echo "Done"
 fi
+
+# Inject virtualenv functions
+source virtualenvwrapper.sh
 
 # Load scripts
 . ~/.zsh_aliases
