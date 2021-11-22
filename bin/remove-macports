@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This file is a part of Dotfiles project
 #
@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-set -euv
+set -euxo pipefail
 
 # Remove installed ports.
 sudo port -fp uninstall installed

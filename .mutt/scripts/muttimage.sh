@@ -18,7 +18,7 @@
 # Purprose:
 # Show images inside terminal
 
-#!/bin/bash
+#!/usr/bin/env bash
 
 #### Determine size of Terminal
 height=`stty  size | awk 'BEGIN {FS = " "} {print $1;}'`

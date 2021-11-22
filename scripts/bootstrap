@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This file is a part of Dotfiles project
 #
@@ -20,7 +20,7 @@
 # Purprose:
 # Prepare fresh system for work.
 
-set -ev
+set -euxo pipefail
 
 # Install Homebrew, see
 # https://docs.brew.sh/Installation
