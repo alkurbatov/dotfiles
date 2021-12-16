@@ -52,15 +52,13 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias ls='ls -G -F'
     alias mc='. /usr/local/opt/midnight-commander/libexec/mc/mc-wrapper.sh'
     alias mv='mv -i'
-    alias port-clean='port uninstall inactive'
-    alias port-update='port selfupdate; port upgrade outdated'
-    alias port='sudo port'
     alias rm='rm -i'
 else
     # alias mc='. /usr/lib/mc/mc-wrapper.sh' # Other Linux
     alias apt-cache='sudo apt-cache'
     alias apt-get='sudo apt-get'
     alias apt-update='sudo apt-get update && sudo apt-get upgrade'
+    alias emacs='emacs -nw'
     alias dnf='sudo dnf'
     alias gdb='gdb --silent'
     alias grep='grep --color=always'
@@ -93,10 +91,7 @@ alias ipconfig='ifconfig'
 
 # Aliases for work
 alias bd='. bd -si'
-alias emacs='emacs -nw'
 alias hosts='cat /etc/hosts'
-alias py27-activate='~/work/bin/py-activate 27'
-alias py34-activate='~/work/bin/py-activate 34'
 alias sshx='ssh -Y -C'
 alias svn-log='svn log | less'
 alias wget='wget -c'

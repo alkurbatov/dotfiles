@@ -27,7 +27,7 @@ set -euxo pipefail
 bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
 
 # Emacs
-brew install emacs
+brew install --cask emacs
 brew install aspell
 brew install multimarkdown
 
