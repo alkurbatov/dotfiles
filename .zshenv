@@ -29,9 +29,9 @@ export GITHUB_USER=alkurbatov
 export GOPATH=$HOME/work
 
 # Preferred editor for local and remote sessions
-export EDITOR=emacs
+export EDITOR="emacs -nw"
 export VISUAL=emacs
-export SVN_EDITOR=emacs
+export SVN_EDITOR="emacs -nw"
 
 # X11 display for forwarding
 export DISPLAY=:0

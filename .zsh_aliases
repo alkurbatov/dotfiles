@@ -58,7 +58,6 @@ else
     alias apt-cache='sudo apt-cache'
     alias apt-get='sudo apt-get'
     alias apt-update='sudo apt-get update && sudo apt-get upgrade'
-    alias emacs='emacs -nw'
     alias dnf='sudo dnf'
     alias gdb='gdb --silent'
     alias grep='grep --color=always'
@@ -91,6 +90,7 @@ alias ipconfig='ifconfig'
 
 # Aliases for work
 alias bd='. bd -si'
+alias emacs='emacs -nw'
 alias hosts='cat /etc/hosts'
 alias sshx='ssh -Y -C'
 alias svn-log='svn log | less'
