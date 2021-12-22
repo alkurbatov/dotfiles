@@ -34,12 +34,16 @@ brew install multimarkdown
 # C++
 brew install clang-format
 brew install cmake
-brew install cppcheck                                                                                                                   [alkurbatov@Byaka]
+brew install cppcheck
 brew install doxygen
 
 # Python
 brew install python@3.9
 brew install virtualenvwrapper
+
+# Java
+brew install java
+sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
 # JavaScript
 brew install node@16
@@ -52,8 +56,8 @@ brew install shellcheck
 # Administration
 brew install ansible
 brew install ansible-lint
+brew install coreutils
 brew install inetutils
-brew install md5sha1sum
 brew install mc
 
 # Utilities
@@ -62,6 +66,7 @@ brew install fd
 brew install gpg
 echo "pinentry-program /usr/local/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 brew install pinentry-mac
+brew install tmux
 brew install wget
 brew install --cask xquartz
 

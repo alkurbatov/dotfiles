@@ -143,7 +143,14 @@ RPROMPT='%{$fg[blue]%}[%{$fg[green]%}%n%{$fg[blue]%}@%{$fg[green]%}%m%{$fg[blue]
 # Expand PATH
 typeset -U path
 
-path=(/usr/local/bin)
+path=(~/work/bin)
+
+if [[ "$OSTYPE" = darwin* ]]; then
+    path+=(/usr/local/opt/coreutils/libexec/gnubin)
+    path+=(/usr/local/opt/openjdk/bin)
+fi
+
+path+=(/usr/local/bin)
 path+=(/usr/local/sbin)
 path+=(/opt/local/bin)
 path+=(/opt/local/sbin)
@@ -152,7 +159,6 @@ path+=(/bin)
 path+=(/usr/sbin)
 path+=(/sbin)
 path+=(~/.gem/ruby/2.3.0/bin)
-path+=(~/work/bin)
 
 # Well-known directories
 cdpath+=(~/work/src)
