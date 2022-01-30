@@ -38,8 +38,10 @@ brew install cppcheck
 brew install doxygen
 
 # Python
-brew install python@3.9
-brew install virtualenvwrapper
+brew install python@3.10
+brew install black
+brew install poetry
+brew install pyright
 
 # Java
 brew install java
