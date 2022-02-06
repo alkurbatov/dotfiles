@@ -22,6 +22,7 @@
 # Regarding usage see the README.md.
 
 CONFIGS=(
+    git/.gitconfig
     .tmux.conf
     .zsh_aliases
     .zsh_tools
