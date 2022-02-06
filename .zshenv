@@ -39,7 +39,3 @@ export DISPLAY=:0
 if [[ "$OSTYPE" = linux* ]]; then
     export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 fi
-
-# Workspace for virtualenvwrapper
-# see https://virtualenvwrapper.readthedocs.io/en/latest/index.html
-export WORKON_HOME=~/.virtualenvs
