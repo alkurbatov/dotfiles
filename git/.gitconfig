@@ -21,7 +21,7 @@
 [user]
 	name = Alexander Kurbatov
 	email = Alexander.Kurbatov@acronis.com
-	signingkey = AD8ECD887952C5E4
+	signingkey = F8CF25AB43EC6127
 [core]
 	autocrlf = input
 	editor = emacs -nw
