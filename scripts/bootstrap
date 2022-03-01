@@ -40,6 +40,7 @@ brew install doxygen
 # Python
 brew install python@3.10
 brew install black
+brew install isort
 brew install poetry
 brew install pyright
 
