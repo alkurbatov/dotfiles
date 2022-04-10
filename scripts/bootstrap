@@ -77,7 +77,7 @@ brew install --cask xquartz
 # Setup the default layout.
 mkdir -p ~/work/{bin,etc,pkg,src,tmp}
 mkdir -p ~/work/src/github.com/alkurbatov
-mkdir -p ~/work/src/git.acronis.com/alkurbatov
+mkdir -p ~/work/src/git.mts.ai/alkurbatov
 
 # Precreate SSH folders.
 mkdir -p  ~/.ssh/controlmasters

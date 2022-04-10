@@ -30,10 +30,6 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias -g CB='| pbcopy'
 fi
 
-# K8s aliases
-alias -g NV='--namespace virtuozzo'
-alias -g NKS='--namespace kube-system'
-
 # Common aliases
 alias cp='cp -i'
 alias df='df -h'
@@ -54,7 +50,6 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias mv='mv -i'
     alias rm='rm -i'
 else
-    # alias mc='. /usr/lib/mc/mc-wrapper.sh' # Other Linux
     alias apt-cache='sudo apt-cache'
     alias apt-get='sudo apt-get'
     alias apt-update='sudo apt-get update && sudo apt-get upgrade'
@@ -68,19 +63,18 @@ else
     alias ls='ls --color=auto'
     alias lscpu='lscpu -e'
     alias mc='. /usr/libexec/mc/mc-wrapper.sh' # Fedora & CentOs
+    # alias mc='. /usr/lib/mc/mc-wrapper.sh' # Other Linux
     alias meminfo='free -h -l'
     alias mount='sudo mount | column -t'
-    alias mutt='HOME=~/.mutt mutt'
     alias ports='netstat -tulanp'
     alias poweroff='sudo poweroff'
     alias routes='ip -c -br route show'
     alias reboot='sudo reboot'
     alias shutdown='sudo /sbin/shutdown'
+    alias systemctl='sudo systemctl'
     alias tree='tree -h'
     alias umount='sudo umount'
     alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
-    alias yum-check='sudo yum clean all && sudo yum check-update'
-    alias yum-update='sudo yum clean all && sudo yum update'
     alias yum='sudo yum'
 fi
 
@@ -93,7 +87,6 @@ alias bd='. bd -si'
 alias emacs='emacs -nw'
 alias hosts='cat /etc/hosts'
 alias sshx='ssh -Y -C'
-alias svn-log='svn log | less'
 alias wget='wget -c'
 
 # NPM aliases
@@ -143,10 +136,8 @@ alias gsts='git stash show -p'
 alias di='docker images'
 alias dps='docker ps'
 alias dri='docker rmi'
-alias drc='docker container rm'
 
 # Testing tools
-alias testr-init='rm -rf .testrepository && testr init'
 alias pyunit='python -m unittest -v'
 alias pyunittools='python -m testtools.run'
 

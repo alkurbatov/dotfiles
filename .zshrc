@@ -162,7 +162,7 @@ path+=(~/.gem/ruby/2.3.0/bin)
 
 # Well-known directories
 cdpath+=(~/work/src)
-cdpath+=(~/work/src/git.acronis.com)
+cdpath+=(~/work/src/git.mts.ai)
 cdpath+=(~/work/src/github.com)
 
 # Load scripts

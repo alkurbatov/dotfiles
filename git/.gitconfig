@@ -20,8 +20,8 @@
 
 [user]
 	name = Alexander Kurbatov
-	email = Alexander.Kurbatov@acronis.com
-	signingkey = F8CF25AB43EC6127
+	email = sir.alkurbatov@gmail.com
+	signingkey = 677AC63440C4F77A
 [core]
 	autocrlf = input
 	editor = emacs -nw
