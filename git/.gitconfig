@@ -20,7 +20,7 @@
 
 [user]
 	name = Alexander Kurbatov
-	email = sir.alkurbatov@gmail.com
+	email = sir.alkurbatov@yandex.ru
 	signingkey = 677AC63440C4F77A
 [core]
 	autocrlf = input
