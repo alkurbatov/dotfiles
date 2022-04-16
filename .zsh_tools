@@ -81,17 +81,6 @@ sshcreate() {
 }
 
 
-# Stop rtorrent process
-rtstop() {
-    PID=$(ps -A | grep '[r]torrent' | awk '{print $1}')
-    if [ -z ${PID} ]; then
-        echo "rtorrent is not running"
-        return 1
-    fi
-    kill -15 ${PID}
-}
-
-
 # Extract hashes from a CSV file
 hashes() {
     if [ -z "${1}" ]; then
