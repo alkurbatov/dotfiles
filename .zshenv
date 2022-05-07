@@ -38,4 +38,7 @@ export DISPLAY=:0
 
 if [[ "$OSTYPE" = linux* ]]; then
     export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+
+    # Tell GPG which tty it should use
+    export GPG_TTY=$(tty)
 fi
