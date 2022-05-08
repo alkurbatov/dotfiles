@@ -173,6 +173,10 @@ cdpath+=(~/work/src/github.com)
 # $ git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.zsh/zsh-you-should-use
 source ~/.zsh/zsh-you-should-use/you-should-use.plugin.zsh
 
+# Install zsh fish-like syntax highlighting plugin
+# $ git clone git@github.com:zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Install zsh autosuggestions plugin
 # $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 # ! This plugin must be loaded the last.
