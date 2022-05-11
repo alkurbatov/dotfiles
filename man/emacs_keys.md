@@ -85,7 +85,11 @@ C-r C-r - repeat last backward incremental search.
 
 C-M-s - start forward incremental regexp search.
 C-M-r - start backward incremental regexp search.
-(during search) C-M-% - enter to the query replace mode. 
+(during search) C-M-% - enter to the query replace mode.
+
+
+## Helm
+C-x c b - repeat last search.
 
 
 ## Editing
@@ -372,6 +376,6 @@ C-M-e - move to the end of the functions body.
 C-M-h - mark the functions body as a region.
 C-c C-q - indent the functions body.
 C-j } - indent the code block with the opening {.
-M-x set-style - choose indentation coding style. 
+M-x set-style - choose indentation coding style.
 C-c C-e - expand the macro under the cursor.
 C-c : - insert ::.
