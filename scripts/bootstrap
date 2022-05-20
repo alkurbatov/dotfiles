@@ -53,6 +53,9 @@ brew install node@16
 brew link node@16
 brew install jq
 
+# Docker
+brew install hadolint
+
 # Scripting
 brew install shellcheck
 
