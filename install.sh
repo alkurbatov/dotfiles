@@ -21,8 +21,11 @@
 # Install common configuration files to the local or remote machine.
 # Regarding usage see the README.md.
 
+set -euxo pipefail
+
 CONFIGS=(
     git/.gitconfig
+    .hadolint.yaml
     .tmux.conf
     .zsh_aliases
     .zsh_tools

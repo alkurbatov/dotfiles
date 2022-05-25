@@ -136,6 +136,7 @@ alias gsts='git stash show -p'
 alias di='docker images'
 alias dps='docker ps'
 alias dri='docker rmi'
+alias hadolint='hadolint -c ~/.hadolint.yaml'
 
 # Testing tools
 alias pyunit='python -m unittest -v'
