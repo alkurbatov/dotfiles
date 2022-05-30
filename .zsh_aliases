@@ -86,7 +86,6 @@ alias ipconfig='ifconfig'
 alias bd='. bd -si'
 alias emacs='emacs -nw'
 alias hosts='cat /etc/hosts'
-alias sshx='ssh -Y -C'
 alias wget='wget -c'
 
 # NPM aliases

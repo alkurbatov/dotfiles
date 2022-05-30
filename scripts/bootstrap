@@ -67,15 +67,18 @@ brew install inetutils
 brew install mc
 
 # Utilities
+brew install --cask xquartz
 brew install ag
 brew install fd
 brew install gpg
-echo "pinentry-program /usr/local/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 brew install pinentry-mac
 brew install rar
 brew install tmux
 brew install wget
-brew install --cask xquartz
+brew install xauth
+
+# Tell pinentry to ask gpg keys password using terminal, not gui
+echo "pinentry-program /usr/local/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 
 # Setup the default layout.
 mkdir -p ~/work/{bin,etc,pkg,src,tmp}

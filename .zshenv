@@ -33,8 +33,10 @@ export EDITOR="emacs -nw"
 export VISUAL=emacs
 export SVN_EDITOR="emacs -nw"
 
-# X11 display for forwarding
-export DISPLAY=:0
+if [[ "$OSTYPE" = darwin* ]]; then
+    # X11 display for forwarding
+    export DISPLAY=:0
+fi
 
 if [[ "$OSTYPE" = linux* ]]; then
     export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
