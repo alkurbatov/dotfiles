@@ -44,3 +44,6 @@ if [[ "$OSTYPE" = linux* ]]; then
     # Tell GPG which tty it should use
     export GPG_TTY=$(tty)
 fi
+
+# Suppress annoying 'use docker scan' suggestion
+export DOCKER_SCAN_SUGGEST=false
