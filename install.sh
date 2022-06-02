@@ -24,7 +24,6 @@
 set -euxo pipefail
 
 CONFIGS=(
-    git/.gitconfig
     .hadolint.yaml
     .tmux.conf
     .zsh_aliases
