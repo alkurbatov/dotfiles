@@ -19,7 +19,7 @@
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>HotkeyModifiers</key>
-	<integer>256</integer>
+	<integer>1048840</integer>
 	<key>LeftCommand</key>
 	<integer>7</integer>
 	<key>New Bookmarks</key>
@@ -1247,6 +1247,8 @@
 			<string>/Users/alkurbatov</string>
 		</dict>
 	</array>
+	<key>OnlyWhenMoreTabs</key>
+	<false/>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PointerActions</key>
@@ -1284,6 +1286,8 @@
 	</dict>
 	<key>Print In Black And White</key>
 	<true/>
+	<key>PromptOnQuit</key>
+	<false/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
