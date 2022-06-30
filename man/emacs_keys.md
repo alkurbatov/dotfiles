@@ -10,6 +10,7 @@ V - Activated visual mode.
 
 C-u X command -	repeat command X times.
 M X command - repeat command X times.
+M-- - reverse command.
 
 
 ## Basic commands:
@@ -97,6 +98,7 @@ X * - insert X * symbols.
 C-x i - insert content of a file after the cursor's position.
 C-d - delete the char under the cursor.
 M-d - cut text from the cursor to the end of the word.
+M-- M-d - cut the text from the cursor to the beginning of the word.
 M-DEL - cut text from the cursor to the beginning of the word.
 
 C-k - cut text from cursor to the end of the string.
@@ -338,7 +340,7 @@ C-c C-k C-n - cycle to next macro in the ring.
 C-x C-k b - bind a key (sequence) to a macro.
 C-x C-k n - name the last macro.
 M-x insert-kbd-macro - put a macro to a buffer.
-(while recording macro) C-u C-x q - start recursive edit. 
+(while recording macro) C-u C-x q - start recursive edit.
 (while recording macro) C-M-c - stop recursive edit.
 (while recording macro) C-x q - place a query to a user.
 C-x C-k r - apply a macro to a region.
@@ -379,3 +381,13 @@ C-j } - indent the code block with the opening {.
 M-x set-style - choose indentation coding style.
 C-c C-e - expand the macro under the cursor.
 C-c : - insert ::.
+
+
+## Org-mode
+C-c C-x M - insert new TODO item or new list item.
+C-c C-x C-b - toggle checkbox.
+
+
+## Debugging hanging Emacs
+1. M-x toggle-debug-on-quit
+2. Hit Ctrl-g while hanging to jump into the debugger.
