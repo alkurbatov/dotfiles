@@ -19,11 +19,7 @@
 
 set -eo pipefail
 
-IMAGE=${1}
-if [ -z "${IMAGE}" ]; then
-    echo "Target image name is required!"
-    exit 1
-fi
+IMAGE=${PWD##*/}
 
 docker rmi obf-"${IMAGE}" > /dev/null 2>&1 || true
 
