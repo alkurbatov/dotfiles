@@ -37,9 +37,13 @@ if [ $# -eq 0 ]; then
         cp -rvf "${i}" ~/
     done
 
+    cp -rvf bin ~/work/
+
     exit 0
 fi
 
 for i in "${CONFIGS[@]}"; do
     scp -r "${i}" $1:~/
 done
+
+scp -r bin $1:~/work/
