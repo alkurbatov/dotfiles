@@ -81,18 +81,17 @@ sshcreate() {
 }
 
 
-# Extract hashes from a CSV file
-hashes() {
-    if [ -z "${1}" ]; then
-        echo "Error: Input file is not provided"
-        return 1
-    fi
-
-    cut -d , -f 1 $1 | tail -n +2 > hashes.txt
-}
-
-
 # Get short info and hints about a command
 wtfis() {
     curl "https://cheat.sh/$1"
+}
+
+
+# Get full list of ports opened in firewalld for registered services
+fports() {
+    for i in `sudo firewall-cmd --list-services`;
+    do
+        echo "\n$i:"
+        sudo firewall-cmd --permanent --service "$i" --get-ports;
+    done
 }
