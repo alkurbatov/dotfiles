@@ -154,6 +154,11 @@ path+=(/usr/local/bin)
 path+=(/usr/local/sbin)
 path+=(/opt/local/bin)
 path+=(/opt/local/sbin)
+
+if [[ "$OSTYPE" = linux* ]]; then
+    path+=(~/.local/bin)
+fi
+
 path+=(/usr/bin)
 path+=(/bin)
 path+=(/usr/sbin)
