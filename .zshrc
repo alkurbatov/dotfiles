@@ -18,26 +18,6 @@
 # Purprose:
 # zsh configuration.
 
-# Collect terminal colors to use later (e.g. in PROMPT)
-autoload -U colors && colors
-
-# Allow to enter inside directory just using its name
-setopt autocd
-
-# Completition by Tab
-autoload -Uz compinit
-compinit
-
-# When completing from the middle of the word,
-# move the cursor to the end of the word
-setopt always_to_end
-
-# Spelling correction for commands
-setopt correct
-
-# Spelling correction for arguments
-setopt correctall
-
 # Don't beep on errors
 setopt No_Beep
 
@@ -58,6 +38,68 @@ setopt HIST_REDUCE_BLANKS
 
 # Remove no needed spaces (e.g. trailing)
 setopt HIST_IGNORE_SPACE
+
+# Expand PATH
+typeset -U path
+
+path=(~/work/bin)
+
+if [[ "$OSTYPE" = darwin* ]]; then
+    path+=(/usr/local/opt/coreutils/libexec/gnubin)
+    path+=(/usr/local/opt/openjdk/bin)
+fi
+
+path+=(/usr/local/bin)
+path+=(/usr/local/sbin)
+path+=(/opt/local/bin)
+path+=(/opt/local/sbin)
+
+if [[ "$OSTYPE" = linux* ]]; then
+    path+=(~/.local/bin)
+fi
+
+path+=(/usr/bin)
+path+=(/bin)
+path+=(/usr/sbin)
+path+=(/sbin)
+path+=(~/.gem/ruby/2.3.0/bin)
+
+# Well-known directories
+cdpath+=(~/work/src)
+cdpath+=(~/work/src/git.mts.ai)
+cdpath+=(~/work/src/github.com)
+
+# Load scripts
+. ~/.zsh_aliases
+. ~/.zsh_tools
+
+# Tramp client (Emacs) sets TERM to dumb.
+# It doesn't expect anything clever or beautiful if cmdline prompt.
+if [[ $TERM == "dumb" ]]; then
+    unsetopt zle
+    PS1='$ '
+    return
+fi
+
+# Collect terminal colors to use later (e.g. in PROMPT)
+autoload -U colors && colors
+
+# Allow to enter inside directory just using its name
+setopt autocd
+
+# Completition by Tab
+autoload -Uz compinit
+compinit
+
+# When completing from the middle of the word,
+# move the cursor to the end of the word
+setopt always_to_end
+
+# Spelling correction for commands
+setopt correct
+
+# Spelling correction for arguments
+setopt correctall
 
 # Make sure that the terminal is in application mode when zle is active, since
 # only then values from $terminfo are valid
@@ -139,40 +181,6 @@ git-prompt()
 # Format prompt
 PROMPT='%{$fg[blue]%}%2d%{$reset_color%} %{$fg[red]%}$(git-prompt)%{$reset_color%}%{$fg[yellow]%}%(1j.%j.)%{$reset_color%} $text> '
 RPROMPT='%{$fg[blue]%}[%{$fg[green]%}%n%{$fg[blue]%}@%{$fg[green]%}%m%{$fg[blue]%}]%{$reset_color%}'
-
-# Expand PATH
-typeset -U path
-
-path=(~/work/bin)
-
-if [[ "$OSTYPE" = darwin* ]]; then
-    path+=(/usr/local/opt/coreutils/libexec/gnubin)
-    path+=(/usr/local/opt/openjdk/bin)
-fi
-
-path+=(/usr/local/bin)
-path+=(/usr/local/sbin)
-path+=(/opt/local/bin)
-path+=(/opt/local/sbin)
-
-if [[ "$OSTYPE" = linux* ]]; then
-    path+=(~/.local/bin)
-fi
-
-path+=(/usr/bin)
-path+=(/bin)
-path+=(/usr/sbin)
-path+=(/sbin)
-path+=(~/.gem/ruby/2.3.0/bin)
-
-# Well-known directories
-cdpath+=(~/work/src)
-cdpath+=(~/work/src/git.mts.ai)
-cdpath+=(~/work/src/github.com)
-
-# Load scripts
-. ~/.zsh_aliases
-. ~/.zsh_tools
 
 # Install zsh you-should-use plugin.
 # $ git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.zsh/zsh-you-should-use
