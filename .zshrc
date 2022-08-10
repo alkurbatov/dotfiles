@@ -46,7 +46,9 @@ path=(~/work/bin)
 
 if [[ "$OSTYPE" = darwin* ]]; then
     path+=(/usr/local/opt/coreutils/libexec/gnubin)
+    path+=(/usr/local/opt/gnu-tar/libexec/gnubin)
     path+=(/usr/local/opt/openjdk/bin)
+    path+=(/usr/local/opt/unzip/bin)
 fi
 
 path+=(/usr/local/bin)
