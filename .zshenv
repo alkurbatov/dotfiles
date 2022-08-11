@@ -36,6 +36,12 @@ export SVN_EDITOR="emacs -nw"
 if [[ "$OSTYPE" = darwin* ]]; then
     # X11 display for forwarding
     export DISPLAY=:0
+
+    # Forse usage of OpenSSL from Homebrew.
+    # You may also need to add -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl to cmake
+    # to properly find the library and headers.
+    export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
+    export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
 fi
 
 if [[ "$OSTYPE" = linux* ]]; then
