@@ -30,20 +30,27 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/instal
 brew install --cask emacs
 brew install aspell
 brew install multimarkdown
+brew install coreutils
 
 # C++
 brew install clang-format
 brew install cmake
 brew install cppcheck
+brew install fmt
 brew install doxygen
+brew install openssl
 
 # Python
-brew install python@3.10
+brew install python@3.11
 ln -s /usr/local/bin/python3 /usr/local/bin/python
 brew install black
 brew install isort
 brew install poetry
-brew install pyright
+
+# Pylsp
+python -m pip install python-lsp-server
+python -m pip install pylsp-mypy
+python -m pip install pylsp-rope
 
 # Java
 brew install java
@@ -52,6 +59,7 @@ sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtua
 # JavaScript
 brew install node@16
 brew link node@16
+brew install deno
 brew install jq
 
 # Docker
@@ -71,12 +79,19 @@ brew install mc
 brew install --cask xquartz
 brew install ag
 brew install fd
+brew install ffmpegthumbnailer
+brew install gnu-tar
 brew install gpg
+brew install imagemagick
+brew install mediainfo
 brew install pinentry-mac
+brew install poppler
 brew install rar
 brew install tmux
+brew install unzip
 brew install wget
 brew install xauth
+brew install youtube-dl
 
 # Tell pinentry to ask gpg keys password using terminal, not gui
 echo "pinentry-program /usr/local/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
