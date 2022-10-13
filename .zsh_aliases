@@ -116,7 +116,7 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gi='git init && git add . && git commit -m "Initial commit"'
 alias gl='git pull'
-alias glg='git log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+alias glg='git log --color --graph --oneline --abbrev-commit --decorate --all --date=short --pretty=format:"%C(cyan)%h %C(yellow)%ad %C(bold green)%d %C(reset)%s <%C(bold blue)%an>"'
 alias glm='git log --no-merges --author "Alexander Kurbatov" --oneline'
 alias gp='git push'
 alias gpf='git push --force'
@@ -136,6 +136,9 @@ alias di='docker images'
 alias dps='docker ps'
 alias dri='docker rmi'
 alias hadolint='hadolint -c ~/.hadolint.yaml'
+
+# Kubernetes (OpenShift)
+alias ocl='oc login --username="a.kurbatov"'
 
 # Testing tools
 alias pyunit='python -m unittest -v'
