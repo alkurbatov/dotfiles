@@ -44,7 +44,7 @@ typeset -U path
 
 path=(~/work/bin)
 
-if [[ "$OSTYPE" = darwin* ]]; then
+if [[ "${OSTYPE}" = darwin* ]]; then
     path+=(/usr/local/opt/coreutils/libexec/gnubin)
     path+=(/usr/local/opt/gnu-tar/libexec/gnubin)
     path+=(/usr/local/opt/openjdk/bin)
@@ -56,7 +56,7 @@ path+=(/usr/local/sbin)
 path+=(/opt/local/bin)
 path+=(/opt/local/sbin)
 
-if [[ "$OSTYPE" = linux* ]]; then
+if [[ "${OSTYPE}" = linux* ]]; then
     path+=(~/.local/bin)
 fi
 
@@ -70,6 +70,7 @@ path+=(~/.gem/ruby/2.3.0/bin)
 cdpath+=(~/work/src)
 cdpath+=(~/work/src/git.mts.ai)
 cdpath+=(~/work/src/github.com)
+cdpath+=(~/work/src/sandbox)
 
 # Load scripts
 . ~/.zsh_aliases
@@ -159,8 +160,8 @@ function parse_git_dirty {
 function parse_git_stash {
   local stash=`expr $(git stash list 2>/dev/null| wc -l)`
 
-  if [ "$stash" != "0" ]; then
-    echo "|stashed:$stash"
+  if [ "${stash}" != "0" ]; then
+    echo "|stashed:${stash}"
   fi
 }
 
@@ -171,12 +172,12 @@ git-prompt()
 {
     local ref=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
-    if [ "$ref" = "HEAD" ]; then
+    if [ "${ref}" = "HEAD" ]; then
         ref="detached"
     fi
 
-    if [ "$ref" != "" ]; then
-        echo "($ref$(parse_git_dirty)$(parse_git_stash)) "
+    if [ "${ref}" != "" ]; then
+        echo "(${ref}$(parse_git_dirty)$(parse_git_stash)) "
     fi
 }
 

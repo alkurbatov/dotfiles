@@ -27,6 +27,7 @@ export GITHUB_USER=alkurbatov
 
 # Go stuff
 export GOPATH=$HOME/work
+export GOBIN=$GOPATH/bin
 
 # Preferred editor for local and remote sessions
 export EDITOR="emacs -nw"
