@@ -54,6 +54,8 @@ python -m pip install pylsp-rope
 
 # Go
 brew install go
+brew install golangci-lint
+go install golang.org/x/tools/cmd/godoc@latest
 go install golang.org/x/tools/gopls@latest
 
 # Java
@@ -82,6 +84,7 @@ brew install mc
 # Utilities
 brew install --cask xquartz
 brew install ag
+brew install btop
 brew install fd
 brew install ffmpegthumbnailer
 brew install gnu-tar
