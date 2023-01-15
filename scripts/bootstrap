@@ -70,6 +70,7 @@ python -m pip install pylsp-rope
 # Go
 brew install go
 brew install gopls
+ln -s /usr/local/bin/gopls ~/work/bin
 brew install golangci-lint
 go install golang.org/x/tools/cmd/godoc@latest
 
