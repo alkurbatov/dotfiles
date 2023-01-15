@@ -81,6 +81,7 @@ brew install shellcheck
 # Administration
 brew install ansible
 brew install ansible-lint
+brew install btop
 brew install coreutils
 brew install inetutils
 brew install mc
@@ -88,7 +89,6 @@ brew install mc
 # Utilities
 brew install --cask xquartz
 brew install ag
-brew install btop
 brew install diffutils
 brew install fd
 brew install ffmpegthumbnailer
@@ -98,6 +98,7 @@ brew install imagemagick
 brew install mediainfo
 brew install pinentry-mac
 brew install poppler
+brew install pre-commit
 brew install rar
 brew install tmux
 brew install unzip
