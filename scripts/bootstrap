@@ -72,6 +72,7 @@ brew install go
 brew install gopls
 ln -s /usr/local/bin/gopls ~/work/bin
 brew install golangci-lint
+go install github.com/rogpeppe/godef@latest
 go install golang.org/x/tools/cmd/godoc@latest
 
 # Java
