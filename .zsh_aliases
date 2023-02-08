@@ -26,6 +26,7 @@ alias -g G='|grep'
 alias -g M='|more'
 alias -g N='2>/dev/null'
 alias -g J='-H "Content-Type: application/json"'
+alias -g S='-w "\n%{http_code}\n"'
 if [[ "$OSTYPE" = darwin* ]]; then
     alias -g CB='| pbcopy'
 fi
