@@ -1,1 +1,0 @@
-networksetup -setdnsservers Wi-Fi $INTERNAL_IP4_DNS
