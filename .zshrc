@@ -45,26 +45,24 @@ typeset -U path
 path=(~/work/bin)
 
 if [[ "${OSTYPE}" = darwin* ]]; then
-    path+=(/usr/local/opt/coreutils/libexec/gnubin)
-    path+=(/usr/local/opt/gnu-tar/libexec/gnubin)
-    path+=(/usr/local/opt/openjdk/bin)
-    path+=(/usr/local/opt/unzip/bin)
+    HOMEBREW=/usr/local
+    if [[ $(/usr/bin/uname -m) == 'arm64' ]]; then
+        HOMEBREW=/opt/homebrew
+    fi
+
+    path+=("${HOMEBREW}/bin")
+    path+=("${HOMEBREW}/opt/coreutils/libexec/gnubin")
+    path+=("${HOMEBREW}/opt/gnu-tar/libexec/gnubin")
+    path+=("${HOMEBREW}/opt/openjdk/bin")
+    path+=("${HOMEBREW}/opt/unzip/bin")
 fi
 
 path+=(/usr/local/bin)
 path+=(/usr/local/sbin)
-path+=(/opt/local/bin)
-path+=(/opt/local/sbin)
-
-if [[ "${OSTYPE}" = linux* ]]; then
-    path+=(~/.local/bin)
-fi
-
 path+=(/usr/bin)
 path+=(/bin)
 path+=(/usr/sbin)
 path+=(/sbin)
-path+=(~/.gem/ruby/2.3.0/bin)
 
 # Well-known directories
 cdpath+=(~/work/src)
