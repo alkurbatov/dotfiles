@@ -43,8 +43,9 @@ brew install homebrew/cask-fonts/font-jetbrains-mono
 # Emacs
 brew install --cask emacs
 brew install aspell
-brew install multimarkdown
 brew install coreutils
+brew install exa
+brew install multimarkdown
 
 # C++
 brew install cmake
