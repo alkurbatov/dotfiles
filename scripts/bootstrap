@@ -52,7 +52,7 @@ brew install doxygen
 
 # Python
 brew install python@3.11
-ln -s /opt/homebrew/bin/python3 /opt/homebrew/bin/python
+ln -s /opt/homebrew/bin/python3.11 /opt/homebrew/bin/python
 brew install virtualenv
 brew install bpython
 curl -sSL https://install.python-poetry.org | POETRY_HOME=~/work POETRY_VERSION=1.2.2 python3.11 -
