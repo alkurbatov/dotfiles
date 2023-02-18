@@ -2,7 +2,7 @@
 
 # This file is a part of Dotfiles project
 #
-# Copyright (C) 2013-2021, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
+# Copyright (C) 2013-2023, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
 #
 # Dotfiles is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,7 +27,6 @@ FOLDERS=(
     "${DST}"/etc
     "${HOME_BACKUP}"/gpg
     "${HOME_BACKUP}"/work
-    "${HOME_BACKUP}"/work/src/github.com/alkurbatov/observatory/config
 )
 
 for i in "${FOLDERS[@]}"; do
@@ -40,7 +39,6 @@ pushd "${HOME_BACKUP}" > /dev/null || { echo "Failed to switch folder to ${HOME_
 
 cp -R /Users/alkurbatov/.ssh .
 cp -R /Users/alkurbatov/work/etc work/
-cp /Users/alkurbatov/work/src/github.com/alkurbatov/observatory/config/development.js work/src/github.com/alkurbatov/observatory/config/
 
 SIGNKEY=$(git config --global --get user.signingkey)
 [ -z "${SIGNKEY}" ] && echo "Failed to extract gpg sign key!" && exit 1
