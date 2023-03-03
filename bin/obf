@@ -23,4 +23,10 @@ IMAGE=${PWD##*/}
 
 docker rmi obf-"${IMAGE}" > /dev/null 2>&1 || true
 
-docker build -f Dockerfile.obf --secret id=netrc,src="${HOME}/.netrc" "$@" -t obf-"${IMAGE}" .
+docker build \
+       -f Dockerfile.obf \
+       --secret id=netrc,src="${HOME}/.netrc" \
+       "$@" \
+       --platform linux/amd64 \
+       -t obf-"${IMAGE}" \
+       .

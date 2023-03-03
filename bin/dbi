@@ -23,4 +23,11 @@ IMAGE=${PWD##*/}
 
 docker rmi "${IMAGE}" > /dev/null 2>&1 || true
 
-docker build -f Dockerfile --secret id=netrc,src="${HOME}/.netrc" --secret id=npmrc,src="${HOME}/.npmrc" "$@" -t "${IMAGE}" .
+docker build \
+       -f Dockerfile \
+       --secret id=netrc,src="${HOME}/.netrc" \
+       --secret id=npmrc,src="${HOME}/.npmrc" \
+       "$@" \
+       --platform linux/amd64 \
+       -t "${IMAGE}" \
+       .
