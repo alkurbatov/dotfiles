@@ -41,7 +41,9 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/instal
 brew install homebrew/cask-fonts/font-jetbrains-mono
 
 # Emacs
-brew install --cask emacs
+brew tap d12frosted/emacs-plus
+brew install emacs-plus@29 --with-imagemagick --with-no-frame-refocus --with-savchenkovaleriy-big-sur-icon
+ln -s /opt/homebrew/opt/emacs-plus@29/Emacs.app /Applications
 brew install aspell
 brew install coreutils
 brew install exa
@@ -62,11 +64,16 @@ brew install python-lsp-server
 # Go
 brew install go
 brew install gopls
-brew install gofumpt
 ln -s /opt/homebrew/bin/gopls ~/work/bin
+brew install gofumpt                               # for improved code formatting
 brew install golangci-lint
 go install github.com/rogpeppe/godef@latest
 go install golang.org/x/tools/cmd/godoc@latest
+go install github.com/nsf/gocode@latest            # for go-eldoc mode
+go install golang.org/x/perf/cmd/benchstat@latest  # to carefully analyze bechmarks results between runs
+go install github.com/swaggo/swag/cmd/swag@latest  # to generate OpenAPI schema from comments in code
+brew install protobuf                              # for protoc gRPC compiler
+brew install graphviz                              # to view graphics from pprof
 
 # JavaScript
 brew install node@18
