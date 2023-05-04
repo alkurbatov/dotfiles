@@ -55,3 +55,6 @@ fi
 
 # Suppress annoying 'use docker scan' suggestion
 export DOCKER_SCAN_SUGGEST=false
+
+# Show all log during docker build even
+export BUILDKIT_PROGRESS=plain
