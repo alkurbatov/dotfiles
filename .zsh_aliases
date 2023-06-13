@@ -138,4 +138,4 @@ alias hadolint='hadolint -c ~/.hadolint.yaml'
 alias ocl='oc login --username="a.kurbatov"'
 
 # Python aliases
-alias activate='. ./venv/bin/activate'
+alias activate='. ./.venv/bin/activate'
