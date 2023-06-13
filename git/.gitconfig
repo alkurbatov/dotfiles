@@ -24,7 +24,7 @@
 	signingkey = 677AC63440C4F77A
 [core]
 	autocrlf = input
-	editor = emacs -nw
+	editor = emacs -nw --no-splash
 	excludesfile = ~/.gitignore
 [pull]
 	rebase = true
