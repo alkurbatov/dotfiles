@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# Copy files or folders from docker image to the current directory.
+# Usage:
+# copy-from-image <image-name-or-id> <path-inside-image> 
+set -euxo pipefail
+
+SRC_IMAGE=${1:-}
+if [ -z "${SRC_IMAGE}" ]; then
+    echo "Source image is required!"
+    exit 1
+fi
+
+PATH_TO_COPY=${2:-}
+if [ -z "${PATH_TO_COPY}" ]; then
+    echo "Please provide path to image data to copy!"
+    exit 1
+fi
+
+id=$(docker create "${SRC_IMAGE}")
+
+docker cp "${id}":"${PATH_TO_COPY}" .
+docker rm -v "$id"
