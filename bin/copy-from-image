@@ -17,7 +17,7 @@ if [ -z "${PATH_TO_COPY}" ]; then
     exit 1
 fi
 
-id=$(docker create "${SRC_IMAGE}")
+id=$(sudo docker create "${SRC_IMAGE}")
 
-docker cp "${id}":"${PATH_TO_COPY}" .
-docker rm -v "$id"
+sudo docker cp "${id}":"${PATH_TO_COPY}" .
+sudo docker rm -v "$id"
