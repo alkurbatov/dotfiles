@@ -31,22 +31,22 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias -g CB='| pbcopy'
 fi
 
-# Common aliases
-alias cp='cp -i'
+# Tools
 alias df='df -h'
 alias du='du -h'
-alias kver='uname -r'
 alias mkdir='mkdir -pv'
+alias reload-bash='source ~/.bashrc'
 alias reload-zsh='source ~/.zshrc'
 alias rmr='rm -rf'
 alias show-path='echo $PATH | tr -s ":" "\n"'
-alias vi='vim'
+
+if (( $+commands[exa] )); then
+    alias ls='exa -abghl --git --color=automatic'
+fi
 
 if [[ "$OSTYPE" = darwin* ]]; then
     alias github='open https://github.com/alkurbatov'
     alias grep='grep --color=always'
-    alias la='exa -abghl --git --color=automatic'
-    alias ls='ls -G -F'
 else
     alias apt-cache='sudo apt-cache'
     alias apt-get='sudo apt-get'
@@ -60,8 +60,6 @@ else
     alias lh='ls -lhS --color=auto'
     alias ls='ls --color=auto'
     alias lscpu='lscpu -e'
-    alias mc='. /usr/libexec/mc/mc-wrapper.sh' # Fedora & CentOs
-    # alias mc='. /usr/lib/mc/mc-wrapper.sh' # Other Linux
     alias meminfo='free -h -l'
     alias mount='sudo mount | column -t'
     alias ports='netstat -tulanp'
@@ -81,7 +79,6 @@ alias cls='clear'
 alias ipconfig='ifconfig'
 
 # Aliases for work
-alias bd='. bd -si'
 alias emacs='emacs -nw'
 alias hosts='cat /etc/hosts'
 alias wget='wget -c'
@@ -101,6 +98,7 @@ alias jdb='node --inspect-brk node_modules/.bin/jest --runInBand'
 # Git aliases
 alias ga='git add'
 alias gaa='git add .'
+alias gam='git am --3way --ignore-space-change'
 alias gb='git branch'
 alias gbd='git branch -D'
 alias gc='git commit -v --signoff'
