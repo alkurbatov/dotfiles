@@ -30,7 +30,7 @@ install_or_update_zsh_plugin() {
         return
     fi
 
-    git clone "${1}" "~/.zsh/${2}"
+    git clone "${1}" "${HOME}/.zsh/${2}"
 }
 
 # Install Homebrew, see
@@ -38,16 +38,30 @@ install_or_update_zsh_plugin() {
 bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
 
 # Fonts
+brew install font-fira-code
+brew install font-roboto
+brew install font-roboto-mono
+brew install font-roboto-mono-nerd-font
+brew install font-roboto-slab
+brew install font-victor-mono
 brew install homebrew/cask-fonts/font-jetbrains-mono
 
 # Emacs
 brew tap d12frosted/emacs-plus
-brew install emacs-plus@29 --with-imagemagick --with-no-frame-refocus --with-savchenkovaleriy-big-sur-icon
+brew install emacs-plus@29 --with-imagemagick --with-no-frame-refocus --with-savchenkovaleriy-big-sur-icon --with-xwidgets
 ln -s /opt/homebrew/opt/emacs-plus@29/Emacs.app /Applications
-brew install aspell
 brew install coreutils
 brew install exa
+brew install mu msmtp # for reading and sending email in Emacs
+brew install --HEAD isync # at least 1.5.0 is needed to support unicode mail folders
 brew install multimarkdown
+
+# Spellchecking
+brew install hunspell # for multilanguage spellchecking
+wget -O ~/Library/Spelling/en_US.aff  https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_US.aff
+wget -O ~/Library/Spelling/en_US.dic https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_US.dic
+wget -O ~/Library/Spelling/ru_RU.aff  https://cgit.freedesktop.org/libreoffice/dictionaries/plain/ru_RU/ru_RU.aff
+wget -O ~/Library/Spelling/ru_RU.dic https://cgit.freedesktop.org/libreoffice/dictionaries/plain/ru_RU/ru_RU.dic
 
 # C++
 brew install cmake
@@ -59,7 +73,7 @@ ln -s /opt/homebrew/bin/python3.11 /opt/homebrew/bin/python
 brew install virtualenv
 brew install bpython
 curl -sSL https://install.python-poetry.org | POETRY_HOME=~/work POETRY_VERSION=1.2.2 python3.11 -
-brew install python-lsp-server
+brew install pyright # for LSP in Emacs
 
 # Go
 brew install go
@@ -97,6 +111,7 @@ brew install xauth
 # Utilities
 brew install ag
 brew install fd
+brew install git-lfs # to work with 'large file storage'
 brew install gnu-tar
 brew install gpg
 brew install pinentry-mac
