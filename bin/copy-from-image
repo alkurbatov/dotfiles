@@ -17,7 +17,12 @@ if [ -z "${PATH_TO_COPY}" ]; then
     exit 1
 fi
 
-id=$(sudo docker create "${SRC_IMAGE}")
+DOCKER="sudo docker"
+if [[ "$OSTYPE" = darwin* ]]; then
+    DOCKER="docker"
+fi
 
-sudo docker cp "${id}":"${PATH_TO_COPY}" .
-sudo docker rm -v "$id"
+id=$(${DOCKER} create "${SRC_IMAGE}")
+
+${DOCKER} cp "${id}":"${PATH_TO_COPY}" .
+${DOCKER} rm -v "$id"
