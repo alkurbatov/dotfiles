@@ -49,7 +49,6 @@ brew install homebrew/cask-fonts/font-jetbrains-mono
 # Emacs
 brew tap d12frosted/emacs-plus
 brew install emacs-plus@29 --with-imagemagick --with-no-frame-refocus --with-savchenkovaleriy-big-sur-icon --with-xwidgets
-ln -s /opt/homebrew/opt/emacs-plus@29/Emacs.app /Applications
 brew install coreutils
 brew install exa
 brew install mu msmtp # for reading and sending email in Emacs
