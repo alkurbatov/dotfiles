@@ -58,3 +58,6 @@ export DOCKER_SCAN_SUGGEST=false
 
 # Show full log during docker build
 export BUILDKIT_PROGRESS=plain
+
+# Enable true color support in terminal for proper colors in Emacs
+export COLORTERM=truecolor
