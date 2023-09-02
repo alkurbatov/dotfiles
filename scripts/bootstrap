@@ -53,7 +53,7 @@ brew install coreutils
 brew install exa
 brew install mu msmtp # for reading and sending email in Emacs
 brew install --HEAD isync # at least 1.5.0 is needed to support unicode mail folders
-brew install multimarkdown
+brew install pandoc # for markdown preview in Emacs
 
 # Spellchecking
 brew install hunspell # for multilanguage spellchecking
