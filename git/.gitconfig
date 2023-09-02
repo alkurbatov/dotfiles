@@ -19,7 +19,7 @@
 # git configuration.
 
 [user]
-	name = Alexander Kurbatov
+	name = Kurbatov Alexander
 	email = sir.alkurbatov@yandex.ru
 	signingkey = 677AC63440C4F77A
 [core]
