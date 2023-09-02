@@ -41,7 +41,7 @@ alias rmr='rm -rf'
 alias show-path='echo $PATH | tr -s ":" "\n"'
 
 if (( $+commands[exa] )); then
-    alias ls='exa -abghl --git --color=automatic'
+    alias ls='exa -abghl --group-directories-first --git --color=automatic'
 fi
 
 if [[ "$OSTYPE" = darwin* ]]; then
