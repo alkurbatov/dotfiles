@@ -95,3 +95,8 @@ fports() {
         sudo firewall-cmd --permanent --service "$i" --get-ports;
     done
 }
+
+# Create git branch from origin branch with the same name
+gcob() {
+    git checkout -b $1 origin/$1
+}
