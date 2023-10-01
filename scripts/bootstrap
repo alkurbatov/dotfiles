@@ -71,7 +71,7 @@ brew install python@3.11
 ln -s /opt/homebrew/bin/python3.11 /opt/homebrew/bin/python
 brew install virtualenv
 brew install bpython
-curl -sSL https://install.python-poetry.org | POETRY_HOME=~/work POETRY_VERSION=1.2.2 python3.11 -
+brew install poetry
 brew install pyright # for LSP in Emacs
 
 # Go
@@ -89,8 +89,8 @@ brew install protobuf                              # for protoc gRPC compiler
 brew install graphviz                              # to view graphics from pprof
 
 # JavaScript
-brew install node@18
-brew link node@18
+brew install node@20
+brew link node@20
 
 # Docker
 brew install hadolint
