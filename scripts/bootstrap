@@ -109,6 +109,7 @@ brew install xauth
 
 # Utilities
 brew install ag
+brew install bat     # better cat
 brew install fd
 brew install git-lfs # to work with 'large file storage'
 brew install gnu-tar
@@ -150,11 +151,15 @@ install_or_update_zsh_plugin git@github.com:zsh-users/zsh-syntax-highlighting.gi
 install_or_update_zsh_plugin git@github.com:zsh-users/zsh-autosuggestions.git zsh-autosuggestions
 
 # Tweak Finder
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.Finder AppleShowAllFiles -bool true
-defaults write com.apple.Finder _FXShowPosixPathInTitle -bool true
-defaults write com.apple.Finder ShowStatusBar -bool true
 defaults write com.apple.Finder NewWindowTarget -string "PfHm"
 defaults write com.apple.Finder NewWindowTargetPath -string "file:///Users/alkurbatov/"
+defaults write com.apple.Finder ShowStatusBar -bool false
+defaults write com.apple.Finder _FXShowPosixPathInTitle -bool true
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
 killall Finder
 
 # Make it possible to repeat the same keypress many times by holding it down.

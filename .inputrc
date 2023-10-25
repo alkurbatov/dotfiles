@@ -16,8 +16,12 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 # Purprose:
-# search in history using 'Up' and 'Down' arrows
+# Do keyboard mappings for certain situations.
 
+# Silence the bell
+set bell-style none
+
+# Search in bash history using 'Up' and 'Down' arrows
 "\e[A":history-search-backward
 "\e[B":history-search-forward
 

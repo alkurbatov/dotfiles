@@ -47,6 +47,7 @@ fi
 if [[ "$OSTYPE" = darwin* ]]; then
     alias github='open https://github.com/alkurbatov'
     alias grep='grep --color=always'
+    alias myip="ipconfig getifaddr en0"
 else
     alias apt-cache='sudo apt-cache'
     alias apt-get='sudo apt-get'
@@ -54,6 +55,7 @@ else
     alias dnf='sudo dnf'
     alias gdb='gdb --silent'
     alias grep='grep --color=always'
+    alias ipconfig='ifconfig'
     alias ips='ip -c -br address show'
     alias ipt-list='iptables -vL --line-numbers'
     alias ipt-watch='watch -n 2 -d iptables -nvL'
@@ -74,11 +76,9 @@ else
     alias yum='sudo yum'
 fi
 
-# Win-like behaviour
+# Common aliases
+alias cat='bat --theme=Nord'
 alias cls='clear'
-alias ipconfig='ifconfig'
-
-# Aliases for work
 alias emacs='emacs -nw'
 alias hosts='cat /etc/hosts'
 alias wget='wget -c'

@@ -100,3 +100,10 @@ fports() {
 gcob() {
     git checkout -b $1 origin/$1
 }
+
+# Cleans py[cod] and cache dirs in the current tree
+pyclean () {
+  find . \
+    | grep -E "(__pycache__|\.(mypy_)?cache|\.hypothesis\.py[cod]$)" \
+    | xargs rm -rf
+}

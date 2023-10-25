@@ -39,19 +39,29 @@ if [[ "$OSTYPE" = darwin* ]]; then
     # X11 display for forwarding
     export DISPLAY=:0
 
+    HOMEBREW_PREFIX=/usr/local
+    if [[ $(/usr/bin/uname -m) == 'arm64' ]]; then
+        HOMEBREW_PREFIX=/opt/homebrew
+    fi
+
     # Forse usage of OpenSSL from Homebrew.
-    # You may also need to add -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl to cmake
+    # You may also need to add -DOPENSSL_ROOT_DIR=$(brew --prefix)/opt/openssl to cmake
     # to properly find the library and headers.
-    export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
-    export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
+    export LDFLAGS="-L$HOMEBREW_PREFIX/opt/openssl/lib"
+    export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openssl/include"
+    export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+    export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/openssl/lib/pkgconfig"
+
+    # Disables statistics that brew collects
+    export HOMEBREW_NO_ANALYTICS=1
 fi
 
 if [[ "$OSTYPE" = linux* ]]; then
     export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
-
-    # Tell GPG which tty it should use
-    export GPG_TTY=$(tty)
 fi
+
+# Tell GPG which tty it should use
+export GPG_TTY=$(tty)
 
 # Suppress annoying 'use docker scan' suggestion
 export DOCKER_SCAN_SUGGEST=false
@@ -61,3 +71,6 @@ export BUILDKIT_PROGRESS=plain
 
 # Enable true color support in terminal for proper colors in Emacs
 export COLORTERM=truecolor
+
+# Always store dependencies in local environments
+export POETRY_VIRTUALENVS_IN_PROJECT=true

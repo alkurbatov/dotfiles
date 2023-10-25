@@ -45,16 +45,11 @@ typeset -U path
 path=(~/work/bin)
 
 if [[ "${OSTYPE}" = darwin* ]]; then
-    HOMEBREW=/usr/local
-    if [[ $(/usr/bin/uname -m) == 'arm64' ]]; then
-        HOMEBREW=/opt/homebrew
-    fi
-
-    path+=("${HOMEBREW}/bin")
-    path+=("${HOMEBREW}/opt/coreutils/libexec/gnubin")
-    path+=("${HOMEBREW}/opt/gnu-tar/libexec/gnubin")
-    path+=("${HOMEBREW}/opt/openjdk/bin")
-    path+=("${HOMEBREW}/opt/unzip/bin")
+    path+=("${HOMEBREW_PREFIX}/bin")
+    path+=("${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin")
+    path+=("${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin")
+    path+=("${HOMEBREW_PREFIX}/opt/openjdk/bin")
+    path+=("${HOMEBREW_PREFIX}/opt/unzip/bin")
 fi
 
 path+=(/usr/local/bin)
