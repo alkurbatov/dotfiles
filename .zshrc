@@ -177,8 +177,8 @@ git-prompt()
 }
 
 # Format prompt
-PROMPT='%{$fg[blue]%}%2d%{$reset_color%} %{$fg[red]%}$(git-prompt)%{$reset_color%}%{$fg[yellow]%}%(1j.%j.)%{$reset_color%} $text> '
-RPROMPT='%{$fg[blue]%}[%{$fg[green]%}%n%{$fg[blue]%}@%{$fg[green]%}%m%{$fg[blue]%}]%{$reset_color%}'
+newline=$'\n'
+PROMPT='%{$fg[blue]%}%2d%{$reset_color%} %{$fg[red]%}$(git-prompt)%{$reset_color%}%{$fg[yellow]%}%(1j.%j.)%{$reset_color%} $text${newline}> '
 
 # Install zsh you-should-use plugin.
 # $ git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.zsh/zsh-you-should-use
