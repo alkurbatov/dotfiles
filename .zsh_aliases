@@ -45,6 +45,7 @@ if (( $+commands[exa] )); then
 fi
 
 if [[ "$OSTYPE" = darwin* ]]; then
+    alias cat='bat --theme=Nord'
     alias github='open https://github.com/alkurbatov'
     alias grep='grep --color=always'
     alias myip="ipconfig getifaddr en0"
@@ -52,6 +53,7 @@ else
     alias apt-cache='sudo apt-cache'
     alias apt-get='sudo apt-get'
     alias apt-update='sudo apt-get update && sudo apt-get upgrade'
+    alias cat='batcat --theme=Nord'
     alias dnf='sudo dnf'
     alias gdb='gdb --silent'
     alias grep='grep --color=always'
@@ -77,7 +79,6 @@ else
 fi
 
 # Common aliases
-alias cat='bat --theme=Nord'
 alias cls='clear'
 alias emacs='emacs -nw'
 alias hosts='cat /etc/hosts'
