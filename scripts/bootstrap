@@ -65,24 +65,28 @@ wget -O ~/Library/Spelling/ru_RU.dic https://cgit.freedesktop.org/libreoffice/di
 # C++
 brew install cmake
 brew install doxygen
+brew install llvm
+ln -s "$(brew --prefix llvm)/bin/clang-format" "$(brew --prefix)/bin/clang-format"
+ln -s "$(brew --prefix llvm)/bin/clang-tidy" "$(brew --prefix)/bin/clang-tidy"
+ln -s "$(brew --prefix llvm)/bin/clang-apply-replacements" "$(brew --prefix)/bin/clang-apply-replacements"
 
 # Python
 brew install python@3.11
-ln -s /opt/homebrew/bin/python3.11 /opt/homebrew/bin/python
+ln -s "$(brew --prefix)/bin/python3.11" "$(brew --prefix)/bin/python"
 brew install virtualenv
 brew install bpython
 brew install poetry
-brew install pyright # for LSP in Emacs
+brew install python-certifi # for poetry, it crashes without certifi
+brew install pyright        # for LSP in Emacs
 
 # Go
 brew install go
 brew install gopls
-ln -s /opt/homebrew/bin/gopls ~/work/bin
+ln -s "$(brew --prefix)/bin/gopls" ~/work/bin
 brew install gofumpt                               # for improved code formatting
 brew install golangci-lint
 go install github.com/rogpeppe/godef@latest
 go install golang.org/x/tools/cmd/godoc@latest
-go install github.com/nsf/gocode@latest            # for go-eldoc mode
 go install golang.org/x/perf/cmd/benchstat@latest  # to carefully analyze bechmarks results between runs
 go install github.com/swaggo/swag/cmd/swag@latest  # to generate OpenAPI schema from comments in code
 brew install protobuf                              # for protoc gRPC compiler
@@ -109,12 +113,13 @@ brew install xauth
 
 # Utilities
 brew install ag
-brew install bat     # better cat
+brew install bat          # better cat
 brew install fd
-brew install git-lfs # to work with 'large file storage'
+brew install git-lfs      # to work with 'large file storage'
 brew install gnu-tar
 brew install gpg
 brew install pinentry-mac
+brew install pyyaml       # for pre-commit
 brew install pre-commit
 brew install rar
 brew install rectangle
@@ -128,7 +133,7 @@ brew install --cask pinta
 
 # Tell pinentry to ask gpg keys password using terminal, not gui
 mkdir ~/.gnupg
-echo "pinentry-program /opt/homebrew/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
+echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 
 # Setup the default layout.
 mkdir -p ~/work/{bin,etc,pkg,src/sandbox,tmp}
