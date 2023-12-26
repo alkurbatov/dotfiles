@@ -86,9 +86,10 @@ ln -s "$(brew --prefix)/bin/gopls" ~/work/bin
 brew install gofumpt                               # for improved code formatting
 brew install golangci-lint
 go install github.com/rogpeppe/godef@latest
-go install golang.org/x/tools/cmd/godoc@latest
-go install golang.org/x/perf/cmd/benchstat@latest  # to carefully analyze bechmarks results between runs
 go install github.com/swaggo/swag/cmd/swag@latest  # to generate OpenAPI schema from comments in code
+go install golang.org/x/perf/cmd/benchstat@latest  # to carefully analyze bechmarks results between runs
+go install golang.org/x/tools/cmd/deadcode@latest  # to search dead code
+go install golang.org/x/tools/cmd/godoc@latest
 brew install protobuf                              # for protoc gRPC compiler
 brew install graphviz                              # to view graphics from pprof
 
