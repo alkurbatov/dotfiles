@@ -61,6 +61,7 @@ wget -O ~/Library/Spelling/en_US.aff  https://cgit.freedesktop.org/libreoffice/d
 wget -O ~/Library/Spelling/en_US.dic https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_US.dic
 wget -O ~/Library/Spelling/ru_RU.aff  https://cgit.freedesktop.org/libreoffice/dictionaries/plain/ru_RU/ru_RU.aff
 wget -O ~/Library/Spelling/ru_RU.dic https://cgit.freedesktop.org/libreoffice/dictionaries/plain/ru_RU/ru_RU.dic
+brew install vale # to check writing style
 
 # C++
 brew install cmake
@@ -85,6 +86,7 @@ brew install gopls
 ln -s "$(brew --prefix)/bin/gopls" ~/work/bin
 brew install gofumpt                               # for improved code formatting
 brew install golangci-lint
+go install github.com/daixiang0/gci@latest         # for improved imports formatting
 go install github.com/rogpeppe/godef@latest
 go install github.com/swaggo/swag/cmd/swag@latest  # to generate OpenAPI schema from comments in code
 go install golang.org/x/perf/cmd/benchstat@latest  # to carefully analyze bechmarks results between runs
@@ -116,6 +118,7 @@ brew install xauth
 brew install ag
 brew install bat          # better cat
 brew install fd
+brew install git-cliff    # for changelog generation
 brew install git-lfs      # to work with 'large file storage'
 brew install gnu-tar
 brew install gpg
@@ -123,7 +126,7 @@ brew install pinentry-mac
 brew install pyyaml       # for pre-commit
 brew install pre-commit
 brew install rar
-brew install rectangle
+brew install raycast
 brew install tmux
 brew install unzip
 brew install wget
@@ -137,7 +140,7 @@ mkdir ~/.gnupg
 echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 
 # Setup the default layout.
-mkdir -p ~/work/{bin,etc,pkg,src/sandbox,tmp}
+mkdir -p ~/work/{bin,etc,pkg,rfc,tmp}
 mkdir -p ~/work/src/github.com/alkurbatov
 mkdir -p ~/work/src/git.mts.ai/alkurbatov
 
