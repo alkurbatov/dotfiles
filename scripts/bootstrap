@@ -38,13 +38,10 @@ install_or_update_zsh_plugin() {
 bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
 
 # Fonts
-brew install font-fira-code
 brew install font-roboto
-brew install font-roboto-mono
-brew install font-roboto-mono-nerd-font
 brew install font-roboto-slab
-brew install font-victor-mono
 brew install homebrew/cask-fonts/font-jetbrains-mono
+brew install homebrew/cask-fonts/font-jetbrains-mono-nerd-font
 
 # Emacs
 brew tap d12frosted/emacs-plus
@@ -127,6 +124,7 @@ brew install pyyaml       # for pre-commit
 brew install pre-commit
 brew install rar
 brew install raycast
+brew install ripgrep     # for search with consult in Emacs
 brew install tmux
 brew install unzip
 brew install wget
