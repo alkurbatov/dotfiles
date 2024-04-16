@@ -50,6 +50,8 @@ if [[ "${OSTYPE}" = darwin* ]]; then
     path+=("${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin")
     path+=("${HOMEBREW_PREFIX}/opt/openjdk/bin")
     path+=("${HOMEBREW_PREFIX}/opt/unzip/bin")
+    path+=("${HOMEBREW_PREFIX}/opt/ruby/bin")
+    path+=("$(gem environment gemdir)/bin")
 fi
 
 path+=(/usr/local/bin)

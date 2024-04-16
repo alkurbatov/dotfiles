@@ -48,6 +48,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias cat='bat --theme=Nord --style=plain'
     alias github='open https://github.com/alkurbatov'
     alias grep='grep --color=always'
+    alias mc='LC_ALL=en_US.UTF8 mc'
     alias myip="ipconfig getifaddr en0"
 else
     alias apt-cache='sudo apt-cache'
@@ -115,7 +116,7 @@ alias gl='git pull'
 alias glg='git log --color --graph --oneline --abbrev-commit --decorate --abbrev=8 --date=format-local:"%d-%m-%Y %H:%M:%S" --pretty=format:"%C(cyan)%h %C(yellow)%ad %C(bold green)%d %C(reset)%s <%C(bold blue)%an>"'
 alias glm='git log --no-merges --author "Kurbatov Alexander" --oneline'
 alias gp='git push'
-alias gpf='git push --force'
+alias gpf='git push --force-with-lease'
 alias gpo='git push -u origin'
 alias gr='git rebase -i'
 alias gra='git rebase --abort'
