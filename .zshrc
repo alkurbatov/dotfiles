@@ -43,6 +43,7 @@ setopt HIST_IGNORE_SPACE
 typeset -U path
 
 path=(~/work/bin)
+path+=(~/.local/bin)
 
 if [[ "${OSTYPE}" = darwin* ]]; then
     path+=("${HOMEBREW_PREFIX}/bin")
@@ -65,7 +66,6 @@ path+=(/sbin)
 cdpath+=(~/work/src)
 cdpath+=(~/work/src/git.mts.ai)
 cdpath+=(~/work/src/github.com)
-cdpath+=(~/work/src/sandbox)
 
 # Load scripts
 . ~/.zsh_aliases
