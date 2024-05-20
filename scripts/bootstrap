@@ -43,8 +43,8 @@ brew install brew-gem
 # Fonts
 brew install font-roboto
 brew install font-roboto-slab
-brew install homebrew/cask-fonts/font-jetbrains-mono
-brew install homebrew/cask-fonts/font-jetbrains-mono-nerd-font
+brew install homebrew/cask/font-jetbrains-mono
+brew install homebrew/cask/font-jetbrains-mono-nerd-font
 
 # Emacs
 brew tap d12frosted/emacs-plus
@@ -53,6 +53,7 @@ brew install coreutils
 brew install exa
 brew install --HEAD isync # at least 1.5.0 is needed to support unicode mail folders
 brew install pandoc # for markdown preview in Emacs
+brew install pygments # for better markdown syntax highlighting in Emacs
 
 # Spellchecking
 brew install hunspell # for multilanguage spellchecking
@@ -74,17 +75,17 @@ ln -s "$(brew --prefix llvm)/bin/clang-apply-replacements" "$(brew --prefix)/bin
 brew install python@3.11
 ln -s "$(brew --prefix)/bin/python3.11" "$(brew --prefix)/bin/python"
 brew install virtualenv
-brew install bpython
-brew install poetry
-brew install python-certifi # for poetry, it crashes without certifi
+brew install pipx           # for isolated installation of Python tools e.g. poetry
 brew install pyright        # for LSP in Emacs
 
 # Go
 brew install go
 brew install gopls
 ln -s "$(brew --prefix)/bin/gopls" ~/work/bin
+brew install delve                                 # to debug Golang apps
 brew install gofumpt                               # for improved code formatting
 brew install golangci-lint
+brew install govulncheck                           # for dependencies security scanning
 go install github.com/daixiang0/gci@latest         # for improved imports formatting
 go install github.com/rogpeppe/godef@latest
 go install github.com/swaggo/swag/cmd/swag@latest  # to generate OpenAPI schema from comments in code
@@ -99,7 +100,7 @@ brew install node@20
 brew link node@20
 
 # Markdown
-brew install mdl
+brew install mdl      # to lint markdown files
 
 # Docker
 brew install hadolint
