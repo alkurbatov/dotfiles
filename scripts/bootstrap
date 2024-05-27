@@ -75,8 +75,11 @@ ln -s "$(brew --prefix llvm)/bin/clang-apply-replacements" "$(brew --prefix)/bin
 brew install python@3.11
 ln -s "$(brew --prefix)/bin/python3.11" "$(brew --prefix)/bin/python"
 brew install virtualenv
-brew install pipx           # for isolated installation of Python tools e.g. poetry
-brew install pyright        # for LSP in Emacs
+brew install pipx                           # for isolated installation of Python tools e.g. poetry
+pipx install poetry==1.6.1
+pipx install python-lsp-server              # for LSP in Emacs
+pipx inject python-lsp-server pyls-memestra
+pipx inject python-lsp-server pyls-rope
 
 # Go
 brew install go
