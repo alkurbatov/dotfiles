@@ -1,6 +1,6 @@
 # This file is a part of Dotfiles project
 #
-# Copyright (C) 2013-2023, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
+# Copyright (C) 2013-2024, Alexander Kurbatov <sir.alkurbatov@yandex.ru>
 #
 # Dotfiles is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,11 +17,10 @@
 
 # Purprose:
 # git configuration.
+#
+# Inspired by many great articales, e.g:
+# https://blog.gitbutler.com/git-tips-1-theres-a-git-config-for-that/
 
-[user]
-	name = Kurbatov Alexander
-	email = sir.alkurbatov@yandex.ru
-	signingkey = 677AC63440C4F77A
 [core]
 	autocrlf = input
 	editor = emacs -nw -no-splash
@@ -58,3 +57,19 @@
 	prompt = false
 [rebase]
 	autoStash = true
+[rerere]
+	enabled = true
+	autoUpdate = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[includeIf "gitdir:~/work/src/git.mts.ai/"]
+	path = ~/.gitconfig-mts
+
+[includeIf "gitdir:~/work/src/github.com/"]
+	path = ~/.gitconfig-oss
+[branch]
+	sort = -committerdate
