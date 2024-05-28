@@ -81,6 +81,9 @@ pipx install python-lsp-server              # for LSP in Emacs
 pipx inject python-lsp-server pyls-memestra
 pipx inject python-lsp-server pyls-rope
 
+# Rust
+brew install rust
+
 # Go
 brew install go
 brew install gopls
