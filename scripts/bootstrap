@@ -126,6 +126,7 @@ brew install xauth
 # Utilities
 brew install ag
 brew install bat              # better cat
+brew install difftastic       # for better diff in git
 brew install fd
 brew install git-cliff        # for changelog generation
 brew install git-lfs          # to work with 'large file storage'

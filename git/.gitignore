@@ -1,1 +1,7 @@
-.ignore
+# Emacs things
+.dir-locals.el
+.project
+.projectile
+
+# IDEs
+/.vscode/

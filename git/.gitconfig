@@ -20,6 +20,7 @@
 #
 # Inspired by many great articales, e.g:
 # https://blog.gitbutler.com/git-tips-1-theres-a-git-config-for-that/
+# https://habr.com/ru/articles/796119/
 
 [core]
 	autocrlf = input
@@ -27,10 +28,12 @@
 	excludesfile = ~/.gitignore
 [fetch]
 	prune = true
+	fsckobjects = true
 [pull]
 	rebase = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [alias]
 	db = !sh -c \"git branch -d ${1} && git push origin :${1}\" -
 	dt = !sh -c \"git tag -d ${1} && git push origin :${1}\" -
@@ -39,7 +42,9 @@
 	sync = !sh -c \"git fetch upstream && git checkout master && git merge upstream/master\" -
 	dt = difftool
 [diff]
-	tool = vimdiff
+	algorithm = histogram
+	tool = difftastic
+	submodule = log
 [commit]
 	# NOTE (alkurbatov): To generate a key do:
 	# $ gpg --list-keys
@@ -57,6 +62,7 @@
 	prompt = false
 [rebase]
 	autoStash = true
+	updateRefs = true
 [rerere]
 	enabled = true
 	autoUpdate = true
@@ -65,11 +71,21 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-
 [includeIf "gitdir:~/work/src/git.mts.ai/"]
 	path = ~/.gitconfig-mts
-
 [includeIf "gitdir:~/work/src/github.com/"]
 	path = ~/.gitconfig-oss
 [branch]
 	sort = -committerdate
+[merge]
+	conflictStyle = zdiff3
+[transfer]
+	fsckobjects = true
+[receive]
+	fsckObjects = true
+[status]
+	submoduleSummary = true
+[submodule]
+	recurse = true
+[init]
+	defaultBranch = main
