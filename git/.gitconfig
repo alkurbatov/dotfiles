@@ -57,7 +57,7 @@
 	#
 	# To export a key in ASCII format e.g. for Github do:
 	# $ gpg --armor --export <keyID>
-	gpgsign = true
+	# gpgsign = true
 [difftool]
 	prompt = false
 [rebase]
@@ -74,6 +74,8 @@
 [includeIf "gitdir:~/work/src/git.mts.ai/"]
 	path = ~/.gitconfig-mts
 [includeIf "gitdir:~/work/src/github.com/"]
+	path = ~/.gitconfig-oss
+[includeIf "gitdir:~/work/src/gitverse.ru/"]
 	path = ~/.gitconfig-oss
 [branch]
 	sort = -committerdate

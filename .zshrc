@@ -65,6 +65,7 @@ path+=(/sbin)
 # Well-known directories
 cdpath+=(~/work/src)
 cdpath+=(~/work/src/git.mts.ai)
+cdpath+=(~/work/src/gitverse.ru)
 cdpath+=(~/work/src/github.com)
 
 # Load scripts

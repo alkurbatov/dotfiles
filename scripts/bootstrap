@@ -155,6 +155,7 @@ echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" > ~/.gnupg/gpg-agent.c
 # Setup the default layout.
 mkdir -p ~/work/{bin,etc,pkg,rfc,tmp}
 mkdir -p ~/work/src/github.com/alkurbatov
+mkdir -p ~/work/src/gitverse.ru/alkurbatov
 mkdir -p ~/work/src/git.mts.ai/alkurbatov
 
 # Precreate SSH folders.
