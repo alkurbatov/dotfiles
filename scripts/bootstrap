@@ -72,8 +72,8 @@ ln -s "$(brew --prefix llvm)/bin/clang-tidy" "$(brew --prefix)/bin/clang-tidy"
 ln -s "$(brew --prefix llvm)/bin/clang-apply-replacements" "$(brew --prefix)/bin/clang-apply-replacements"
 
 # Python
-brew install python@3.11
-ln -s "$(brew --prefix)/bin/python3.11" "$(brew --prefix)/bin/python"
+brew install python@3.10 python@3.11 python@3.12
+ln -s "$(brew --prefix)/bin/python3.12" "$(brew --prefix)/bin/python"
 brew install virtualenv
 brew install pipx                           # for isolated installation of Python tools e.g. poetry
 pipx install poetry==1.6.1
@@ -102,11 +102,11 @@ brew install protobuf                              # for protoc gRPC compiler
 brew install graphviz                              # to view graphics from pprof
 
 # JavaScript
-brew install node@20
-brew link node@20
+brew install node@22
+brew link node@22
 
 # Markdown
-brew install mdl      # to lint markdown files
+brew-gem install mdl      # to lint markdown files
 
 # Docker
 brew install hadolint
