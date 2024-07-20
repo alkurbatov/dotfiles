@@ -71,8 +71,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[includeIf "gitdir:~/work/src/git.mts.ai/"]
-	path = ~/.gitconfig-mts
 [includeIf "gitdir:~/work/src/github.com/"]
 	path = ~/.gitconfig-oss
 [includeIf "gitdir:~/work/src/gitverse.ru/"]

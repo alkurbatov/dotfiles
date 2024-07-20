@@ -562,6 +562,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>48D16477-80EF-439C-8220-7654A4DCADCC</string>
+	<key>GenerativeAIAllowed</key>
+	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideFromDockAndAppSwitcher</key>
