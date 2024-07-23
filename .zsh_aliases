@@ -135,8 +135,5 @@ alias dri='docker rmi'
 alias dr='docker run --rm -it --entrypoint /bin/bash'
 alias hadolint='hadolint -c ~/.hadolint.yaml'
 
-# Kubernetes (OpenShift)
-alias ocl='oc login --username="a.kurbatov"'
-
 # Python aliases
 alias activate='. ./.venv/bin/activate'
