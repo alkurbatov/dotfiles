@@ -51,6 +51,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias mc='LC_ALL=en_US.UTF8 mc'
     alias myip="ipconfig getifaddr en0"
 else
+    alias apt='sudo apt'
     alias apt-cache='sudo apt-cache'
     alias apt-get='sudo apt-get'
     alias apt-update='sudo apt-get update && sudo apt-get upgrade'
@@ -72,6 +73,7 @@ else
     alias routes='ip -c -br route show'
     alias reboot='sudo reboot'
     alias shutdown='sudo /sbin/shutdown'
+    alias snap='sudo snap'
     alias systemctl='sudo systemctl'
     alias tree='tree -h'
     alias umount='sudo umount'
