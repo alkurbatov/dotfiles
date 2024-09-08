@@ -93,6 +93,7 @@ go install github.com/swaggo/swag/cmd/swag@latest  # to generate OpenAPI schema 
 go install golang.org/x/perf/cmd/benchstat@latest  # to carefully analyze bechmarks results between runs
 go install golang.org/x/tools/cmd/deadcode@latest  # to search dead code
 go install golang.org/x/tools/cmd/godoc@latest
+go install golang.org/x/perf/cmd/benchstat@latest  # for better comparison of Golang benchmarks results
 brew install protobuf                              # for protoc gRPC compiler
 brew install graphviz                              # to view graphics from pprof
 
