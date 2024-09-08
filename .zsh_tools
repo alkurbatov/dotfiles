@@ -103,7 +103,12 @@ gcob() {
 
 # Cleans py[cod] and cache dirs in the current tree
 pyclean () {
-  find . \
-    | grep -E "(__pycache__|\.(mypy_)?cache|\.hypothesis\.py[cod]$)" \
-    | xargs rm -rf
+    find . \
+        | grep -E "(__pycache__|\.(mypy_)?cache|\.hypothesis\.py[cod]$)" \
+        | xargs rm -rf
+}
+
+# Clean intermediate Docker images names as none
+docker-clean() {
+    docker images | grep none | awk '{print $3}' | xargs docker rmi
 }
