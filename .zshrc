@@ -42,17 +42,12 @@ setopt HIST_IGNORE_SPACE
 # Expand PATH
 typeset -U path
 
-path=()
-
 # Load scripts
 . ~/.zsh_aliases
 . ~/.zsh_tools
 
-if [[ -a "${HOME}/.zsh_work" ]]; then
-    . ~/.zsh_work
-fi
-
-path=(~/work/bin)
+path=()
+path+=(~/work/bin)
 path+=(~/.local/bin)
 
 if [[ "${OSTYPE}" = darwin* ]]; then
@@ -76,6 +71,11 @@ path+=(/sbin)
 cdpath+=(~/work/src)
 cdpath+=(~/work/src/gitverse.ru)
 cdpath+=(~/work/src/github.com)
+
+# Work-related settings
+if [[ -a "${HOME}/.zsh_work" ]]; then
+    . ~/.zsh_work
+fi
 
 # Tramp client (Emacs) sets TERM to dumb.
 # It doesn't expect anything clever or beautiful if cmdline prompt.
