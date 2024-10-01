@@ -40,10 +40,6 @@ alias reload-zsh='source ~/.zshrc'
 alias rmr='rm -rf'
 alias show-path='echo $PATH | tr -s ":" "\n"'
 
-if (( $+commands[exa] )); then
-    alias ls='exa -abghl --group-directories-first --git --color=automatic'
-fi
-
 if [[ "$OSTYPE" = darwin* ]]; then
     alias cat='bat --theme=Nord --style=plain'
     alias github='open https://github.com/alkurbatov'
@@ -63,8 +59,6 @@ else
     alias ips='ip -c -br address show'
     alias ipt-list='iptables -vL --line-numbers'
     alias ipt-watch='watch -n 2 -d iptables -nvL'
-    alias lh='ls -lhS --color=auto'
-    alias ls='ls --color=auto'
     alias lscpu='lscpu -e'
     alias meminfo='free -h -l'
     alias mount='sudo mount | column -t'
@@ -85,6 +79,8 @@ fi
 alias cls='clear'
 alias emacs='emacs -nw'
 alias hosts='cat /etc/hosts'
+alias ll='ls -GlAhFk --color=auto --group-directories-first'
+alias ls='ls -GFA --color=auto --group-directories-first'
 alias wget='wget -c'
 
 # NPM aliases
