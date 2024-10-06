@@ -17,10 +17,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# Purprose:
+# Purpose:
 # Attach gdb to target process.
 
-#Work directories.
+# Work directories.
 PROCESS="[p]rl_disp_service"
 WORKDIR="/home/builder/projects/pcs/1070504-update9/Sources"
 
@@ -37,4 +37,3 @@ fi
 
 cd ${WORKPATH}
 gdb -silent -p ${PID}
-

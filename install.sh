@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# Purprose:
+# Purpose:
 # Install common configuration files to the local or remote machine.
 # Regarding usage see the README.md.
 
