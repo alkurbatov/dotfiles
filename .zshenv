@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# Purprose:
+# Purpose:
 # Set global environment variables for zsh.
 
 # Set up locale (requred by some tools)
@@ -44,7 +44,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
         HOMEBREW_PREFIX=/opt/homebrew
     fi
 
-    # Forse usage of OpenSSL from Homebrew.
+    # Force usage of OpenSSL from Homebrew.
     # You may also need to add -DOPENSSL_ROOT_DIR=$(brew --prefix)/opt/openssl to cmake
     # to properly find the library and headers.
     export LDFLAGS="-L$HOMEBREW_PREFIX/opt/openssl/lib"
@@ -58,6 +58,11 @@ fi
 
 if [[ "$OSTYPE" = linux* ]]; then
     export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+
+    if [ -n "${SSH_CLIENT}" ]; then
+        # Support ssh auth in docker builds when logged in from remote machine
+        export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/keyring/ssh"
+    fi
 fi
 
 # Tell GPG which tty it should use
