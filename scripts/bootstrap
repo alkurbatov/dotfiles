@@ -48,10 +48,15 @@ brew install homebrew/cask/font-jetbrains-mono-nerd-font
 
 # Emacs
 brew tap d12frosted/emacs-plus
-brew install emacs-plus@29 --with-imagemagick --with-no-frame-refocus --with-savchenkovaleriy-big-sur-icon --with-xwidgets --with-poll
+brew install emacs-plus@30 \
+     --with-imagemagick \
+     --with-savchenkovaleriy-big-sur-icon \
+     --with-xwidgets \
+     --with-poll
 brew install coreutils
-brew install pandoc   # for markdown preview in Emacs
-brew install pygments # for better markdown syntax highlighting in Emacs
+brew install pandoc        # for markdown preview in Emacs
+brew install pygments      # for better markdown syntax highlighting in Emacs
+brew install --cask mactex # for LaTex support in org-mode
 
 # Spellchecking
 brew install hunspell # for multilanguage spellchecking
