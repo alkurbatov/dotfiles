@@ -40,7 +40,8 @@
 	# NOTE (alkurbatov): Declined pull requests couldn't be fetched from Bitbucket.
 	gpr = !sh -c \"git fetch upstream pull-requests/${1}/from:pr/${1} && git checkout pr/${1}\" -
 	sync = !sh -c \"git fetch upstream && git checkout master && git merge upstream/master\" -
-	dt = difftool
+	authors = shortlog --all -sne
+	commits-by = !sh -c \"git log --all --author='${1}'\" -
 [diff]
 	algorithm = histogram
 	tool = difftastic
