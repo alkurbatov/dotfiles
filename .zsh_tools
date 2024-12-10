@@ -80,7 +80,6 @@ sshcreate() {
     fi
 }
 
-
 # Get short info and hints about a command
 wtfis() {
     curl "https://cheat.sh/$1"
@@ -112,3 +111,19 @@ pyclean () {
 docker-clean() {
     docker images | grep none | awk '{print $3}' | xargs docker rmi
 }
+
+if [[ "$OSTYPE" = linux* ]]; then
+
+# macOS-like convenient open
+open () {
+    if [ -f "$1" ]; then
+        case "$1" in
+            *.html)  firefox "$1" 2>/dev/null             ;;
+            *)       echo "'$1' cannot process with open" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+fi
