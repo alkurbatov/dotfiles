@@ -20,10 +20,10 @@ conky.config = {
     -- Create own window instead of using desktop
     own_window = true,
     own_window_class = 'Conky',
-    own_window_type = 'desktop',
+    own_window_type = 'normal',
     own_window_transparent = false,
     own_window_argb_visual = true,
-    own_window_hints = undecorated,below,sticky,skip_taskbar,skip_pager,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 
     -- Use double buffering (reduces flicker, may not work for everyone)
     double_buffer = true,
@@ -97,8 +97,8 @@ ${top name 7} ${alignr} ${top pid 7} ${top cpu 7}% ${top mem 7}%
 
 ${font sans-serif:bold:size=10}NETWORK ${hr 2}
 ${font sans-serif:normal:size=10}IP address: $alignr ${addr wlp0s20f3}
-Up: ${upspeed wlp0s20f3} kb/s ${alignr} total: ${totalup wlp0s20f3}
+Up: ${upspeed wlp0s20f3} ${alignr} total: ${totalup wlp0s20f3}
 ${upspeedgraph wlp0s20f3}
-Down: ${downspeed wlp0s20f3} kb/s ${alignr} total: ${totaldown wlp0s20f3}
+Down: ${downspeed wlp0s20f3} ${alignr} total: ${totaldown wlp0s20f3}
 ${downspeedgraph wlp0s20f3}
 ]]
