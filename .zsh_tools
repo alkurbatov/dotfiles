@@ -74,7 +74,7 @@ extract () {
 sshcreate() {
     if [ ! -z "$1" ];
     then
-        ssh-keygen -f $HOME/.ssh/$1 -t ecdsa -N '' -C "$1"
+        ssh-keygen -f $HOME/.ssh/$1 -t ed25519 -N '' -C "$1"
         chmod 600 $HOME/.ssh/$1
         chmod 600 $HOME/.ssh/$1.pub
     fi
