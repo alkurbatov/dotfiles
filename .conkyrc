@@ -80,8 +80,6 @@ ${font sans-serif:bold:size=10}DISKS ${hr 2}
 ${diskiograph}
 ${font sans-serif:normal:size=10}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
 ${fs_bar /}
-${font sans-serif:normal:size=10}JETFLASH $alignc ${fs_used /media/alkurbatov/JETFLASH} / ${fs_size /media/alkurbatov/JETFLASH} $alignr ${fs_used_perc /media/alkurbatov/JETFLASH}%
-${fs_bar /media/alkurbatov/JETFLASH}
 
 ${font sans-serif:bold:size=10}TOP PROCESSES ${hr 2}
 ${font sans-serif:normal:size=10}${processes} processes
