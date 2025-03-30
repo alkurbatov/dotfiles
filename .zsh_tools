@@ -80,12 +80,6 @@ sshcreate() {
     fi
 }
 
-# Get short info and hints about a command
-wtfis() {
-    curl "https://cheat.sh/$1"
-}
-
-
 # Get full list of ports opened in firewalld for registered services
 fports() {
     for i in `sudo firewall-cmd --list-services`;
@@ -107,9 +101,12 @@ pyclean () {
         | xargs rm -rf
 }
 
-# Clean intermediate Docker images names as none
+# Clean intermediate Docker images, unused volumes, networks and cache
 docker-clean() {
-    docker images | grep none | awk '{print $3}' | xargs docker rmi
+    docker image prune -f && \
+        docker volume prune -f && \
+        docker network prune -f && \
+        docker builder prune -f
 }
 
 if [[ "$OSTYPE" = linux* ]]; then
