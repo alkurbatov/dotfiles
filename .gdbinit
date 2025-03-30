@@ -26,9 +26,6 @@ handle SIG35 nostop
 handle SIG41 nostop
 handle SIGPIPE nostop
 
-# Don't try to download debuginfo. We will do it manually.
-set debuginfod enabled off
-
 set print pretty 1
 
 # Always print whole strings
