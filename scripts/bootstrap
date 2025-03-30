@@ -41,10 +41,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/instal
 brew install brew-gem
 
 # Fonts
-brew install font-roboto
-brew install font-roboto-slab
 brew install homebrew/cask/font-jetbrains-mono
-brew install homebrew/cask/font-jetbrains-mono-nerd-font
 
 # Emacs
 brew tap d12frosted/emacs-plus
@@ -75,8 +72,8 @@ ln -s "$(brew --prefix llvm)/bin/clang-tidy" "$(brew --prefix)/bin/clang-tidy"
 ln -s "$(brew --prefix llvm)/bin/clang-apply-replacements" "$(brew --prefix)/bin/clang-apply-replacements"
 
 # Python
-brew install python@3.12
-ln -s "$(brew --prefix)/bin/python3.12" "$(brew --prefix)/bin/python"
+brew install python@3.13
+ln -s "$(brew --prefix)/bin/python3.13" "$(brew --prefix)/bin/python"
 brew install virtualenv
 brew install pipx                           # for isolated installation of Python tools e.g. poetry
 pipx install poetry
@@ -141,7 +138,6 @@ brew install wget
 
 # Graphics
 brew install --cask drawio
-brew install --cask pinta
 
 # Tell pinentry to ask gpg keys password using terminal, not gui
 mkdir ~/.gnupg
