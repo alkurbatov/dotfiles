@@ -194,4 +194,6 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Install zsh autosuggestions plugin
 # $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 # ! This plugin must be loaded the last.
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ "${INSIDE_EMACS}" != "vterm" ]; then
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi

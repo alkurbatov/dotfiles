@@ -51,6 +51,7 @@ brew install emacs-plus@30 \
      --with-xwidgets \
      --with-poll
 brew install coreutils
+brew install libterm       # for the vterm package
 brew install pandoc        # for markdown preview in Emacs
 brew install pygments      # for better markdown syntax highlighting in Emacs
 brew install --cask mactex # for LaTex support in org-mode
