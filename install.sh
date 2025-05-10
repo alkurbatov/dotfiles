@@ -28,6 +28,7 @@ CONFIGS=(
     .tmux.conf
     .zsh_aliases
     .zsh_tools
+    .zsh_vterm
     .zshenv
     .zshrc
 )

@@ -45,6 +45,7 @@ typeset -U path
 # Load scripts
 . ~/.zsh_aliases
 . ~/.zsh_tools
+. ~/.zsh_vterm
 
 path=()
 path+=(~/work/bin)
