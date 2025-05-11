@@ -31,15 +31,6 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias -g CB='| pbcopy'
 fi
 
-# Tools
-alias df='df -h'
-alias du='du -h'
-alias mkdir='mkdir -pv'
-alias reload-bash='source ~/.bashrc'
-alias reload-zsh='source ~/.zshrc'
-alias rmr='rm -rf'
-alias show-path='echo $PATH | tr -s ":" "\n"'
-
 if [[ "$OSTYPE" = darwin* ]]; then
     alias cat='bat --theme=Nord --style=plain'
     alias github='open https://github.com/alkurbatov'
@@ -49,6 +40,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
 else
     alias apt='sudo apt'
     alias apt-cache='sudo apt-cache'
+    alias apt-file='sudo apt-file'
     alias apt-get='sudo apt-get'
     alias apt-update='sudo apt-get update && sudo apt-get upgrade'
     alias cat='batcat --theme=Nord --style=plain'
@@ -60,6 +52,7 @@ else
     alias ipt-list='iptables -vL --line-numbers'
     alias ipt-watch='watch -n 2 -d iptables -nvL'
     alias lscpu='lscpu -e'
+    alias kssh='kitten ssh'
     alias meminfo='free -h -l'
     alias mount='sudo mount | column -t'
     alias ports='netstat -tulanp'
@@ -77,10 +70,17 @@ fi
 
 # Common aliases
 alias cls='clear'
+alias df='df -h'
+alias du='du -h'
 alias emacs='emacs -nw'
 alias hosts='cat /etc/hosts'
 alias ll='ls -GlAhFk --color=auto --group-directories-first'
 alias ls='ls -GFA --color=auto --group-directories-first'
+alias mkdir='mkdir -pv'
+alias reload-bash='source ~/.bashrc'
+alias reload-zsh='source ~/.zshrc'
+alias rmr='rm -rf'
+alias show-path='echo $PATH | tr -s ":" "\n"'
 alias wget='wget -c'
 
 # NPM aliases
