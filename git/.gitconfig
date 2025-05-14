@@ -90,3 +90,5 @@
 	recurse = true
 [init]
 	defaultBranch = main
+[diff "elisp"]
+	xfuncname = ^\\([^[:space:]]*def[^[:space:]]+[[:space:]]+([^()[:space:]]+)
