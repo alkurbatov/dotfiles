@@ -31,6 +31,15 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias -g CB='| pbcopy'
 fi
 
+# Tools
+alias df='df -h'
+alias du='du -h'
+alias mkdir='mkdir -pv'
+alias reload-bash='source ~/.bashrc'
+alias reload-zsh='source ~/.zshrc'
+alias rmr='rm -rf'
+alias show-path='echo $PATH | tr -s ":" "\n"'
+
 if [[ "$OSTYPE" = darwin* ]]; then
     alias cat='bat --theme=Nord --style=plain'
     alias github='open https://github.com/alkurbatov'
@@ -52,7 +61,6 @@ else
     alias ipt-list='iptables -vL --line-numbers'
     alias ipt-watch='watch -n 2 -d iptables -nvL'
     alias lscpu='lscpu -e'
-    alias kssh='kitten ssh'
     alias meminfo='free -h -l'
     alias mount='sudo mount | column -t'
     alias ports='netstat -tulanp'
@@ -70,17 +78,10 @@ fi
 
 # Common aliases
 alias cls='clear'
-alias df='df -h'
-alias du='du -h'
 alias emacs='emacs -nw'
 alias hosts='cat /etc/hosts'
 alias ll='ls -GlAhFk --color=auto --group-directories-first'
 alias ls='ls -GFA --color=auto --group-directories-first'
-alias mkdir='mkdir -pv'
-alias reload-bash='source ~/.bashrc'
-alias reload-zsh='source ~/.zshrc'
-alias rmr='rm -rf'
-alias show-path='echo $PATH | tr -s ":" "\n"'
 alias wget='wget -c'
 
 # NPM aliases
@@ -108,11 +109,12 @@ alias gca='git commit --amend --date=now'
 alias gcan='git commit --amend --no-edit --date=now'
 alias gcp='git cherry-pick'
 alias gcpx='git cherry-pick -x'
-alias gd='git diff'
-alias gdc='git diff --cached'
+alias gd='git diff --ext-diff'
+alias gdc='git diff --cached --ext-diff'
 alias gf='git fetch --all'
+alias gh='git show --ext-diff'
 alias gl='git pull'
-alias glg='git log --color --graph --oneline --abbrev-commit --decorate --abbrev=8 --date=format-local:"%d-%m-%Y %H:%M:%S" --pretty=format:"%C(cyan)%h %C(yellow)%ad %C(bold green)%d %C(reset)%s <%C(bold blue)%an>"'
+alias glg='git log --graph --abbrev=8 --pretty=format:"%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s"'
 alias glm='git log --no-merges --author "Kurbatov Alexander" --oneline'
 alias gp='git push'
 alias gpf='git push --force-with-lease'
@@ -124,7 +126,7 @@ alias gs='git status -sb'
 alias gst='git stash'
 alias gstl='git stash list'
 alias gstp='git stash pop'
-alias gsts='git stash show -p'
+alias gsts='git stash show -p --ext-diff'
 
 # Docker
 alias di='docker images'

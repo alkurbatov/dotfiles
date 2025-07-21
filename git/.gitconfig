@@ -34,18 +34,14 @@
 [push]
 	default = simple
 	autoSetupRemote = true
-[alias]
-	db = !sh -c \"git branch -d ${1} && git push origin :${1}\" -
-	dt = !sh -c \"git tag -d ${1} && git push origin :${1}\" -
-	# NOTE (alkurbatov): Declined pull requests couldn't be fetched from Bitbucket.
-	gpr = !sh -c \"git fetch upstream pull-requests/${1}/from:pr/${1} && git checkout pr/${1}\" -
-	sync = !sh -c \"git fetch upstream && git checkout master && git merge upstream/master\" -
-	authors = shortlog --all -sne
-	commits-by = !sh -c \"git log --all --author='${1}'\" -
 [diff]
 	algorithm = histogram
-	tool = difftastic
+	external = difft
 	submodule = log
+[diff "elisp"]
+	xfuncname = ^\\([^[:space:]]*def[^[:space:]]+[[:space:]]+([^()[:space:]]+)
+[difftool]
+	prompt = false
 [commit]
 	# NOTE (alkurbatov): To generate a key do:
 	# $ gpg --list-keys
@@ -59,8 +55,8 @@
 	# To export a key in ASCII format e.g. for Github do:
 	# $ gpg --armor --export <keyID>
 	# gpgsign = true
-[difftool]
-	prompt = false
+[help]
+	autocorrect = prompt
 [rebase]
 	autoStash = true
 	updateRefs = true
@@ -90,5 +86,14 @@
 	recurse = true
 [init]
 	defaultBranch = main
-[diff "elisp"]
-	xfuncname = ^\\([^[:space:]]*def[^[:space:]]+[[:space:]]+([^()[:space:]]+)
+[alias]
+	# Delete branch in the local repo and upstream.
+	db = !sh -c \"git branch -d ${1} && git push origin :${1}\" -
+	# Delete tag in the local repo and upstream.
+	dt = !sh -c \"git tag -d ${1} && git push origin :${1}\" -
+	# Sync master branch with upstream.
+	sync = !sh -c \"git fetch upstream && git checkout master && git merge upstream/master\" -
+	# Show list of all contributers.
+	authors = shortlog --all -sne
+	# Show commits of particular contributer.
+	commits-by = !sh -c \"git log --all --author='${1}'\" -
