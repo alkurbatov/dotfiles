@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Strip debug symbols from provided binary executable.
+# Usage:
+# strip-debug-info <path-to-binary-executable>
+set -euxo pipefail
+
+SRC_BIN=${1:-}
+if [ -z "${SRC_BIN}" ]; then
+    echo "Path to binary executable is required!"
+    exit 1
+fi
+
+LC_ALL=C IFS=" " read -r -a build_id_data <<< "$(readelf -n "${SRC_BIN}" | awk '/Build ID:/ {print substr($3, 0, 2) " " substr($3, 3)}')"
+build_id_head=${build_id_data[0]}
+build_id_body=${build_id_data[1]}
+
+mkdir -p "/usr/lib/debug/.build-id/${build_id_head}"
+dbgsym_path=/usr/lib/debug/.build-id/${build_id_head}/${build_id_body}.debug
+
+objcopy --only-keep-debug --compress-debug-sections "${SRC_BIN}" "${dbgsym_path}"
+chmod 0644 "${dbgsym_path}"
+
+strip --remove-section=.comment --remove-section=.note "${SRC_BIN}"
+
+objcopy --add-gnu-debuglink="${dbgsym_path}" "${SRC_BIN}"
