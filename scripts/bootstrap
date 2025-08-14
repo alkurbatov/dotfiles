@@ -118,7 +118,6 @@ brew install inetutils
 
 # Utilities
 brew install ag
-brew install bat              # better cat
 brew install difftastic       # for better diff in git
 brew install fd
 brew install git-cliff        # for changelog generation
