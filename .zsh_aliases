@@ -70,7 +70,7 @@ else
     alias systemctl='sudo systemctl'
     alias tree='tree -h'
     alias umount='sudo umount'
-    alias update-grub='grub2-mkconfig -o "$(readlink -e /etc/grub2.cfg)"'
+    alias update-grub='sudo grub2-mkconfig -o "$(readlink -e /etc/grub2.cfg)"'
     alias yum='sudo yum'
 fi
 

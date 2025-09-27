@@ -2,7 +2,7 @@ conky.config = {
     alignment = 'top_left',
 
     -- set to yes if you want Conky to be forked in the background
-    background = false,
+    background = true,
 
     use_xft = true,
     font = 'Sans Serif:size=10',
@@ -21,7 +21,7 @@ conky.config = {
     own_window = true,
     own_window_class = 'Conky',
     own_window_type = 'normal',
-    own_window_transparent = false,
+    own_window_transparent = true,
     own_window_argb_visual = true,
     own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 
@@ -29,9 +29,9 @@ conky.config = {
     double_buffer = true,
 
     -- Minimum size of text area
-    minimum_width = 300,
+    minimum_width = 320,
     minimum_height = 500,
-    maximum_width = 400,
+    maximum_width = 420,
 
     draw_shades = true,
 
@@ -56,47 +56,51 @@ conky.config = {
 
 conky.text = [[
 ${font sans-serif:bold:size=10}SYSTEM ${hr 2}
-${font sans-serif:normal:size=10}$sysname $kernel $alignr $machine
-Uptime:$alignr$uptime
+${font sans-serif:normal:size=10}${sysname} ${kernel} ${alignr}
+Uptime:${alignr}${uptime}
 
-${font sans-serif:bold:size=10}PROCESSORS ${hr 2}
-${cpugraph}
-CPU1: ${cpu cpu1}% ${cpubar cpu1}
-CPU2: ${cpu cpu2}% ${cpubar cpu2}
-CPU3: ${cpu cpu3}% ${cpubar cpu3}
-CPU4: ${cpu cpu4}% ${cpubar cpu4}
-CPU5: ${cpu cpu5}% ${cpubar cpu5}
-CPU6: ${cpu cpu6}% ${cpubar cpu6}
-CPU7: ${cpu cpu7}% ${cpubar cpu7}
-CPU8: ${cpu cpu8}% ${cpubar cpu8}
+${font sans-serif:bold:size=10}CPU ${hr 2}
+${font sans-serif:normal:size=10}${cpugraph}
+Thread   1: ${alignr}${cpu cpu1}% ${cpubar cpu1 6,150}  ${freq_g 1}GHz
+Thread   2: ${alignr}${cpu cpu2}% ${cpubar cpu2 6,150}  ${freq_g 2}GHz
+Thread   3: ${alignr}${cpu cpu3}% ${cpubar cpu3 6,150}  ${freq_g 3}GHz
+Thread   4: ${alignr}${cpu cpu4}% ${cpubar cpu4 6,150}  ${freq_g 4}GHz
+Thread   5: ${alignr}${cpu cpu5}% ${cpubar cpu5 6,150}  ${freq_g 5}GHz
+Thread   6: ${alignr}${cpu cpu6}% ${cpubar cpu6 6,150}  ${freq_g 6}GHz
+Thread   7: ${alignr}${cpu cpu7}% ${cpubar cpu7 6,150}  ${freq_g 7}GHz
+Thread   8: ${alignr}${cpu cpu8}% ${cpubar cpu8 6,150}  ${freq_g 8}GHz
+Thread   9: ${alignr}${cpu cpu9}% ${cpubar cpu9 6,150}  ${freq_g 9}GHz
+Thread 10: ${alignr}${cpu cpu10}% ${cpubar cpu10 6,150}  ${freq_g 10}GHz
+Thread 11: ${alignr}${cpu cpu11}% ${cpubar cpu11 6,150}  ${freq_g 11}GHz
+Thread 12: ${alignr}${cpu cpu12}% ${cpubar cpu12 6,150}  ${freq_g 12}GHz
+Thread 13: ${alignr}${cpu cpu13}% ${cpubar cpu13 6,150}  ${freq_g 13}GHz
+Thread 14: ${alignr}${cpu cpu14}% ${cpubar cpu14 6,150}  ${freq_g 14}GHz
+Thread 15: ${alignr}${cpu cpu15}% ${cpubar cpu15 6,150}  ${freq_g 15}GHz
+Thread 16: ${alignr}${cpu cpu16}% ${cpubar cpu16 6,150}  ${freq_g 16}GHz
 
-${font sans-serif:bold:size=10}MEMORY ${hr 2}
-${font sans-serif:normal:size=10}RAM $alignc $mem / $memmax $alignr $memperc%
-${membar}
-swap $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
-${swapbar}
-
-${font sans-serif:bold:size=10}DISKS ${hr 2}
-${diskiograph}
-${font sans-serif:normal:size=10}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
-${fs_bar /}
-
-${font sans-serif:bold:size=10}TOP PROCESSES ${hr 2}
-${font sans-serif:normal:size=10}${processes} processes
-
-NAME ${alignr} PID       CPU      MEM
+${color gray}NAME ${alignr} PID       CPU      MEM${color}
 ${top name 1} ${alignr} ${top pid 1} ${top cpu 1}% ${top mem 1}%
 ${top name 2} ${alignr} ${top pid 2} ${top cpu 2}% ${top mem 2}%
 ${top name 3} ${alignr} ${top pid 3} ${top cpu 3}% ${top mem 3}%
-${top name 4} ${alignr} ${top pid 4} ${top cpu 4}% ${top mem 4}%
-${top name 5} ${alignr} ${top pid 5} ${top cpu 5}% ${top mem 5}%
-${top name 6} ${alignr} ${top pid 6} ${top cpu 6}% ${top mem 6}%
-${top name 7} ${alignr} ${top pid 7} ${top cpu 7}% ${top mem 7}%
+
+${font sans-serif:bold:size=10}MEMORY ${hr 2}
+${font sans-serif:normal:size=10}RAM ${alignc} $mem / $memmax ${alignr} $memperc%
+${membar}
+Swap ${alignc} ${swap} / ${swapmax} ${alignr} ${swapperc}%
+${swapbar}
+
+${color gray}NAME ${alignr} PID       MEM      CPU${color}
+${top_mem name 1} ${alignr} ${top_mem pid 1} ${top_mem mem 1}% ${top_mem cpu 1}%
+${top_mem name 2} ${alignr} ${top_mem pid 2} ${top_mem mem 2}% ${top_mem cpu 2}%
+${top_mem name 3} ${alignr} ${top_mem pid 3} ${top_mem mem 3}% ${top_mem cpu 3}%
+
+${font sans-serif:bold:size=10}DISKS ${hr 2}
+${diskiograph}
+${font sans-serif:normal:size=10}/ ${alignc} ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
+${fs_bar /}
 
 ${font sans-serif:bold:size=10}NETWORK ${hr 2}
-${font sans-serif:normal:size=10}IP address: $alignr ${addr wlp0s20f3}
-Up: ${upspeed wlp0s20f3} ${alignr} total: ${totalup wlp0s20f3}
-${upspeedgraph wlp0s20f3}
-Down: ${downspeed wlp0s20f3} ${alignr} total: ${totaldown wlp0s20f3}
-${downspeedgraph wlp0s20f3}
+${font sans-serif:normal:size=10}IP address: ${alignr} ${addr wlp131s0}
+Up: ${upspeed wlp131s0} ${alignr} total: ${totalup wlp131s0}
+Down: ${downspeed wlp131s0} ${alignr} total: ${totaldown wlp131s0}
 ]]

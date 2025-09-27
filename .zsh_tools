@@ -120,11 +120,19 @@ open () {
             *.pdf)   okular "$1" 2>/dev/null              ;;
             *.png)   gwenview "$1" 2>/dev/null            ;;
             *.zip)   unzip "$1"                           ;;
+            *.rar)   unrar "$1"                           ;;
+            *.jpg)   gwenview "$1" 2>/dev/null            ;;
             *)       echo "'$1' cannot process with open" ;;
         esac
     else
         echo "'$1' is not a valid file"
     fi
+}
+
+# Drop all data from swap.
+swapflush() {
+    sudo swapoff -a
+    sudo swapon -a
 }
 
 fi
