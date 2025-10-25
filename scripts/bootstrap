@@ -55,6 +55,7 @@ brew install libterm       # for the vterm package
 brew install pandoc        # for markdown preview in Emacs
 brew install pygments      # for better markdown syntax highlighting in Emacs
 brew install --cask mactex # for LaTex support in org-mode
+brew install inkscape
 
 # Spellchecking
 brew install hunspell # for multilanguage spellchecking
