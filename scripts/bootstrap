@@ -45,24 +45,23 @@ brew install homebrew/cask/font-jetbrains-mono
 
 # Emacs
 brew tap d12frosted/emacs-plus
-brew install emacs-plus@30 \
+brew install emacs-plus@31 \
      --with-imagemagick \
      --with-savchenkovaleriy-big-sur-icon \
-     --with-xwidgets \
-     --with-poll
+     --with-xwidgets
+brew install --cask mactex # for LaTex support in org-mode
 brew install coreutils
+brew install enchant       # spellchecker
 brew install libterm       # for the vterm package
+brew install tree-sitter   # for better LSP
 brew install pandoc        # for markdown preview in Emacs
 brew install pygments      # for better markdown syntax highlighting in Emacs
-brew install --cask mactex # for LaTex support in org-mode
-brew install inkscape
+
+# AI
+brew install --cask chatgpt
+brew install --cask claude-code
 
 # Spellchecking
-brew install hunspell # for multilanguage spellchecking
-wget -O ~/Library/Spelling/en_US.aff  https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_US.aff
-wget -O ~/Library/Spelling/en_US.dic https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_US.dic
-wget -O ~/Library/Spelling/ru_RU.aff  https://cgit.freedesktop.org/libreoffice/dictionaries/plain/ru_RU/ru_RU.aff
-wget -O ~/Library/Spelling/ru_RU.dic https://cgit.freedesktop.org/libreoffice/dictionaries/plain/ru_RU/ru_RU.dic
 brew install vale # to check writing style
 
 # C++
@@ -74,8 +73,8 @@ ln -s "$(brew --prefix llvm)/bin/clang-tidy" "$(brew --prefix)/bin/clang-tidy"
 ln -s "$(brew --prefix llvm)/bin/clang-apply-replacements" "$(brew --prefix)/bin/clang-apply-replacements"
 
 # Python
-brew install python@3.13
-ln -s "$(brew --prefix)/bin/python3.13" "$(brew --prefix)/bin/python"
+brew install python@3.14
+ln -s "$(brew --prefix)/bin/python3.14" "$(brew --prefix)/bin/python"
 brew install virtualenv
 brew install pipx                           # for isolated installation of Python tools e.g. poetry
 pipx install poetry
@@ -90,18 +89,17 @@ brew install gofumpt                               # for improved code formattin
 brew install golangci-lint
 go install github.com/daixiang0/gci@latest          # for improved imports formatting
 go install github.com/rogpeppe/godef@latest
-go install github.com/swaggo/swag/cmd/swag@latest   # to generate OpenAPI schema from comments in code
 go install golang.org/x/perf/cmd/benchstat@latest   # to carefully analyze bechmarks results between runs
 go install golang.org/x/tools/cmd/deadcode@latest   # to search dead code
 go install golang.org/x/tools/cmd/godoc@latest
-go install golang.org/x/vuln/cmd/govulncheck@latest
+brew install govulncheck
 go install golang.org/x/perf/cmd/benchstat@latest   # for better comparison of Golang benchmarks results
 brew install protobuf                               # for protoc gRPC compiler
 brew install graphviz                               # to view graphics from pprof
 
 # JavaScript
-brew install node@22
-brew link node@22
+brew install node@25
+brew link node@25
 
 # Markdown
 brew-gem install mdl      # to lint markdown files
@@ -113,7 +111,6 @@ brew install hadolint
 brew install shellcheck
 
 # Administration
-brew install btop
 brew install coreutils
 brew install inetutils
 
@@ -131,7 +128,6 @@ brew install pinentry-mac
 brew install pre-commit
 brew install pyyaml           # for pre-commit
 brew install rar
-brew install raycast
 brew install ripgrep          # for search with consult in Emacs
 brew install tmux
 brew install unzip
@@ -163,9 +159,10 @@ cp ~/work/src/github.com/alkurbatov/dotfiles/git/.gitconfig ~/
 cp ~/work/src/github.com/alkurbatov/dotfiles/git/.hadolint.yaml ~/
 
 # Install or update ZSH plugins.
+brew install zsh-autosuggestions
+install_or_update_zsh_plugin git@github.com:zsh-users/zsh-autosuggestions.git zsh-autosuggestions
 install_or_update_zsh_plugin git@github.com:MichaelAquilina/zsh-you-should-use.git zsh-you-should-use
 install_or_update_zsh_plugin git@github.com:zsh-users/zsh-syntax-highlighting.git zsh-syntax-highlighting
-install_or_update_zsh_plugin git@github.com:zsh-users/zsh-autosuggestions.git zsh-autosuggestions
 
 # Tweak Finder
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
