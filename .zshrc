@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# Purprose:
+# Purpose:
 # zsh configuration.
 
 # Don't beep on errors
@@ -92,7 +92,7 @@ autoload -U colors && colors
 # Allow to enter inside directory just using its name
 setopt autocd
 
-# Completition by Tab
+# Completion by Tab
 autoload -Uz compinit
 compinit
 
