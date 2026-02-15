@@ -41,14 +41,13 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/instal
 brew install brew-gem
 
 # Fonts
-brew install homebrew/cask/font-jetbrains-mono
+brew install font-jetbrains-mono
 
 # Emacs
 brew tap d12frosted/emacs-plus
 brew install emacs-plus@31 \
-     --with-imagemagick \
-     --with-savchenkovaleriy-big-sur-icon \
-     --with-xwidgets
+     --with-xwidgets \
+     --formula
 brew install --cask mactex # for LaTex support in org-mode
 brew install coreutils
 brew install enchant       # spellchecker
