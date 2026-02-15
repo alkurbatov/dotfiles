@@ -53,6 +53,7 @@ path+=(~/.local/bin)
 
 if [[ "${OSTYPE}" = darwin* ]]; then
     path+=("${HOMEBREW_PREFIX}/bin")
+    path+=("${HOMEBREW_PREFIX}/sbin")
     path+=("${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin")
     path+=("${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin")
     path+=("${HOMEBREW_PREFIX}/opt/openjdk/bin")
