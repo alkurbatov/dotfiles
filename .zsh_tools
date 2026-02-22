@@ -17,17 +17,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# Purprose:
+# Purpose:
 # Handy zsh commands and functions.
 
 
-# Create a new directory and enter it
+# Create a new directory and enter it.
 mkcd() {
     mkdir -pv "$1" && cd "$1"
 }
 
 
-# Colored man pages
+# Colored man pages.
 man()
 {
     env \
@@ -42,10 +42,10 @@ man()
 }
 
 
-# Extracts archived files / mounts disk images
+# Extracts archived files / mounts disk images.
 # Usage: extract <file>
 # Credit: http://nparikh.org/notes/zshrc.txt
-extract () {
+extract() {
     if [ -f $1 ]; then
         case $1 in
             *.tar.bz2)  tar -jxvf $1                        ;;
@@ -69,7 +69,7 @@ extract () {
 }
 
 
-# Generate new SSH key
+# Generate new SSH key.
 # Usage: sshcreate <key_name>
 sshcreate() {
     if [ ! -z "$1" ];
@@ -80,28 +80,19 @@ sshcreate() {
     fi
 }
 
-# Get full list of ports opened in firewalld for registered services
-fports() {
-    for i in `sudo firewall-cmd --list-services`;
-    do
-        echo "\n$i:"
-        sudo firewall-cmd --permanent --service "$i" --get-ports;
-    done
-}
-
-# Create git branch from origin branch with the same name
+# Create git branch from origin branch with the same name.
 gcob() {
     git checkout -b $1 origin/$1
 }
 
-# Cleans py[cod] and cache dirs in the current tree
+# Cleans py[cod] and cache directories in the current tree.
 pyclean () {
     find . \
         | grep -E "(__pycache__|\.(mypy_)?cache|\.hypothesis\.py[cod]$)" \
         | xargs rm -rf
 }
 
-# Clean intermediate Docker images, unused volumes, networks and cache
+# Clean intermediate Docker images, unused volumes, networks and cache.
 docker-clean() {
     docker image prune -f && \
         docker volume prune -f && \
@@ -111,7 +102,16 @@ docker-clean() {
 
 if [[ "$OSTYPE" = linux* ]]; then
 
-# macOS-like convenient open
+# Get full list of ports opened in firewalld for registered services.
+fports(){
+    for i in `sudo firewall-cmd --list-services`;
+    do
+        echo "\n$i:"
+        sudo firewall-cmd --permanent --service "$i" --get-ports;
+    done
+}
+
+# macOS-like convenient open.
 open () {
     if [ -f "$1" ]; then
         case "$1" in
@@ -133,6 +133,15 @@ open () {
 swapflush() {
     sudo swapoff -a
     sudo swapon -a
+}
+
+fi
+
+if [[ "$OSTYPE" = darwin* ]]; then
+
+# Update and upgrade Homebrew and it's casks.
+brew-upgrade() {
+    brew update && brew upgrade && brew upgrade --cask
 }
 
 fi
