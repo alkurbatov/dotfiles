@@ -72,12 +72,12 @@ ln -s "$(brew --prefix llvm)/bin/clang-tidy" "$(brew --prefix)/bin/clang-tidy"
 ln -s "$(brew --prefix llvm)/bin/clang-apply-replacements" "$(brew --prefix)/bin/clang-apply-replacements"
 
 # Python
-brew install python@3.14
-ln -s "$(brew --prefix)/bin/python3.14" "$(brew --prefix)/bin/python"
+brew install python@3.16
+ln -s "$(brew --prefix)/bin/python3.16" "$(brew --prefix)/bin/python"
 brew install virtualenv
 brew install pipx                           # for isolated installation of Python tools e.g. poetry
-pipx install poetry
 brew install pyright                        # for LSP in Emacs
+pipx install uv
 
 # Go
 brew install go
@@ -152,7 +152,6 @@ mkdir -p  ~/.ssh/controlmasters
 
 # Copy settings from my dotfiles.
 cp ~/work/src/github.com/alkurbatov/dotfiles/.zsh* ~/
-cp -r ~/work/src/github.com/alkurbatov/dotfiles/.config ~/
 cp ~/work/src/github.com/alkurbatov/dotfiles/.tmux.conf ~/
 cp ~/work/src/github.com/alkurbatov/dotfiles/git/.gitconfig ~/
 cp ~/work/src/github.com/alkurbatov/dotfiles/git/.hadolint.yaml ~/
