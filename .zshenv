@@ -79,3 +79,6 @@ export COLORTERM=truecolor
 
 # Always store dependencies in local environments
 export POETRY_VIRTUALENVS_IN_PROJECT=true
+
+# Completely disable wine debug.
+export WINEDEBUG=-all
