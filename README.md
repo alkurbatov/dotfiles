@@ -12,6 +12,6 @@ $ ./install.sh root@remote-server-address
 
 ## License
 
-Copyright (c) 2013-2023 Alexander Kurbatov
+Copyright (c) 2013-2026 Alexander Kurbatov
 
 Licensed under the [GPLv3 license](LICENSE).
