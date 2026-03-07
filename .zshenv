@@ -18,7 +18,7 @@
 # Purpose:
 # Set global environment variables for zsh.
 
-# Set up locale (requred by some tools)
+# Set up locale (required by some tools)
 export LANG=ru_RU.UTF-8
 export LC_CTYPE=ru_RU.UTF-8
 export LC_ALL=ru_RU.UTF-8
