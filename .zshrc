@@ -25,7 +25,7 @@ setopt No_Beep
 # It is recommended to keep SAVEHIST == HISTSIZE
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.zhistory
+HISTFILE="$HOME/.zhistory"
 
 # Each line is added to the history as it is executed
 setopt INC_APPEND_HISTORY
@@ -43,9 +43,9 @@ setopt HIST_IGNORE_SPACE
 typeset -U path
 
 # Load scripts
-. ~/.zsh_aliases
-. ~/.zsh_tools
-. ~/.zsh_vterm
+source ~/.zsh_aliases
+source ~/.zsh_tools
+source ~/.zsh_vterm
 
 path=()
 path+=(~/work/bin)
@@ -75,8 +75,8 @@ cdpath+=(~/work/src/gitverse.ru)
 cdpath+=(~/work/src/github.com)
 
 # Work-related settings
-if [[ -a "${HOME}/.zsh_work" ]]; then
-    . ~/.zsh_work
+if [[ -e "${HOME}/.zsh_work" ]]; then
+    source ~/.zsh_work
 fi
 
 # Tramp client (Emacs) sets TERM to dumb.
@@ -107,13 +107,11 @@ setopt correct
 # Make sure that the terminal is in application mode when zle is active, since
 # only then values from $terminfo are valid
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-    function zle-line-init()
-    {
+    zle-line-init() {
         echoti smkx
     }
 
-    function zle-line-finish()
-    {
+    zle-line-finish() {
         echoti rmkx
     }
 
@@ -152,24 +150,23 @@ fi
 setopt prompt_subst
 
 # Returns "*" if the current git branch is dirty.
-function parse_git_dirty {
-  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "*"
+parse_git_dirty() {
+    [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "*"
 }
 
 # Returns "|stashed:N" where N is the number of stashed states (if any)
-function parse_git_stash {
-  local stash=`expr $(git stash list 2>/dev/null| wc -l)`
+parse_git_stash() {
+    local stash=$(git stash list 2>/dev/null | wc -l)
 
-  if [ "${stash}" != "0" ]; then
-    echo "|stashed:${stash}"
-  fi
+    if [ "${stash}" != "0" ]; then
+        echo "|stashed:${stash}"
+    fi
 }
 
 # Print git info
 # Taken from:
 # http://0xfe.blogspot.ru/2010/04/adding-git-status-information-to-your.html
-git-prompt()
-{
+git-prompt() {
     local ref=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
     if [ "${ref}" = "HEAD" ]; then

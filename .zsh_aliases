@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# Purprose:
+# Purpose:
 # Aliases for zsh.
 # For a full list of active aliases, run `alias`.
 
@@ -35,7 +35,6 @@ fi
 alias df='df -h'
 alias du='du -h'
 alias mkdir='mkdir -pv'
-alias reload-bash='source ~/.bashrc'
 alias reload-zsh='source ~/.zshrc'
 alias rmr='rm -rf'
 alias show-path='echo $PATH | tr -s ":" "\n"'
@@ -84,10 +83,8 @@ alias wget='wget -c'
 
 # NPM aliases
 alias na='npm audit'
-alias ni='npm install --save'
 alias nid='npm install --save-dev'
 alias npm-reinstall='rm -rf node_modules && npm install'
-alias npm-update='sudo npm install -g npm'
 
 # Jest aliases
 alias ji='node_modules/.bin/jest -i'
@@ -100,7 +97,6 @@ alias gaa='git add .'
 alias gam='git am --3way --ignore-space-change --whitespace=fix'
 alias gb='git branch'
 alias gbd='git branch -D'
-alias gm='git blame -w -C -C -C'
 alias gc='git commit --signoff'
 alias gco='git checkout'
 alias gca='git commit --amend --date=now'
@@ -110,10 +106,8 @@ alias gcpx='git cherry-pick -x'
 alias gd='git diff --ext-diff'
 alias gdc='git diff --cached --ext-diff'
 alias gf='git fetch --all'
-alias gh='git show --ext-diff'
 alias gl='git pull'
 alias glg='git log --graph --abbrev=8 --pretty=format:"%C(blue)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s"'
-alias glm='git log --no-merges --author "Kurbatov Alexander" --oneline'
 alias gp='git push'
 alias gpf='git push --force-with-lease'
 alias gpo='git push -u origin'

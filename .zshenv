@@ -20,15 +20,14 @@
 
 # Set up locale (required by some tools)
 export LANG=ru_RU.UTF-8
-export LC_CTYPE=ru_RU.UTF-8
 export LC_ALL=ru_RU.UTF-8
 
 # Github parameters
 export GITHUB_USER=alkurbatov
 
 # Go stuff
-export GOPATH=$HOME/work
-export GOBIN=$GOPATH/bin
+export GOPATH="$HOME/work"
+export GOBIN="$GOPATH/bin"
 
 # Preferred editor for local and remote sessions
 export EDITOR="emacs -nw"
@@ -67,9 +66,6 @@ fi
 
 # Tell GPG which tty it should use
 export GPG_TTY=$(tty)
-
-# Suppress annoying 'use docker scan' suggestion
-export DOCKER_SCAN_SUGGEST=false
 
 # Show full log during docker build
 export BUILDKIT_PROGRESS=plain

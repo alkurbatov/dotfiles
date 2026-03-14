@@ -28,8 +28,7 @@ mkcd() {
 
 
 # Colored man pages.
-man()
-{
+man() {
     env \
     LESS_TERMCAP_mb=$(printf "\e[1;36m") \
     LESS_TERMCAP_md=$(printf "\e[1;36m") \
@@ -46,21 +45,21 @@ man()
 # Usage: extract <file>
 # Credit: http://nparikh.org/notes/zshrc.txt
 extract() {
-    if [ -f $1 ]; then
-        case $1 in
-            *.tar.bz2)  tar -jxvf $1                        ;;
-            *.tar.gz)   tar -zxvf $1                        ;;
-            *.bz2)      bunzip2 $1                          ;;
-            *.dmg)      hdiutil mount $1                    ;;
-            *.gz)       gunzip $1                           ;;
-            *.tar)      tar -xvf $1                         ;;
-            *.tbz2)     tar -jxvf $1                        ;;
-            *.tgz)      tar -zxvf $1                        ;;
-            *.zip)      unzip $1                            ;;
-            *.ZIP)      unzip $1                            ;;
-            *.pax)      cat $1 | pax -r                     ;;
-            *.pax.Z)    uncompress $1 --stdout | pax -r     ;;
-            *.Z)        uncompress $1                       ;;
+    if [ -f "$1" ]; then
+        case "$1" in
+            *.tar.bz2)  tar -jxvf "$1"                          ;;
+            *.tar.gz)   tar -zxvf "$1"                          ;;
+            *.bz2)      bunzip2 "$1"                            ;;
+            *.dmg)      hdiutil mount "$1"                      ;;
+            *.gz)       gunzip "$1"                             ;;
+            *.tar)      tar -xvf "$1"                           ;;
+            *.tbz2)     tar -jxvf "$1"                          ;;
+            *.tgz)      tar -zxvf "$1"                          ;;
+            *.zip)      unzip "$1"                              ;;
+            *.ZIP)      unzip "$1"                              ;;
+            *.pax)      pax -r < "$1"                           ;;
+            *.pax.Z)    uncompress "$1" --stdout | pax -r       ;;
+            *.Z)        uncompress "$1"                         ;;
             *)          echo "'$1' cannot be extracted/mounted via extract()" ;;
         esac
     else
@@ -70,25 +69,26 @@ extract() {
 
 
 # Generate new SSH key.
-# Usage: sshcreate <key_name>
+# Usage: sshcreate <key_name> <comment>
 sshcreate() {
-    if [ ! -z "$1" ];
-    then
-        ssh-keygen -f $HOME/.ssh/$1 -t ed25519 -N '' -C "$1"
+    if [[ -n "$1" && -n "$2" ]]; then
+        ssh-keygen -f $HOME/.ssh/$1 -t ed25519 -N '' -C "$2"
         chmod 600 $HOME/.ssh/$1
-        chmod 600 $HOME/.ssh/$1.pub
+        chmod 644 $HOME/.ssh/$1.pub
+    else
+        echo "Please specify key's name and commentary."
     fi
 }
 
 # Create git branch from origin branch with the same name.
 gcob() {
-    git checkout -b $1 origin/$1
+    git checkout -b "$1" "origin/$1"
 }
 
 # Cleans py[cod] and cache directories in the current tree.
-pyclean () {
+pyclean() {
     find . \
-        | grep -E "(__pycache__|\.(mypy_)?cache|\.hypothesis\.py[cod]$)" \
+        | grep -E "(__pycache__|\.(mypy_)?cache|\.hypothesis|\.py[cod]$)" \
         | xargs rm -rf
 }
 
@@ -103,16 +103,15 @@ docker-clean() {
 if [[ "$OSTYPE" = linux* ]]; then
 
 # Get full list of ports opened in firewalld for registered services.
-fports(){
-    for i in `sudo firewall-cmd --list-services`;
-    do
+fports() {
+    for i in $(sudo firewall-cmd --list-services); do
         echo "\n$i:"
         sudo firewall-cmd --permanent --service "$i" --get-ports;
     done
 }
 
 # macOS-like convenient open.
-open () {
+open() {
     if [ -f "$1" ]; then
         case "$1" in
             *.gz)    gunzip "$1" 2>/dev/null              ;;
@@ -120,7 +119,7 @@ open () {
             *.pdf)   okular "$1" 2>/dev/null              ;;
             *.png)   gwenview "$1" 2>/dev/null            ;;
             *.zip)   unzip "$1"                           ;;
-            *.rar)   unrar "$1"                           ;;
+            *.rar)   unrar x "$1"                         ;;
             *.jpg)   gwenview "$1" 2>/dev/null            ;;
             *)       echo "'$1' cannot process with open" ;;
         esac
