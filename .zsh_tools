@@ -51,7 +51,7 @@ extract() {
             *.ZIP)      unzip "$1"                              ;;
             *.bz2)      bunzip2 "$1"                            ;;
             *.dmg)      hdiutil mount "$1"                      ;;
-            *.gz)       gunzip "$1"                             ;;
+            *.gz)       gunzip -k "$1"                          ;;
             *.pax)      pax -r < "$1"                           ;;
             *.pax.Z)    uncompress "$1" --stdout | pax -r       ;;
             *.rar)      unrar x "$1"                            ;;
@@ -115,13 +115,14 @@ fports() {
 open() {
     if [ -f "$1" ]; then
         case "$1" in
-            *.gz)    gunzip "$1" 2>/dev/null              ;;
+            *.gz)    gunzip -k "$1" 2>/dev/null           ;;
             *.html)  firefox "$1" 2>/dev/null             ;;
+            *.jpg)   gwenview "$1" 2>/dev/null            ;;
+            *.mp4)   mpv "$1" 2>/dev/null                 ;;
             *.pdf)   okular "$1" 2>/dev/null              ;;
             *.png)   gwenview "$1" 2>/dev/null            ;;
-            *.zip)   unzip "$1"                           ;;
             *.rar)   unrar x "$1"                         ;;
-            *.jpg)   gwenview "$1" 2>/dev/null            ;;
+            *.zip)   unzip "$1"                           ;;
             *)       echo "'$1' cannot process with open" ;;
         esac
     else
