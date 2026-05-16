@@ -40,6 +40,9 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/instal
 # Install brew-gem to support Ruby gems installation as Homebrew formulas.
 brew install brew-gem
 
+# Better terminal emulator.
+brew install iterm2
+
 # Fonts
 brew install font-jetbrains-mono
 
@@ -57,11 +60,7 @@ brew install pandoc        # for markdown preview in Emacs
 brew install pygments      # for better markdown syntax highlighting in Emacs
 
 # AI
-brew install --cask chatgpt
 brew install --cask claude-code
-
-# Spellchecking
-brew install vale # to check writing style
 
 # C++
 brew install cmake
