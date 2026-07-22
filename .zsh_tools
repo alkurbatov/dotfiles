@@ -141,7 +141,7 @@ fi
 if [[ "$OSTYPE" = darwin* ]]; then
 
 # Update and upgrade Homebrew and it's casks.
-brew-upgrade() {
+update-brew() {
     brew update && brew upgrade && brew upgrade --cask
 }
 
