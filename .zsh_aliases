@@ -43,7 +43,6 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias github='open https://github.com/alkurbatov'
     alias grep='grep --color=always'
     alias mc='LC_ALL=en_US.UTF8 mc'
-    alias myip="ipconfig getifaddr en0"
 else
     alias apt='sudo apt'
     alias apt-cache='sudo apt-cache'
