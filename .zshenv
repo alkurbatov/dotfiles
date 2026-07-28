@@ -69,6 +69,7 @@ export GPG_TTY=$(tty)
 
 # Show full log during docker build
 export BUILDKIT_PROGRESS=plain
+export BUILDKIT_STEP_LOG_MAX_SIZE=-1
 
 # Enable true color support in terminal for proper colors in Emacs
 export COLORTERM=truecolor
