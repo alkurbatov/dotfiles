@@ -46,19 +46,6 @@ brew install iterm2
 # Fonts
 brew install font-jetbrains-mono
 
-# Emacs
-brew tap d12frosted/emacs-plus
-brew install emacs-plus@31 \
-     --with-xwidgets \
-     --formula
-brew install --cask mactex # for LaTex support in org-mode
-brew install coreutils
-brew install enchant       # spellchecker
-brew install libterm       # for the vterm package
-brew install tree-sitter   # for better LSP
-brew install pandoc        # for markdown preview in Emacs
-brew install pygments      # for better markdown syntax highlighting in Emacs
-
 # AI
 brew install --cask claude-code
 
@@ -134,6 +121,9 @@ brew install tmux
 brew install unzip
 brew install wget
 
+# Office
+brew install libreoffice
+
 # Graphics
 brew install --cask drawio
 
@@ -145,7 +135,7 @@ echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" > ~/.gnupg/gpg-agent.c
 gpgconf --kill gpg-agent
 
 # Setup the default layout.
-mkdir -p ~/work/{bin,etc,pkg,rfc,tmp}
+mkdir -p ~/work/{bin,etc,pkg,tmp}
 mkdir -p ~/work/src/github.com/alkurbatov
 mkdir -p ~/work/src/gitverse.ru/alkurbatov
 
