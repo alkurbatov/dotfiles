@@ -30,7 +30,7 @@ for month in range(12):
         _, ndfl = limits[i]
         income += calc_netto(gross + per_month - limit, ndfl)
 
-    print(f"Месяц {month+1}: {income}")
+    print(f"Месяц {month+1}: {income} (-{ndfl}%)")
 
     gross += per_month
     net += income
