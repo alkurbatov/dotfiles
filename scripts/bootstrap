@@ -93,6 +93,9 @@ brew link node@25
 brew-gem install mdl      # to lint markdown files
 
 # Docker
+brew install colima
+brew install docker-compose
+brew install docker-buildx
 brew install hadolint
 
 # Scripting
