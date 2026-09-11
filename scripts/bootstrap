@@ -41,7 +41,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/instal
 brew install brew-gem
 
 # Better terminal emulator.
-brew install iterm2
+brew install ghostty
 
 # Fonts
 brew install font-jetbrains-mono
@@ -126,9 +126,6 @@ brew install wget
 
 # Office
 brew install libreoffice
-
-# Graphics
-brew install --cask drawio
 
 # Tell pinentry to ask gpg keys password using terminal, not gui
 mkdir ~/.gnupg
